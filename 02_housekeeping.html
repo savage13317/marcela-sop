@@ -21,10 +21,10 @@
     <nav class="container mx-auto px-4 py-3">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4">
         <a href="/" class="text-xl font-bold hover:text-indigo-200 transition-colors"><i class="fa-solid fa-hotel mr-2"></i>Marcela's Resort Hotel</a>
-        <div class="flex gap-2 flex-wrap justify-center">
+        <div class="flex gap-2 flex-wrap justify-center" id="moduleNav">
           <a href="/" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Home</a>
           <a href="01_front_office.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold hover:bg-indigo-600 transition"><i class="fa-solid fa-user-tie mr-1"></i>Front Office (FO)</a>
-          <a href="02_housekeeping.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold hover:bg-indigo-600 transition"><i class="fa-solid fa-broom mr-1"></i>Housekeeping (HK)</a>
+          <a href="02_housekeeping.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold text-yellow-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-broom mr-1"></i>Housekeeping (HK)</a>
           <a href="03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold text-yellow-300 hover:bg-indigo-600 transition">Food & Beverage (FB)</a>
           <a href="04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold text-pink-300 hover:bg-indigo-600 transition">Function Hall (FH)</a>
           <a href="05_facilities_pool.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold text-teal-300 hover:bg-indigo-600 transition">Facilities & Pool (FM)</a>
@@ -38,10 +38,30 @@
         </div>
       </div>
     </nav>
-  </header>
+
+    <!-- Page Highlight Script -->
+    <script>
+      (function() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const navLinks = document.querySelectorAll('#moduleNav a');
+        
+        navLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          
+          // Remove all highlight classes first
+          link.classList.remove('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
+          link.classList.add('bg-indigo-800', 'hover:bg-indigo-600');
+          
+          // Highlight current page if it's a module page (not home or staffing)
+          if (currentPage && !currentPage.includes('#') && currentPage !== 'index.html' && currentPage !== '') {
+            link.classList.add('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
+            link.classList.remove('bg-indigo-800', 'hover:bg-indigo-600');
+          }
+        });
+      })();
+    </script>
 
   <main class="flex-grow container mx-auto px-4 py-6">
-    
     <!-- Module Header -->
     <div class="bg-gradient-to-r from-emerald-50 to-teal-50 rounded-lg shadow-sm p-6 mb-6 border-l-4 border-emerald-600">
       <h1 class="text-3xl font-bold text-emerald-900 mb-2"><i class="fa-solid fa-broom mr-3"></i>Module 02: Housekeeping & Laundry</h1>

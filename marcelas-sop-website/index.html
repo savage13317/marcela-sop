@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcela's Resort Hotel - SOPs & Staffing</title>
+    <meta name="description" content="Official SOPs and Staffing Documentation for Marcela's Resort Hotel in Gamay, Northern Samar, Philippines">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="/src/css/main.css">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/src/pwa/manifest.json">
+    
+    <!-- Service Worker -->
+    <script src="/src/pwa/sw.js"></script>
+    
+    <style>
+        /* Custom styles for landing page */
+        .module-card {
+            transition: all 0.3s ease;
+        }
+        .module-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo/Title -->
+                <div class="flex items-center">
+                    <i class="fa-solid fa-hotel text-cyan-600 text-2xl mr-3"></i>
+                    <div>
+                        <h1 class="text-xl font-bold text-gray-900">Marcela's Resort</h1>
+                        <p class="text-sm text-gray-500">SOPs & Staffing Documentation</p>
+                    </div>
+                </div>
+                
+                <!-- Navigation Links -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#modules" class="text-gray-700 hover:text-cyan-600 transition-colors">Modules</a>
+                    <a href="#emergency" class="text-red-600 font-semibold hover:text-red-700 transition-colors">
+                        <i class="fa-solid fa-triangle-exclamation mr-1"></i>Emergency
+                    </a>
+                    <a href="#staffing" class="text-gray-700 hover:text-cyan-600 transition-colors">Staffing</a>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="relative hidden sm:block">
+                    <input type="text" id="search-input" placeholder="Search SOPs..." 
+                           class="w-64 px-4 py-2 pl-10 text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500">
+                    <i class="fa-solid fa-search absolute left-3 top-2.5 text-gray-400"></i>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-gray-700" onclick="toggleMobileMenu()">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <a href="#modules" class="block px-4 py-3 text-gray-700 hover:bg-gray-50">Modules</a>
+            <a href="#emergency" class="block px-4 py-3 text-red-600 font-semibold hover:bg-gray-50">Emergency Procedures</a>
+            <a href="#staffing" class="block px-4 py-3 text-gray-700 hover:bg-gray-50">Staffing</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-cyan-600 to-blue-700 text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Welcome to Marcela's Resort Hotel</h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90">Comprehensive SOPs & Staffing Documentation</p>
+            <p class="text-lg mb-8 max-w-3xl mx-auto opacity-80">
+                Access standard operating procedures, emergency protocols, and staffing information for all departments. 
+                Available offline with PWA features.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#modules" class="inline-flex items-center px-6 py-3 bg-white text-cyan-700 font-semibold rounded-lg hover:bg-gray-100 transition-colors">
+                    <i class="fa-solid fa-folder-open mr-2"></i>Browse SOPs
+                </a>
+                <a href="#emergency" class="inline-flex items-center px-6 py-3 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition-colors">
+                    <i class="fa-solid fa-triangle-exclamation mr-2"></i>Emergency Access
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOP Modules Section -->
+    <section id="modules" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">SOP Modules</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Browse our comprehensive collection of Standard Operating Procedures across all departments.
+                </p>
+            </div>
+            
+            <!-- Module Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Module 06 Safety (Critical) -->
+                <article class="module-card bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden cursor-pointer" onclick="window.location.href='/src/sops/06_safety_typhoon_final.html'">
+                    <div class="p-6 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-4">
+                            <i class="fa-solid fa-shield-halved text-red-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Module 06: Safety & Emergency</h3>
+                        <p class="text-gray-600 text-sm mb-4">Typhoon preparedness, emergency procedures (24 SOPs)</p>
+                        <span class="inline-block px-4 py-2 bg-red-100 text-red-700 rounded-full text-xs font-semibold">
+                            🚨 CRITICAL - Emergency Access
+                        </span>
+                    </div>
+                </article>
+                
+                <!-- Module 01 Front Office -->
+                <article class="module-card bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden cursor-pointer" onclick="window.location.href='/src/sops/01_front_office.html'">
+                    <div class="p-6 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-cyan-100 rounded-full mb-4">
+                            <i class="fa-solid fa-user-tie text-cyan-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Module 01: Front Office</h3>
+                        <p class="text-gray-600 text-sm mb-4">Guest services, check-in/check-out procedures</p>
+                    </div>
+                </article>
+                
+                <!-- Module 02 Housekeeping -->
+                <article class="module-card bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden cursor-pointer" onclick="window.location.href='/src/sops/02_housekeeping.html'">
+                    <div class="p-6 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
+                            <i class="fa-solid fa-broom text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Module 02: Housekeeping</h3>
+                        <p class="text-gray-600 text-sm mb-4">Room cleaning, laundry operations</p>
+                    </div>
+                </article>
+                
+                <!-- Module 03 Food & Beverage -->
+                <article class="module-card bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden cursor-pointer" onclick="window.location.href='/src/sops/03_food_beverage.html'">
+                    <div class="p-6 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-orange-100 rounded-full mb-4">
+                            <i class="fa-solid fa-utensils text-orange-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Module 03: Food & Beverage</h3>
+                        <p class="text-gray-600 text-sm mb-4">Restaurant operations, food safety</p>
+                    </div>
+                </article>
+                
+                <!-- Module 04 Function Hall -->
+                <article class="module-card bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden cursor-pointer" onclick="window.location.href='/src/sops/04_function_hall.html'">
+                    <div class="p-6 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-purple-100 rounded-full mb-4">
+                            <i class="fa-solid fa-glass-water text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Module 04: Function Hall</h3>
+                        <p class="text-gray-600 text-sm mb-4">Event planning, venue management</p>
+                    </div>
+                </article>
+                
+                <!-- Module 05 Facilities & Pool -->
+                <article class="module-card bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden cursor-pointer" onclick="window.location.href='/src/sops/05_facilities_pool.html'">
+                    <div class="p-6 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-teal-100 rounded-full mb-4">
+                            <i class="fa-solid fa-water text-teal-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Module 05: Facilities & Pool</h3>
+                        <p class="text-gray-600 text-sm mb-4">Maintenance, pool operations</p>
+                    </div>
+                </article>
+                
+                <!-- Module 07 HR & Admin -->
+                <article class="module-card bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden cursor-pointer" onclick="window.location.href='/src/sops/07_hr_admin.html'">
+                    <div class="p-6 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
+                            <i class="fa-solid fa-file-signature text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Module 07: HR & Administration</h3>
+                        <p class="text-gray-600 text-sm mb-4">Human resources, admin procedures</p>
+                    </div>
+                </article>
+                
+                <!-- Module 08 Digital Systems -->
+                <article class="module-card bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden cursor-pointer" onclick="window.location.href='/src/sops/08_digital_maintenance.html'">
+                    <div class="p-6 text-center">
+                        <div class="inline-flex items-center justify-center w-16 h-16 bg-indigo-100 rounded-full mb-4">
+                            <i class="fa-solid fa-laptop-code text-indigo-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Module 08: Digital Systems</h3>
+                        <p class="text-gray-600 text-sm mb-4">IT systems, records management</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Access Section -->
+    <section id="emergency" class="py-16 bg-red-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">🚨 Emergency Access</h2>
+                <p class="text-gray-700 max-w-2xl mx-auto">
+                    Critical emergency procedures for typhoon season and other emergencies. 
+                    Keep this section accessible at all times.
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-lg shadow-sm border border-red-200 overflow-hidden">
+                <div class="p-8 bg-red-100">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-red-900 mb-2">Typhoon Emergency Procedures</h3>
+                            <p class="text-red-700">Access 24 emergency SOPs (SS-01 through SS-24)</p>
+                        </div>
+                        <a href="/src/sops/06_safety_typhoon_final.html" class="inline-flex items-center px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors">
+                            <i class="fa-solid fa-file-pdf mr-2"></i>View Emergency SOPs
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Staffing Section -->
+    <section id="staffing" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Staffing & Organization</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Organizational chart and staffing matrix for all positions.
+                </p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                    <div class="p-6 border-b">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Staffing Matrix</h3>
+                        <p class="text-gray-600">View organizational structure and position descriptions</p>
+                    </div>
+                    <div class="p-8 text-center">
+                        <a href="/staff/staffing_matrix.html" class="inline-flex items-center px-6 py-3 bg-cyan-600 text-white font-semibold rounded-lg hover:bg-cyan-700 transition-colors">
+                            <i class="fa-solid fa-users mr-2"></i>View Staffing Matrix
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- About -->
+                <div>
+                    <h3 class="text-white font-bold mb-4">About Marcela's Resort</h3>
+                    <p class="text-sm leading-relaxed">
+                        A 30-room resort hotel in Gamay, Northern Samar, Philippines, featuring a restaurant, function hall, and swimming pool.
+                    </p>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="text-white font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#modules" class="hover:text-white transition-colors">Browse SOPs</a></li>
+                        <li><a href="#emergency" class="hover:text-white transition-colors">Emergency Procedures</a></li>
+                        <li><a href="#staffing" class="hover:text-white transition-colors">Staffing Matrix</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h3 class="text-white font-bold mb-4">Contact</h3>
+                    <p class="text-sm leading-relaxed">
+                        For questions or feedback, please contact your department supervisor.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
+                <p>&copy; 2026 Marcela's Resort Hotel. All rights reserved.</p>
+                <p class="mt-2">Powered by GitHub Pages • PWA Enabled • Offline Access Available</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="/src/js/app.js"></script>
+    <script src="/src/js/search.js"></script>
+    
+    <script>
+        // Toggle mobile menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+        
+        // Search functionality placeholder
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Marcela's Resort SOPs - Loaded successfully');
+            
+            // Initialize search if available
+            if (typeof initSearch === 'function') {
+                initSearch();
+            }
+        });
+    </script>
+</body>
+</html>

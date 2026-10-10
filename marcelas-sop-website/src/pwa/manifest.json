@@ -1,0 +1,22 @@
+{
+  "name": "marcelas-resort-sop",
+  "short_name": "Marcela's SOPs",
+  "description": "Marcela's Resort Hotel Standard Operating Procedures & Staffing documentation",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#4F46E5",
+  "background_color": "#FFFFFF",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/logo.svg",
+      "type": "image/svg+xml",
+      "sizes": "512x512"
+    }
+  ]
+}

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 08: Digital Systems, Records & Maintenance - Marcela's Resort Hotel</title>
+  <link rel="manifest" href="/pwa/manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/pwa/sw.js');
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-indigo-700 text-white shadow-md sticky top-0 z-40">
+    <nav class="container mx-auto px-4 py-3">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <a href="/" class="text-xl font-bold hover:text-indigo-200 transition-colors">
+          <i class="fa-solid fa-hotel mr-2"></i>Marcela's Resort Hotel
+        </a>
+        <div class="flex gap-2 flex-wrap justify-center">
+          <a href="/" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Home</a>
+          <a href="/sops/01_front_office.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold hover:bg-indigo-600 transition">Front Office (FO)</a>
+          <a href="/sops/03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold text-yellow-300 hover:bg-indigo-600 transition">Food & Beverage (FB)</a>
+          <a href="/sops/04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold text-pink-300 hover:bg-indigo-600 transition">Function Hall (FH)</a>
+          <a href="/sops/05_facilities_pool.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold text-teal-300 hover:bg-indigo-600 transition">Facilities & Pool (FM)</a>
+          <a href="/sops/07_hr_admin.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold text-purple-300 hover:bg-indigo-600 transition">HR & Admin (HR)</a>
+          <a href="/sops/08_digital_maintenance.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold text-cyan-300 hover:bg-indigo-600 transition">Digital Systems (DS)</a>
+          <a href="#staffing" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Staffing</a>
+        </div>
+        <div class="flex items-center gap-2 w-full md:w-auto">
+          <input type="search" id="searchInput" placeholder="Search SOPs..." class="w-full md:w-64 px-3 py-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" aria-label="Search SOPs">
+          <button onclick="window.dispatchEvent(new Event('search'))" class="px-3 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-grow container mx-auto px-4 py-6">
+    
+    <!-- Module Header -->
+    <div class="bg-gradient-to-r from-cyan-50 to-blue-50 rounded-lg shadow-sm p-6 mb-6 border-l-4 border-cyan-600">
+      <h1 class="text-3xl font-bold text-cyan-900 mb-2"><i class="fa-solid fa-laptop-code mr-3"></i>Module 08: Digital Systems, Records & Maintenance</h1>
+      <p class="text-gray-700">SOPs for digital systems management, IT operations, cybersecurity, guest records, CCTV, Wi-Fi monitoring, and record maintenance</p>
+    </div>
+
+    <!-- SOP Cards -->
+    <div class="space-y-4" id="sop-container">
+      
+<!-- SOP-DS-01 -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-cyan-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-cyan-700 font-bold text-sm mr-2">DS-01</code>
+      <span class="text-gray-800 font-medium text-lg">Hotel Digital Systems Overview</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-cyan-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-cyan-600 hover:bg-cyan-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-cyan-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-cyan-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To provide a comprehensive operational framework for all hardware, software, network infrastructure, and digital tools utilized across Marcela's Hotel & Resort. Applies to all resort departments and personnel utilizing digital touchpoints.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>General Manager (GM)</strong></li>
+        <li><strong>IT Officer / System Administrator</strong></li>
+        <li><strong>Department Heads</strong>, Front Desk Staff, Cashiers.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>System Architecture Identification:</strong> Maintain a master directory of core systems: Property Management System (PMS): Front Desk, Reservations, Room Inventory; Point of Sale (POS): Restaurant, Bar, Room Service, Function Hall Billing; Network Infrastructure: Dual-WAN Router (Starlink Primary + Local 4G LTE Backup), Unifi Access Points, UPS units; CCTV System: 16-channel / 32-channel NVR with localized storage; Payment Gateways: Maya Terminal, GCash Merchant QR Ph, Bank Transfer Portals.</li>
+        <li><strong>Daily Startup Audit:</strong> Verify online status of core server/router at 06:00 AM daily. Ensure Uninterruptible Power Supply (UPS) battery levels read 100%. Perform quick connectivity check across Front Desk and POS terminals.</li>
+        <li><strong>Operational Readiness Check:</strong> Confirm synchronization between PMS and channel manager/OTAs (Agoda, Booking.com). Verify POS system printer connectivity in Kitchen and Restaurant cashier stations.</li>
+        <li><strong>System Outage Escalation:</strong> Immediately log connectivity drops in the Digital Systems Logbook. Switch manually to offline failover protocols if downtime exceeds 5 minutes (refer to SOP-DS-02/03).</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Gamay, Northern Samar experiences sudden power interruptions and heavy rain cell-site degradations. All core network equipment must remain plugged directly into dedicated online UPS systems backed up by the resort generator.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">System status log</td><td class="py-1">100% daily log completion of system status at shift openings</td><td class="py-1">IT Administrator</td></tr>
+          <tr class="border-b"><td class="py-1">System uptime target</td><td class="py-1 font-semibold text-green-700">99.5% operational availability</td><td class="py-1">IT Officer</td></tr>
+          <tr><td class="py-1">Hardware tracking</td><td class="py-1">Zero untracked hardware or network outages</td><td class="py-1">Chief Engineer / IT Admin</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+
+<!-- SOP-DS-02 -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-cyan-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-cyan-700 font-bold text-sm mr-2">DS-02</code>
+      <span class="text-gray-800 font-medium text-lg">PMS / Reservation System Operation</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-cyan-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-cyan-600 hover:bg-cyan-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-cyan-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-cyan-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To standardize daily operation, guest booking management, check-in/check-out processing, and offline synchronization within the Property Management System (PMS).</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>Front Office Manager (FOM)</strong></li>
+        <li><strong>Front Desk Agents (FDA)</strong>, Reservations Staff.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>Shift Login & Initialization:</strong> Log in using individual assigned credentials (never share accounts). Review the daily dashboard: arrivals, departures, stay-overs, out-of-order rooms, and pending payments.</li>
+        <li><strong>Processing Reservations & Check-Ins:</strong> Cross-reference guest booking details (OTA voucher, walk-in registration, or direct booking). Assign room based on clean/inspected room status received from Housekeeping. Collect cash, GCash, or card deposit and record transaction immediately under guest folio.</li>
+        <li><strong>Handling System Downtime (Offline Protocol):</strong> Print physical Daily Arrival & Departure Manifests at the start of every shift (06:00, 14:00, 22:00). If PMS goes offline during power/internet outage, record check-ins/check-outs manually on the Manual Guest Ledger. Re-enter manual ledger records into the PMS within 1 hour after connectivity restoration.</li>
+        <li><strong>End-of-Day Reconciliation:</strong> Perform night audit balance run; ensure all posted charges align with cash drawer, GCash logs, and card slips.</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Northern Samar weather can affect cloud-PMS connections. Printing shift manifests on paper ensures check-in delays do not occur during sudden fiber or satellite connection drops.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">Shift manifest printing</td><td class="py-1">Shift manifest printed at start of every shift</td><td class="py-1">Front Desk Agent</td></tr>
+          <tr class="border-b"><td class="py-1">Payment reconciliation</td><td class="py-1">Zero discrepancy between physical payment receipts and PMS folio postings</td><td class="py-1">Night Auditor / FOM</td></tr>
+          <tr><td class="py-1">Sync completion time</td><td class="py-1 font-semibold text-green-700">100% catch-up sync completed within 60 minutes of internet recovery</td><td class="py-1">IT Administrator / FOM</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+
+<!-- SOP-DS-03 -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-cyan-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-cyan-700 font-bold text-sm mr-2">DS-03</code>
+      <span class="text-gray-800 font-medium text-lg">POS System Operation</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-cyan-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-cyan-600 hover:bg-cyan-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-cyan-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-cyan-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To regulate order entry, table management, charge posting to guest folios, and daily sales closing across F&B, Pool, and Function Hall outlets.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>Restaurant Manager</strong></li>
+        <li><strong>F&B Cashiers</strong>, Waitstaff, Bartenders.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>POS Opening Routine:</strong> Power on POS terminals and receipt printers at 06:00 AM. Log in using individual cashier PIN code. Verify opening float cash balance against physical cash drawer.</li>
+        <li><strong>Order Entry & Processing:</strong> Select table number/outlet zone; enter items accurately based on guest request and special dietary notes. Send order digitally to Kitchen Display / Kitchen Slip Printer. For room charges: Search guest name/room number in POS; verify room active status on PMS before posting. Require guest signature on printed bill slip.</li>
+        <li><strong>Offline POS Mode (Power Failure / Network Loss):</strong> Switch POS terminal to local offline mode or use carbon-copy Order Tickets (OTs) and Official Receipts (ORs). Calculate taxes (VAT 12%) and service charge manually using local rate charts. Post offline receipts to the digital POS system immediately upon network recovery.</li>
+        <li><strong>POS Closing Routine:</strong> Generate End-of-Day (Z-Reading) report. Reconcile total cash, GCash transfers, card slips, and room charges against system report.</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Ensure thermal paper rolls are stored in airtight plastic containers to prevent moisture damage from high provincial humidity in Gamay.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">Room charge slips</td><td class="py-1">Signed room-charge slips attached to daily cashier report</td><td class="py-1">F&B Cashier</td></tr>
+          <tr class="border-b"><td class="py-1">Billing accuracy</td><td class="py-1">Zero billing discrepancies between F&B receipts and PMS guest folios</td><td class="py-1">Night Auditor / Restaurant Manager</td></tr>
+          <tr><td class="py-1">Offline ticket re-entry</td><td class="py-1 font-semibold text-green-700">Maximum 3-minute resolution time for offline ticket re-entry post-restoration</td><td class="py-1">Restaurant Manager</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+<!-- Continue with remaining SOPs template structure -->
+
+    </div>
+
+  </main>

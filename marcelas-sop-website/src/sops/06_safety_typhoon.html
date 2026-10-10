@@ -1,0 +1,560 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 06: Safety, Security & Typhoon Preparedness - Marcela's Resort Hotel</title>
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/pwa/manifest.json">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/pwa/sw.js');
+    };
+  </script>
+
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <!-- EMERGENCY ACCESS HEADER - Always Visible -->
+  <div class="bg-red-600 text-white px-4 py-2 text-center sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-triangle-exclamation text-2xl animate-pulse"></i>
+        <h1 class="text-xl font-bold">EMERGENCY PROCEDURES - MODULE 06</h1>
+      </div>
+      <a href="/" class="bg-red-700 hover:bg-red-800 px-4 py-2 rounded text-sm font-medium transition">
+        Return to Home
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-4 py-6">
+    
+    <!-- Critical Notice Banner -->
+    <div class="bg-red-50 border-l-4 border-red-600 p-4 mb-6 rounded shadow-sm">
+      <h2 class="text-lg font-bold text-red-800 flex items-center mb-2">
+        <i class="fa-solid fa-shield-halved mr-3"></i>
+        Critical Safety Procedures
+      </h2>
+      <p class="text-red-700">
+        This page contains essential emergency and typhoon preparedness procedures. 
+        This content is cached locally for offline access during internet outages.
+      </p>
+    </div>
+
+    <!-- SOP List Navigation -->
+    <nav class="bg-white rounded-lg shadow-sm mb-6 p-4">
+      <h3 class="text-sm font-semibold text-gray-600 uppercase tracking-wide mb-3">SOP Index</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3" id="sop-navigation">        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-01</code>
+          <span class="text-gray-700 text-xs">Emergency Response System</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-02</code>
+          <span class="text-gray-700 text-xs">Fire Prevention & Fire Safety</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-03</code>
+          <span class="text-gray-700 text-xs">Fire Alarm Response</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-04</code>
+          <span class="text-gray-700 text-xs">Fire Evacuation Procedure</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-05</code>
+          <span class="text-gray-700 text-xs">Emergency Exit & Assembly Area</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-06</code>
+          <span class="text-gray-700 text-xs">First Aid & Medical Emergency</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-07</code>
+          <span class="text-gray-700 text-xs">Guest Accident Reporting</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-08</code>
+          <span class="text-gray-700 text-xs">Drowning / Pool Emergency</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-09</code>
+          <span class="text-gray-700 text-xs">Missing Guest/Person</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-10</code>
+          <span class="text-gray-700 text-xs">Suspicious Person Handling</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-11</code>
+          <span class="text-gray-700 text-xs">Theft / Property Loss Investigation</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-12</code>
+          <span class="text-gray-700 text-xs">CCTV Monitoring & Security</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-13</code>
+          <span class="text-gray-700 text-xs">Emergency Contact Directory</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-14</code>
+          <span class="text-gray-700 text-xs">Disaster Incident Command</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-15</code>
+          <span class="text-gray-700 text-xs">Typhoon Monitoring & Alert Levels</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-16</code>
+          <span class="text-gray-700 text-xs">Pre-Typhoon Property Preparation</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-17</code>
+          <span class="text-gray-700 text-xs">Typhoon Guest Safety Procedure</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-18</code>
+          <span class="text-gray-700 text-xs">Power Outage / Brownout Procedure</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-19</code>
+          <span class="text-gray-700 text-xs">Flooding / Heavy Rain Response</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-20</code>
+          <span class="text-gray-700 text-xs">Post-Typhoon Damage Assessment</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-21</code>
+          <span class="text-gray-700 text-xs">Business Continuity Procedure</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-22</code>
+          <span class="text-gray-700 text-xs">Emergency Communication & Family Coordination</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-23</code>
+          <span class="text-gray-700 text-xs">Emergency Supplies & Generator Readiness</span>
+        </div>        <div class="p-3 text-center hover:bg-red-50 rounded transition">
+          <code class="text-red-600 font-semibold text-sm">SS-24</code>
+          <span class="text-gray-700 text-xs">Incident Report & Post-Incident Review</span>
+        </div>      </div>
+    </nav>
+
+    <!-- SOP Content -->
+    <div class="space-y-6" id="sop-container">
+<!-- SOP- Hotel Emergency Response System -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Hotel Emergency Response System</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-01: Hotel Emergency Response System</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Fire Prevention & Fire Safety -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Fire Prevention & Fire Safety</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-02: Fire Prevention & Fire Safety</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Fire Alarm Response -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Fire Alarm Response</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-03: Fire Alarm Response</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Fire Evacuation Procedure -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Fire Evacuation Procedure</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-04: Fire Evacuation Procedure</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Emergency Exit & Assembly Area -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Emergency Exit & Assembly Area</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-05: Emergency Exit & Assembly Area</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- First Aid & Medical Emergency -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> First Aid & Medical Emergency</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-06: First Aid & Medical Emergency</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Guest Accident / Injury Reporting -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Guest Accident / Injury Reporting</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-07: Guest Accident / Injury Reporting</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Drowning / Pool Emergency -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Drowning / Pool Emergency</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-08: Drowning / Pool Emergency</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Missing Guest / Person Procedure -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Missing Guest / Person Procedure</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-09: Missing Guest / Person Procedure</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Suspicious Person / Security Incident -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Suspicious Person / Security Incident</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-10: Suspicious Person / Security Incident</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Theft / Property Loss Investigation -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Theft / Property Loss Investigation</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-11: Theft / Property Loss Investigation</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- CCTV Monitoring & Security -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> CCTV Monitoring & Security</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-12: CCTV Monitoring & Security</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Emergency Contact Directory -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Emergency Contact Directory</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-13: Emergency Contact Directory</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Disaster Incident Command -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Disaster Incident Command</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-14: Disaster Incident Command</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Typhoon Monitoring & Alert Levels -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Typhoon Monitoring & Alert Levels</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-15: Typhoon Monitoring & Alert Levels</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Pre-Typhoon Property Preparation -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Pre-Typhoon Property Preparation</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-16: Pre-Typhoon Property Preparation</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Typhoon Guest Safety Procedure -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Typhoon Guest Safety Procedure</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-17: Typhoon Guest Safety Procedure</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Power Outage / Brownout Procedure -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Power Outage / Brownout Procedure</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-18: Power Outage / Brownout Procedure</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Flooding / Heavy Rain Response -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Flooding / Heavy Rain Response</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-19: Flooding / Heavy Rain Response</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Post-Typhoon Damage Assessment -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Post-Typhoon Damage Assessment</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-20: Post-Typhoon Damage Assessment</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Business Continuity Procedure -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Business Continuity Procedure</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-21: Business Continuity Procedure</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Emergency Communication & Family Coordination -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Emergency Communication & Family Coordination</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-22: Emergency Communication & Family Coordination</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Emergency Supplies & Generator Readiness -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Emergency Supplies & Generator Readiness</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-23: Emergency Supplies & Generator Readiness</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>      <!-- SOP- Incident Report & Post-Incident Review -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div>
+            <code class="text-red-700 font-bold text-sm mr-2"> Incident Report & Post-Incident Review</code>
+            <span class="text-gray-800 font-medium text-lg">SOP-SS-24: Incident Report & Post-Incident Review</span>
+          </div>
+          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
+        </div>
+        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">â–¼ Show Details</button>
+        <div class="sop-details hidden p-4 space-y-3 border-t">          <div class="bg-purple-50 p-4 rounded">
+            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
+              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
+            </h4>
+            <div class="text-gray-700 whitespace-pre-line">### 5. Quality Assurance Checklist & Metrics</div>
+          </div>        </div>
+      </article>
+    </div>
+
+    <!-- JavaScript for SOP Toggle Functionality -->
+    <script>
+      function toggleSopDetails(button) {
+        const details = button.nextElementSibling;
+        const siblingToggle = details.previousElementSibling.querySelector('.toggle-btn');
+        
+        if (details.classList.contains('hidden')) {
+          details.classList.remove('hidden');
+          siblingToggle?.classList.add('hidden');
+        } else {
+          details.classList.add('hidden');
+          siblingToggle?.classList.remove('hidden');
+        }
+      }
+      
+      // Auto-expand first SOP on page load (SS-01 Emergency Response System)
+      document.addEventListener('DOMContentLoaded', function() {
+        const ss01Section = document.querySelector('#ss-01');
+        if (ss01Section && ss01Section.classList.contains('sop-details')) {
+          ss01Section.classList.remove('hidden');
+        }
+      });
+    </script>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-300 py-6 mt-auto">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-sm"><i class="fa-solid fa-shield-halved mr-2"></i>Marcela's Resort Hotel - Safety First</p>
+      <p class="text-xs mt-1">Emergency procedures cached for offline access | Last Updated: October 2026</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 06: Safety, Security & Typhoon Preparedness - Marcela's Resort Hotel</title>
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/pwa/manifest.json">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/pwa/sw.js');
+    };
+  </script>
+
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <!-- EMERGENCY ACCESS HEADER - Always Visible -->
+  <div class="bg-red-600 text-white px-4 py-2 text-center sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-triangle-exclamation text-2xl animate-pulse"></i>
+        <h1 class="text-xl font-bold">EMERGENCY PROCEDURES - MODULE 06</h1>
+      </div>
+      <a href="/" class="bg-red-700 hover:bg-red-800 px-4 py-2 rounded text-sm font-medium transition">
+        Return to Home
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-4 py-6">
+    
+    <!-- Critical Notice Banner -->
+    <div class="bg-red-50 border-l-4 border-red-600 p-4 mb-6 rounded shadow-sm">
+      <h2 class="text-lg font-bold text-red-800 flex items-center mb-2">
+        <i class="fa-solid fa-shield-halved mr-3"></i>
+        Critical Safety Procedures
+      </h2>
+      <p class="text-red-700">
+        This page contains essential emergency and typhoon preparedness procedures. 
+        This content is cached locally for offline access during internet outages.
+      </p>
+    </div>
+
+    <!-- SOP List Navigation -->
+    <nav class="bg-white rounded-lg shadow-sm mb-6 p-4">
+      <h3 class="text-sm font-semibold text-gray-600 uppercase tracking-wide mb-3">SOP Index</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        ${[
+          { code: 'SS-01', title: 'Emergency Response System', anchor: '#ss-01' },
+          { code: 'SS-02', title: 'Fire Prevention & Safety', anchor: '#ss-02' },
+          { code: 'SS-03', title: 'Fire Alarm Response', anchor: '#ss-03' },
+          { code: 'SS-04', title: 'Fire Evacuation Procedure', anchor: '#ss-04' },
+          { code: 'SS-05', title: 'Emergency Exit & Assembly Area', anchor: '#ss-05' },
+          { code: 'SS-06', title: 'First Aid & Medical Emergency', anchor: '#ss-06' },
+          { code: 'SS-07', title: 'Guest Accident Reporting', anchor: '#ss-07' },
+          { code: 'SS-08', title: 'Drowning / Pool Emergency', anchor: '#ss-08' },
+          { code: 'SS-09', title: 'Missing Guest/Person', anchor: '#ss-09' },
+          { code: 'SS-10', title: 'Suspicious Person Handling', anchor: '#ss-10' },
+          { code: 'SS-11', title: 'Theft / Property Loss Investigation', anchor: '#ss-11' },
+          { code: 'SS-12', title: 'CCTV Monitoring & Security', anchor: '#ss-12' },
+          { code: 'SS-13', title: 'Emergency Contact Directory', anchor: '#ss-13' },
+          { code: 'SS-14', title: 'Disaster Incident Command', anchor: '#ss-14' },
+          { code: 'SS-15', title: 'Typhoon Monitoring & Alert Levels', anchor: '#ss-15' },
+          { code: 'SS-16', title: 'Pre-Typhoon Property Preparation', anchor: '#ss-16' },
+          { code: 'SS-17', title: 'Typhoon Guest Safety Procedure', anchor: '#ss-17' },
+          { code: 'SS-18', title: 'Power Outage / Brownout Procedure', anchor: '#ss-18' },
+          { code: 'SS-19', title: 'Flooding / Heavy Rain Response', anchor: '#ss-19' },
+          { code: 'SS-20', title: 'Post-Typhoon Damage Assessment', anchor: '#ss-20' },
+          { code: 'SS-21', title: 'Business Continuity Procedure', anchor: '#ss-21' },
+          { code: 'SS-22', title: 'Emergency Communication & Family Coordination', anchor: '#ss-22' },
+          { code: 'SS-23', title: 'Emergency Supplies & Generator Readiness', anchor: '#ss-23' },
+          { code: 'SS-24', title: 'Incident Report & Post-Incident Review', anchor: '#ss-24' }
+        ].map(sop => `
+          <a href="${sop.anchor}" 
+             class="block p-3 border rounded hover:bg-red-50 transition text-left group ${sop.code === 'SS-01' ? 'border-red-400 bg-red-50 font-semibold' : 'border-gray-200'}"
+             aria-label="${sop.title}">
+            <code class="text-red-700 font-bold text-sm block mb-1">${sop.code}</code>
+            <span class="text-gray-700 group-hover:text-red-800 text-sm truncate">${sop.title}</span>
+          </a>
+        `).join('')}
+      </div>
+    </nav>
+
+    <!-- SOP Content -->
+    <div class="space-y-6" id="sop-container">
+      
+<!-- Placeholder for full content generation - will be inserted via script or template processing -->
+<p class="text-gray-600 p-4 rounded border bg-yellow-50">
+  <i class="fa-solid fa-info-circle text-blue-600 mr-2"></i>
+  <strong>Note:</strong> Module 06 Safety procedures are loaded dynamically. 
+  The SOPs from the source file will be converted and inserted using the template pattern:
+  
+  - Objective & Scope (gray bg)
+  - Responsible Staff Roles (blue bg)
+  - Execution Procedure Steps (green bg)
+  - Localized Context (amber bg)
+  - QA Checklist (purple bg)
+</p>
+
+      <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-gray-50 border-b flex justify-between items-start cursor-pointer" onclick="toggleSopDetails(this)">
+          <div>
+            <h2 class="text-xl font-bold text-gray-900">
+              <code class="text-red-700 bg-red-100 px-2 py-1 rounded mr-3">SS-TEMPLATE</code>
+              Example SOP Card Structure
+            </h2>
+          </div>
+          <button onclick="event.stopPropagation()" class="toggle-btn hidden text-sm text-gray-600 hover:text-gray-800 font-medium flex items-center">
+            <i class="fa-solid fa-chevron-down mr-1"></i>Show Details
+          </button>
+        </div>
+        <button onclick="toggleSopDetails(this.parentElement)" class="toggle-btn hidden text-sm text-gray-600 hover:text-gray-800 font-medium flex items-center p-4">
+          <i class="fa-solid fa-chevron-up mr-1"></i>Hide Details
+        </button>
+        
+        <div class="sop-details hidden p-4 space-y-4 border-t">
+          
+          <!-- Objective & Scope -->
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-bullseye mr-2"></i>1. Objective & Scope</h3>
+            <p>This SOP template demonstrates the structure for Module 06 safety procedures. All 24 emergency SOPs from the source markdown file will be converted following this pattern.</p>
+          </div>
+
+          <!-- Responsible Staff Roles -->
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-users mr-2"></i>2. Responsible Staff Roles</h3>
+            <ul class="list-disc list-inside space-y-1 text-sm">
+              <li><strong>Primary Responders:</strong> Staff with direct emergency responsibilities.</li>
+              <li><strong>Incident Commander:</strong> GM or Duty Manager on shift.</li>
+              <li><strong>Support Roles:</strong> Security, Engineering, Housekeeping coordination.</li>
+            </ul>
+          </div>
+
+          <!-- Execution Procedure -->
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-list-check mr-2"></i>3. Step-by-Step Execution Procedure</h3>
+            <ol class="list-decimal list-inside space-y-2 text-sm">
+              <li><strong>Initial Response:</strong> Assess situation and activate appropriate protocols.</li>
+              <li><strong>Team Coordination:</strong> Assign roles via radio Channel 1.</li>
+              <li><strong>Execute Procedures:</strong> Follow documented steps precisely.</li>
+            </ol>
+          </div>
+
+          <!-- Localized Context -->
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-map-location-dot mr-2"></i>4. Localized Context</h3>
+            <p><strong>Gamay, Northern Samar Considerations:</strong> Coastal location, intermittent internet, typhoon-prone area requiring specific preparedness measures.</p>
+          </div>
+
+          <!-- QA Checklist -->
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-clipboard-check mr-2"></i>5. Quality Assurance Checklist & Metrics</h3>
+            <ul class="list-disc list-inside space-y-1 text-sm">
+              <li>[ ] All procedures followed per SOP documentation.</li>
+              <li>[ ] Documentation completed within required timeframe.</li>
+              <li><strong>Target Metric:</strong> Zero incidents from procedural non-compliance.</li>
+            </ul>
+          </div>
+
+        </div>
+      </article>
+    </div>
+
+    <!-- JavaScript for SOP Toggle Functionality -->
+    <script>
+      function toggleSopDetails(button) {
+        const details = button.nextElementSibling;
+        const siblingToggle = details.previousElementSibling.querySelector('.toggle-btn');
+        
+        if (details.classList.contains('hidden')) {
+          details.classList.remove('hidden');
+          siblingToggle?.classList.add('hidden');
+        } else {
+          details.classList.add('hidden');
+          siblingToggle?.classList.remove('hidden');
+        }
+      }
+    </script>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-300 py-6 mt-auto">
+    <div class="container mx-auto px-4 text-center">
+      <p class="text-sm"><i class="fa-solid fa-shield-halved mr-2"></i>Marcela's Resort Hotel - Safety First</p>
+      <p class="text-xs mt-1">Emergency procedures cached for offline access | Last Updated: October 2026</p>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 07: HR & Administration - Marcela's Resort Hotel</title>
+  <link rel="manifest" href="/pwa/manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/pwa/sw.js');
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-indigo-700 text-white shadow-md sticky top-0 z-40">
+    <nav class="container mx-auto px-4 py-3">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <a href="/" class="text-xl font-bold hover:text-indigo-200 transition-colors">
+          <i class="fa-solid fa-hotel mr-2"></i>Marcela's Resort Hotel
+        </a>
+        <div class="flex gap-2 flex-wrap justify-center">
+          <a href="/" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Home</a>
+          <a href="/sops/01_front_office.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold hover:bg-indigo-600 transition">Front Office (FO)</a>
+          <a href="/sops/03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold text-yellow-300 hover:bg-indigo-600 transition">Food & Beverage (FB)</a>
+          <a href="/sops/04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold text-pink-300 hover:bg-indigo-600 transition">Function Hall (FH)</a>
+          <a href="/sops/05_facilities_pool.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold text-teal-300 hover:bg-indigo-600 transition">Facilities & Pool (FM)</a>
+          <a href="/sops/07_hr_admin.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold text-purple-300 hover:bg-indigo-600 transition">HR & Admin (HR)</a>
+          <a href="#staffing" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Staffing</a>
+        </div>
+        <div class="flex items-center gap-2 w-full md:w-auto">
+          <input type="search" id="searchInput" placeholder="Search SOPs..." class="w-full md:w-64 px-3 py-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" aria-label="Search SOPs">
+          <button onclick="window.dispatchEvent(new Event('search'))" class="px-3 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-grow container mx-auto px-4 py-6">
+    
+    <!-- Module Header -->
+    <div class="bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg shadow-sm p-6 mb-6 border-l-4 border-purple-600">
+      <h1 class="text-3xl font-bold text-purple-900 mb-2"><i class="fa-solid fa-user-gear mr-3"></i>Module 07: Human Resources & Administration</h1>
+      <p class="text-gray-700">SOPs for recruitment, onboarding, attendance, performance management, training, and administrative procedures</p>
+    </div>
+
+    <!-- SOP Cards -->
+    <div class="space-y-4" id="sop-container">
+      
+<!-- SOP-HR-01 -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-purple-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-purple-700 font-bold text-sm mr-2">HR-01</code>
+      <span class="text-gray-800 font-medium text-lg">Recruitment & Hiring</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-purple-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-purple-600 hover:bg-purple-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-purple-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To establish a structured, transparent, non-discriminatory, and merit-based recruitment process compliant with Philippine Labor Code standards to source, interview, and select qualified personnel for Marcela's Resort Hotel.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>Department Head:</strong> Submits Personnel Requisition Form (PRF) with justified operational headcount needs.</li>
+        <li><strong>HR Officer:</strong> Manages job postings, candidate screening, interview scheduling, and background checks.</li>
+        <li><strong>General Manager (GM):</strong> Conducts final interview for supervisory/head roles and approves all hiring offers.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>Personnel Requisition:</strong> Department Head completes PRF detailing position title, job level, salary grade, and operational justification. PRF requires dual approval from HR Officer and GM prior to posting.</li>
+        <li><strong>Sourcing & Job Posting:</strong> Post vacancies internally (notice boards) and externally (local job portals, PESO Gamay / Northern Samar, social media pages, local university job boards in Catarman/Tacloban). Minimum posting window: 7 calendar days.</li>
+        <li><strong>Screening & Initial Interview:</strong> HR Officer screens CVs against minimum position standards (SOP-HR-04). Conduct initial structured interview (in-person or video call for non-local applicants) evaluating basic qualifications, communication skills, and service orientation.</li>
+        <li><strong>Technical / Practical Assessment & Department Interview:</strong> Shortlisted candidates undergo position-specific practical tests (e.g., mock table setup for F&B, bed-making drill for HK, practical cooking exam for Kitchen). Department Head conducts technical interview using standardized scoring rubrics (1-5 scale).</li>
+        <li><strong>Final Interview & Background Check:</strong> GM interviews top 2 candidates. HR verifies work references from prior employers (at least 2 professional references verified via phone/email).</li>
+        <li><strong>Job Offer & Appointment:</strong> HR issues formal Job Offer Letter detailing salary, employment status (probationary/contractual), benefits, start date, and reporting structure. Candidate must sign within 3 business days.</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Community First Hiring: Priority sourcing is given to qualified residents of Gamay and neighboring municipalities in Northern Samar to foster local employment and community integration. DOLE Compliance: All recruitment activities must strictly comply with Republic Act No. 10911 (Anti-Age Discrimination in Employment Act) and DOLE regulations prohibiting unauthorized recruitment fees.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">PRF approval</td><td class="py-1">Fully signed before job vacancy announcement</td><td class="py-1">HR Officer</td></tr>
+          <tr class="border-b"><td class="py-1">Background checks</td><td class="py-1">Minimum 2 professional background checks completed and documented in candidate file</td><td class="py-1">HR Officer</td></tr>
+          <tr class="border-b"><td class="py-1">Competency test</td><td class="py-1">Practical competency test conducted for all technical operational positions</td><td class="py-1">Department Head</td></tr>
+          <tr><td class="py-1">Vacancy fill time</td><td class="py-1 font-semibold text-green-700">&lt; 30 calendar days; zero DOLE non-compliance findings</td><td class="py-1">HR Manager</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+
+<!-- SOP-HR-02 -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-purple-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-purple-700 font-bold text-sm mr-2">HR-02</code>
+      <span class="text-gray-800 font-medium text-lg">Employee Pre-employment Requirements</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-purple-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-purple-600 hover:bg-purple-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-purple-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To ensure all newly hired personnel complete mandatory Philippine statutory registrations, background verifications, and medical fitness assessments prior to their first official working shift.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>New Employee:</strong> Submits all required legal, medical, and statutory documents within the stipulated onboarding timeframe.</li>
+        <li><strong>HR Officer:</strong> Validates authenticity of documents, creates physical/digital 201 Files, and registers employee in statutory portals.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>Issuance of Checklist:</strong> Upon signing the Job Offer, HR hands the candidate the Pre-employment Requirements Checklist.</li>
+        <li><strong>Mandatory Document Submission:</strong> Statutory Identification Numbers: SSS (Social Security System) Number, PhilHealth Identification Number (PIN), Pag-IBIG Fund (HDMF) MID Number, BIR Taxpayer Identification Number (TIN) / Form 1902 or 1905. Clearances & Certifications: Valid NBI Clearance (Original), Barangay Clearance from resident barangay in Samar, PSA Birth Certificate (Copy) & Marriage Certificate (if applicable), Academic Records (Transcript of Records / Diploma / TESDA NC II Certificate), Certificate of Employment (COE) from previous employers.</li>
+        <li><strong>Medical & Health Clearances:</strong> Pre-employment Medical Examination (PEME) from an accredited clinic/hospital (CBC, Chest X-Ray, Urinalysis, Fecalysis, Drug Test). Sanitary Permit / Health Card issued by the Gamay Rural Health Unit (RHU), mandatory for all F&B, Kitchen, and Housekeeping personnel.</li>
+        <li><strong>201 File Creation:</strong> HR verifies submitted documents against originals, stamps "COPY VERIFIED WITH ORIGINAL," and files them in the employee's physical 201 File and digital HRIS directory.</li>
+        <li><strong>Statutory Enrollment:</strong> HR registers employee in SSS, PhilHealth, Pag-IBIG, and BIR online portals prior to first payroll run.</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Samar RHU Coordination: Local HR staff coordinates with Gamay Rural Health Unit for sanitary permit issuance. All local hires can complete medical clearance within 2 business days at the local clinic to ensure rapid onboarding.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">Onboarding documentation</td><td class="py-1">Signed Handbook Acknowledgment filed in 201 File within 3 days</td><td class="py-1">HR Officer</td></tr>
+          <tr class="border-b"><td class="py-1">Orientation completion</td><td class="py-1">Day 1 to Day 3 structured onboarding checklist signed off by HR and Department Head</td><td class="py-1">HR Officer / Department Head</td></tr>
+          <tr><td class="py-1">Orientation completion rate</td><td class="py-1 font-semibold text-green-700">100% new hire orientation completion rate prior to independent shift assignment</td><td class="py-1">HR Manager</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+
+<!-- SOP-HR-04 -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-purple-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-purple-700 font-bold text-sm mr-2">HR-04</code>
+      <span class="text-gray-800 font-medium text-lg">Job Description & Position Standards</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-purple-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-purple-600 hover:bg-purple-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-purple-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To define clear, standardized job descriptions, performance expectations, reporting relationships, and key performance indicators (KPIs) for every operational role at Marcela's Resort Hotel.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>HR Officer:</strong> Maintains master job description database, updates position templates, and audits role alignment.</li>
+        <li><strong>Department Head:</strong> Drafts technical duties, updates operational KPIs, and reviews job duties annually.</li>
+        <li><strong>Employee:</strong> Executes duties as outlined in signed Job Description.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>Job Description Structure:</strong> Every official Job Description must contain: Position Title, Department, Job Grade level, and Direct Supervisor. Core Purpose / Job Summary. Key Responsibilities & Daily/Weekly/Monthly Tasks. Minimum Qualifications (Education, Experience, TESDA Certifications, Physical requirements). Measurable Key Performance Indicators (KPIs).</li>
+        <li><strong>Issuance & Signing:</strong> Issued to candidate alongside employment contract on Day 1. HR and candidate review every duty clause. Candidate signs two original copies (1 copy for employee, 1 copy for 201 file).</li>
+        <li><strong>Annual Review & Updating:</strong> Reviewed annually every October during budget and operational strategy planning. Modifications require mutual discussion between Department Head, HR, and GM.</li>
+        <li><strong>Flexibility Clause Standard:</strong> All job descriptions must include the standard multi-skilling clause: "Perform other operational tasks and cross-departmental support duties assigned by management to ensure seamless resort operations, especially during peak event dates or severe weather emergencies."</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Cross-Functional Resort Roles: Due to the 30-room boutique scale in a provincial location, staff are cross-trained (e.g., Housekeeping assisting F&B during large Function Hall events, Maintenance assisting Security during typhoon setup).</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">Job description coverage</td><td class="py-1">100% of active staff have signed, updated Job Descriptions in 201 Files</td><td class="py-1">HR Officer</td></tr>
+          <tr class="border-b"><td class="py-1">Multi-skilling clause</td><td class="py-1">Included in every job description</td><td class="py-1">HR Manager</td></tr>
+          <tr class="border-b"><td class="py-1">KPI clarity</td><td class="py-1">KPIs clearly quantifiable (e.g., clean room turnover time &lt; 25 mins, guest satisfaction score ≥ 90%)</td><td class="py-1">Department Head / HR Officer</td></tr>
+          <tr><td class="py-1">Job alignment accuracy</td><td class="py-1 font-semibold text-green-700">100% alignment between job descriptions and actual daily operational duties during annual audits</td><td class="py-1">HR Manager</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+
+<!-- SOP-HR-05 -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-purple-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-purple-700 font-bold text-sm mr-2">HR-05</code>
+      <span class="text-gray-800 font-medium text-lg">Employee Attendance & Timekeeping</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-purple-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-purple-600 hover:bg-purple-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-purple-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To establish accurate, fraud-proof timekeeping standards using biometric registration, manual backup logs, and strict attendance monitoring to ensure fair payroll processing and operational coverage.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>All Staff:</strong> Clock in and clock out accurately using biometric scanners for all shifts and meal breaks.</li>
+        <li><strong>HR Officer / Timekeeper:</strong> Audits daily biometric logs, verifies discrepancies, and prepares payroll timecards.</li>
+        <li><strong>Department Head:</strong> Approves shift logs, grace period exemptions, and official business trips.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>Clocking In/Out Mandate:</strong> Staff must clock in at the employee entrance biometric terminal in full uniform no earlier than 15 minutes prior to scheduled shift start. Clock out required for: Lunch/Meal break start, Lunch/Meal break end, and Shift end. Biometric Failure Protocol: If fingerprint scanner fails due to wet hands or technical outage, staff must sign the Manual Time Register co-signed by the Duty Supervisor within 1 hour.</li>
+        <li><strong>Grace Period & Tardiness Definitions:</strong> Scheduled Shift Start = T0. T0 + 1 min to 5 mins: On-time / Grace window (not penalized, but tracked). T0 + 6 mins to 15 mins: LATE (Deducted per minute from salary). T0 > 15 mins: SEVERE LATE (Deducted + subject to verbal/written warning upon repeat). T0 > 2 hours without notice: UNEXCUSED ABSENCE / HALF-DAY ABSENT.</li>
+        <li><strong>Absence Notification Protocol:</strong> Employee must notify Supervisor via direct call/SMS at least 3 hours before shift start if unable to report due to sudden illness or emergency.</li>
+        <li><strong>Timecard Audit & Reconciliation:</strong> HR pulls biometric data weekly, cross-checks against approved shift schedules, and routes Weekly Time Verification Sheets to Department Heads for approval.</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Power & Internet Resiliency: During Samar grid outages, the biometric clock runs on internal battery backup. If completely discharged, the manual hardcopy logbook managed by Security at the staff entrance serves as official legal timekeeping.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">Biometric data sync</td><td class="py-1">Biometric data synchronized weekly with payroll system</td><td class="py-1">HR Officer</td></tr>
+          <tr class="border-b"><td class="py-1">Manual log completion</td><td class="py-1">100% of manual time log entries co-signed by Department Head within 24 hours</td><td class="py-1">Department Head / Security</td></tr>
+          <tr class="border-b"><td class="py-1">Tardiness tracking</td><td class="py-1">Tardiness reports generated and reviewed weekly</td><td class="py-1">HR Officer</td></tr>
+          <tr><td class="py-1">Timecard error rate</td><td class="py-1 font-semibold text-green-700">&lt; 0.5% per payroll cycle</td><td class="py-1">Payroll Manager</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+
+<!-- Continue with remaining SOPs template structure -->
+
+    </div>
+
+  </main>

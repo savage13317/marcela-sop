@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 04: Function Hall & Events - Marcela's Resort Hotel</title>
+  <link rel="manifest" href="/pwa/manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/pwa/sw.js');
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-indigo-700 text-white shadow-md sticky top-0 z-40">
+    <nav class="container mx-auto px-4 py-3">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <a href="/" class="text-xl font-bold hover:text-indigo-200 transition-colors">
+          <i class="fa-solid fa-hotel mr-2"></i>Marcela's Resort Hotel
+        </a>
+        <div class="flex gap-2 flex-wrap justify-center">
+          <a href="/" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Home</a>
+          <a href="/sops/01_front_office.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold hover:bg-indigo-600 transition">Front Office (FO)</a>
+          <a href="/sops/03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold text-yellow-300 hover:bg-indigo-600 transition">Food & Beverage (FB)</a>
+          <a href="/sops/04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold text-pink-300 hover:bg-indigo-600 transition">Function Hall (FH)</a>
+          <a href="#staffing" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Staffing</a>
+        </div>
+        <div class="flex items-center gap-2 w-full md:w-auto">
+          <input type="search" id="searchInput" placeholder="Search SOPs..." class="w-full md:w-64 px-3 py-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" aria-label="Search SOPs">
+          <button onclick="window.dispatchEvent(new Event('search'))" class="px-3 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-grow container mx-auto px-4 py-6">
+    
+    <!-- Module Header -->
+    <div class="bg-gradient-to-r from-pink-50 to-rose-50 rounded-lg shadow-sm p-6 mb-6 border-l-4 border-pink-600">
+      <h1 class="text-3xl font-bold text-pink-900 mb-2"><i class="fa-solid fa-glass-cheers mr-3"></i>Module 04: Function Hall & Events</h1>
+      <p class="text-gray-700">SOPs for event reservations, coordination, setup, catering, corporate events, weddings, and special celebrations</p>
+    </div>
+
+    <!-- SOP Cards -->
+    <div class="space-y-4" id="sop-container">
+      
+<!-- SOP-FH-01 -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-pink-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-pink-700 font-bold text-sm mr-2">FH-01</code>
+      <span class="text-gray-800 font-medium text-lg">Function Hall Reservation</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-pink-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-pink-600 hover:bg-pink-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-pink-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-pink-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To establish a structured, error-free procedure for receiving, recording, and holding function hall date reservations. This procedure applies to all event inquiries handled by Front Office and Events staff for weddings, birthdays, corporate meetings, government seminars, and private gatherings at Marcela's Hotel & Resort.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>Events Coordinator / Banquet Manager:</strong> Primary owner for log management, calendar verification, and tentative date blocking.</li>
+        <li><strong>Front Desk Agent (FDA):</strong> Receives walk-in or telephone inquiries during off-peak/night shifts and records initial reservation details.</li>
+        <li><strong>General Manager:</strong> Approves non-standard discounts, prolonged pencil bookings, or special multi-day function holds.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>Receive Inquiry:</strong> Greet the prospective client warmly. Gather basic details: target event date, event type, estimated guest count, preferred setup, and contact information.</li>
+        <li><strong>Check Availability:</strong> Cross-check the requested date and time slot against the Master Events Calendar (Digital PMS & Physical Events Logbook). Ensure adequate buffer time (3 hours before and 2 hours after) for cleaning, setup, and teardown.</li>
+        <li><strong>Log Pencil Booking:</strong> If the slot is available, log a "Pencil Booking" status. Note the client's name, contact details, proposed event date, and temporary holding expiration date (maximum 7 calendar days).</li>
+        <li><strong>Issue Reservation Hold Notice:</strong> Send an SMS or Email confirmation to the client stating that the date is temporarily held for 7 days pending contract signing and deposit payment.</li>
+        <li><strong>Manage Expiration:</strong> If no deposit is received by Day 7, contact the client once for confirmation. If no response or commitment is made within 24 hours, release the date hold and update the Master Events Calendar.</li>
+        <li><strong>Confirm Booking:</strong> Upon receipt of the contract and required 50% initial deposit, convert the booking status from "Pencil Booked" to "Firm Booking" in both digital and physical logs.</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">LGU & Regional Calendar Awareness: Pay close attention to local Gamay municipal town fiesta dates (July), Provincial Samar events, and local school graduation seasons (March-May) which create high demand for the Function Hall. Power & Weather Buffers: Inform clients during initial booking about the resort's 100% generator backup capability to reassure them regarding local NORSAMELCO power supply stability in Northern Samar.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">Date logging accuracy</td><td class="py-1">100% logged in both Digital PMS and Physical Events Logbook</td><td class="py-1">Events Coordinator</td></tr>
+          <tr class="border-b"><td class="py-1">Buffer time application</td><td class="py-1">3-hour ingress/egress buffer strictly applied between consecutive events</td><td class="py-1">Banquet Manager</td></tr>
+          <tr class="border-b"><td class="py-1">Pencil booking release</td><td class="py-1">7-day policy strictly enforced</td><td class="py-1">Events Coordinator</td></tr>
+          <tr><td class="py-1">Double-booking rate</td><td class="py-1 font-semibold text-green-700">0% target</td><td class="py-1">Banquet Manager</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+
+<!-- SOP-FH-02 -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-pink-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-pink-700 font-bold text-sm mr-2">FH-02</code>
+      <span class="text-gray-800 font-medium text-lg">Event Inquiry & Client Coordination</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-pink-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-pink-600 hover:bg-pink-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-pink-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-pink-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To provide a standardized process for conducting client walkthroughs, determining exact event requirements, and offering personalized event options tailored to provincial and corporate client preferences.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>Events Coordinator:</strong> Lead contact for conducting site tours, answering inquiries, and gathering requirements.</li>
+        <li><strong>F&B Supervisor:</strong> Consults on custom menu preferences and dietary needs.</li>
+        <li><strong>Head Chef:</strong> Consults on custom culinary requests and Waray local specialty inclusions.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>Initial Engagement:</strong> Welcome the client at the Front Office or Events Office. Offer refreshments (iced tea or cold water).</li>
+        <li><strong>Site Walkthrough:</strong> Escort the client to the Function Hall, pool area, and sample guest rooms if overnight accommodations are required. Point out air conditioning units, stage area, emergency exits, and restrooms.</li>
+        <li><strong>Requirement Gathering:</strong> Complete the Event Inquiry Worksheet, recording: Event Title / Occasion, Estimated Number of Attendees, Budget Range, Required Date & Time (Start & End), Preferred Seating Arrangement (Banquet, Classroom, Theater, Cocktail), Meal Requirements (Buffet, Plated, Snacks, Drinks), Audio-Visual Requirements (Microphones, Sound System, Projector).</li>
+        <li><strong>Provide Standard Package Sheets:</strong> Present pre-printed function packages (Weddings, Debuts, Seminars, Birthdays) with transparent pricing.</li>
+        <li><strong>Follow-Up:</strong> Send a written summary via Email or Messenger/Viber within 24 hours after the site tour.</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Samar Hospitality: Greet clients with genuine local warmth (Kamusta po/Maupay nga adlaw). Transport Considerations: Ask if guests are traveling from neighboring towns (Lapinig, Mapanas, Palapag, Catarman) to coordinate vehicle parking spaces, shuttle coordination, or early room check-ins.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">Event Inquiry Worksheet completion</td><td class="py-1">Fully filled out during or immediately after the meeting</td><td class="py-1">Events Coordinator</td></tr>
+          <tr class="border-b"><td class="py-1">AC readiness</td><td class="py-1">Function Hall air conditioning switched on 10 minutes prior to scheduled client site tour</td><td class="py-1">Maintenance Staff</td></tr>
+          <tr class="border-b"><td class="py-1">Proposal delivery time</td><td class="py-1 font-semibold text-green-700">&lt; 24 hours from initial consultation</td><td class="py-1">Events Coordinator</td></tr>
+          <tr><td class="py-1">Inquiry logging</td><td class="py-1">100% inquiry logged in CRM/PMS</td><td class="py-1">Front Office Manager</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+
+<!-- SOP-FH-03 -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-pink-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-pink-700 font-bold text-sm mr-2">FH-03</code>
+      <span class="text-gray-800 font-medium text-lg">Event Proposal & Quotation</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-pink-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-pink-600 hover:bg-pink-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-pink-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-pink-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To guide staff in calculating accurate, profitable, and transparent event quotations and issuing official proposals to clients for events hosted at Marcela's Hotel & Resort.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>Events Coordinator:</strong> Prepares the itemized quotation and formal proposal document.</li>
+        <li><strong>Finance / Cashier Manager:</strong> Reviews non-standard pricing, government tax exemptions, and payment terms.</li>
+        <li><strong>General Manager:</strong> Signs off on proposals exceeding PHP 100,000 or custom corporate packages.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>Cost Calculation:</strong> Using the Event Inquiry Worksheet, calculate total charges based on: Function Hall Rental Rate (Base rate includes 4 hours with aircon, basic light/sound), Overtime Rate per hour (Hall + Aircon fees), Food & Beverage Cost per head × minimum guaranteed headcount, Special Setup / Decor / AV Equipment Rental fees, Room accommodation packages (if bundled).</li>
+        <li><strong>Draft Proposal:</strong> Fill out the standardized Event Proposal Template, specifying: Itemized breakdown of rates (Venue, Food, AV, Inclusions), Payment milestones (50% deposit upon contract signing, 50% full balance 7 days before the event), Included amenities (e.g., free use of pool for 5 VIPs, sound system, podium, parking).</li>
+        <li><strong>Internal Review:</strong> Verify prices against current F&B menu costing sheets and peak/off-peak venue rate cards.</li>
+        <li><strong>Dispatch:</strong> Send the formal proposal via Email/PDF or present an official printed copy in a folder to the client within 24 hours.</li>
+        <li><strong>Validity Notice:</strong> State clearly on the proposal: "Quotation valid for 14 calendar days from date of issue."</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Government Billing Compliance: For Department of Education (DepEd), LGU Gamay, or Provincial Government events, ensure quotations include complete BIR Tax breakdown (VAT/Non-VAT exemptions where applicable) and support Purchase Order (PO) / Agency Voucher terms.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">Quotation pricing accuracy</td><td class="py-1">Uses current pricing matrix approved by Resort Management</td><td class="py-1">Finance Manager</td></tr>
+          <tr class="border-b"><td class="py-1">Payment terms & overtime fees</td><td class="py-1">Explicitly listed on all proposals</td><td class="py-1">Events Coordinator</td></tr>
+          <tr class="border-b"><td class="py-1">Tax calculation accuracy</td><td class="py-1">BIR compliance verified</td><td class="py-1">Cashier Manager</td></tr>
+          <tr><td class="py-1">Pricing error rate</td><td class="py-1 font-semibold text-green-700">0% target</td><td class="py-1">Finance Manager</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+
+<!-- SOP-FH-04 -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-pink-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-pink-700 font-bold text-sm mr-2">FH-04</code>
+      <span class="text-gray-800 font-medium text-lg">Event Contract & Deposit</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-pink-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-pink-600 hover:bg-pink-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-pink-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-pink-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To ensure legally binding agreements, formal terms of agreement, and clear financial commitments between Marcela's Hotel & Resort and event clients prior to event execution.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>Events Coordinator:</strong> Drafts contract, presents terms, and collects client signature.</li>
+        <li><strong>Front Office / Finance Cashier:</strong> Receives payments, issues Official Receipts (OR).</li>
+        <li><strong>General Manager:</strong> Executes signature on behalf of Marcela's Hotel & Resort.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>Contract Drafting:</strong> Populate the standard Event Service Agreement template with approved quotation details, agreed menu items, exact headcount, setup times, and breakdown of fees.</li>
+        <li><strong>Reviewing Terms with Client:</strong> Walk the client through key clauses: Minimum Guaranteed Headcount Policy (billing will be based on guaranteed headcount or actual attendance, whichever is higher), Cancellation & Refund Policy, Damage / Loss Liability clause, Force Majeure clause (Typhoons, Natural Disasters, Power Disruptions).</li>
+        <li><strong>Contract Signing:</strong> Require the client (or authorized corporate signatory) to sign all pages of the contract in duplicate.</li>
+        <li><strong>Deposit Collection:</strong> Collect the 50% Non-Refundable Mobilization Deposit.</li>
+        <li><strong>Issue Receipt:</strong> Issue an Official Receipt (OR) specifying: Client Name, Event Title, Event Date, Deposit Amount, and Remaining Balance.</li>
+        <li><strong>File Documents:</strong> Place the signed contract and receipt copy into the Master Event File (Digital & Hardcopy).</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Provincial Payment Options: Accept cash, GCash, Bank Transfer (BDO/LBP), or Manager's Check. For regional LGU/Government clients, accept approved Purchase Orders (PO) accompanied by an official Letter of Commitment signed by the Municipal Treasurer/Mayor/Head of Agency.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">Contract completeness</td><td class="py-1">Standard Event Contract signed on all pages by both parties</td><td class="py-1">Events Coordinator</td></tr>
+          <tr class="border-b"><td class="py-1">Deposit collection</td><td class="py-1">50% deposit collected and Official Receipt issued</td><td class="py-1">Finance Cashier</td></tr>
+          <tr class="border-b"><td class="py-1">Force Majeure clause</td><td class="py-1">Clearly explained regarding typhoon warnings in Northern Samar</td><td class="py-1">Events Coordinator</td></tr>
+          <tr><td class="py-1">Contract coverage</td><td class="py-1 font-semibold text-green-700">100% of events covered by signed contracts and verified deposits prior to event date</td><td class="py-1">Events Coordinator</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+
+<!-- SOP-FH-05 -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-pink-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-pink-700 font-bold text-sm mr-2">FH-05</code>
+      <span class="text-gray-800 font-medium text-lg">Event Planning Checklist</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-pink-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-pink-600 hover:bg-pink-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-pink-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-pink-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To maintain a synchronized operational timeline leading up to an event, ensuring seamless inter-departmental communication across Front Office, Kitchen, Housekeeping, and Engineering.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>Events Coordinator:</strong> Tracks execution milestones and distributes Event Orders.</li>
+        <li><strong>Head Chef:</strong> Plans food purchasing and kitchen staging.</li>
+        <li><strong>Executive Housekeeper:</strong> Schedules deep cleaning and linen prep.</li>
+        <li><strong>Chief Engineer / Maintenance Technician:</strong> Conducts AV, AC, and generator readiness checks.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>Issue Banquet Event Order (BEO):</strong> At least 14 days prior to the event, generate and distribute the official BEO to all department heads.</li>
+        <li><strong>30-Day Milestone Check:</strong> Confirm event program outline, color themes, and special vendor requests.</li>
+        <li><strong>14-Day Milestone Check:</strong> Reconfirm estimated headcount, finalize F&B menu choices, confirm guest accommodation counts.</li>
+        <li><strong>7-Day Milestone Check:</strong> Collect final 50% payment balance, Lock in Final Guaranteed Headcount, Conduct inter-departmental BEO Briefing Meeting.</li>
+        <li><strong>2-Day Milestone Check:</strong> Kitchen completes raw material procurement (seafood, meats, fresh produce), Housekeeping prepares linens, chair covers, and table skirts, Maintenance inspects AC, lighting, backup generator, and sound systems.</li>
+        <li><strong>Day of Event (4 Hours Before):</strong> Execute physical hall setup, test AV, align catering lines, and conduct final pre-event walkthrough.</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Supply Chain Buffers in Northern Samar: Procurement of specialized items (decorations, sound gear, specific beverages, imported cheeses/meats) from Catarman or Tacloban requires at least 5 to 7 days advance ordering due to provincial transit schedules.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">BEO distribution timing</td><td class="py-1">Distributed to all department heads 14 days in advance</td><td class="py-1">Events Coordinator</td></tr>
+          <tr class="border-b"><td class="py-1">Final headcount lock</td><td class="py-1">Locked 7 days prior</td><td class="py-1">F&B Supervisor</td></tr>
+          <tr class="border-b"><td class="py-1">Pre-event briefing</td><td class="py-1">Conducted 48 hours before event start</td><td class="py-1">Events Coordinator</td></tr>
+          <tr><td class="py-1">Operational readiness</td><td class="py-1 font-semibold text-green-700">100% operational readiness 2 hours prior to event scheduled start time</td><td class="py-1">Banquet Captain</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+
+<!-- Continue with remaining SOPs template structure -->
+
+    </div>
+
+  </main>

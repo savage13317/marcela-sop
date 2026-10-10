@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 06: Safety, Security & Typhoon Preparedness - Marcela's Resort Hotel</title>
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/pwa/manifest.json">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="/css/main.css">
+  
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/pwa/sw.js');
+    };
+  </script>
+
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <!-- EMERGENCY ACCESS HEADER - Always Visible -->
+  <div class="bg-red-600 text-white px-4 py-2 text-center sticky top-0 z-50 shadow-md">
+    <div class="container mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-triangle-exclamation text-2xl animate-pulse"></i>
+        <h1 class="text-xl font-bold">EMERGENCY PROCEDURES - MODULE 06</h1>
+      </div>
+      <a href="/" class="bg-red-700 hover:bg-red-800 px-4 py-2 rounded text-sm font-medium transition">
+        Return to Home
+      </a>
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <main class="flex-grow container mx-auto px-4 py-6">
+    
+    <!-- Critical Notice Banner -->
+    <div class="bg-red-50 border-l-4 border-red-600 p-4 mb-6 rounded shadow-sm">
+      <h2 class="text-lg font-bold text-red-800 flex items-center mb-2">
+        <i class="fa-solid fa-shield-halved mr-3"></i>
+        Critical Safety Procedures
+      </h2>
+      <p class="text-red-700">
+        This page contains essential emergency and typhoon preparedness procedures. 
+        This content is cached locally for offline access during internet outages.
+      </p>
+    </div>
+
+    <!-- SOP List Navigation -->
+    <nav class="bg-white rounded-lg shadow-sm mb-6 p-4">
+      <h3 class="text-sm font-semibold text-gray-600 uppercase tracking-wide mb-3">SOP Index</h3>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+        ${[
+          { code: 'SS-01', title: 'Emergency Response System', anchor: '#ss-01' },
+          { code: 'SS-02', title: 'Fire Prevention & Safety', anchor: '#ss-02' },
+          { code: 'SS-03', title: 'Fire Alarm Response', anchor: '#ss-03' },
+          { code: 'SS-04', title: 'Fire Evacuation Procedure', anchor: '#ss-04' },
+          { code: 'SS-05', title: 'Emergency Exit & Assembly Area', anchor: '#ss-05' },
+          { code: 'SS-06', title: 'First Aid & Medical Emergency', anchor: '#ss-06' },
+          { code: 'SS-07', title: 'Guest Accident Reporting', anchor: '#ss-07' },
+          { code: 'SS-08', title: 'Drowning / Pool Emergency', anchor: '#ss-08' },
+          { code: 'SS-09', title: 'Missing Guest/Person', anchor: '#ss-09' },
+          { code: 'SS-10', title: 'Suspicious Person Handling', anchor: '#ss-10' },
+          { code: 'SS-11', title: 'Theft / Property Loss Investigation', anchor: '#ss-11' },
+          { code: 'SS-12', title: 'CCTV Monitoring & Security', anchor: '#ss-12' },
+          { code: 'SS-13', title: 'Emergency Contact Directory', anchor: '#ss-13' },
+          { code: 'SS-14', title: 'Disaster Incident Command', anchor: '#ss-14' },
+          { code: 'SS-15', title: 'Typhoon Monitoring & Alert Levels', anchor: '#ss-15' },
+          { code: 'SS-16', title: 'Pre-Typhoon Property Preparation', anchor: '#ss-16' },
+          { code: 'SS-17', title: 'Typhoon Guest Safety Procedure', anchor: '#ss-17' },
+          { code: 'SS-18', title: 'Power Outage / Brownout Procedure', anchor: '#ss-18' },
+          { code: 'SS-19', title: 'Flooding / Heavy Rain Response', anchor: '#ss-19' },
+          { code: 'SS-20', title: 'Post-Typhoon Damage Assessment', anchor: '#ss-20' },
+          { code: 'SS-21', title: 'Business Continuity Procedure', anchor: '#ss-21' },
+          { code: 'SS-22', title: 'Emergency Communication & Family Coordination', anchor: '#ss-22' },
+          { code: 'SS-23', title: 'Emergency Supplies & Generator Readiness', anchor: '#ss-23' },
+          { code: 'SS-24', title: 'Incident Report & Post-Incident Review', anchor: '#ss-24' }
+        ].map(sop => `
+          <a href="${sop.anchor}" 
+             class="block p-3 border rounded hover:bg-red-50 transition text-left group ${sop.code === 'SS-01' ? 'border-red-400 bg-red-50 font-semibold' : 'border-gray-200'}"
+             aria-label="${sop.title}">
+            <code class="text-red-700 font-bold text-sm block mb-1">${sop.code}</code>
+            <span class="text-gray-700 group-hover:text-red-800 text-sm truncate">${sop.title}</span>
+          </a>
+        `).join('')}
+      </div>
+    </nav>
+
+    <!-- SOP Content -->
+    <div class="space-y-6">
+
+${[
+  {
+    title: 'SS-01',
+    name: 'Hotel Emergency Response System',
+    obj: 'To establish an Incident Command System (ICS) and emergency classification framework that directs resort personnel during critical threats, natural disasters, fires, medical crises, or security incidents to safeguard life, property, and business continuity.',
+    roles: 'Incident Commander (IC): General Manager or highest-ranking Duty Manager on shift. Safety & Security Officer: Manages immediate tactical response and physical perimeter control. Front Office Supervisor: Coordinates guest communications, headcounts, and external authority contacts. Chief Engineer / Maintenance Lead: Manages utility isolation, emergency power, and structural integrity checks.',
+    steps: 'Emergency Level Classification: Level 1 (Minor/Localized): Isolated event manageable by shift staff. Level 2 (Moderate/Escalated): Requires multi-departmental coordination and potential local municipal assistance. Level 3 (Major/Critical Emergency): Severe threat to life or property requiring total resort response and full activation of municipal disaster agencies. ICS Activation: Upon escalation to Level 2 or Level 3, the IC declares ICS activation via two-way radio Channel 1. Command Center established at Front Desk Office (Primary) or Executive Office (Secondary). Role Assignment & Execution: IC delegates operational roles. Log & Timeline Keeping: IC designates a log keeper to document all decisions.',
+    local: 'Gamay Provincial Infrastructure Realities: Medical and fire response times in Gamay, Northern Samar may extend past standard urban benchmarks due to geographical distance and road conditions. The hotel must operate as a self-sufficient emergency unit for at least 2-4 hours before major provincial assistance arrives.',
+    qa: 'ICS Command Center fully operable within 10 minutes of emergency escalation. Radio Channel 1 clear and dedicated exclusively to Emergency Command. Master emergency log initiated and maintained continuously during the event. Target Metric: 100% staff role clarity during drills; zero response delays due to command confusion.'
+  },
+  {
+    title: 'SS-02',
+    name: 'Fire Prevention & Fire Safety',
+    obj: 'To maintain rigid fire prevention standards, inspect fire suppression hardware, enforce safe LPG and electrical handling, and conduct regular maintenance to eliminate fire risks across all 30 rooms, restaurant kitchen, function hall, and maintenance facilities.',
+    roles: 'Safety Officer / Chief Engineer: Oversees fire safety compliance, extinguisher servicing, and alarm testing. Head Chef: Enforces kitchen fire safety, grease trap cleaning, and LPG shutoff routines. Housekeeping Supervisor: Ensures emergency hallways, fire doors, and stairwells remain unobstructed.',
+    steps: 'Monthly Fire Extinguisher Audit: Inspect all ABC Dry Chemical, CO2, and Wet Chemical (K-Class) fire extinguishers across the property. Check pressure gauge (needle must remain strictly in the green zone). Verify safety pin and tamper seal are intact. Kitchen Fire Safety Protocols: Kitchen wet chemical suppression system above commercial stoves inspected semi-annually. Exhaust hood filters cleaned weekly. Electrical Fire Hazard Audits: Daily check of utility panels for loose wiring, burning odors, or tripping breakers. Quarterly Fire Alarm & Smoke Detector Testing: Test optical smoke detectors quarterly.',
+    local: 'Coastal Corrosion on Fire Equipment: Salt air in Gamay corrodes fire extinguisher nozzles and steel brackets. Coat metal brackets with anti-corrosion grease quarterly and replace rusted safety pins immediately.',
+    qa: '100% of fire extinguishers inspected, pressurized, and signed monthly. Kitchen exhaust hoods deep-cleaned weekly without fail. LPG safety shut-off valve verified closed every night at F&B close. Target Metric: Zero fire incidents; 100% pass rate on Bureau of Fire Protection (BFP Gamay) inspections.'
+  },
+  {
+    title: 'SS-03',
+    name: 'Fire Alarm Response',
+    obj: 'To define the rapid, step-by-step verification and response procedure upon activation of the main Fire Alarm Control Panel (FACP) to prevent panic, identify false alarms, or initiate immediate fire suppression and evacuation.',
+    roles: 'Front Desk Agent: Monitors Fire Alarm Control Panel (FACP) and dispatches floor response. Duty Security Officer / Duty Technician: Proceeds immediately to indicated zone for physical verification. Duty Manager: Takes overall command of response and decides on building evacuation.',
+    steps: 'FACP Signal Triggered: Front Desk Agent notes time and zone, silences panel buzzer locally, but DOES NOT reset the system. Immediate Physical Verification (Target Time: <2 mins): Front Desk dispatches Duty Security and Duty Tech via radio. Condition Assessment & Reporting: Case A (FALSE ALARM) - Security reports Code Green - False Alarm. Case B (REAL FIRE) - Security shouts warning, attempts initial suppression. Code Red Alarm Activation: Front Desk Agent immediately hits General Building Evacuation Siren on FACP and dials BFP Gamay Emergency Line.',
+    local: 'Samar Humidity & False Alarms: High humidity or sea mist can occasionally trigger sensitive smoke detectors. Staff must execute physical verification rapidly (<120 seconds) before triggering full resort panic, while treating every alarm as a real fire until proven otherwise.',
+    qa: 'Zone verification completed on-site within 2 minutes of panel alarm. Master FACP never reset prior to physical site confirmation. BFP Gamay emergency speed-dial functional at Front Desk. Target Metric: 100% compliance with the 2-minute verification rule; zero unverified panel resets.'
+  },
+  {
+    title: 'SS-04',
+    name: 'Fire Evacuation Procedure',
+    obj: 'To execute a swift, orderly, and complete evacuation of all hotel guests, staff, and visitors during an active fire or major life-safety threat using the R.A.C.E. protocol.',
+    roles: 'Incident Commander (GM/Duty Manager): Directs total building evacuation and liaises with BFP Gamay. Floor Evacuation Wardens (Housekeeping / Security): Sweeps hallways, guest rooms, and public areas. Front Desk Agent: Retrieves Master Guest In-House List, key cards, and emergency mobile phone. Assembly Area Coordinator: Conducts guest headcount at designated assembly zone.',
+    steps: 'Evacuation Declaration: General Evacuation Siren sounded continuous pattern. Emergency Voice Announcement made over public address system. Execute R.A.C.E. Protocol: Rescue - Guide guests in immediate danger to safety. Alarm - Ensure FACP general alarm is active and BFP Gamay called. Contain - Close all guest room doors and corridor fire doors. Evacuate - Direct everyone to exterior exit routes. NEVER USE ELEVATORS. Floor Wardens Room Sweep: Knock loudly, unlock every room on assigned corridor. Assembly Area Headcount: Direct all evacuees to Assembly Area A (Main Garden Lawn near Entry Gate).',
+    local: 'Power Outage During Fire: Fires frequently trip main circuit breakers or damage wiring. Backup battery emergency exit lights automatically illuminate exit routes for 30-60 minutes. Floor wardens must carry heavy-duty LED flashlights attached to their duty belts at all times.',
+    qa: 'PMS active guest list printed or accessed digitally within 3 minutes of evacuation signal. Complete building floor sweep completed in <5 minutes. Headcount accounting completed at assembly area within 10 minutes. Target Metric: 100% guest and staff safety accounting; zero structural entrapment.'
+  },
+]}.join('\\n')

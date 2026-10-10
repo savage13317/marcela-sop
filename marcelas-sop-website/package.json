@@ -1,0 +1,14 @@
+{
+  "name": "marcelas-resort-sop-website",
+  "version": "1.0.0",
+  "description": "SOPs & Staffing documentation website for Marcela's Resort Hotel",
+  "scripts": {
+    "dev": "echo 'Static site - no build server needed'",
+    "build": "echo 'Site is static HTML - just commit changes'",
+    "deploy": "git add . && git commit -m \"Update SOPs\" && git push origin main"
+  },
+  "dependencies": {
+    "fuse.js": "^7.0.0",
+    "@tailwindcss/forms": "^0.5.7"
+  }
+}

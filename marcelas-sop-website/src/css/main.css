@@ -1,0 +1,184 @@
+/* Marcela's Resort SOP Website - Custom Styles */
+
+/* Typography & Base Styles */
+:root {
+  --primary-indigo: #4F46E5;
+  --emergency-red: #DC2626;
+  --success-green: #10B981;
+  --warning-amber: #F59E0B;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+};
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+};
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-indigo);
+  border-radius: 4px;
+};
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3730a3;
+};
+
+/* SOP Card Animations */
+.sop-card {
+  transition: all 0.3s ease;
+};
+
+.sop-card:hover {
+  transform: translateY(-2px);
+};
+
+.sop-card.expandable {
+  max-height: 200px;  /* Collapsed height */
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+};
+
+.sop-card.expandable.expanded {
+  max-height: 2000px;  /* Expanded to show all content */
+  overflow: visible;
+  transition: max-height 0.5s ease-in;
+};
+
+/* Emergency Access Button Pulse Animation */
+@keyframes pulse-red {
+  0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(220, 38, 38, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+};
+
+.emergency-button {
+  animation: pulse-red 2s infinite;
+};
+
+/* Print Styles - WCAG Compliant */
+@media print {
+  /* Hide navigation, header, footer */
+  nav, footer, .emergency-button, button, input[type="checkbox"] {
+    display: none !important;
+  };
+
+  /* Make content print-friendly */
+  body {
+    background: white !important;
+    color: black !important;
+  };
+
+  .sop-card {
+    page-break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    margin: 1rem 0;
+  };
+
+  /* Break after each SOP */
+  .sop-card + .sop-card {
+    page-break-before: auto;
+  };
+
+  /* Optimize for monochrome printing */
+  :root {
+    --primary-indigo: #000;
+  };
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  header nav .navigation-tabs {
+    flex-direction: column;
+    width: 100%;
+  };
+
+  .sop-card-header {
+    font-size: 0.9rem;
+  };
+
+  /* Stack SOP cards on mobile */
+  .sop-card {
+    margin-bottom: 1rem;
+  };
+}
+
+/* Accessibility - Focus States */
+*:focus-visible {
+  outline: 3px solid var(--primary-indigo);
+  outline-offset: 2px;
+};
+
+/* Reduce Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  };
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #1f2937;
+    color: #e5e7eb;
+  };
+
+  .sop-card {
+    background: #374151;
+    border-color: #4b5563;
+  };
+
+  header nav {
+    background: #111827;
+  };
+}
+
+/* Loading States */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+};
+
+/* Emergency Overlay (for critical offline mode) */
+.emergency-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(220, 38, 38, 0.95);
+  color: white;
+  display: none;
+  z-index: 100;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+};
+
+.emergency-overlay.active {
+  display: flex;
+};
+
+/* Localized Context Highlight */
+.localized-context {
+  border-left: 4px solid var(--warning-amber);
+  background: linear-gradient(90deg, rgba(251, 191, 36, 0.1) 0%, transparent 100%);
+};
+
+/* QA Checklist Checkbox Styling */
+input[type="checkbox"] {
+  accent-color: var(--success-green);
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked + span::before {
+  content: "✓ ";
+  color: var(--success-green);
+  font-weight: bold;
+}

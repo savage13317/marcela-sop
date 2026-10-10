@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 03: Food & Beverage Operations - Marcela's Resort Hotel</title>
+  <link rel="manifest" href="/pwa/manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/main.css">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/pwa/sw.js');
+    }
+  </script>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-indigo-700 text-white shadow-md sticky top-0 z-40">
+    <nav class="container mx-auto px-4 py-3">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <a href="/" class="text-xl font-bold hover:text-indigo-200 transition-colors">
+          <i class="fa-solid fa-hotel mr-2"></i>Marcela's Resort Hotel
+        </a>
+        <div class="flex gap-2 flex-wrap justify-center">
+          <a href="/" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Home</a>
+          <a href="/sops/01_front_office.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold hover:bg-indigo-600 transition">Front Office (FO)</a>
+          <a href="/sops/03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold text-yellow-300 hover:bg-indigo-600 transition">Food & Beverage (FB)</a>
+          <a href="#staffing" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Staffing</a>
+        </div>
+        <div class="flex items-center gap-2 w-full md:w-auto">
+          <input type="search" id="searchInput" placeholder="Search SOPs..." class="w-full md:w-64 px-3 py-2 rounded text-sm focus:outline-none focus:ring-2 focus:ring-indigo-400" aria-label="Search SOPs">
+          <button onclick="window.dispatchEvent(new Event('search'))" class="px-3 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="flex-grow container mx-auto px-4 py-6">
+    
+    <!-- Module Header -->
+    <div class="bg-gradient-to-r from-emerald-50 to-green-50 rounded-lg shadow-sm p-6 mb-6 border-l-4 border-emerald-600">
+      <h1 class="text-3xl font-bold text-emerald-900 mb-2"><i class="fa-solid fa-utensils mr-3"></i>Module 03: Food & Beverage Operations</h1>
+      <p class="text-gray-700">SOPs for restaurant operations, kitchen procedures, food safety, beverage service, room dining, and F&B management</p>
+    </div>
+
+    <!-- SOP Cards -->
+    <div class="space-y-4" id="sop-container">
+      
+<!-- SOP-FB-01 -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-emerald-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-emerald-700 font-bold text-sm mr-2">FB-01</code>
+      <span class="text-gray-800 font-medium text-lg">Restaurant Opening Procedure</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-emerald-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-emerald-600 hover:bg-emerald-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-emerald-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-emerald-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To ensure the resort restaurant opens punctually, in immaculate condition, and fully prepared for breakfast and dining operations. Applies to all F&B service staff and kitchen opening personnel.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>F&B Supervisor</strong>, Morning Waitstaff, Morning Line Cook.</li>
+        <li><strong>Secondary:</strong> Duty Manager, Security Officer (key release).</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li>
+          <p><strong>Punctual Arrival & Key Retrieval:</strong></p>
+          <ul class="list-disc list-inside mt-2 text-gray-600 text-xs bg-white p-2 rounded space-y-1">
+            <li>Arrive 45 minutes prior to opening (e.g., 05:45 AM for 06:30 AM breakfast opening).</li>
+            <li>Sign out the restaurant and kitchen keys from the Front Desk key log.</li>
+          </ul>
+        </li>
+        <li>
+          <p><strong>Facility Activation & Lighting:</strong></p>
+          <ul class="list-disc list-inside mt-2 text-gray-600 text-xs bg-white p-2 rounded space-y-1">
+            <li>Disarm restaurant security/alarm if applicable.</li>
+            <li>Turn on main dining room lights, exterior ambient lighting, and ceiling fans.</li>
+            <li>Set air conditioning units to 22°C–24°C in enclosed dining areas.</li>
+          </ul>
+        </li>
+        <li>
+          <p><strong>Environment & Pest Sweep:</strong></p>
+          <ul class="list-disc list-inside mt-2 text-gray-600 text-xs bg-white p-2 rounded space-y-1">
+            <li>Inspect indoor and terrace dining areas for overnight pest activity or humidity condensation.</li>
+            <li>Wipe down all dining tables, chairs, and service stations with food-safe sanitizer.</li>
+          </ul>
+        </li>
+        <li>
+          <p><strong>Mise en Place & Station Preparation:</strong></p>
+          <ul class="list-disc list-inside mt-2 text-gray-600 text-xs bg-white p-2 rounded space-y-1">
+            <li>Verify all table setups are clean, aligned, and fully stocked (salt/pepper shakers, napkin caddies, table tents).</li>
+            <li>Check POS terminal: power on, test receipt printing paper, verify offline buffer status.</li>
+            <li>Prepare welcome station, water pitchers, and complimentary breakfast buffet/alacarte setup.</li>
+          </ul>
+        </li>
+        <li>
+          <p><strong>Kitchen Briefing & Alignment:</strong></p>
+          <ul class="list-disc list-inside mt-2 text-gray-600 text-xs bg-white p-2 rounded space-y-1">
+            <li>Conduct a 5-minute pre-shift briefing with kitchen staff to discuss daily specials, room occupancy count, expected breakfast influx, and 86'd items.</li>
+          </ul>
+        </li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Coastal humidity in Gamay causes salt shakers to clump overnight. Add rice grains to salt shakers daily and wipe condiment bottles clean of moisture. Morning sea breezes can bring flying insects; verify electronic insect lights are activated away from direct dining lines.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">Doors Open</td><td class="py-1">Exactly at scheduled opening time (06:30 AM)</td><td class="py-1">F&B Supervisor</td></tr>
+          <tr class="border-b"><td class="py-1">Dining Cleanliness</td><td class="py-1">100% dust/insect-free tables and seating</td><td class="py-1">Waitstaff</td></tr>
+          <tr class="border-b"><td class="py-1">POS Readiness</td><td class="py-1">Power on, float logged, paper roll loaded</td><td class="py-1">Cashier/Server</td></tr>
+          <tr><td class="py-1">Pre-Shift Briefing</td><td class="py-1">Completed daily prior to opening</td><td class="py-1">F&B Supervisor</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+
+<!-- SOP-FB-02 -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-emerald-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-emerald-700 font-bold text-sm mr-2">FB-02</code>
+      <span class="text-gray-800 font-medium text-lg">Restaurant Closing Procedure</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-emerald-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-emerald-600 hover:bg-emerald-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-emerald-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-emerald-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To safely shut down the restaurant dining area and kitchen, secure perishables, reconcile daily cash/sales, and prevent fire or pest hazards overnight.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>F&B Supervisor</strong>, Closing Waitstaff, Closing Line Cook, F&B Cashier.</li>
+        <li><strong>Secondary:</strong> Security Guard on duty.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>Last Call & Service Wind-down:</strong> Announce last call for food orders 30 minutes before closing. Gently inform remaining dining guests of closing hours.</li>
+        <li><strong>Dining Area Breakdown:</strong> Clear all dirty dishes, glassware, and condiments from tables. Store tabletop condiments in sealed food storage containers overnight.</li>
+        <li><strong>POS & Cash Reconciliation:</strong> Print POS End-of-Day (Z-Reading) report. Count cash float and total daily cash receipts; reconcile against POS totals.</li>
+        <li><strong>Kitchen & Utility Shutdown:</strong> Verify all kitchen gas lines, griddles, ovens, and fryers are turned off. Secure all perishable food items in cold storage.</li>
+        <li><strong>Security & Final Exit:</strong> Turn off AC units, dining lights, exhaust fans, and audio systems. Keep security night lights on. Lock all exterior glass doors, terrace gates, and kitchen service doors.</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Typhoon-prone rainy nights in Samar can flood exterior patios; store all loose patio seat cushions inside the main dining hall before locking up. Tropical humidity encourages ants and rodents; zero food debris or unwashed dishware may remain overnight.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">Gas & Power Lines</td><td class="py-1">100% shut off (except cold storage)</td><td class="py-1">Closing Line Cook</td></tr>
+          <tr class="border-b"><td class="py-1">Cash Drop</td><td class="py-1">Zero discrepancy between POS and physical cash drop</td><td class="py-1">F&B Cashier</td></tr>
+          <tr><td class="py-1">Physical Security</td><td class="py-1">All doors, windows, and gates double-locked</td><td class="py-1">F&B Supervisor</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+<!-- SOP-FB-02 -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-emerald-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-emerald-700 font-bold text-sm mr-2">FB-02</code>
+      <span class="text-gray-800 font-medium text-lg">Restaurant Closing Procedure</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-emerald-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-emerald-600 hover:bg-emerald-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-emerald-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-emerald-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To safely shut down the restaurant dining area and kitchen, secure perishables, reconcile daily cash/sales, and prevent fire or pest hazards overnight.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>F&B Supervisor</strong>, Closing Waitstaff, Closing Line Cook, F&B Cashier.</li>
+        <li><strong>Secondary:</strong> Security Guard on duty.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>Last Call & Service Wind-down:</strong> Announce last call for food orders 30 minutes before closing. Gently inform remaining dining guests of closing hours.</li>
+        <li><strong>Dining Area Breakdown:</strong> Clear all dirty dishes, glassware, and condiments from tables. Store tabletop condiments in sealed food storage containers overnight.</li>
+        <li><strong>POS & Cash Reconciliation:</strong> Print POS End-of-Day (Z-Reading) report. Count cash float and total daily cash receipts; reconcile against POS totals.</li>
+        <li><strong>Kitchen & Utility Shutdown:</strong> Verify all kitchen gas lines, griddles, ovens, and fryers are turned off. Secure all perishable food items in cold storage.</li>
+        <li><strong>Security & Final Exit:</strong> Turn off AC units, dining lights, exhaust fans, and audio systems. Keep security night lights on. Lock all exterior glass doors, terrace gates, and kitchen service doors.</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Typhoon-prone rainy nights in Samar can flood exterior patios; store all loose patio seat cushions inside the main dining hall before locking up. Tropical humidity encourages ants and rodents; zero food debris or unwashed dishware may remain overnight.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">Gas & Power Lines</td><td class="py-1">100% shut off (except cold storage)</td><td class="py-1">Closing Line Cook</td></tr>
+          <tr class="border-b"><td class="py-1">Cash Drop</td><td class="py-1">Zero discrepancy between POS and physical cash drop</td><td class="py-1">F&B Cashier</td></tr>
+          <tr><td class="py-1">Physical Security</td><td class="py-1">All doors, windows, and gates double-locked</td><td class="py-1">F&B Supervisor</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+
+<!-- SOP-FB-03 -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-emerald-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-emerald-700 font-bold text-sm mr-2">FB-03</code>
+      <span class="text-gray-800 font-medium text-lg">Table Setup & Mise en Place</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-emerald-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-emerald-600 hover:bg-emerald-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-emerald-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-emerald-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To standardize dining table arrangements, cutlery, glassware, and service station preparations to present a clean, high-standard boutique dining experience.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>Waitstaff</strong>, Busser.</li>
+        <li><strong>Secondary:</strong> F&B Supervisor.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>Table Cleanliness Check:</strong> Inspect dining table legs for stability; level table feet if wobbly. Clean table surface with sanitized cloth; ensure zero water spots or grease streaks.</li>
+        <li><strong>Standard Breakfast Cover Setup:</strong> Place clean placemat centered 1 inch from table edge. Dinner fork on the left; dinner knife on the right (cutting edge facing inward). Water goblet placed at the tip of the knife. Coffee cup and saucer placed on the right side of the knife with spoon on saucer.</li>
+        <li><strong>Lunch & Dinner Cover Setup:</strong> Replace coffee cup setup with polished wine glass or additional water goblet. Add folded cloth napkin (or high-grade folded paper napkin) centered on placemat.</li>
+        <li><strong>Service Station Stocking (Mise en Place):</strong> Replenish service station drawers with polished cutlery wrapped in clean trays. Stock folded napkins, toothpick holders, condiments, extra water pitchers, and bill folders.</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Local resort guests frequently request native Samar dipping sauces (sinamak vinegar with calamansi and chili). Ensure service stations always have fresh sinamak cruets prepared daily. High minerals in local municipal water leave spots; all washed glassware and cutlery must be hand-polished using micro-fiber cloths and warm water vapor before setting on tables.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">Cutlery Alignment</td><td class="py-1">Parallel, 1 inch from table edge</td><td class="py-1">Waitstaff</td></tr>
+          <tr class="border-b"><td class="py-1">Glassware Hygiene</td><td class="py-1">Zero fingerprints, water spots, or chips</td><td class="py-1">Waitstaff</td></tr>
+          <tr><td class="py-1">Station Readiness</td><td class="py-1">100% stocked prior to shift start</td><td class="py-1">F&B Supervisor</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+-->
+
+<!-- SOP-FB-04 -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-emerald-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-emerald-700 font-bold text-sm mr-2">FB-04</code>
+      <span class="text-gray-800 font-medium text-lg">Guest Seating & Greeting</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-emerald-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-emerald-600 hover:bg-emerald-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-emerald-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-emerald-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To warmly welcome guests into Marcela's Resort Restaurant within 15 seconds of arrival, delivering authentic Waray/Filipino hospitality while managing dining flow.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>Host/Hostess</strong>, Waitstaff.</li>
+        <li><strong>Secondary:</strong> F&B Supervisor.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>Immediate Greeting:</strong> Greet guests within 15 seconds of approaching the restaurant entrance. Offer a warm smile, eye contact, and standard greeting: "Maupay nga adlaw / Good day! Welcome to Marcela's. How many are in your party today?"</li>
+        <li><strong>Table Assignment & Escort:</strong> Inquire about seating preferences (e.g., indoor air-conditioned, poolside terrace, shaded garden). Lead guests to their table at a comfortable pace. Do not walk far ahead of them. Assist guests with seating by pulling out chairs (priority for elderly, pregnant guests, and small children).</li>
+        <li><strong>Menu Presentation:</strong> Present clean, physical menus open to the first page (or direct to digital QR code menu if preferred).</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Waray hospitality greeting (Maupay nga adlaw) should be used consistently with all local and visiting guests.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">Greeting Speed</td><td class="py-1">Within 15 seconds of arrival</td><td class="py-1">Host/Hostess</td></tr>
+          <tr class="border-b"><td class="py-1">Service Attire</td><td class="py-1">Professional appearance, name tag visible</td><td class="py-1">F&B Supervisor</td></tr>
+          <tr><td class="py-1">Seating Preference</td><td class="py-1">Accommodated per guest request</td><td class="py-1">Host/Hostess</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+<!-- SOP-FB-05: ORDER TAKING PROCEDURE -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-yellow-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-yellow-700 font-bold text-sm mr-2">FB-05</code>
+      <span class="text-gray-800 font-medium text-lg">Order Taking Procedure</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-yellow-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-yellow-600 hover:bg-yellow-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-cyan-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-cyan-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To take food and beverage orders accurately, provide knowledgeable menu suggestions, identify guest dietary restrictions, and ensure a seamless culinary experience.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>Waitstaff / Servers</strong></li>
+        <li><strong>F&B Supervisor</strong>, Head Chef.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>Timing & Readiness:</strong> Approach the table to take orders within 3 to 5 minutes after delivering menus or when guests close their menus. Stand upright, maintaining pleasant eye contact and open posture.</li>
+        <li><strong>Suggestive Selling & Upselling:</strong> Highlight daily fresh seafood catches (e.g., fresh lapu-lapu or local Gamay mud crabs) and resort specialties (e.g., Samar-style cooked seafood in coconut cream). Suggest an appetizer or signature drink to begin the meal.</li>
+        <li><strong>Recording the Order:</strong> Write down orders clearly on the server order pad using standard seat numbering (Seat 1 starts closest to server's left, going clockwise). Record specific preferences: spice level, meat temperatures, ice preference, or allergen warnings (e.g., shellfish, peanut allergies).</li>
+        <li><strong>Order Confirmation:</strong> Read back the complete order to the guest to ensure absolute accuracy: *"To confirm, Sir, we have one Sinigang na Lapu-Lapu, one Crispy Pata, and two iced teas with light ice. Is that correct?"*</li>
+        <li><strong>Menu Retrieval:</strong> Collect physical menus unless guests request to keep one.</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Fresh seafood availability depends on local Gamay fishing yields. Servers must know exactly what fresh catch arrived that morning before taking orders. Local Samar cuisine often balances rich coconut and chili (sili). Always ask domestic and foreign tourists their preferred chili heat and sourness level for local dishes.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">Read-back accuracy</td><td class="py-1">100% order read-back completed</td><td class="py-1">Waitstaff</td></tr>
+          <tr class="border-b"><td class="py-1">Allergen inquiry</td><td class="py-1">Mandatory check for dietary restrictions</td><td class="py-1">Waitstaff</td></tr>
+          <tr><td class="py-1">Service timing</td><td class="py-1 font-semibold text-green-700">Order taken within 5 minutes of seating</td><td class="py-1">F&B Supervisor</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+
+<!-- SOP-FB-06: POS ORDER ENTRY -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-yellow-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-yellow-700 font-bold text-sm mr-2">FB-06</code>
+      <span class="text-gray-800 font-medium text-lg">POS Order Entry</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-yellow-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-yellow-600 hover:bg-yellow-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-cyan-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-cyan-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To ensure accurate, instant transmission of guest orders from the dining hall to the kitchen and bar POS printers, eliminating order delays and billing errors.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>Waitstaff</strong>, F&B Cashier.</li>
+        <li><strong>F&B Supervisor</strong>, System Administrator.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>Immediate POS Logging:</strong> Log into the Point of Sale (POS) system immediately upon leaving the guest table (within 2 minutes of order taking).</li>
+        <li><strong>Table & Covers Selection:</strong> Select correct Table Number and input exact headcount (number of covers).</li>
+        <li><strong>Item Selection & Modifiers:</strong> Input ordered food and beverage items under correct categories. Select mandatory modifiers: doneness, cooking preference, side dish choice, and special notes (e.g., "NO MSG", "ALLERGY: SHELLFISH", "DRESSING ON SIDE").</li>
+        <li><strong>Send / Firing Order:</strong> Verify order items on screen against manual order pad. Press `SEND` to dispatch Kitchen Order Tickets (KOT) to kitchen printers and Bar Order Tickets (BOT) to bar printers.</li>
+        <li><strong>KOT Verification & Physical Check:</strong> Visually verify that the kitchen/bar receipt printers successfully print ticket slips. If paper jam or error occurs, verbally alert kitchen hot line immediately.</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">During brief provincial power switches or generator cut-overs, POS network may drop momentarily. Servers must check offline syncing status. If POS system fails, switch instantly to triplicate manual receipt books and manually hand tickets to the kitchen line.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">Entry delay</td><td class="py-1">Maximum 2 minutes between table order and POS send</td><td class="py-1">Waitstaff</td></tr>
+          <tr class="border-b"><td class="py-1">Ticket accuracy</td><td class="py-1 font-semibold text-green-700">Zero discrepancies between guest order and POS items</td><td class="py-1">Cashier/Server</td></tr>
+          <tr><td class="py-1">Manual ticket log</td><td class="py-1">Fully operational paper tickets ready for brownout use</td><td class="py-1">F&B Supervisor</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+
+<!-- SOP-FB-07: FOOD PREPARATION STANDARDS -->
+<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+  <div class="p-4 bg-yellow-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+    <div>
+      <code class="text-yellow-700 font-bold text-sm mr-2">FB-07</code>
+      <span class="text-gray-800 font-medium text-lg">Food Preparation Standards</span>
+    </div>
+    <i class="fa-solid fa-chevron-down text-yellow-600 transform group-hover:rotate-180 transition-transform"></i>
+  </div>
+  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-yellow-600 hover:bg-yellow-50 rounded ml-4 mt-2">▼ Show Details</button>
+  <div class="sop-details hidden p-4 space-y-3 border-t">
+    
+    <div class="bg-gray-50 p-4 rounded border-l-4 border-cyan-600">
+      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-cyan-600"></i>Objective & Scope</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">To establish uniform culinary preparation, recipe adherence, hygiene, and cooking safety for all dishes produced in Marcela's kitchen.</p>
+    </div>
+
+    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+        <li><strong>Head Chef</strong>, Sous Chef, Line Cooks.</li>
+        <li><strong>Kitchen Stewards</strong>.</li>
+      </ul>
+    </div>
+
+    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+        <li><strong>Recipe & Prep Standard Adherence:</strong> All dishes must strictly follow Marcela's standardized recipe cards (exact yields, ingredient measurements, and cooking times).</li>
+        <li><strong>Sanitary Prep Area Setup:</strong> Clean and sanitize stainless steel prep tables prior to starting prep work. Use color-coded cutting boards: RED (raw red meat), YELLOW (raw poultry), BLUE (raw seafood/fish), GREEN (fruits & vegetables), WHITE (ready-to-eat / cooked foods / dairy).</li>
+        <li><strong>Thawing & Defrosting:</strong> Thaw frozen meats in refrigerator (2°C–4°C) 24 hours in advance. Never thaw meat at ambient room temperature or in standing unheated water.</li>
+        <li><strong>Core Internal Temperature Cooking Standards:</strong> Cook all protein items to safe internal temperatures verified via probe thermometer: Poultry 74°C (165°F) for 15 seconds, Pork / Ground Meat 70°C (158°F) for 15 seconds, Seafood / Fish 63°C (145°F) for 15 seconds.</li>
+        <li><strong>Holding Temperatures:</strong> Hot food held above 60°C (140°F); cold food held below 4°C (40°F).</li>
+      </ol>
+    </div>
+
+    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+      <p class="text-gray-700 whitespace-pre-wrap">Local Gamay seafood must be cleaned, descaled, and gutted immediately upon morning delivery. Store on crushed ice inside cold storage until prep to prevent rapid decomposition in ambient tropical warmth.</p>
+    </div>
+
+    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+      <table class="w-full text-sm">
+        <thead>
+          <tr class="border-b">
+            <th class="py-1">QA Item</th>
+            <th class="py-1">Standard / Metric</th>
+            <th class="py-1">Verified By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b"><td class="py-1">Recipe compliance</td><td class="py-1">100% adherence to standard taste/weight</td><td class="py-1">Head Chef</td></tr>
+          <tr class="border-b"><td class="py-1">Cross-contamination</td><td class="py-1 font-semibold text-green-700">Zero misuse of color-coded cutting boards</td><td class="py-1">Sous Chef</td></tr>
+          <tr><td class="py-1">Cooking temps</td><td class="py-1">100% compliance with internal target temperatures</td><td class="py-1">Line Cook</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</article>
+
+<!-- Continue SOPs pattern ... -->
+
+    </div>
+
+  </main>
+
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-300 py-6 mt-auto">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2026 Marcela's Resort Hotel, Gamay, Northern Samar</p>
+      <p class="text-sm mt-1"><a href="/sops/06_safety_typhoon.html" class="text-red-400 hover:text-red-300"><i class="fa-solid fa-triangle-exclamation mr-1"></i>Emergency Procedures</a></p>
+      <div class="flex justify-center gap-4 mt-4 text-sm">
+        <span><i class="fa-solid fa-wifi mr-1"></i>Starlink Primary</span>
+        <span><i class="fa-solid fa-signal mr-1"></i>4G LTE Backup</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+</body>
+</html>

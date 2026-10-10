@@ -1,727 +1,310 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 06: Safety & Typhoon Preparedness - SOPs</title>
+  <title>Module 06: Safety & Typhoon Preparedness - Marcela's Resort Hotel</title>
+  <link rel="manifest" href="/pwa/manifest.json">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="../css/main.css">
-  <style>
-    .sop-card { transition: all 0.3s ease; }
-    .sop-details { animation: slideIn 0.3s ease-out; }
-    @keyframes slideIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
+  <link rel="stylesheet" href="/css/main.css">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/pwa/sw.js');
     }
-  </style>
+  </script>
 </head>
-<body class="bg-gray-50 min-h-screen flex flex-col">
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
 
   <!-- Header -->
-  <header class="bg-blue-800 text-white py-6 shadow-lg sticky top-0 z-10">
-    <div class="container mx-auto px-4">
-      <h1 class="text-2xl font-bold flex items-center gap-3">
-        <i class="fa-solid fa-shield-halved"></i> Module 06: Safety & Typhoon Preparedness
-      </h1>
-      <p class="text-blue-200 mt-2 text-sm"><span class="font-semibold">CRITICAL PRIORITY</span> Emergency procedures cached for offline access</p>
-    </div>
+  <header class="bg-indigo-700 text-white shadow-md sticky top-0 z-40">
+    <nav class="container mx-auto px-4 py-3">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <a href="/" class="text-xl font-bold hover:text-indigo-200 transition-colors">
+          <i class="fa-solid fa-hotel mr-2"></i>Marcela's Resort Hotel
+        </a>
+        <div class="flex gap-2 flex-wrap justify-center font-medium text-sm" id="moduleNav">
+          <a href="/" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Home</a>
+          <a href="01_front_office.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Front Office (FO)</a>
+          <a href="02_housekeeping.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-broom mr-1"></i>Housekeeping (HK)</a>
+          <a href="03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Food & Beverage (FB)</a>
+          <a href="04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Function Hall (FH)</a>
+          <a href="05_facilities_pool.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Facilities & Pool (FM)</a>
+          <a href="06_safety_typhoon_final.html" class="px-4 py-2 bg-indigo-800 rounded text-red-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-shield-halved mr-1"></i>Safety (S)</a>
+          <a href="07_hr_admin.html" class="px-4 py-2 bg-indigo-800 rounded text-purple-300 hover:bg-indigo-600 transition">HR & Admin (HR)</a>
+          <a href="08_digital_maintenance.html" class="px-4 py-2 bg-indigo-800 rounded text-cyan-300 hover:bg-indigo-600 transition">Digital Systems (DS)</a>
+        </div>
+      </div>
+    </nav>
   </header>
 
-  <!-- Navigation Grid -->
+  <!-- Page Highlight Script -->
+  <script>
+    (function() {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const navLinks = document.querySelectorAll('#moduleNav a');
+      
+      navLinks.forEach(link => {
+        link.classList.remove('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
+        link.classList.add('bg-indigo-800', 'hover:bg-indigo-600');
+        
+        if (link.getAttribute('href') === currentPage) {
+          link.classList.add('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
+          link.classList.remove('bg-indigo-800', 'hover:bg-indigo-600');
+        }
+      });
+    })();
+  </script>
+
   <main class="flex-grow container mx-auto px-4 py-6">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+    
+    <!-- Module Header -->
+    <div class="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg shadow-sm p-6 mb-6 border-l-4 border-indigo-600">
+      <h1 class="text-3xl font-bold text-indigo-900 mb-2"><i class="fa-solid fa-user-tie mr-3"></i>Module 06: Safety & Typhoon Preparedness</h1>
+      <p class="text-gray-700 text-base">SOPs for front desk operations, guest reservations, check-in/out procedures, and guest services[cite: 11]</p>
+    </div>
+
+    <!-- SOP Cards -->
+    <div class="space-y-4" id="sop-container">
       
-      <!-- SOP-SS-01 -->
-      <a href="#sop-ss-01" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Hotel Emergency Response System</span>
+      <!-- SOP-FO-01 -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-01</code>
+            <span class="text-gray-900 font-semibold text-lg">Front Desk Opening Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
+          </div>
         </div>
-      </a>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Establish operational readiness for the Front Desk prior to peak guest traffic, ensuring accounting accuracy, physical cleanliness, system synchronization, and local infrastructure preparedness for the day[cite: 11].</p>
+          </div>
 
-      <!-- SOP-SS-02 -->
-      <a href="#sop-ss-02" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Fire Prevention & Fire Safety</span>
-        </div>
-      </a>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Front Office Associate</strong> (Morning Shift)[cite: 11]</li>
+              <li><strong>Duty Supervisor</strong>[cite: 11]</li>
+            </ul>
+          </div>
 
-      <!-- SOP-SS-03 -->
-      <a href="#sop-ss-03" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Fire Alarm Response</span>
-        </div>
-      </a>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <p><strong>Physical Readiness & Security:</strong>[cite: 11]</p>
+                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
+                  <li>Arrive 15 minutes before the scheduled shift (05:45 AM for a 06:00 AM start)[cite: 11].</li>
+                  <li>Unlock the main Front Office drawer/counter and inspect the lobby, reception desk, and guest seating areas for cleanliness and safety[cite: 11].</li>
+                  <li>Turn on lobby lights, air conditioning, and guest display screens[cite: 11].</li>
+                </ul>
+              </li>
+              <li>
+                <p><strong>System & Terminal Startup:</strong>[cite: 11]</p>
+                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
+                  <li>Power on the Property Management System (PMS) terminal, point-of-sale (POS) card terminals, and receipt printers[cite: 11].</li>
+                  <li>Log into the PMS using personal staff credentials[cite: 11].</li>
+                </ul>
+              </li>
+              <li>
+                <p><strong>Cash Float Verification:</strong>[cite: 11]</p>
+                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
+                  <li>Retrieve the shift cash drawer/float from the Front Office safe in the presence of the outgoing Night Auditor or Duty Supervisor[cite: 11].</li>
+                  <li>Count and verify the standard opening float (â‚±10,000 in mixed denominations)[cite: 11].</li>
+                  <li>Sign the Cash Float Logbook detailing denomination counts and variance notes (if any)[cite: 11].</li>
+                </ul>
+              </li>
+              <li>
+                <p><strong>Information Review & Handover Audit:</strong>[cite: 11]</p>
+                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
+                  <li>Review the Night Audit Handover Log, unhandled guest requests from the previous night, and pending maintenance tickets[cite: 11].</li>
+                  <li>Print or generate digital daily reports: Arrivals List, Departures List, In-House Guest List, and Housekeeping Status Report[cite: 11].</li>
+                </ul>
+              </li>
+              <li>
+                <p><strong>Local Infrastructure & Power Check:</strong>[cite: 11]</p>
+                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
+                  <li>Verify grid power status (SAMELCO I). Confirm that the Automatic Transfer Switch (ATS) and standby generator unit are set to auto-start mode[cite: 11].</li>
+                  <li>Check local internet connectivity (primary and backup satellite/LTE connections) and test landlines[cite: 11].</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
 
-      <!-- SOP-SS-04 -->
-      <a href="#sop-ss-04" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Fire Evacuation Procedure</span>
-        </div>
-      </a>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Given Gamay's coastal provincial location, morning high humidity can affect electronic terminals. Ensure counter surfaces and card reader terminals are wiped dry. Keep physical backup printouts of daily arrival lists in the emergency binder to handle potential local grid power interruptions or internet lag[cite: 11].</p>
+          </div>
 
-      <!-- SOP-SS-05 -->
-      <a href="#sop-ss-05" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Emergency Exit & Assembly Area</span>
-        </div>
-      </a>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="space-y-1 text-gray-700 text-sm">
+              <li class="flex items-start gap-2">
+                <input type="checkbox" id="qc-fo01-1" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
+                <label for="qc-fo01-1" class="cursor-pointer select-none">Cash float counted, verified, and logged by 06:00 AM[cite: 11].</label>
+              </li>
+              <li class="flex items-start gap-2">
+                <input type="checkbox" id="qc-fo01-2" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
+                <label for="qc-fo01-2" class="cursor-pointer select-none">Daily arrival/departure/in-house reports printed/saved[cite: 11].</label>
+              </li>
+              <li class="flex items-start gap-2">
+                <input type="checkbox" id="qc-fo01-3" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
+                <label for="qc-fo01-3" class="cursor-pointer select-none">Generator status and internet connectivity verified[cite: 11].</label>
+              </li>
+              <li class="flex items-start gap-2 font-semibold text-green-700">
+                Front desk and lobby neatness score: 100%[cite: 11].
+              </li>
+            </ul>
+          </div>
 
-      <!-- SOP-SS-06 -->
-      <a href="#sop-ss-06" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">First Aid & Medical Emergency</span>
         </div>
-      </a>
+      </article>
 
-      <!-- SOP-SS-07 -->
-      <a href="#sop-ss-07" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Guest Accident / Injury Reporting</span>
+      <!-- SOP-FO-02 -->
+      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-02</code>
+            <span class="text-gray-900 font-semibold text-lg">Guest Reservation Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
+          </div>
         </div>
-      </a>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Standardize intake for direct and indirect room bookings across telephone, walk-in inquiries, messaging platforms, and online travel agencies (OTAs) while optimizing room yield and rate integrity[cite: 11].</p>
+          </div>
 
-      <!-- SOP-SS-08 -->
-      <a href="#sop-ss-08" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Drowning / Pool Emergency</span>
-        </div>
-      </a>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Reservations Clerk</strong>[cite: 11]</li>
+              <li><strong>Front Office Associate</strong>[cite: 11]</li>
+            </ul>
+          </div>
 
-      <!-- SOP-SS-09 -->
-      <a href="#sop-ss-09" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Missing Guest / Person Procedure</span>
-        </div>
-      </a>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <p><strong>Inquiry Intake & Greetings:</strong>[cite: 11]</p>
+                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
+                  <li>Answer incoming calls within three (3) rings: "Warm greetings from Marcela's Resort Hotel Gamay! This is [Name], how may I assist your stay today?"[cite: 11]</li>
+                  <li>Capture caller details: full name, contact number, email, and preferred communication channel[cite: 11].</li>
+                </ul>
+              </li>
+              <li>
+                <p><strong>Needs Analysis & Availability Verification:</strong>[cite: 11]</p>
+                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
+                  <li>Identify travel dates, number of guests, room preference, and special requirements[cite: 11].</li>
+                  <li>Check room availability on the PMS calendar for requested dates[cite: 11].</li>
+                </ul>
+              </li>
+              <li>
+                <p><strong>Rate Quote & Inventory Management:</strong>[cite: 11]</p>
+                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
+                  <li>Quote Published Rates, Seasonal Rates, or Corporate Rates following property structures[cite: 11].</li>
+                  <li>Detail inclusions clearly (breakfast allocation, pool access, taxes)[cite: 11].</li>
+                </ul>
+              </li>
+              <li>
+                <p><strong>Booking Capture in PMS:</strong>[cite: 11]</p>
+                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
+                  <li>Create a new reservation record in the PMS with complete guest data and booking source tags[cite: 11].</li>
+                </ul>
+              </li>
+              <li>
+                <p><strong>Payment Guarantee & Deposit Terms:</strong>[cite: 11]</p>
+                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
+                  <li>Inform guest of deposit policy (50% initial deposit required within 48 hours for regular season; 100% advance payment for peak holidays)[cite: 11].</li>
+                  <li>Provide accepted options: Bank Transfer (BDO/Landbank), GCash, Maya, or Credit Card link[cite: 11].</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
 
-      <!-- SOP-SS-10 -->
-      <a href="#sop-ss-10" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Suspicious Person / Security Incident</span>
-        </div>
-      </a>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Guests traveling to Gamay often face travel delays due to weather conditions along the Pacific board, ferry crossing delays, or provincial road conditions. Always ask for expected modes of arrival to estimate realistic arrival times[cite: 11].</p>
+          </div>
 
-      <!-- SOP-SS-11 -->
-      <a href="#sop-ss-11" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Theft / Property Loss Investigation</span>
-        </div>
-      </a>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="space-y-1 text-gray-700 text-sm">
+              <li class="flex items-start gap-2">
+                <input type="checkbox" id="qc-fo02-1" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
+                <label for="qc-fo02-1" class="cursor-pointer select-none">100% accurate data entry into PMS (zero misspelled names or mismatched contact numbers)[cite: 11].</label>
+              </li>
+              <li class="flex items-start gap-2">
+                <input type="checkbox" id="qc-fo02-2" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
+                <label for="qc-fo02-2" class="cursor-pointer select-none">Payment terms clearly communicated and logged in reservation notes[cite: 11].</label>
+              </li>
+              <li class="flex items-start gap-2 font-semibold text-green-700">
+                Call answered within 3 rings[cite: 11].
+              </li>
+            </ul>
+          </div>
 
-      <!-- SOP-SS-12 -->
-      <a href="#sop-ss-12" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">CCTV Monitoring & Security</span>
         </div>
-      </a>
-
-      <!-- SOP-SS-13 -->
-      <a href="#sop-ss-13" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Emergency Contact Directory</span>
-        </div>
-      </a>
-
-      <!-- SOP-SS-14 -->
-      <a href="#sop-ss-14" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Disaster Incident Command</span>
-        </div>
-      </a>
-
-      <!-- SOP-SS-15 -->
-      <a href="#sop-ss-15" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Typhoon Monitoring & Alert Levels</span>
-        </div>
-      </a>
-
-      <!-- SOP-SS-16 -->
-      <a href="#sop-ss-16" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Pre-Typhoon Property Preparation</span>
-        </div>
-      </a>
-
-      <!-- SOP-SS-17 -->
-      <a href="#sop-ss-17" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Typhoon Guest Safety Procedure</span>
-        </div>
-      </a>
-
-      <!-- SOP-SS-18 -->
-      <a href="#sop-ss-18" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Power Outage / Brownout Procedure</span>
-        </div>
-      </a>
-
-      <!-- SOP-SS-19 -->
-      <a href="#sop-ss-19" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Flooding / Heavy Rain Response</span>
-        </div>
-      </a>
-
-      <!-- SOP-SS-20 -->
-      <a href="#sop-ss-20" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Post-Typhoon Damage Assessment</span>
-        </div>
-      </a>
-
-      <!-- SOP-SS-21 -->
-      <a href="#sop-ss-21" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Business Continuity Procedure</span>
-        </div>
-      </a>
-
-      <!-- SOP-SS-22 -->
-      <a href="#sop-ss-22" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Emergency Communication & Family Coordination</span>
-        </div>
-      </a>
-
-      <!-- SOP-SS-23 -->
-      <a href="#sop-ss-23" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Emergency Supplies & Generator Readiness</span>
-        </div>
-      </a>
-
-      <!-- SOP-SS-24 -->
-      <a href="#sop-ss-24" class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4 sop-card">
-        <div class="flex items-center justify-between">
-          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
-          <span class="font-medium text-gray-800 line-clamp-2">Incident Report & Post-Incident Review</span>
-        </div>
-      </a>
+      </article>
 
     </div>
 
-    <!-- SOP Details Section -->
-    <div id="sop-details" class="space-y-6 mt-8">
-      
-      <!-- ========================= -->
-      <!-- SS-01: Hotel Emergency Response System -->
-      <!-- ========================= -->
-      <article id="sop-ss-01" class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden sop-card">
-        <div class="p-4 bg-gradient-to-r from-blue-600 to-blue-700 cursor-pointer hover:from-blue-700 hover:to-blue-800 transition" onclick="toggleSopDetails('sop-ss-01')">
-          <h3 class="font-semibold text-white text-lg"><i class="fa-solid fa-file-shield mr-2"></i>Safety Emergency Procedure</h3>
-          <div class="text-blue-100 text-sm mt-1">Click to expand details</div>
-        </div>
-
-        <div class="sop-details hidden p-4 space-y-4 border-t">
-          
-          <!-- Objective & Scope -->
-          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-bullseye mr-2"></i>1. Objective & Scope</h3>
-            <div class="text-gray-700 whitespace-pre-wrap">To establish an Incident Command System (ICS) and emergency classification framework that directs resort personnel during critical threats, natural disasters, fires, medical crises, or security incidents to safeguard life, property, and business continuity.</div>
-          </div>
-
-          <!-- Responsible Staff Roles -->
-          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-users mr-2"></i>2. Responsible Staff Roles</h3>
-            <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
-              <li><strong>Incident Commander (IC):</strong> General Manager or highest-ranking Duty Manager on shift.</li>
-              <li><strong>Safety & Security Officer:</strong> Manages immediate tactical response and physical perimeter control.</li>
-              <li><strong>Front Office Supervisor:</strong> Coordinates guest communications, headcounts, and external authority contacts.</li>
-              <li><strong>Chief Engineer / Maintenance Lead:</strong> Manages utility isolation, emergency power, and structural integrity checks.</li>
-            </ul>
-          </div>
-
-          <!-- Execution Procedure -->
-          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-list-check mr-2"></i>3. Step-by-Step Execution Procedure</h3>
-            <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700">
-              <li><strong>Emergency Level Classification:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li><em>Level 1 (Minor / Localized):</em> Isolated event manageable by shift staff (e.g., minor pipe leak, localized small fire quickly extinguished, minor guest injury).</li>
-                  <li><em>Level 2 (Moderate / Escalated):</em> Requires multi-departmental coordination and potential local municipal assistance (e.g., localized structural damage, grid power blackout exceeding 4 hours, severe medical emergency, active intruder).</li>
-                  <li><em>Level 3 (Major / Critical Emergency):</em> Severe threat to life or property requiring total resort response and full activation of municipal disaster agencies (e.g., Signal #3+ Typhoon, uncontrolled fire, structural failure, drowning).</li>
-                </ul>
-              </li>
-              <li><strong>Incident Command System (ICS) Activation:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>Upon escalation to Level 2 or Level 3, the IC declares ICS activation via two-way radio Channel 1.</li>
-                  <li>Command Center established at the Front Desk Office (Primary) or Executive Office (Secondary).</li>
-                </ul>
-              </li>
-              <li><strong>Role Assignment & Execution:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>IC delegates operational roles: Security (Perimeter/Access), Engineering (Utilities/Safety), Front Office (Guest Accounting), F&B (Emergency Rations).</li>
-                </ul>
-              </li>
-              <li><strong>Log & Timeline Keeping:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>IC designates a log keeper to document all decisions, authority calls, timeline events, and casualty/injury reports in real time.</li>
-                </ul>
-              </li>
-            </ol>
-          </div>
-
-          <!-- Localized Context -->
-          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-map-location-dot mr-2"></i>4. Localized Context</h3>
-            <div class="text-gray-700 whitespace-pre-wrap"><strong>Gamay Provincial Infrastructure Realities:</strong> Medical and fire response times in Gamay, Northern Samar may extend past standard urban benchmarks due to geographical distance and road conditions. The hotel must operate as a self-sufficient emergency unit for at least 2 - 4 hours before major provincial assistance arrives.</div>
-          </div>
-
-          <!-- QA Checklist -->
-          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-clipboard-check mr-2"></i>5. Quality Assurance Checklist & Metrics</h3>
-            <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
-              <li>[ ] ICS Command Center fully operable within 10 minutes of emergency escalation.</li>
-              <li>[ ] Radio Channel 1 clear and dedicated exclusively to Emergency Command.</li>
-              <li>[ ] Master emergency log initiated and maintained continuously during the event.</li>
-              <li><strong>Target Metric:</strong> 100% staff role clarity during drills; zero response delays due to command confusion.</li>
-            </ul>
-          </div>
-
-        </div>
-      </article>
-
-      <!-- ========================= -->
-      <!-- SS-02: Fire Prevention & Fire Safety -->
-      <!-- ========================= -->
-      <article id="sop-ss-02" class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden sop-card">
-        <div class="p-4 bg-gradient-to-r from-blue-600 to-blue-700 cursor-pointer hover:from-blue-700 hover:to-blue-800 transition" onclick="toggleSopDetails('sop-ss-02')">
-          <h3 class="font-semibold text-white text-lg"><i class="fa-solid fa-file-shield mr-2"></i>Safety Emergency Procedure</h3>
-          <div class="text-blue-100 text-sm mt-1">Click to expand details</div>
-        </div>
-
-        <div class="sop-details hidden p-4 space-y-4 border-t">
-          
-          <!-- Objective & Scope -->
-          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-bullseye mr-2"></i>1. Objective & Scope</h3>
-            <div class="text-gray-700 whitespace-pre-wrap">To maintain rigid fire prevention standards, inspect fire suppression hardware, enforce safe LPG and electrical handling, and conduct regular maintenance to eliminate fire risks across all 30 rooms, restaurant kitchen, function hall, and maintenance facilities.</div>
-          </div>
-
-          <!-- Responsible Staff Roles -->
-          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-users mr-2"></i>2. Responsible Staff Roles</h3>
-            <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
-              <li><strong>Safety Officer / Chief Engineer:</strong> Oversees fire safety compliance, extinguisher servicing, and alarm testing.</li>
-              <li><strong>Head Chef:</strong> Enforces kitchen fire safety, grease trap cleaning, and LPG shutoff routines.</li>
-              <li><strong>Housekeeping Supervisor:</strong> Ensures emergency hallways, fire doors, and stairwells remain unobstructed.</li>
-            </ul>
-          </div>
-
-          <!-- Execution Procedure -->
-          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-list-check mr-2"></i>3. Step-by-Step Execution Procedure</h3>
-            <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700">
-              <li><strong>Monthly Fire Extinguisher Audit:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>Inspect all ABC Dry Chemical, CO₂, and Wet Chemical (K-Class) fire extinguishers across the property.</li>
-                  <li>Check pressure gauge (needle must remain strictly in the green zone).</li>
-                  <li>Verify safety pin and tamper seal are intact. Sign and date inspection tag.</li>
-                </ul>
-              </li>
-              <li><strong>Kitchen Fire Safety Protocols:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>Kitchen wet chemical suppression system above commercial stoves inspected semi-annually.</li>
-                  <li>Exhaust hood filters cleaned weekly to prevent heavy grease accumulation.</li>
-                  <li>LPG main supply line valves closed tightly every night post-kitchen closure.</li>
-                </ul>
-              </li>
-              <li><strong>Electrical Fire Hazard Audits:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>Daily check of utility panels for loose wiring, burning odors, or tripping breakers.</li>
-                  <li>Ban high-wattage guest appliances (e.g., portable electric stoves) not provided by the resort.</li>
-                </ul>
-              </li>
-              <li><strong>Quarterly Fire Alarm & Smoke Detector Testing:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>Test optical smoke detectors in guest rooms, hallways, and function hall quarterly using aerosol smoke testers.</li>
-                </ul>
-              </li>
-            </ol>
-          </div>
-
-          <!-- Localized Context -->
-          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-map-location-dot mr-2"></i>4. Localized Context</h3>
-            <div class="text-gray-700 whitespace-pre-wrap"><strong>Coastal Corrosion on Fire Equipment:</strong> Salt air in Gamay corrodes fire extinguisher nozzles and steel brackets. Coat metal brackets with anti-corrosion grease quarterly and replace rusted safety pins immediately.</div>
-          </div>
-
-          <!-- QA Checklist -->
-          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-clipboard-check mr-2"></i>5. Quality Assurance Checklist & Metrics</h3>
-            <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
-              <li>[ ] 100% of fire extinguishers inspected, pressurized, and signed monthly.</li>
-              <li>[ ] Kitchen exhaust hoods deep-cleaned weekly without fail.</li>
-              <li>[ ] LPG safety shut-off valve verified closed every night at F&B close.</li>
-              <li><strong>Target Metric:</strong> Zero fire incidents; 100% pass rate on Bureau of Fire Protection (BFP Gamay) inspections.</li>
-            </ul>
-          </div>
-
-        </div>
-      </article>
-
-      
-      <!-- ========================= -->
-      <!-- SS-03: Fire Alarm Response -->
-      <!-- ========================= -->
-      <article id="sop-ss-03" class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden sop-card">
-        <div class="p-4 bg-gradient-to-r from-blue-600 to-blue-700 cursor-pointer hover:from-blue-700 hover:to-blue-800 transition" onclick="toggleSopDetails('sop-ss-03')">
-          <h3 class="font-semibold text-white text-lg"><i class="fa-solid fa-file-shield mr-2"></i>Safety Emergency Procedure</h3>
-          <div class="text-blue-100 text-sm mt-1">Click to expand details</div>
-        </div>
-
-        <div class="sop-details hidden p-4 space-y-4 border-t">
-          
-          <!-- Objective & Scope -->
-          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-bullseye mr-2"></i>1. Objective & Scope</h3>
-            <div class="text-gray-700 whitespace-pre-wrap">To define the rapid, step-by-step verification and response procedure upon activation of the main Fire Alarm Control Panel (FACP) to prevent panic, identify false alarms, or initiate immediate fire suppression and evacuation.</div>
-          </div>
-
-          <!-- Responsible Staff Roles -->
-          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-users mr-2"></i>2. Responsible Staff Roles</h3>
-            <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
-              <li><strong>Front Desk Agent:</strong> Monitors Fire Alarm Control Panel (FACP) and dispatches floor response.</li>
-              <li><strong>Duty Security Officer / Duty Technician:</strong> Proceeds immediately to indicated zone for physical verification.</li>
-              <li><strong>Duty Manager:</strong> Takes overall command of response and decides on building evacuation.</li>
-            </ul>
-          </div>
-
-          <!-- Execution Procedure -->
-          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-list-check mr-2"></i>3. Step-by-Step Execution Procedure</h3>
-            <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700">
-              <li><strong>FACP Signal Triggered:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>Alarm horn sounds at Front Desk panel indicating specific zone (e.g., "Zone 3 - 2nd Floor Guest Corridor").</li>
-                  <li>Front Desk Agent notes time and zone, silences panel buzzer locally, but <strong>DOES NOT</strong> reset the system.</li>
-                </ul>
-              </li>
-              <li><strong>Immediate Physical Verification (Target Time: < 2 mins):</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>Front Desk dispatches Duty Security and Duty Tech via radio: "Security, verify Zone 3 immediately."</li>
-                  <li>Security runner proceeds to zone with primary ABC fire extinguisher and master access card.</li>
-                </ul>
-              </li>
-              <li><strong>Condition Assessment & Reporting:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li><em>Case A: FALSE ALARM (Dust, insect, steam):</em> Security reports "Code Green - False Alarm" back to Front Desk. Tech resets panel. Front Desk logs cause.</li>
-                  <li><em>Case B: REAL FIRE / UNCONTROLLED SMOKE:</em> Security shouts warning, attempts initial suppression using extinguisher if small (< 1 sq. meter). If fire spreads, security reports "CODE RED Zone 3" via radio.</li>
-                </ul>
-              </li>
-              <li><strong>Code Red Alarm Activation:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>Front Desk Agent immediately hits the General Building Evacuation Siren on FACP.</li>
-                  <li>Front Desk Agent dials BFP Gamay Emergency Line immediately.</li>
-                </ul>
-              </li>
-            </ol>
-          </div>
-
-          <!-- Localized Context -->
-          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-map-location-dot mr-2"></i>4. Localized Context</h3>
-            <div class="text-gray-700 whitespace-pre-wrap"><strong>Samar Humidity & False Alarms:</strong> High humidity or sea mist can occasionally trigger sensitive smoke detectors. Staff must execute physical verification rapidly (< 120 seconds) before triggering full resort panic, while treating every alarm as a real fire until proven otherwise.</div>
-          </div>
-
-          <!-- QA Checklist -->
-          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-clipboard-check mr-2"></i>5. Quality Assurance Checklist & Metrics</h3>
-            <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
-              <li>[ ] Zone verification completed on-site within 2 minutes of panel alarm.</li>
-              <li>[ ] Master FACP never reset prior to physical site confirmation.</li>
-              <li>[ ] BFP Gamay emergency speed-dial functional at Front Desk.</li>
-              <li><strong>Target Metric:</strong> 100% compliance with the 2-minute verification rule; zero unverified panel resets.</li>
-            </ul>
-          </div>
-
-        </div>
-      </article>
-
-      <!-- ========================= -->
-      <!-- SS-04: Fire Evacuation Procedure -->
-      <!-- ========================= -->
-      <article id="sop-ss-04" class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden sop-card">
-        <div class="p-4 bg-gradient-to-r from-blue-600 to-blue-700 cursor-pointer hover:from-blue-700 hover:to-blue-800 transition" onclick="toggleSopDetails('sop-ss-04')">
-          <h3 class="font-semibold text-white text-lg"><i class="fa-solid fa-file-shield mr-2"></i>Safety Emergency Procedure</h3>
-          <div class="text-blue-100 text-sm mt-1">Click to expand details</div>
-        </div>
-
-        <div class="sop-details hidden p-4 space-y-4 border-t">
-          
-          <!-- Objective & Scope -->
-          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-bullseye mr-2"></i>1. Objective & Scope</h3>
-            <div class="text-gray-700 whitespace-pre-wrap">To execute a swift, orderly, and complete evacuation of all hotel guests, staff, and visitors during an active fire or major life-safety threat using the R.A.C.E. protocol.</div>
-          </div>
-
-          <!-- Responsible Staff Roles -->
-          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-users mr-2"></i>2. Responsible Staff Roles</h3>
-            <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
-              <li><strong>Incident Commander (GM/Duty Manager):</strong> Directs total building evacuation and liaises with BFP Gamay.</li>
-              <li><strong>Floor Evacuation Wardens (Housekeeping / Security):</strong> Sweeps hallways, guest rooms, and public areas.</li>
-              <li><strong>Front Desk Agent:</strong> Retrieves Master Guest In-House List, key cards, and emergency mobile phone.</li>
-              <li><strong>Assembly Area Coordinator:</strong> Conducts guest headcount at designated assembly zone.</li>
-            </ul>
-          </div>
-
-          <!-- Execution Procedure -->
-          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-list-check mr-2"></i>3. Step-by-Step Execution Procedure</h3>
-            <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700">
-              <li><strong>Evacuation Declaration:</strong> General Evacuation Siren sounded continuous pattern. Emergency Voice Announcement made over public address system: "Attention all guests and staff: Please proceed calmly via the nearest exit to the main assembly area on the front lawn."</li>
-              <li><strong>Execute R.A.C.E. Protocol:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li><strong>R - Rescue:</strong> Guide guests in immediate danger to safety without putting staff lives at unreasonable risk.</li>
-                  <li><strong>A - Alarm:</strong> Ensure FACP general alarm is active and BFP Gamay called (911 / Local BFP).</li>
-                  <li><strong>C - Contain:</strong> Close all guest room doors and corridor fire doors behind evacuating persons to starve fire of oxygen.</li>
-                  <li><strong>E - Evacuate:</strong> Direct everyone to exterior exit routes. NEVER USE ELEVATORS.</li>
-                </ul>
-              </li>
-              <li><strong>Floor Wardens Room Sweep:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>Wardens knock loudly, unlock every room on assigned corridor: "Fire Alarm! Evacuate immediately!"</li>
-                  <li>Mark checked room doors with a designated evacuation tag or leave door wide open once verified empty.</li>
-                </ul>
-              </li>
-              <li><strong>Assembly Area Headcount:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>Direct all evacuees to Assembly Area A (Main Garden Lawn near Entry Gate).</li>
-                  <li>Front Desk Agent cross-checks evacuees against active PMS In-House Guest List and Staff Shift Roster.</li>
-                  <li>Report missing persons immediately to BFP Fire Ground Commander.</li>
-                </ul>
-              </li>
-            </ol>
-          </div>
-
-          <!-- Localized Context -->
-          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-map-location-dot mr-2"></i>4. Localized Context</h3>
-            <div class="text-gray-700 whitespace-pre-wrap"><strong>Power Outage During Fire:</strong> Fires frequently trip main circuit breakers or damage wiring. Backup battery emergency exit lights automatically illuminate exit routes for 30-60 minutes. Floor wardens must carry heavy-duty LED flashlights attached to their duty belts at all times.</div>
-          </div>
-
-          <!-- QA Checklist -->
-          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-clipboard-check mr-2"></i>5. Quality Assurance Checklist & Metrics</h3>
-            <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
-              <li>[ ] PMS active guest list printed or accessed digitally within 3 minutes of evacuation signal.</li>
-              <li>[ ] Complete building floor sweep completed in < 5 minutes.</li>
-              <li>[ ] Headcount accounting completed at assembly area within 10 minutes.</li>
-              <li><strong>Target Metric:</strong> 100% guest and staff safety accounting; zero structural entrapment.</li>
-            </ul>
-          </div>
-
-        </div>
-      </article>
-
-      <!-- ========================= -->
-      <!-- SS-05: Emergency Exit & Assembly Area -->
-      <!-- ========================= -->
-      <article id="sop-ss-05" class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden sop-card">
-        <div class="p-4 bg-gradient-to-r from-blue-600 to-blue-700 cursor-pointer hover:from-blue-700 hover:to-blue-800 transition" onclick="toggleSopDetails('sop-ss-05')">
-          <h3 class="font-semibold text-white text-lg"><i class="fa-solid fa-file-shield mr-2"></i>Safety Emergency Procedure</h3>
-          <div class="text-blue-100 text-sm mt-1">Click to expand details</div>
-        </div>
-
-        <div class="sop-details hidden p-4 space-y-4 border-t">
-          
-          <!-- Objective & Scope -->
-          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-bullseye mr-2"></i>1. Objective & Scope</h3>
-            <div class="text-gray-700 whitespace-pre-wrap">To ensure all structural emergency exits, escape corridors, stairwells, and primary outdoor assembly zones remain illuminated, clearly signed, unobstructed, and ready for immediate deployment 24/7.</div>
-          </div>
-
-          <!-- Responsible Staff Roles -->
-          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-users mr-2"></i>2. Responsible Staff Roles</h3>
-            <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
-              <li><strong>Safety Officer:</strong> Inspects exit hardware, emergency push bars, and signage illumination.</li>
-              <li><strong>Public Area Houseman:</strong> Ensures no furniture, linen carts, or boxes block exit pathways.</li>
-              <li><strong>Security Guard on Duty:</strong> Verifies exit doors are unlocked from the inside (panic hardware operational).</li>
-            </ul>
-          </div>
-
-          <!-- Execution Procedure -->
-          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-list-check mr-2"></i>3. Step-by-Step Execution Procedure</h3>
-            <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700">
-              <li><strong>Daily Pathway & Exit Door Inspections:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>Walk all emergency stairwells, corridors, and exterior exit gates daily at 07:00 AM.</li>
-                  <li>Verify panic push bars on secondary emergency exit doors open smoothly outwards with < 15 lbs of pressure.</li>
-                  <li>Ensure zero padlocks or chains are placed on emergency exit doors during operational hours.</li>
-                </ul>
-              </li>
-              <li><strong>Exit Signage & Emergency Lighting Standards:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>Photoluminescent or powered LED "EXIT / LABASAN" signs must remain lit continuously.</li>
-                  <li>Test battery backup exit light units monthly by pressing the test button; lights must remain illuminated for full 30-second test.</li>
-                </ul>
-              </li>
-              <li><strong>Assembly Zone Maintenance:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li><em>Assembly Area A (Primary):</em> Main Garden Lawn near Front Entrance Gate.</li>
-                  <li><em>Assembly Area B (Secondary / Tsunami Evacuation):</em> High-ground concrete structure / Function Hall 2nd Floor (if coastal storm surge or tsunami alert coincides).</li>
-                  <li>Keep assembly area signboards clean, unobstructed, and well-lit at night.</li>
-                </ul>
-              </li>
-            </ol>
-          </div>
-
-          <!-- Localized Context -->
-          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-map-location-dot mr-2"></i>4. Localized Context</h3>
-            <div class="text-gray-700 whitespace-pre-wrap"><strong>Tsunami / Storm Surge Coincidental Risk:</strong> Gamay is a coastal Samar municipality. If a fire or evacuation coincides with a strong offshore earthquake or marine surge alert, Assembly Area B (designated high ground / elevated structure) must be utilized instead of low-lying beach lawns.</div>
-          </div>
-
-          <!-- QA Checklist -->
-          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-clipboard-check mr-2"></i>5. Quality Assurance Checklist & Metrics</h3>
-            <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
-              <li>[ ] 100% of emergency exit doors unlocked from inside and opening freely.</li>
-              <li>[ ] Zero obstructions (linen carts, trash bins, maintenance ladders) in fire exits.</li>
-              <li>[ ] Emergency lights tested monthly and functional.</li>
-              <li><strong>Target Metric:</strong> Zero exit pathway safety violations during internal or external audits.</li>
-            </ul>
-          </div>
-
-        </div>
-      </article>
-
-      <!-- ========================= -->
-      <!-- SS-06: First Aid & Medical Emergency -->
-      <!-- ========================= -->
-      <article id="sop-ss-06" class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden sop-card">
-        <div class="p-4 bg-gradient-to-r from-blue-600 to-blue-700 cursor-pointer hover:from-blue-700 hover:to-blue-800 transition" onclick="toggleSopDetails('sop-ss-06')">
-          <h3 class="font-semibold text-white text-lg"><i class="fa-solid fa-file-shield mr-2"></i>Safety Emergency Procedure</h3>
-          <div class="text-blue-100 text-sm mt-1">Click to expand details</div>
-        </div>
-
-        <div class="sop-details hidden p-4 space-y-4 border-t">
-          
-          <!-- Objective & Scope -->
-          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-bullseye mr-2"></i>1. Objective & Scope</h3>
-            <div class="text-gray-700 whitespace-pre-wrap">To provide immediate, competent basic first aid assessment, life support stabilization, and medical referral for guests or staff experiencing sudden illness, trauma, or injury on resort grounds.</div>
-          </div>
-
-          <!-- Responsible Staff Roles -->
-          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-users mr-2"></i>2. Responsible Staff Roles</h3>
-            <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
-              <li><strong>Certified First Responder (Shift Staff / Security):</strong> Administers immediate basic first aid / CPR.</li>
-              <li><strong>Front Office Agent / Duty Manager:</strong> Coordinates emergency ambulance calls and guest medical transport.</li>
-              <li><strong>Safety Officer:</strong> Maintains first aid kits, AED equipment, and medical supply inventory.</li>
-            </ul>
-          </div>
-
-          <!-- Execution Procedure -->
-          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-list-check mr-2"></i>3. Step-by-Step Execution Procedure</h3>
-            <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700">
-              <li><strong>Initial Assessment (Scene Safety & Patient Status):</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>Ensure scene is safe to enter. Approach victim, check responsiveness (A-V-P-U: Alert, Verbal, Pain, Unresponsive).</li>
-                  <li>Call for back-up staff and retrieve First Aid Kit + Automated External Defibrillator (AED) from Front Desk.</li>
-                </ul>
-              </li>
-              <li><strong>First Aid Administration:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li><em>Minor Cut / Abrasion:</em> Clean wound with sterile saline solution, apply povidone-iodine, cover with sterile gauze and adhesive bandage.</li>
-                  <li><em>Heat Exhaustion / Fainting:</em> Move patient to cool shaded area, loosen tight clothing, elevate feet, offer oral rehydration salts (ORS) in small sips if conscious.</li>
-                  <li><em>Severe Trauma / Fractures:</em> Immobilize injured limb, apply direct pressure to heavy bleeding using thick sterile pads. DO NOT move patient with suspected spinal injury unless immediate life threat exists.</li>
-                </ul>
-              </li>
-              <li><strong>Medical Emergency Transport Escalation:</strong>
-                <ul class="ml-4 mt-1 space-y-1">
-                  <li>If patient exhibits severe symptoms (chest pain, breathing difficulty, deep unconsciousness, severe bleeding, stroke signs):</li>
-                  <li>Contact Gamay Rural Health Unit (RHU) / Municipal Health Office (MHO) immediately.</li>
-                  <li>Prepare resort emergency vehicle (or local municipal ambulance) for transport to Catarman Provincial Hospital for advanced trauma/cardiac care.</li>
-                </ul>
-              </li>
-              <li><strong>Medical Incident Documentation:</strong> Record patient name, room number, incident details, vital signs, first aid given, and transport destination in the Resort Medical Logbook.</li>
-            </ol>
-          </div>
-
-          <!-- Localized Context -->
-          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-map-location-dot mr-2"></i>4. Localized Context</h3>
-            <div class="text-gray-700 whitespace-pre-wrap"><strong>Transit Distance to Major Hospitals:</strong> Gamay RHU provides basic stabilization. Emergency transport to the primary tertiary hospital in Catarman, Northern Samar takes approximately 1.5 - 2 hours by ambulance. Early triage and prompt transport calls are vital for serious conditions.</div>
-          </div>
-
-          <!-- QA Checklist -->
-          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
-            <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-clipboard-check mr-2"></i>5. Quality Assurance Checklist & Metrics</h3>
-            <ul class="list-disc list-inside space-y-1 text-sm text-gray-700">
-              <li>[ ] First Aid kits stationed at Front Desk, Kitchen, Engineering, and Pool Deck fully stocked.</li>
-              <li>[ ] Expiration dates on medications, antiseptics, and burn gels audited monthly.</li>
-              <li>[ ] Shift team includes at least one active BLS/CPR certified staff member per shift.</li>
-              <li><strong>Target Metric:</strong> Emergency medical response initiated within < 3 minutes of notification.</li>
-            </ul>
-          </div>
-
-        </div>
-      </article>
-
-      <!-- ========================= -->
-      
-    </div>
-  
+  </main>
 
   <!-- Footer -->
   <footer class="bg-gray-800 text-gray-300 py-6 mt-auto">
     <div class="container mx-auto px-4 text-center">
-      <p class="text-sm"><i class="fa-solid fa-shield-halved mr-2"></i>Marcela's Resort Hotel - Safety First</p>
-      <p class="text-xs mt-1">Emergency procedures cached for offline access | Last Updated: October 2026</p>
+      <p>&copy; 2026 Marcela's Resort Hotel, Gamay, Northern Samar</p>
+      <p class="text-sm mt-1"><a href="06_safety_typhoon_final.html" class="text-red-400 hover:text-red-300"><i class="fa-solid fa-triangle-exclamation mr-1"></i>Emergency Procedures</a></p>
+      <div class="flex justify-center gap-4 mt-4 text-sm">
+        <span><i class="fa-solid fa-wifi mr-1"></i>Starlink Primary</span>
+        <span><i class="fa-solid fa-satellite-dish mr-1"></i>4G LTE Backup</span>
+      </div>
     </div>
   </footer>
 
-  <!-- JavaScript for SOP Toggle Functionality -->
   <script>
-    function toggleSopDetails(sopId) {
-      const details = document.querySelector(`#${sopId} .sop-details`);
+    function toggleSopDetails(header) {
+      const card = header.closest('.bg-white');
+      const details = card.querySelector('.sop-details');
+      const toggleBtn = card.querySelector('.toggle-btn');
+      
       if (details.classList.contains('hidden')) {
         details.classList.remove('hidden');
+        toggleBtn.classList.add('hidden');
+        header.innerHTML = `
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">${header.querySelector('code').textContent}</code>
+            <span class="text-gray-900 font-semibold text-lg">${header.querySelector('span').textContent}</span>
+          </div>
+          <i class="fa-solid fa-chevron-up text-indigo-600 transform"></i>
+        `;
       } else {
         details.classList.add('hidden');
+        toggleBtn.classList.remove('hidden');
+        header.innerHTML = `
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">${header.querySelector('code').textContent}</code>
+            <span class="text-gray-900 font-semibold text-lg">${header.querySelector('span').textContent}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
+          </div>
+        `;
       }
-    }
-    
-    // Auto-expand first card on page load
-    document.addEventListener('DOMContentLoaded', function() {
-      const firstCard = document.querySelector('#sop-ss-01 .bg-gradient-to-r');
-      if (firstCard) {
-        setTimeout(() => toggleSopDetails('sop-ss-01'), 500);
-      }
-    });
+    };
   </script>
 
 </body>

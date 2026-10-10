@@ -33,6 +33,24 @@
           <a href="08_digital_maintenance.html" class="px-4 py-2 bg-indigo-800 rounded font-semibold text-cyan-300 hover:bg-indigo-600 transition">Digital Systems (DS)</a>
         </div>
 
+    <!-- Page Highlight Script -->
+    <script>
+      (function() {
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        const navLinks = document.querySelectorAll('#moduleNav a');
+        
+        navLinks.forEach(link => {
+          link.classList.remove('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
+          link.classList.add('bg-indigo-800', 'hover:bg-indigo-600');
+          
+          if (currentPage && !currentPage.includes('#') && currentPage !== 'index.html' && currentPage !== '') {
+            link.classList.add('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
+            link.classList.remove('bg-indigo-800', 'hover:bg-indigo-600');
+          }
+        });
+      })();
+    </script>
+
   <main class="flex-grow container mx-auto px-4 py-6">
     <!-- Module Header -->
     <div class="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg shadow-sm p-6 mb-6 border-l-4 border-indigo-600">

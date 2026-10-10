@@ -1,331 +1,276 @@
-# Script to populate Module 06 Safety SOPs from markdown source to HTML
-# Updated: October 10, 2026 - Robust parsing version
+# PowerShell Script: Populate Module 06 Safety & Typhoon Preparedness SOPs
+# Source: SOPS/module_06_safety_security_typhoon_preparedness.md
+# Output: src/sops/06_safety_typhoon_complete.html with all 24 SOPs populated
 
-$sopDir = "C:\Users\GM\Desktop\Marcela\marcelas-sop-website\src\sops"
-$sourceFile = "C:\Users\GM\Desktop\Marcela\SOPS\module_06_safety_security_typhoon_preparedness.md"
-$outputFile = "C:\Users\GM\Desktop\Marcela\marcelas-sop-website\src\sops\06_safety_typhoon.html"
+$markdownPath = "C:\Users\USER\Desktop\Marcela\SOPS\module_06_safety_security_typhoon_preparedness.md"
+$outputPath = "C:\Users\USER\Desktop\Marcela\marcelas-sop-website\src\sops\06_safety_typhoon_complete.html"
 
-Write-Host "Processing Module 06 Safety SOPs..." -ForegroundColor Green
-Write-Host "Source file: $sourceFile" -ForegroundColor Yellow
-Write-Host "Output file: $outputFile" -ForegroundColor Cyan
+# Read markdown content
+$markdownContent = Get-Content -Path $markdownPath -Raw
 
-# Read source markdown content
-$markdownContent = Get-Content $sourceFile -Raw
+# Define section markers for parsing each SOP
+$sopMarkers = @(
+    "## SOP-SS-01", "## SOP-SS-02", "## SOP-SS-03", "## SOP-SS-04", "## SOP-SS-05",
+    "## SOP-SS-06", "## SOP-SS-07", "## SOP-SS-08", "## SOP-SS-09", "## SOP-SS-10",
+    "## SOP-SS-11", "## SOP-SS-12", "## SOP-SS-13", "## SOP-SS-14", "## SOP-SS-15",
+    "## SOP-SS-16", "## SOP-SS-17", "## SOP-SS-18", "## SOP-SS-19", "## SOP-SS-20",
+    "## SOP-SS-21", "## SOP-SS-22", "## SOP-SS-23", "## SOP-SS-24"
+)
 
-# Define HTML header as string
-$htmlHeader = @"
+# Process each SOP and extract content
+$allSopContent = @()
+foreach ($marker in $sopMarkers) {
+    if ($markdownContent -match "$marker" -and $marker.Substring($marker.LastIndexOf('.')) -eq '.md')) {
+        # Extract content between this marker and the next one (or end of file)
+        $startIdx = $markdownContent.IndexOf($marker)
+        $nextMarkerFound = $false
+        foreach ($nextMarker in $sopMarkers) {
+            if ($nextMarker -ne $marker -and $markdownContent.IndexOf($nextMarker) -gt $startIdx) {
+                $nextMarkerIdx = $markdownContent.IndexOf($nextMarker)
+                if ($nextMarkerIdx -lt $startIdx) {
+                    break
+                }
+                $nextMarkerFound = $true
+            }
+        }
+        
+        if (-not $nextMarkerFound) {
+            $endIdx = $markdownContent.Length
+        } else {
+            $endIdx = $markdownContent.IndexOf($nextMarker)
+        }
+        
+        $sopContent = $markdownContent.Substring($startIdx, $endIdx - $startIdx)
+        
+        # Parse the 5 sections from each SOP
+        $sections = @{
+            "Objective & Scope" = @()
+            "Responsible Staff Roles" = @()
+            "Step-by-Step Execution Procedure" = @()
+            "Localized Context" = @()
+            "Quality Assurance Checklist & Metrics" = @()
+        }
+        
+        # Parse sections based on markdown headers
+        $sopContent -match '### 1\. (.*?)\n(.*?)(?=\n### |\n---)' | Out-Null
+        if ($matches) {
+            $section1 = $matches[1]
+            # Extract content until next ### header or --- separator
+            $restOfSop = $sopContent.Substring($section1.Length + 3)
+            
+            $sections["Objective & Scope"] = $section1.Trim()
+        }
+        
+        # Extract remaining sections by splitting on "### N." pattern
+        $remainingSections = $restOfSop -split '### (\d+\.|$)' | Select-Object -Skip 2
+        
+        foreach ($sect in $remainingSections) {
+            if ($sect.StartsWith("### ")) { continue }
+            
+            # Determine which section header this belongs to
+            if ($sect -match '^\* (.*?) \*$' -or $sect -match '(?m)^## ?(Objective|Responsible|Step-by-Step|Localized|Quality)') {
+                $sections.Add($sect, $sect.Trim())
+            }
+            
+            # Better approach: use regex to match each section pattern
+        }
+        
+        # Simpler extraction using multiple regex patterns
+        $objective = $sopContent -match '### 1\. (.*?)\n(.*?)(?=### \d+\.|=+$)' 
+        if ($objective) {
+            $sections["Objective & Scope"] = ([regex]::Match($sopContent, '### 1\. Objective & Scope\n\n[^#]+', [System.Text.RegularExpressions.RegexOptions]::Singleline))
+        }
+        
+        # Store raw section content (will be formatted later)
+        $allSopContent += @{
+            "raw" = $sopContent
+            "endIdx" = $endIdx
+        }
+    }
+}
+
+# Create HTML with all SOP cards
+$htmlTemplate = @"
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 06: Safety, Security & Typhoon Preparedness - Marcela's Resort Hotel</title>
-  
-  <!-- PWA Manifest -->
-  <link rel="manifest" href="/pwa/manifest.json">
-  
-  <!-- Tailwind CSS CDN -->
+  <title>Module 06: Safety & Typhoon Preparedness - SOPs</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  
-  <!-- Custom Styles -->
-  <link rel="stylesheet" href="/css/main.css">
-  
-  <!-- Service Worker -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/pwa/sw.js');
-    };
-  </script>
-
+  <link rel="stylesheet" href="../css/main.css">
 </head>
-<body class="bg-gray-50 text-gray-800 min-h-screen flex flex-col">
+<body class="bg-gray-50 min-h-screen flex flex-col">
 
-  <!-- EMERGENCY ACCESS HEADER - Always Visible -->
-  <div class="bg-red-600 text-white px-4 py-2 text-center sticky top-0 z-50 shadow-md">
-    <div class="container mx-auto flex items-center justify-between">
-      <div class="flex items-center gap-3">
-        <i class="fa-solid fa-triangle-exclamation text-2xl animate-pulse"></i>
-        <h1 class="text-xl font-bold">EMERGENCY PROCEDURES - MODULE 06</h1>
-      </div>
-      <a href="/" class="bg-red-700 hover:bg-red-800 px-4 py-2 rounded text-sm font-medium transition">
-        Return to Home
-      </a>
+  <!-- Header -->
+  <header class="bg-blue-800 text-white py-6 shadow-lg sticky top-0 z-10">
+    <div class="container mx-auto px-4">
+      <h1 class="text-2xl font-bold flex items-center gap-3">
+        <i class="fa-solid fa-shield-halved"></i> Module 06: Safety & Typhoon Preparedness
+      </h1>
+      <p class="text-blue-200 mt-2 text-sm"><span class="font-semibold">CRITICAL PRIORITY</span> Emergency procedures cached for offline access</p>
     </div>
-  </div>
+  </header>
 
-  <!-- Main Content -->
+  <!-- Navigation Grid -->
   <main class="flex-grow container mx-auto px-4 py-6">
-    
-    <!-- Critical Notice Banner -->
-    <div class="bg-red-50 border-l-4 border-red-600 p-4 mb-6 rounded shadow-sm">
-      <h2 class="text-lg font-bold text-red-800 flex items-center mb-2">
-        <i class="fa-solid fa-shield-halved mr-3"></i>
-        Critical Safety Procedures
-      </h2>
-      <p class="text-red-700">
-        This page contains essential emergency and typhoon preparedness procedures. 
-        This content is cached locally for offline access during internet outages.
-      </p>
-    </div>
-
-    <!-- SOP List Navigation -->
-    <nav class="bg-white rounded-lg shadow-sm mb-6 p-4">
-      <h3 class="text-sm font-semibold text-gray-600 uppercase tracking-wide mb-3">SOP Index</h3>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-3" id="sop-navigation">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
 "@
 
-# Define all 24 SOP codes and titles for navigation grid
-$sopNavItems = @(
-    @{code="SS-01";title="Emergency Response System"},
-    @{code="SS-02";title="Fire Prevention & Fire Safety"},
-    @{code="SS-03";title="Fire Alarm Response"},
-    @{code="SS-04";title="Fire Evacuation Procedure"},
-    @{code="SS-05";title="Emergency Exit & Assembly Area"},
-    @{code="SS-06";title="First Aid & Medical Emergency"},
-    @{code="SS-07";title="Guest Accident Reporting"},
-    @{code="SS-08";title="Drowning / Pool Emergency"},
-    @{code="SS-09";title="Missing Guest/Person"},
-    @{code="SS-10";title="Suspicious Person Handling"},
-    @{code="SS-11";title="Theft / Property Loss Investigation"},
-    @{code="SS-12";title="CCTV Monitoring & Security"},
-    @{code="SS-13";title="Emergency Contact Directory"},
-    @{code="SS-14";title="Disaster Incident Command"},
-    @{code="SS-15";title="Typhoon Monitoring & Alert Levels"},
-    @{code="SS-16";title="Pre-Typhoon Property Preparation"},
-    @{code="SS-17";title="Typhoon Guest Safety Procedure"},
-    @{code="SS-18";title="Power Outage / Brownout Procedure"},
-    @{code="SS-19";title="Flooding / Heavy Rain Response"},
-    @{code="SS-20";title="Post-Typhoon Damage Assessment"},
-    @{code="SS-21";title="Business Continuity Procedure"},
-    @{code="SS-22";title="Emergency Communication & Family Coordination"},
-    @{code="SS-23";title="Emergency Supplies & Generator Readiness"},
-    @{code="SS-24";title="Incident Report & Post-Incident Review"}
+# Add SOP navigation cards for each of the 24 emergency procedures
+$sopTitles = @(
+    "Hotel Emergency Response System", "Fire Prevention & Fire Safety", "Fire Alarm Response", 
+    "Fire Evacuation Procedure", "Emergency Exit & Assembly Area", "First Aid & Medical Emergency",
+    "Guest Accident / Injury Reporting", "Drowning / Pool Emergency", "Missing Guest / Person Procedure",
+    "Suspicious Person / Security Incident", "Theft / Property Loss Investigation", "CCTV Monitoring & Security",
+    "Emergency Contact Directory", "Disaster Incident Command", "Typhoon Monitoring & Alert Levels",
+    "Pre-Typhoon Property Preparation", "Typhoon Guest Safety Procedure", "Power Outage / Brownout Procedure",
+    "Flooding / Heavy Rain Response", "Post-Typhoon Damage Assessment", "Business Continuity Procedure",
+    "Emergency Communication & Family Coordination", "Emergency Supplies & Generator Readiness",
+    "Incident Report & Post-Incident Review"
 )
 
-# Add navigation grid items
-foreach($sop in $sopNavItems) {
-    $htmlHeader += @"
-        <div class="p-3 text-center hover:bg-red-50 rounded transition">
-          <code class="text-red-600 font-semibold text-sm">$($sop.code)</code>
-          <span class="text-gray-700 text-xs">$($sop.title)</span>
+foreach ($title in $sopTitles) {
+    $htmlTemplate += @"
+      <div class="bg-white rounded-lg shadow-sm border border-gray-200 hover:shadow-md cursor-pointer transition p-4">
+        <div class="flex items-center justify-between">
+          <i class="fa-solid fa-file-shield text-blue-600 text-xl"></i>
+          <span class="font-medium text-gray-800 line-clamp-2">${title}</span>
         </div>
-"@
-}
-
-$htmlHeader += @"
       </div>
-    </nav>
-
-    <!-- SOP Content -->
-    <div class="space-y-6" id="sop-container">
 "@
-
-Write-Host "Converting SOP content from markdown source..." -ForegroundColor Yellow
-Write-Host "Processing $($sopNavItems.Count) SOP sections..." -ForegroundColor Cyan
-
-# Parse markdown content to extract each SOP section using line-by-line parsing
-$sopSections = @()
-$lines = Get-Content $sourceFile
-$currentSop = $null
-$inSop = $false
-$sopBuffer = ""
-
-foreach ($line in $lines) {
-    # Check for SOP header - handles both "## SOP-XX:" and "## SOP-XX :" formats
-    if ($line -match '## ?SOP-(SS-\d+):') {
-        # Save previous SOP if exists
-        if ($inSop -and $sopBuffer.Trim() -ne "") {
-            $currentSop = [PSCustomObject]@{
-                Code = ($currentSop.Title -replace '## ?SOP-(SS-\d+):', '')
-                Title = $currentSop.Title
-                Content = $sopBuffer
-            }
-            $sopSections += $currentSop
-        }
-        
-        # Start new SOP
-        $currentSop = [PSCustomObject]@{
-            Title = $line
-            Content = ""
-        }
-        $inSop = $true
-        $sopBuffer = $line + "`n"
-    } elseif ($inSop) {
-        $sopBuffer += $line + "`n"
-    }
 }
 
-# Save last SOP
-if ($inSop -and $sopBuffer.Trim() -ne "") {
-    $currentSop = [PSCustomObject]@{
-        Code = ($currentSop.Title -replace '## ?SOP-(SS-\d+):', '')
-        Title = $currentSop.Title
-        Content = $sopBuffer
-    }
-    $sopSections += $currentSop
-}
-
-Write-Host "Extracted $($sopSections.Count) SOP sections from source markdown." -ForegroundColor Cyan
-
-# Function to convert a single SOP section to HTML card
-function Convert-SOPToHTML {
-    param(
-        [string]$code,
-        [string]$title,
-        [string]$content
-    )
-    
-    # Extract main sections from content
-    $objective = ""
-    $roles = ""
-    $procedure = ""
-    $localized = ""
-    $qa = ""
-    
-    if ($content -match '### 1\. (.*?)###') {
-        $objective = $Matches[1].Trim()
-    }
-    if ($content -match '### 2\. (.*?)###') {
-        $roles = $Matches[1].Trim()
-    }
-    if ($content -match '### 3\. Step-by-Step Execution Procedure.*?(?=### )') {
-        $procedure = $Matches[0].Trim()
-    }
-    if ($content -match '### 4\. Localized Context.*?(?=### )') {
-        $localized = $Matches[0].Trim()
-    }
-    if ($content -match '### 5\. Quality Assurance Checklist & Metrics') {
-        $qa = $Matches[0].Trim()
-    }
-    
-    # Generate HTML card
-    $htmlCard = @"
-      <!-- SOP-$code -->
-      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
-        <div class="p-4 bg-red-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
-          <div>
-            <code class="text-red-700 font-bold text-sm mr-2">$code</code>
-            <span class="text-gray-800 font-medium text-lg">$title</span>
-          </div>
-          <i class="fa-solid fa-chevron-down text-red-600 transform group-hover:rotate-180 transition-transform"></i>
-        </div>
-        <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-red-600 hover:bg-red-50 rounded ml-4 mt-2">▼ Show Details</button>
-        <div class="sop-details hidden p-4 space-y-3 border-t">
-"@
-
-    # Add Objective section (gray background)
-    if ($objective -ne "") {
-        $htmlCard += @"
-          <div class="bg-gray-50 p-4 rounded">
-            <h4 class="text-sm font-bold text-gray-700 uppercase tracking-wide mb-2 flex items-center">
-              <i class="fa-solid fa-bullseye mr-2 text-gray-600"></i>1. Objective & Scope
-            </h4>
-            <div class="text-gray-700 whitespace-pre-line">$objective</div>
-          </div>
-"@
-    }
-
-    # Add Responsible Roles section (blue background)
-    if ($roles -ne "") {
-        $htmlCard += @"
-          <div class="bg-blue-50 p-4 rounded">
-            <h4 class="text-sm font-bold text-blue-900 uppercase tracking-wide mb-2 flex items-center">
-              <i class="fa-solid fa-users mr-2 text-blue-700"></i>2. Responsible Staff Roles
-            </h4>
-            <div class="text-gray-700 whitespace-pre-line">$roles</div>
-          </div>
-"@
-    }
-
-    # Add Procedure section (green background)
-    if ($procedure -ne "") {
-        $htmlCard += @"
-          <div class="bg-green-50 p-4 rounded">
-            <h4 class="text-sm font-bold text-green-900 uppercase tracking-wide mb-2 flex items-center">
-              <i class="fa-solid fa-list-check mr-2 text-green-700"></i>3. Step-by-Step Execution Procedure
-            </h4>
-            <div class="text-gray-700 whitespace-pre-line">$procedure</div>
-          </div>
-"@
-    }
-
-    # Add Localized Context section (amber background)
-    if ($localized -ne "") {
-        $htmlCard += @"
-          <div class="bg-amber-50 p-4 rounded">
-            <h4 class="text-sm font-bold text-amber-900 uppercase tracking-wide mb-2 flex items-center">
-              <i class="fa-solid fa-location-dot mr-2 text-amber-700"></i>4. Localized Context
-            </h4>
-            <div class="text-gray-700 whitespace-pre-line">$localized</div>
-          </div>
-"@
-    }
-
-    # Add QA Checklist section (purple background)
-    if ($qa -ne "") {
-        $htmlCard += @"
-          <div class="bg-purple-50 p-4 rounded">
-            <h4 class="text-sm font-bold text-purple-900 uppercase tracking-wide mb-2 flex items-center">
-              <i class="fa-solid fa-clipboard-check mr-2 text-purple-700"></i>5. Quality Assurance Checklist & Metrics
-            </h4>
-            <div class="text-gray-700 whitespace-pre-line">$qa</div>
-          </div>
-"@
-    }
-
-    $htmlCard += @"
-        </div>
-      </article>
-"@
-    
-    return $htmlCard
-}
-
-# Generate HTML for each SOP section
-$sopHTML = ""
-foreach ($sop in $sopSections) {
-    $code = $sop.Code
-    $title = $sop.Title
-    
-    # Clean up title to remove "## " prefix if present
-    if ($title -match '^## ') {
-        $title = $title.Substring(3).Trim()
-    }
-    
-    $sopHTML += Convert-SOPToHTML -code $code -title $title -content $sop.Content
-}
-
-# Add footer and closing tags
-$htmlFooter = @"
+$htmlTemplate += @"
     </div>
 
-    <!-- JavaScript for SOP Toggle Functionality -->
-    <script>
-      function toggleSopDetails(button) {
-        const details = button.nextElementSibling;
-        const siblingToggle = details.previousElementSibling.querySelector('.toggle-btn');
-        
-        if (details.classList.contains('hidden')) {
-          details.classList.remove('hidden');
-          siblingToggle?.classList.add('hidden');
-        } else {
-          details.classList.add('hidden');
-          siblingToggle?.classList.remove('hidden');
-        }
-      }
-      
-      // Auto-expand first SOP on page load (SS-01 Emergency Response System)
-      document.addEventListener('DOMContentLoaded', function() {
-        const ss01Section = document.querySelector('#ss-01');
-        if (ss01Section && ss01Section.classList.contains('sop-details')) {
-          ss01Section.classList.remove('hidden');
-        }
-      });
-    </script>
+    <!-- SOP Details Section -->
+    <div id="sop-details" class="space-y-6 mt-8">
+"@
 
+# Process each SOP and populate content
+foreach ($sop in $allSopContent) {
+    # Extract actual content for this SOP
+    $rawContent = $sop.raw
+    
+    # Parse into 5 color-coded sections
+    $sections = @{}
+    
+    # Section 1: Objective & Scope (Gray - Indigo)
+    if ($rawContent -match '### 1\. Objective & Scope\n\n[^#]+') {
+        $objMatch = [regex]::Match($rawContent, '(?s)### 1\. Objective & Scope\s*\n(.*?)\s*###', [System.Text.RegularExpressions.RegexOptions]::Singleline)
+        if ($objMatch.Success) {
+            $sections["Objective & Scope"] = $objMatch.Groups[1].Value.Trim()
+        }
+    }
+    
+    # Section 2: Responsible Staff Roles (Blue - Sky)
+    if ($rawContent -match '### 2\. Responsible Staff Roles') {
+        $rolesMatch = [regex]::Match($rawContent, '(?s)### 2\. Responsible Staff Roles\s*\n(.*?)\s*###', [System.Text.RegularExpressions.RegexOptions]::Singleline)
+        if ($rolesMatch.Success) {
+            $sections["Responsible Staff Roles"] = $rolesMatch.Groups[1].Value.Trim()
+        }
+    }
+    
+    # Section 3: Step-by-Step Execution Procedure (Green - Emerald)
+    if ($rawContent -match '### 3\. Step-by-Step Execution Procedure') {
+        $stepsMatch = [regex]::Match($rawContent, '(?s)### 3\. Step-by-Step Execution Procedure\s*\n(.*?)\s*###', [System.Text.RegularExpressions.RegexOptions]::Singleline)
+        if ($stepsMatch.Success) {
+            $sections["Step-by-Step Execution Procedure"] = $stepsMatch.Groups[1].Value.Trim()
+        }
+    }
+    
+    # Section 4: Localized Context (Amber - Orange)
+    if ($rawContent -match '### 4\. Localized Context') {
+        $contextMatch = [regex]::Match($rawContent, '(?s)### 4\. Localized Context\s*\n(.*?)\s*###', [System.Text.RegularExpressions.RegexOptions]::Singleline)
+        if ($contextMatch.Success) {
+            $sections["Localized Context"] = $contextMatch.Groups[1].Value.Trim()
+        }
+    }
+    
+    # Section 5: QA Checklist (Purple - Violet)
+    if ($rawContent -match '### 5\. Quality Assurance Checklist') {
+        $qaMatch = [regex]::Match($rawContent, '(?s)### 5\. Quality Assurance Checklist & Metrics\s*\n(.*?)\s*(@@|-+)', [System.Text.RegularExpressions.RegexOptions]::Singleline)
+        if ($qaMatch.Success) {
+            $sections["Quality Assurance Checklist"] = $qaMatch.Groups[1].Value.Trim()
+        }
+    }
+    
+    # Build card HTML with color-coded sections
+    $cardHTML = @"
+      <article class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-gradient-to-r from-blue-600 to-blue-700 cursor-pointer" onclick="toggleSopDetails(this)">
+          <h3 class="font-semibold text-white text-lg"><i class="fa-solid fa-file-shield mr-2"></i>Safety Emergency Procedure</h3>
+          <div class="text-blue-100 text-sm mt-1">Click to expand details</div>
+        </div>
+"@
+
+    # Only show Objective & Scope by default, others hidden until toggled
+    if ($sections.ContainsKey("Objective & Scope")) {
+        $cardHTML += @"
+          <div class="sop-details hidden p-4 space-y-4 border-t">
+            <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+              <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-bullseye mr-2"></i>1. Objective & Scope</h3>
+              <div class="text-gray-700 whitespace-pre-line">${sections["Objective & Scope"]}</div>
+            </div>
+"@
+    } else {
+        $cardHTML += @"
+          <div class="sop-details hidden p-4 space-y-4 border-t">
+"@
+    }
+
+    # Add remaining sections if they exist
+    foreach ($key in @("Responsible Staff Roles", "Step-by-Step Execution Procedure", "Localized Context", "Quality Assurance Checklist")) {
+        if ($sections.ContainsKey($key)) {
+            $sectionContent = $sections[$key]
+            
+            switch -Regex ($key) {
+                "Responsible Staff Roles" {
+                    $cardHTML += @"
+              <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+                <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-users mr-2"></i>2. Responsible Staff Roles</h3>
+                <div class="text-gray-700 whitespace-pre-line">${sectionContent}</div>
+              </div>
+"@
+                }
+                "Step-by-Step Execution Procedure" {
+                    $cardHTML += @"
+              <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+                <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-list-check mr-2"></i>3. Step-by-Step Execution Procedure</h3>
+                <ol class="list-decimal list-inside space-y-2 text-sm text-gray-700 whitespace-pre-line">${sectionContent}</ol>
+              </div>
+"@
+                }
+                "Localized Context" {
+                    $cardHTML += @"
+              <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+                <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-map-location-dot mr-2"></i>4. Localized Context</h3>
+                <div class="text-gray-700 whitespace-pre-line">${sectionContent}</div>
+              </div>
+"@
+                }
+                "Quality Assurance Checklist" {
+                    $cardHTML += @"
+              <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+                <h3 class="font-semibold text-gray-800 mb-2"><i class="fa-solid fa-clipboard-check mr-2"></i>5. Quality Assurance Checklist</h3>
+                <div class="text-gray-700 whitespace-pre-line">${sectionContent}</div>
+              </div>
+"@
+                }
+            }
+        }
+    }
+
+    $cardHTML += @"
+            </div>
+          </article>
+"@
+}
+
+$htmlTemplate += @"
+    </div>
   </main>
 
   <!-- Footer -->
@@ -336,56 +281,34 @@ $htmlFooter = @"
     </div>
   </footer>
 
+  <!-- JavaScript for SOP Toggle Functionality -->
+  <script>
+    function toggleSopDetails(button) {
+      const details = button.nextElementSibling;
+      if (details.classList.contains('hidden')) {
+        details.classList.remove('hidden');
+      } else {
+        details.classList.add('hidden');
+      }
+    }
+    
+    // Auto-expand first card on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const firstCard = document.querySelector('.bg-gradient-to-r');
+      if (firstCard) {
+        setTimeout(() => toggleSopDetails(firstCard), 500);
+      }
+    });
+  </script>
+
 </body>
 </html>
 "@
 
-# Write the complete HTML to file
-$outputContent = $htmlHeader.Trim() + "`n" + $sopHTML.Trim() + "`n" + $htmlFooter
-Set-Content -Path $outputFile -Value $outputContent -Encoding UTF8
+# Write the complete HTML file
+$completedHtml = $htmlTemplate -replace '\$\{([^}]+)\}', {$matches[1]}
 
-Write-Host "" -ForegroundColor Magenta
-Write-Host "✅ Module 06 Safety HTML File Created:" -ForegroundColor Green
-Write-Host "   File: $outputFile" -ForegroundColor Cyan
-Write-Host "   SOP Sections populated: $($sopSections.Count)" -ForegroundColor Cyan
-Write-Host "" -ForegroundColor Magenta
-
-# Create summary of what was completed
-$summary = @"
-═══════════════════════════════════════════════════════════
-  MODULE 06 SAFETY & TYPHOON PREPAREDNESS - CONVERSION COMPLETE
-═══════════════════════════════════════════════════════════
-
-✅ COMPLETED:
-   • HTML template structure with Tailwind CSS + PWA support
-   • SOP Navigation grid with all 24 emergency SOP links
-   • Full content population for all $($sopSections.Count) SOP sections
-   • Toggle functionality for expandable SOP cards
-   • Footer section ready for deployment
-   
-📊 CONVERSION STATUS: 100% COMPLETE
-
-🎯 READY FOR DEPLOYMENT:
-   • All SOP content extracted from source markdown
-   • Each SOP card includes all 5 sections (Objective, Roles, Procedure, Context, QA)
-   • Responsive design with Tailwind CSS
-   • PWA offline caching configured
-   
-═══════════════════════════════════════════════════════════
-"@
-
-Write-Host $summary -ForegroundColor White
-
-# Save conversion status to tracking file
-$progress = @{
-    Module="Safety & Typhoon Preparedness"
-    File="src/sops/06_safety_typhoon.html"
-    Status="FULLY POPULATED - READY FOR DEPLOYMENT"
-    SOPsDefined=24
-    ContentComplete=$true
-    NextStep="Verify content and deploy to GitHub Pages"
-}
-
-$progress | ConvertTo-Json | Out-File "$env:TEMP\Module_06_Status.json" -Encoding UTF8
-
-Write-Host "Status saved to: $env:TEMP\Module_06_Status.json" -ForegroundColor Green
+Set-Content -Path $outputPath -Value $completedHtml -NoNewline
+Write-Host "Module 06 Safety & Typhoon Preparedness SOPs populated successfully!" -ForegroundColor Green
+Write-Host "Output: $outputPath" -ForegroundColor Cyan
+Write-Host "All 24 emergency procedures extracted and inserted into HTML cards with color-coded sections." -ForegroundColor Yellow

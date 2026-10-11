@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 01: Front Office     - Marcela's Resort Hotel</title>
+  <title>Module 01: Front Office & Guest Services - Marcela's Resort Hotel</title>
   <link rel="manifest" href="/pwa/manifest.json">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -14,6 +15,7 @@
     }
   </script>
 </head>
+
 <body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
 
   <!-- Header -->
@@ -27,12 +29,12 @@
           <a href="/" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Home</a>
           <a href="01_front_office.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Front Office (FO)</a>
           <a href="02_housekeeping.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-broom mr-1"></i>Housekeeping (HK)</a>
-          <a href="03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Food & Beverage (FB)</a>
-          <a href="04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Function Hall (FH)</a>
-          <a href="05_facilities_pool.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Facilities & Pool (FM)</a>
+          <a href="03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-utensils mr-1"></i>Food & Beverage (FB)</a>
+          <a href="04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-glass-cheers mr-1"></i>Function Hall (FH)</a>
+          <a href="05_facilities_pool.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-wrench mr-1"></i>Facilities & Pool (FM)</a>
           <a href="06_safety_typhoon_final.html" class="px-4 py-2 bg-indigo-800 rounded text-red-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-shield-halved mr-1"></i>Safety (S)</a>
-          <a href="07_hr_admin.html" class="px-4 py-2 bg-indigo-800 rounded text-purple-300 hover:bg-indigo-600 transition">HR & Admin (HR)</a>
-          <a href="08_digital_maintenance.html" class="px-4 py-2 bg-indigo-800 rounded text-cyan-300 hover:bg-indigo-600 transition">Digital Systems (DS)</a>
+          <a href="07_hr_admin.html" class="px-4 py-2 bg-indigo-800 rounded text-purple-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-user-tie mr-1"></i>HR & Admin (HR)</a>
+          <a href="08_digital_maintenance.html" class="px-4 py-2 bg-indigo-800 rounded text-cyan-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-laptop-medical mr-1"></i>Digital Systems (DS)</a>
         </div>
       </div>
     </nav>
@@ -40,14 +42,14 @@
 
   <!-- Page Highlight Script -->
   <script>
-    (function() {
+    (function () {
       const currentPage = window.location.pathname.split('/').pop() || 'index.html';
       const navLinks = document.querySelectorAll('#moduleNav a');
-      
+
       navLinks.forEach(link => {
         link.classList.remove('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
         link.classList.add('bg-indigo-800', 'hover:bg-indigo-600');
-        
+
         if (link.getAttribute('href') === currentPage) {
           link.classList.add('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
           link.classList.remove('bg-indigo-800', 'hover:bg-indigo-600');
@@ -57,207 +59,1936 @@
   </script>
 
   <main class="flex-grow container mx-auto px-4 py-6">
-    
+
     <!-- Module Header -->
     <div class="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg shadow-sm p-6 mb-6 border-l-4 border-indigo-600">
-      <h1 class="text-3xl font-bold text-indigo-900 mb-2"><i class="fa-solid fa-user-tie mr-3"></i>Module 01: Front Office    </h1>
-      <p class="text-gray-700 text-base">SOPs for front desk operations, guest reservations, check-in/out procedures, and guest services[cite: 11]</p>
+      <h1 class="text-3xl font-bold text-indigo-900 mb-2"><i class="fa-solid fa-user-tie mr-3"></i>Module 01: Front Office & Guest Services</h1>
+      <p class="text-gray-700 text-base">SOPs for front desk operations, guest reservations, check-in/out procedures, and guest services.</p>
+      
+      <!-- Quick Jump Procedure Buttons -->
+      <div class="mt-4 pt-4 border-t border-indigo-200">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-800 mb-2 flex items-center">
+          <i class="fa-solid fa-bolt mr-1 text-indigo-600"></i>Quick Jump to Procedure:
+        </h3>
+        <div class="flex flex-wrap gap-1.5" id="quickNavButtons">
+          <button onclick="jumpToSop('sop-fo-01')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-01 Opening</button>
+          <button onclick="jumpToSop('sop-fo-02')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-02 Reservations</button>
+          <button onclick="jumpToSop('sop-fo-03')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-03 Confirmation</button>
+          <button onclick="jumpToSop('sop-fo-04')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-04 Check-in</button>
+          <button onclick="jumpToSop('sop-fo-05')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-05 Walk-in</button>
+          <button onclick="jumpToSop('sop-fo-06')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-06 ID & Reg</button>
+          <button onclick="jumpToSop('sop-fo-07')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-07 Room Assign</button>
+          <button onclick="jumpToSop('sop-fo-08')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-08 Access Control</button>
+          <button onclick="jumpToSop('sop-fo-09')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-09 Concierge</button>
+          <button onclick="jumpToSop('sop-fo-10')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-10 Requests</button>
+          <button onclick="jumpToSop('sop-fo-11')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-11 Complaints</button>
+          <button onclick="jumpToSop('sop-fo-12')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-12 Room Transfer</button>
+          <button onclick="jumpToSop('sop-fo-13')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-13 Early/Late</button>
+          <button onclick="jumpToSop('sop-fo-14')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-14 Check-out</button>
+          <button onclick="jumpToSop('sop-fo-15')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-15 Cashiering</button>
+          <button onclick="jumpToSop('sop-fo-16')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-16 Credit Accounts</button>
+          <button onclick="jumpToSop('sop-fo-17')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-17 Refunds</button>
+          <button onclick="jumpToSop('sop-fo-18')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-18 No-shows</button>
+          <button onclick="jumpToSop('sop-fo-19')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-19 Lost & Found</button>
+          <button onclick="jumpToSop('sop-fo-20')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-20 VIP Handling</button>
+          <button onclick="jumpToSop('sop-fo-21')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-21 Shift Handover</button>
+          <button onclick="jumpToSop('sop-fo-22')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-22 Night Audit</button>
+          <button onclick="jumpToSop('sop-fo-23')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FO-23 Closing</button>
+          <button onclick="jumpToSop('sop-fo-24')" class="px-2.5 py-1 text-xs font-semibold bg-red-50 text-red-700 hover:bg-red-600 hover:text-white border border-red-200 rounded shadow-xs transition"><i class="fa-solid fa-triangle-exclamation mr-1"></i>FO-24 Emergency</button>
+        </div>
+      </div>
     </div>
 
-    <!-- SOP Cards -->
+    <!-- SOP Cards Container -->
     <div class="space-y-4" id="sop-container">
-      
+
       <!-- SOP-FO-01 -->
-      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+      <article id="sop-fo-01" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
             <code class="text-indigo-700 font-bold text-sm mr-2">FO-01</code>
             <span class="text-gray-900 font-semibold text-lg">Front Desk Opening Procedure</span>
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
           </div>
         </div>
         <div class="sop-details hidden p-4 space-y-3 border-t">
-          
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Establish operational readiness for the Front Desk prior to peak guest traffic, ensuring accounting accuracy, physical cleanliness, system synchronization, and local infrastructure preparedness for the day[cite: 11].</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Establish operational readiness for the Front Desk prior to peak guest traffic, ensuring accounting accuracy, physical cleanliness, system synchronization, and local infrastructure preparedness for the day.</p>
           </div>
-
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Front Office Associate</strong> (Morning Shift)[cite: 11]</li>
-              <li><strong>Duty Supervisor</strong>[cite: 11]</li>
+              <li><strong>Front Office Associate</strong> (Morning Shift)</li>
+              <li><strong>Duty Supervisor</strong></li>
             </ul>
           </div>
-
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <p><strong>Physical Readiness & Security:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Arrive 15 minutes before the scheduled shift (05:45 AM for a 06:00 AM start)[cite: 11].</li>
-                  <li>Unlock the main Front Office drawer/counter and inspect the lobby, reception desk, and guest seating areas for cleanliness and safety[cite: 11].</li>
-                  <li>Turn on lobby lights, air conditioning, and guest display screens[cite: 11].</li>
+                <strong>Physical Readiness & Security:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Unlock the main Front Office drawer/counter and inspect the lobby, reception desk, and guest seating areas for cleanliness and safety.</li>
+                  <li>Turn on lobby lights, air conditioning, and guest display screens.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>System & Terminal Startup:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Power on the Property Management System (PMS) terminal, point-of-sale (POS) card terminals, and receipt printers[cite: 11].</li>
-                  <li>Log into the PMS using personal staff credentials[cite: 11].</li>
+                <strong>System & Terminal Startup:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Power on the Property Management System (PMS) terminal, point-of-sale (POS) card terminals, and receipt printers.</li>
+                  <li>Log into the PMS using personal staff credentials.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Cash Float Verification:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Retrieve the shift cash drawer/float from the Front Office safe in the presence of the outgoing Night Auditor or Duty Supervisor[cite: 11].</li>
-                  <li>Count and verify the standard opening float (â‚±10,000 in mixed denominations)[cite: 11].</li>
-                  <li>Sign the Cash Float Logbook detailing denomination counts and variance notes (if any)[cite: 11].</li>
+                <strong>Cash Float Verification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Retrieve the shift cash drawer/float from the Front Office safe in the presence of the outgoing Night Auditor or Duty Supervisor.</li>
+                  <li>Count and verify the standard opening float (₱10,000 in mixed denominations).</li>
+                  <li>Sign the Cash Float Logbook detailing denomination counts and variance notes (if any).</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Information Review & Handover Audit:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Review the Night Audit Handover Log, unhandled guest requests from the previous night, and pending maintenance tickets[cite: 11].</li>
-                  <li>Print or generate digital daily reports: Arrivals List, Departures List, In-House Guest List, and Housekeeping Status Report[cite: 11].</li>
+                <strong>Information Review & Handover Audit:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Review the Night Audit Handover Log, unhandled guest requests from the previous night, and pending maintenance tickets.</li>
+                  <li>Print or generate digital daily reports: Arrivals List, Departures List, In-House Guest List, and Housekeeping Status Report.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Local Infrastructure & Power Check:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Verify grid power status (SAMELCO I). Confirm that the Automatic Transfer Switch (ATS) and standby generator unit are set to auto-start mode[cite: 11].</li>
-                  <li>Check local internet connectivity (primary and backup satellite/LTE connections) and test landlines[cite: 11].</li>
+                <strong>Local Infrastructure & Power Check:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Verify grid power status (SAMELCO I). Confirm that the Automatic Transfer Switch (ATS) and standby generator unit are set to auto-start mode in case of provincial load shedding.</li>
+                  <li>Check local internet connectivity (primary and backup satellite/LTE connections). Test local landline/mobile reception numbers.</li>
                 </ul>
               </li>
             </ol>
           </div>
-
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
             <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Given Gamay's coastal provincial location, morning high humidity can affect electronic terminals. Ensure counter surfaces and card reader terminals are wiped dry. Keep physical backup printouts of daily arrival lists in the emergency binder to handle potential local grid power interruptions or internet lag[cite: 11].</p>
+            <p class="text-gray-700 text-sm">Given Gamay’s coastal provincial location, morning high humidity can affect electronic terminals. Ensure counter surfaces and card reader terminals are wiped dry. Keep physical backup printouts of daily arrival lists in the emergency binder to handle potential local grid power interruptions or internet lag.</p>
           </div>
-
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
-            <ul class="space-y-1 text-gray-700 text-sm">
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-1" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-1" class="cursor-pointer select-none">Cash float counted, verified, and logged by 06:00 AM[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-2" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-2" class="cursor-pointer select-none">Daily arrival/departure/in-house reports printed/saved[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-3" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-3" class="cursor-pointer select-none">Generator status and internet connectivity verified[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2 font-semibold text-green-700">
-                Front desk and lobby neatness score: 100%[cite: 11].
-              </li>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Cash float counted, verified, and logged by 06:00 AM.</li>
+              <li>Daily arrival/departure/in-house reports printed/saved.</li>
+              <li>Generator status and internet connectivity verified.</li>
+              <li>Front desk and lobby neatness score: 100%.</li>
             </ul>
           </div>
-
         </div>
       </article>
 
       <!-- SOP-FO-02 -->
-      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+      <article id="sop-fo-02" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
             <code class="text-indigo-700 font-bold text-sm mr-2">FO-02</code>
             <span class="text-gray-900 font-semibold text-lg">Guest Reservation Procedure</span>
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
           </div>
         </div>
         <div class="sop-details hidden p-4 space-y-3 border-t">
-          
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Standardize intake for direct and indirect room bookings across telephone, walk-in inquiries, messaging platforms, and online travel agencies (OTAs) while optimizing room yield and rate integrity[cite: 11].</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Ensure standard and efficient handling of room reservation inquiries via phone, email, messaging channels, or walk-in, maximizing occupancy while providing accurate resort details.</p>
           </div>
-
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Reservations Clerk</strong>[cite: 11]</li>
-              <li><strong>Front Office Associate</strong>[cite: 11]</li>
+              <li><strong>Reservations Clerk</strong></li>
+              <li><strong>Front Office Associate</strong></li>
             </ul>
           </div>
-
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <p><strong>Inquiry Intake & Greetings:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Answer incoming calls within three (3) rings: "Warm greetings from Marcela's Resort Hotel Gamay! This is [Name], how may I assist your stay today?"[cite: 11]</li>
-                  <li>Capture caller details: full name, contact number, email, and preferred communication channel[cite: 11].</li>
+                <strong>Inquiry Intake & Greetings:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Answer incoming calls within three (3) rings: <em>"Warm greetings from Marcela's Resort Hotel Gamay! This is [Name], how may I assist your stay today?"</em></li>
+                  <li>Capture caller details: full name, contact number, email, and preferred channel of communication (Viber/WhatsApp/Facebook Messenger).</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Needs Analysis & Availability Verification:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Identify travel dates, number of guests, room preference, and special requirements[cite: 11].</li>
-                  <li>Check room availability on the PMS calendar for requested dates[cite: 11].</li>
+                <strong>Needs Analysis & Availability Verification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Identify travel dates, number of adults/children, room preference, and special requirements (e.g., ground floor for elderly guests, sea view, extra beds).</li>
+                  <li>Check room availability on the PMS calendar for requested dates.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Rate Quote & Inventory Management:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Quote Published Rates, Seasonal Rates, or Corporate Rates following property structures[cite: 11].</li>
-                  <li>Detail inclusions clearly (breakfast allocation, pool access, taxes)[cite: 11].</li>
+                <strong>Rate Quote & Inventory Management:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Quote Published Rates, Seasonal Rates, or Corporate Rates following property rate structures.</li>
+                  <li>Detail inclusions clearly (breakfast allocation, pool access, environmental/local taxes if applicable).</li>
+                  <li>Offer room upgrades or package add-ons (e.g., island tour arrangements, airport transfers from Catarman/Calbayog).</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Booking Capture in PMS:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Create a new reservation record in the PMS with complete guest data and booking source tags[cite: 11].</li>
+                <strong>Booking Capture in PMS:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Create a new reservation record in the PMS.</li>
+                  <li>Input complete data: Guest Name, Contact Number, Email Address, Arrival Date/Time, Departure Date, Room Type, Rate Code, Deposit Terms, and Special Requests.</li>
+                  <li>Apply appropriate booking source tags (Direct Call, OTA, Walk-in, Local Government/Corporate).</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Payment Guarantee & Deposit Terms:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Inform guest of deposit policy (50% initial deposit required within 48 hours for regular season; 100% advance payment for peak holidays)[cite: 11].</li>
-                  <li>Provide accepted options: Bank Transfer (BDO/Landbank), GCash, Maya, or Credit Card link[cite: 11].</li>
+                <strong>Payment Guarantee & Deposit Terms:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inform the guest of the reservation deposit policy (50% initial deposit required within 48 hours for regular season; 100% advance payment for peak holidays).</li>
+                  <li>Provide accepted payment options: Bank Transfer (BDO/Landbank), GCash, Maya, or Credit Card link.</li>
                 </ul>
               </li>
             </ol>
           </div>
-
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
             <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Guests traveling to Gamay often face travel delays due to weather conditions along the Pacific board, ferry crossing delays, or provincial road conditions. Always ask for expected modes of arrival to estimate realistic arrival times[cite: 11].</p>
+            <p class="text-gray-700 text-sm">Guests traveling to Gamay often face travel delays due to weather conditions along the Pacific board, ferry crossing delays, or provincial road conditions. Always ask for expected modes of arrival (e.g., private car via Tacloban/Catarman, public van) to estimate realistic arrival times.</p>
           </div>
-
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
-            <ul class="space-y-1 text-gray-700 text-sm">
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo02-1" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo02-1" class="cursor-pointer select-none">100% accurate data entry into PMS (zero misspelled names or mismatched contact numbers)[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo02-2" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo02-2" class="cursor-pointer select-none">Payment terms clearly communicated and logged in reservation notes[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2 font-semibold text-green-700">
-                Call answered within 3 rings[cite: 11].
-              </li>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% accurate data entry into PMS (zero misspelled names or mismatched contact numbers).</li>
+              <li>Payment terms clearly communicated and logged in reservation notes.</li>
+              <li>Call answered within 3 rings.</li>
             </ul>
           </div>
-
         </div>
       </article>
 
+      <!-- SOP-FO-03 -->
+      <article id="sop-fo-03" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-03</code>
+            <span class="text-gray-900 font-semibold text-lg">Reservation Confirmation & Modification</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Verify deposit receipts, issue prompt booking confirmation vouchers, and handle reservation changes accurately while upholding resort cancellation and modification policies.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Reservations Clerk</strong></li>
+              <li><strong>Front Office Supervisor</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Confirmation Issuance:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Upon receipt of valid deposit proof (bank receipt/GCash screenshot), verify funds with accounting or payment portal.</li>
+                  <li>Post the payment advance into the PMS reservation folio.</li>
+                  <li>Generate a formal Booking Confirmation Voucher from the PMS and dispatch via email/messaging app within two (2) hours of payment verification.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Confirmation Content Verification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Ensure voucher explicitly lists: Confirmation Code, Guest Name, Stay Dates, Room Category, Total Booking Amount, Deposit Paid, Balance Due at Check-in, Cancellation Policy, and Resort House Rules.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Processing Reservation Modifications:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Receive written or verbal modification requests. Check inventory availability for new dates.</li>
+                  <li>Re-calculate total room cost based on new dates or upgraded categories.</li>
+                  <li>Issue an updated Revised Confirmation Voucher reflecting date changes, rate adjustments, or additional room charges.</li>
+                  <li>Apply modification fees if the request falls within the restricted penalty window (e.g., within 7 days of peak season arrival) as approved by Management.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>System Log Maintenance:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Log every change in the PMS reservation history, recording staff ID, date, time, and specific reason for alteration.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Typhoon signals or severe ocean swells around Northern Samar frequently disrupt regional travel plans. In cases of official tropical storm warnings (PAGASA Signal No. 1 or higher affecting Samar routes), rebooking fees are waived, and reservation credits are extended for up to 6 months.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Confirmation sent within 2 hours of payment receipt verification.</li>
+              <li>Updated voucher generated for all modifications.</li>
+              <li>Adverse weather exception policies correctly applied.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-04 -->
+      <article id="sop-fo-04" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-04</code>
+            <span class="text-gray-900 font-semibold text-lg">Guest Check-in Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Deliver a seamless, welcoming, and efficient check-in experience while completing identity verification, payment settlement, and room orientation within standard SLAs.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Front Office Associate</strong></li>
+              <li><strong>Bellman / Resort Host</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Guest Arrival & Welcome:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Greet arriving guests warmly at the entrance or counter: <em>"Welcome to Marcela's Resort Hotel! Good morning/afternoon, [Guest Name]."</em></li>
+                  <li>Offer welcome refreshment (e.g., local chilled calamansi juice) and cold towels.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Registration & Verification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Request reservation name or confirmation code.</li>
+                  <li>Pull up the PMS profile and verify stay details (dates, room category, rate plan).</li>
+                  <li>Request valid government-issued ID or passport for all adult occupants (refer to SOP-FO-06).</li>
+                  <li>Present the pre-printed Guest Registration Form (GRF) for verification and signature.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Payment & Security Deposit Settlement:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Review room payment status. Collect remaining stay balance if unpaid.</li>
+                  <li>Collect a standard incidentals security deposit (₱1,000 per room night) via cash or credit card pre-authorization.</li>
+                  <li>Issue official receipt / acknowledgement slip for cash incidentals.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Room Allocation & Key Delivery:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Verify room status in PMS is Inspected & Ready.</li>
+                  <li>Key card / physical key programming (refer to SOP-FO-08).</li>
+                  <li>Hand over key card packet containing: key cards, breakfast coupons, Wi-Fi access details, and resort map.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Orientation & Escort:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Explain key resort amenities, breakfast timings (06:30 AM – 10:00 AM), swimming pool rules, and desk contact numbers.</li>
+                  <li>Signal the Bellman/Host to assist guest with luggage and escort them to their assigned room.</li>
+                </ul>
+              </li>
+            </ol>
+            <div class="mt-3 bg-white p-2 rounded text-xs font-mono text-indigo-800">
+              [Arrival & Welcome] ➔ [ID Verification & GRF Signature] ➔ [Payment & Security Deposit] ➔ [Key Card Handover] ➔ [Luggage Assistance & Room Escort]
+            </div>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Guests arriving after long road travel along the Samar highway or flight transfers from Catarman Airport are often exhausted. Keep registration steps concise (under 5 minutes). Ensure lobby fans or air conditioning are positioned comfortably for arriving travelers.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Check-in completed within 5 minutes of queue reaching counter.</li>
+              <li>Incidentals deposit collected and logged accurately.</li>
+              <li>GRF fully signed and scanned with ID copy attached.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-05 -->
+      <article id="sop-fo-05" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-05</code>
+            <span class="text-gray-900 font-semibold text-lg">Walk-in Guest Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Convert walk-in inquiries into resort bookings professionally while verifying room readiness and securing 100% upfront payment.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Front Office Associate</strong></li>
+              <li><strong>Housekeeping Supervisor</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Greeting & Needs Assessment:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Welcome the guest warmly and inquire about room requirements (number of guests, preferred room style, duration of stay).</li>
+                  <li>Check real-time PMS inventory for immediate room availability.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Room Presentation & Rate Disclosure:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>If rooms are available, show room photos/brochures on the front desk display, or offer a room viewing if requested and staff level permits.</li>
+                  <li>Quote the official Rack Rate or approved daily Walk-In Rate.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Room Readiness Verification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Check PMS room status. If room is Dirty or Vacant Clean (Uninspected), contact Housekeeping immediately via radio/intercom to prioritize inspect/clean cycle.</li>
+                  <li>Inform guest of estimated wait time if room is undergoing final inspection (offer complimentary lounge seating and beverage).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Registration & Full Payment Collection:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Walk-in guests must pay 100% of room charges plus security deposit upfront prior to key issuance.</li>
+                  <li>Complete standard registration procedure (SOP-FO-04 & SOP-FO-06).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>No Availability Handling:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>If resort is fully booked, express sincere regret.</li>
+                  <li>Offer assistance in contacting nearby partner accommodations in Gamay or neighboring towns if requested.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Walk-ins in Samar often include provincial government officials, field engineers, or travelers forced to stop due to late-night road closures or heavy downpours. Maintain updated contact details for reputable local guesthouses to support travelers when Marcela's is at 100% occupancy.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% room charge and security deposit collected prior to key release.</li>
+              <li>Housekeeping notified immediately for expedited room preparation.</li>
+              <li>Walk-in conversion logged for daily occupancy statistics.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-06 -->
+      <article id="sop-fo-06" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-06</code>
+            <span class="text-gray-900 font-semibold text-lg">Guest Identification & Registration</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Ensure compliance with national security, law enforcement, and Data Privacy Act regulations by accurately recording guest identity and maintaining secure registration files.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Front Office Associate</strong></li>
+              <li><strong>Duty Manager</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Identification Requirements:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Request valid photo identification from all adult guests (18 years and older) upon check-in.</li>
+                  <li>Accepted Documents: Passport, Driver's License, UMID, SSS/GSIS ID, PRC ID, Postal ID, Philippine National ID (PhilID), or Voters ID.</li>
+                  <li>For foreign guests: Passport with valid entry visa/stamp is mandatory.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Document Inspection & Scanning:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Check ID validity, expiration date, photo match, and name spelling.</li>
+                  <li>Scan or photocopy ID (front and back for national IDs; photo page and entry stamp page for passports).</li>
+                  <li>Attach electronic copy directly to the guest profile in PMS.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Registration Form Completion:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Full legal name matching ID, residential address, nationality.</li>
+                  <li>Contact phone number and email address.</li>
+                  <li>Departure date and onward destination.</li>
+                  <li>Vehicle plate number / model (if parked on property).</li>
+                  <li>Emergency contact details.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Data Privacy Compliance:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Ensure guest reviews the Data Privacy Clause on the GRF regarding Philippine Data Privacy Act (R.A. 10173) compliance.</li>
+                  <li>Obtain signature confirming accuracy and privacy consent.</li>
+                  <li>Store physical GRF securely in locked filing drawers; ensure scanned files are restricted to authorized PMS roles.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Local Municipal Tourism Offices in Samar occasionally require demographic guest reports for municipal tourism statistics. Ensure address/province and nationality details are recorded accurately to streamline monthly municipal reporting.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Valid photo ID scanned and attached for 100% of check-ins.</li>
+              <li>Foreign passport entry stamps checked for valid stay duration.</li>
+              <li>Signed privacy consent captured on every GRF.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-07 -->
+      <article id="sop-fo-07" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-07</code>
+            <span class="text-gray-900 font-semibold text-lg">Room Assignment Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Optimize room allocations based on guest preferences, VIP designations, accessibility needs, and operational maintenance schedules while avoiding double-booking errors.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Front Office Supervisor</strong></li>
+              <li><strong>Front Office Associate</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Pre-Assignment Routine (Morning Audit):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Review daily arrival manifest by 07:00 AM.</li>
+                  <li>Identify VIP arrivals, return guests, group bookings, extended stays, and specific guest request tags (e.g., quiet zone, ground floor access, adjoining rooms).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Assignment Rules & Prioritization:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>VIPs & Long-stay Guests: Assign highest-tier rooms or best-view locations first.</li>
+                  <li>Elderly Guests / Persons with Disability (PWD): Assign ground floor rooms or rooms nearest to elevator/main amenities.</li>
+                  <li>Group Bookings: Block contiguous rooms on the same floor/wing to simplify service.</li>
+                  <li>Maintenance Rotation: Avoid assigning same rooms repeatedly; distribute wear evenly across room inventory.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Status Verification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Cross-check PMS status with Housekeeping physical inspection reports.</li>
+                  <li>Rule: Never assign a room marked Dirty or Out of Order (OOO). Assign only Inspected Clean inventory.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Blocking & Locking in PMS:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Lock room assignments in PMS by 11:00 AM for same-day arrivals.</li>
+                  <li>Place operational blocks for rooms requiring scheduled maintenance or deep cleaning.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Handling Pre-assignment Changes:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>If an assigned room suffers an unexpected maintenance issue (e.g., AC malfunction), re-assign to an equivalent or upgraded category immediately. Log the issue in maintenance ticketing.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Resort layouts in Samar may involve garden paths or outdoor corridors exposed to rain. Assign elderly guests or families with infants to main building rooms or covered-walkway sections during rainy monsoon seasons (November to February).</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Zero room assignment conflicts or double-bookings.</li>
+              <li>Special requests fulfilled for at least 95% of reservations.</li>
+              <li>PWD and elderly access preferences 100% honored.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-08 -->
+      <article id="sop-fo-08" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-08</code>
+            <span class="text-gray-900 font-semibold text-lg">Key/Card/Room Access Control</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Control key card encoding, storage, and issuance to protect guest safety, maintain physical room security, and track master key custody strictly.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Front Office Associate</strong></li>
+              <li><strong>Duty Manager / Security Chief</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Key Card Encoding at Check-In:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Encode RFID key cards using the hotel key encoder linked to the PMS.</li>
+                  <li>Encode precise check-in and check-out date/time limits.</li>
+                  <li>Program key card permissions: Room Access, Main Gate Access, Pool Area, Night Entrance.</li>
+                  <li>Never write the room number directly on the physical key card. Write room number only on the secure key card holder booklet.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Replacement & Duplicate Keys:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Re-verify guest ID before issuing replacement or duplicate key cards.</li>
+                  <li>Verify guest name against PMS profile.</li>
+                  <li>Invalidate previously issued lost key cards in system before issuing new card.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Master Key Management:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Master Keys (Grand Master, Emergency Master, Floor Master) must be stored in a secured key safe at the Front Office.</li>
+                  <li>Master keys are issued only to authorized staff (Duty Manager, Head Housekeeper, Security Chief) via signed Key Logbook.</li>
+                  <li>Audit master key custody at every shift change.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Emergency / Manual Key Access:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>For physical key cylinder overrides during power/encoder failures, obtain Duty Manager written clearance.</li>
+                  <li>Record every physical key extraction with timestamp, reason, staff ID, and guest room affected.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">During extended regional power outages where encoder backup battery fails, switch to manual lock override kits stored in the Front Office safe under double-custody locks. Always verify guest identity manually against physical GRFs.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Zero room numbers written directly on key card surfaces.</li>
+              <li>100% ID verification required for key card re-issuance.</li>
+              <li>Master key logbook signed and reconciled at every shift change.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-09 -->
+      <article id="sop-fo-09" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-09</code>
+            <span class="text-gray-900 font-semibold text-lg">Guest Information & Concierge Assistance</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Provide accurate local information, travel assistance, tour bookings, and package handling to enhance guest stay satisfaction.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Concierge / Front Office Host</strong></li>
+              <li><strong>Front Office Associate</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Service Standard & Knowledge Requirements:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Maintain updated digital and physical information directories at the front desk.</li>
+                  <li>Front Office staff must possess thorough knowledge of resort operating hours, local transport schedules (van routes to Catarman, Calbayog, Tacloban), local attractions (Pinipisakan Falls, Batag Island Lighthouse, Biri Rock Formations), emergency contacts.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Transport Coordination & Tour Booking:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Arrange accredited transport services (tricycle, private van rentals, boat charters).</li>
+                  <li>Confirm driver credentials, vehicle license plate, negotiated fare, and pickup times before committing to guests.</li>
+                  <li>Issue a written Transport Voucher to guest with driver details and resort emergency contact numbers.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Mail, Parcel & Package Handling:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Accept incoming packages/courier deliveries for registered guests.</li>
+                  <li>Log parcel arrival in the Guest Parcel Logbook (Carrier, Recipient Name, Tracking #, Storage Location).</li>
+                  <li>Notify guest via room phone or messaging app immediately. Collect guest signature upon pickup.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Dining & Special Requests:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Assist with internal restaurant table reservations or dietary notifications (halal-friendly, seafood allergy, vegetarian).</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Coastal Samar transport can be affected by tidal shifts and weather. Staff must cross-check boat departure times to Biri or local island tours with local coast guard weather advisories before recommending excursion schedules to guests.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Transport arrangements booked only with verified, accredited drivers.</li>
+              <li>Express parcel arrivals logged and guest notified within 15 minutes.</li>
+              <li>Zero inaccurate travel time or route quotes given to guests.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-10 -->
+      <article id="sop-fo-10" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-10</code>
+            <span class="text-gray-900 font-semibold text-lg">Handling Guest Requests</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Receive, track, and fulfill guest requests rapidly within established Service Level Agreements (SLAs) while ensuring proactive follow-up.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Front Office Associate</strong></li>
+              <li><strong>Resort Runner / Housekeeping / Maintenance</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Request Intake & Logging:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Receive request via phone call, walk-in counter visit, or resort messaging.</li>
+                  <li>Listen attentively, repeat request details back to guest, and provide an accurate time estimate.</li>
+                  <li>Log request in PMS / Task Management System immediately: Guest Name, Room #, Request Type, Time Received, Assigned Staff, Target Completion Time.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Standard Service Delivery Timelines:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Extra Towels / Toiletries: Within 10 minutes.</li>
+                  <li>Extra Bedding / Pillows / Ironing Board: Within 15 minutes.</li>
+                  <li>Maintenance Interventions (plumbing, TV, AC adjustment): Within 15 minutes.</li>
+                  <li>Bucket of Ice / F&B Amenities: Within 15 minutes.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Task Dispatch & Execution:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Contact responsible department via two-way radio or task app.</li>
+                  <li>Dispatch runner/technician with clear items required. Staff member must knock twice, state department, and present items courteously.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Follow-Up & Closure:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Front Office Associate must place a follow-up call to room within 20 minutes of completion: <em>"Good day, [Guest Name], this is [Name] from Front Office checking if your extra towels were delivered to your satisfaction?"</em></li>
+                  <li>Close out task in system once confirmed.</li>
+                </ul>
+              </li>
+            </ol>
+            <div class="mt-3 bg-white p-2 rounded text-xs font-mono text-indigo-800">
+              [Request Intake] ➔ [Log in PMS Task Module] ➔ [Radio Dispatch] ➔ [Service Delivery] ➔ [15-Min Follow-up Call]
+            </div>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Due to the sprawling ground-layout of beach resorts, runners must utilize covered pathways during sudden downpours to keep items like linens or extra electronics completely dry during delivery.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% of guest requests logged into system upon receipt.</li>
+              <li>Response SLA met for ≥ 95% of requests.</li>
+              <li>Follow-up call placed within 20 minutes of task completion.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-11 -->
+      <article id="sop-fo-11" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-11</code>
+            <span class="text-gray-900 font-semibold text-lg">Guest Complaint & Service Recovery</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Resolve guest dissatisfaction promptly using the LAST framework (Listen, Apologize, Solve, Thank) and authorized empowerment matrices to retain guest goodwill.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Front Office Associate</strong></li>
+              <li><strong>Duty Supervisor</strong></li>
+              <li><strong>General Manager</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Active Listening (LAST Step 1):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Listen without interruption. Maintain professional eye contact and open body language.</li>
+                  <li>Take notes on specific details. Move conversation to a private office if guest is vocal in the lobby.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Sincere Apology (LAST Step 2):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Offer an empathetic, non-defensive apology on behalf of the resort: <em>"I sincerely apologize for the inconvenience this has caused you, [Guest Name]. This is certainly not the level of experience we aim to provide."</em></li>
+                </ul>
+              </li>
+              <li>
+                <strong>Problem Solving & Empowerment Matrix (LAST Step 3):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Level 1 (Front Office Associate - up to ₱1,000 value): Free beverage vouchers, late check-out extension (up to 2 hours), complimentary laundry item.</li>
+                  <li>Level 2 (Duty Supervisor - up to ₱3,500 value): Complimentary meal voucher, room category upgrade for remaining stay, 1-night room charge discount.</li>
+                  <li>Level 3 (General Manager - above ₱3,500 value): Full night room waiver, future stay voucher, complete bill adjustment.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Execution & Thanking (LAST Step 4):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Implement agreed solution immediately.</li>
+                  <li>Thank guest for bringing the issue to light: <em>"Thank you for pointing this out to us, as it helps us improve our service."</em></li>
+                </ul>
+              </li>
+              <li>
+                <strong>Documentation & Root Cause Analysis:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>File an official Incident & Service Recovery Report before end of shift. Log details in guest profile for future stay alerts.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Local issues like brief power glitches or insect presence near tropical vegetation require proactive explanation rather than defensive excuses. Offer insect repellant sprays, immediate room fogging coordination, or prompt room transfers.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Guest complaints resolved within 30 minutes of notification.</li>
+              <li>Incident report filed for 100% of complaints involving compensation.</li>
+              <li>Zero unresolved complaints escalated past Duty Manager without GM notice.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-12 -->
+      <article id="sop-fo-12" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-12</code>
+            <span class="text-gray-900 font-semibold text-lg">Room Transfer Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Execute guest room changes smoothly, ensuring guest comfort, item security, key updates, and clear departmental notifications.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Duty Manager / Front Office Associate</strong></li>
+              <li><strong>Housekeeping & Luggage Host</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Transfer Request Approval & System Update:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Identify reason for transfer (maintenance issue, noise complaint, category upgrade request).</li>
+                  <li>Check PMS availability for suitable clean room of equal or higher category.</li>
+                  <li>Update PMS with new room assignment details, maintaining original billing rates (unless paid upgrade).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Guest Coordination:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inform guest of transfer arrangements and agreed timing.</li>
+                  <li>If guest is present: Bellman assists in packing (if requested) and moving luggage directly to new room.</li>
+                  <li>If guest is absent (Emergency Transfer only): Duty Manager and Security Officer must enter room, pack guest belongings under dual-witness supervision, complete item inventory sheet, move items to new room, and re-lock room securely.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Key Card Re-issuance & System Handover:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Issue new encoded key cards for new room. Retrieve and clear old key cards.</li>
+                  <li>Inform Housekeeping and In-Room Dining/F&B immediately of room change to redirect pending deliveries or room charge posts.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Post-Transfer Verification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect old room to ensure no guest belongings were left behind.</li>
+                  <li>Set old room PMS status to Dirty / Touch-up required or Out of Order.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">In resort environments, transferring between garden cabins and beachfront suites involves outdoor cart or foot transport. Ensure luggage trolley covers are used during overcast or rainy conditions in Gamay.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Dual-witness supervision and inventory form completed for all absent guest transfers.</li>
+              <li>Key cards updated and old cards deactivated immediately.</li>
+              <li>F&B and Housekeeping notified of new room assignment within 10 minutes.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-13 -->
+      <article id="sop-fo-13" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-13</code>
+            <span class="text-gray-900 font-semibold text-lg">Early Check-in / Late Check-out</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Manage requests for arrivals before standard check-in or departures after standard check-out while maintaining inventory control and billing integrity.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Front Office Associate</strong></li>
+              <li><strong>Duty Supervisor</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Standard Operational Hours:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Check-in Time: 02:00 PM (14:00).</li>
+                  <li>Check-out Time: 12:00 PM (12:00 noon).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Early Check-in Handling:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Arrival before 06:00 AM: Charge 100% of previous night rate (subject to availability).</li>
+                  <li>Arrival between 06:00 AM and 10:00 AM: Charge 50% of published day rate (subject to clean room availability).</li>
+                  <li>Arrival between 10:00 AM and 02:00 PM: Complimentary early check-in if room is Inspected Clean and approved by Duty Supervisor.</li>
+                  <li>If room is not ready: Tag luggage for secure storage at Front Office, issue bag claim tags, offer guest resort amenity access (pool, changing rooms, restaurant).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Late Check-out Handling:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Request must be evaluated based on same-day incoming arrivals for that specific room.</li>
+                  <li>Departure between 12:00 PM and 02:00 PM: Complimentary extension subject to Supervisor approval.</li>
+                  <li>Departure between 02:00 PM and 06:00 PM: Charge 50% of published room rate.</li>
+                  <li>Departure after 06:00 PM: Charge 100% of daily room rate.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>System Billing Input:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Post early check-in or late check-out fees directly to guest PMS folio before key extension/issuance.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Guests dependent on fixed provincial van schedules or long distance road trips often request flexible departure times. Always offer bag storage and changing room usage as a hospitable alternative when late room extension is impossible due to 100% full house occupancy.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Fees correctly billed in PMS according to hour brackets.</li>
+              <li>Housekeeping alerted immediately to adjust room priority list.</li>
+              <li>Luggage storage receipts issued for early/late arrivals waiting in public areas.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-14 -->
+      <article id="sop-fo-14" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-14</code>
+            <span class="text-gray-900 font-semibold text-lg">Guest Check-out Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Conduct efficient, accurate departure settlement, verify room clearance with Housekeeping, collect key cards, and bid farewell to guests.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Front Office Associate</strong></li>
+              <li><strong>Housekeeping Inspector / Bellman</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Greeting & Express Departure Verification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Greet departing guest: <em>"Good morning/afternoon [Guest Name], how was your stay with us at Marcela's?"</em></li>
+                  <li>Request room number and key cards.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Minibar & Room Clearance Verification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Alert Housekeeping via radio/intercom immediately: <em>"Housekeeping, request departure room inspection for Room [Number]."</em></li>
+                  <li>Housekeeper checks room for minibar consumption, forgotten personal items, or missing/damaged property within 3 minutes.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Folio Audit & Settlement:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Present itemized statement of account (room rate, F&B charges, laundry, incidentals).</li>
+                  <li>Confirm accuracy of posted charges with guest.</li>
+                  <li>Apply security deposit balance against outstanding charges or process deposit refund (cash or credit pre-authorization release).</li>
+                  <li>Accept final payment via Cash, Credit Card, GCash, or Maya.</li>
+                  <li>Issue Official Receipt (OR) / Tax Invoice.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Key Card Collection & Key Recovery:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Retrieve all physical room key cards and place into key collection bin.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Farewell & Transportation Assistance:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Confirm transport arrangements (van booking, private car).</li>
+                  <li>Dispatch Bellman to assist with luggage loading.</li>
+                  <li>Farewell phrase: <em>"Thank you for staying at Marcela's Resort Hotel! We wish you a safe journey home and look forward to welcoming you back to Gamay."</em></li>
+                </ul>
+              </li>
+            </ol>
+            <div class="mt-3 bg-white p-2 rounded text-xs font-mono text-indigo-800">
+              [Greeting & Key Collection] ➔ [HK Room Clearance Signal] ➔ [Folio Review & Settlement] ➔ [Official Receipt Issuance] ➔ [Farewell & Transport Loading]
+            </div>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Ensure cash bill payments receive stamped BIR Official Receipts, as corporate guests traveling to Northern Samar require proper receipts for expense liquidation.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Check-out process completed within 4 minutes.</li>
+              <li>Housekeeping room inspection completed within 3 minutes of call.</li>
+              <li>100% of key cards returned or accounted for.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-15 -->
+      <article id="sop-fo-15" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-15</code>
+            <span class="text-gray-900 font-semibold text-lg">Cashiering & Payment Collection</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Maintain financial accountability, process cash, card, and digital payment transactions accurately, and perform tamper-evident shift cash drops.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Front Office Associate / Cashier</strong></li>
+              <li><strong>Duty Supervisor</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Payment Acceptance Protocol:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Cash: Count cash in clear view of guest. Verify note authenticity under UV cash detector. State amount received aloud: <em>"I have received ₱3,000."</em> Hand over change and official receipt immediately.</li>
+                  <li>Credit/Debit Card: Insert/Tap card on POS terminal. Ensure currency charged is PHP. Ensure authorization slip prints successfully and is signed by guest (for swipe/chip signature transactions). Compare signature against back of card/ID.</li>
+                  <li>Digital Wallets (GCash/Maya): Display official Marcela's QR code stand. Guest scans and executes transaction. Associate must verify payment confirmation screen on guest device AND verify SMS/merchant app notification on hotel monitoring device before finalizing in PMS.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Posting Transactions in PMS:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Post every payment immediately under appropriate payment methods (Cash, Card-VISA, Card-MC, GCash, Bank Transfer).</li>
+                  <li>Never leave payments unposted or stored in pending pads.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Paid-Outs & Foreign Exchange (If applicable):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Petty cash paid-outs require signed Paid-Out Voucher and Duty Manager signature.</li>
+                  <li>Foreign currency exchanges must use official resort daily exchange rates approved by Finance.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Shift Cash Drop:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>At shift end, reconcile collected cash against PMS Cashier Summary Report.</li>
+                  <li>Place drop cash inside numbered Tamper-Evident Cash Drop Envelope with signed balance breakdown sheet.</li>
+                  <li>Drop envelope into Front Office Drop Safe witnessed by Supervisor.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Due to occasional unstable cellular coverage affecting standalone wireless POS card terminals in Samar, always keep wired POS backup lines connected and functional, and maintain official offline manual credit card charge slips for contingency use.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Cash drawer balanced with zero short/over variance.</li>
+              <li>All GCash/Maya transactions verified on hotel merchant receiver phone before guest departure.</li>
+              <li>Shift cash drop witnessed and logged dual-signature.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-16 -->
+      <article id="sop-fo-16" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-16</code>
+            <span class="text-gray-900 font-semibold text-lg">Credit/Charge Account Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Monitor in-house guest credit limits, manage room charge privileges, and administer direct corporate billing accounts accurately.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Credit Manager</strong></li>
+              <li><strong>Duty Manager / Front Office Associate</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>In-House Room Charge Privileges:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Room charge privileges (charging F&B, spa, tours to room folio) are granted only if guest has provided valid credit card pre-authorization or cash incidentals deposit exceeding total pending charges.</li>
+                  <li>Set credit ceiling in PMS (Standard Limit: ₱5,000 per room).</li>
+                  <li>When guest folio charges reach 80% of deposit ceiling, system triggers High-Balance Alert.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>High-Balance Alert Routine:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Contact guest politely via phone or letter: <em>"Dear [Guest Name], your room charges have reached ₱4,000. We kindly request an interim settlement or deposit top-up at the Front Desk at your convenience."</em></li>
+                </ul>
+              </li>
+              <li>
+                <strong>Direct Billing / Corporate Credit Accounts:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Direct billing is permitted strictly for corporate, travel agency, or LGU/Government accounts with an approved, active Credit Line Agreement on file.</li>
+                  <li>Require official Letter of Authorization (LOA) or Purchase Order (PO) at or before check-in specifying coverages.</li>
+                  <li>Verify billing terms in PMS profile before routing folio balances to City Ledger.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Check-out Routing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>At check-out, guest must review and sign all detailed vouchers. Transfer approved LOA balances to City Ledger account; collect cash/card for non-covered personal incidentals.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Government entities or provincial project teams frequenting Gamay require strict adherence to PO details. Ensure signed itemized meal receipts are attached to corporate invoices to avoid payment disputes during agency audits.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Zero unverified room charges permitted without prior deposit guarantee.</li>
+              <li>High balance notifications issued within 1 hour of limit breach.</li>
+              <li>Corporate LOA verified prior to City Ledger transfer.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-17 -->
+      <article id="sop-fo-17" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-17</code>
+            <span class="text-gray-900 font-semibold text-lg">Deposit & Refund Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Regulate reservation deposits, process cash/card security deposit returns at check-out, and handle official refund requests in compliance with resort finance controls.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Front Office Associate</strong></li>
+              <li><strong>Finance Department / General Manager</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Advance Deposit Intake:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Collect advance deposits per reservation cancellation policy.</li>
+                  <li>Record transaction under PMS Advance Deposit Ledger.</li>
+                  <li>Send official payment receipt voucher to guest within 2 hours.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Incidentals Deposit Refund at Check-Out:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Cash Incidentals Deposit: Inspect room clearance status from Housekeeping. If no damages or unpaid charges exist, refund remaining cash deposit in full. Obtain guest signature on Deposit Refund Voucher.</li>
+                  <li>Credit Card Pre-authorization: Release pre-authorization lock on POS terminal. Provide release transaction receipt copy to guest. (Advise guest of 7-15 bank processing days).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Cancellation Refunds:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Cancellation &gt; 14 days prior to arrival: Full refund minus 5% administrative/banking fee.</li>
+                  <li>Cancellation 7–13 days prior to arrival: 50% deposit refund.</li>
+                  <li>Cancellation &lt; 7 days prior to arrival: Deposit forfeited.</li>
+                  <li>For approved refunds, submit Refund Request Form signed by General Manager to Finance Department.</li>
+                  <li>Refunds are processed via original payment method within 5 business days. Never issue cash refunds for card or bank deposits.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">For weather-induced travel cancellations certified by Coast Guard or PAGASA advisories affecting Northern Samar, 100% of deposits are refundable or convertible into rebookable credit vouchers valid for 6 months without fee deductions.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Cash security deposits 100% reconciled and signed at check-out.</li>
+              <li>Approved refund requests processed by accounting within 5 business days.</li>
+              <li>Zero cash refunds given for non-cash deposit channels.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-18 -->
+      <article id="sop-fo-18" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-18</code>
+            <span class="text-gray-900 font-semibold text-lg">No-show & Cancellation Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Manage reservation cancellations systematically, process no-show billing, and release unfulfilled room inventory back into saleable availability.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Reservations Clerk</strong></li>
+              <li><strong>Night Auditor / Front Office Associate</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Cancellation Processing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Receive cancellation via email, phone, or OTA extranet.</li>
+                  <li>Record exact date, time, name of caller, and reason for cancellation in PMS notes.</li>
+                  <li>Issue formal Cancellation Number to guest for tracking.</li>
+                  <li>Update PMS status to Cancelled to immediately release room inventory back into available booking channels.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>No-Show Identification (Night Audit):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>At 11:59 PM nightly, Night Auditor runs pending arrivals list.</li>
+                  <li>If a guaranteed guest has not arrived and no late-arrival notice exists: Attempt contact via phone/messaging apps.</li>
+                  <li>If unreachable by 02:00 AM, change reservation status in PMS to No-Show.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>No-Show Billing & Inventory Release:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>For guaranteed bookings: Charge No-Show Penalty (minimum 1st night stay or full deposit forfeiture per booking contract) against advance deposit or credit card guarantee.</li>
+                  <li>For non-guaranteed bookings: Hold room until 06:00 PM cutoff time, after which room is auto-released to walk-in inventory.</li>
+                  <li>Generate No-Show Invoice and email to guest/agency profile.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Travelers to Gamay may experience major transport delays along Samar roads or sea transit. Before marking a guest as No-Show at midnight, staff must check messaging platforms (Viber/FB Page) or SMS for emergency contact notes from stranded travelers.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Cancellation numbers issued for 100% of processed cancellations.</li>
+              <li>No-show status applied only after attempt to call guest contact number.</li>
+              <li>Inventory re-released to PMS immediately upon cancellation.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-19 -->
+      <article id="sop-fo-19" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-19</code>
+            <span class="text-gray-900 font-semibold text-lg">Lost & Found Coordination</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Log, categorize, store, and return items left behind by guests while protecting privacy and maintaining chain-of-custody security.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Front Office Associate</strong></li>
+              <li><strong>Duty Manager / Housekeeping</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Discovery & Turn-In:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Staff finding an item must immediately notify Front Office and bring item to Duty Manager within 1 hour.</li>
+                  <li>Never handle items without gloves. Seal item inside clear plastic Lost & Found bag.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Logging & Classification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Enter details into the PMS / Physical Lost & Found Register: Tag #, Date Found, Time Found, Location/Room #, Detailed Item Description (brand, color, condition, serial #), Finder Name.</li>
+                  <li>Valuables (Category A): Cash, jewelry, passports, high-end electronics. Store in key-locked safe in Front Office.</li>
+                  <li>Non-Valuables (Category B): Clothing, shoes, books, sunglasses. Store in locked Lost & Found Storage Closet.</li>
+                  <li>Perishables (Category C): Food, drinks, open toiletries. Retain for 24 hours, then dispose.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Guest Notification & Claim Verification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Front Office checks PMS out-of-house guest details for room found. Contact guest discreetly without listing sensitive items explicitly over phone for privacy/security reasons.</li>
+                  <li>Claimants must provide accurate detailed description before item release.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Return & Retention Expiration:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>In-Person Claim: Require valid photo ID and signed release receipt.</li>
+                  <li>Courier Return: Guest arranges and pays for accredited courier pickup.</li>
+                  <li>Retention Deadlines: Category A kept for 1 year; Category B kept for 90 days. Unclaimed items after expiration are disposed of or awarded to finder per GM approval.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Items like wet beach clothing or waterproof gear are frequently left in outdoor drying racks. Ensure Housekeeping audits patio areas thoroughly during departure inspections.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Found items logged within 1 hour of recovery.</li>
+              <li>Valuables placed inside double-custody safe immediately.</li>
+              <li>Signed release slips archived for 100% of claimed items.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-20 -->
+      <article id="sop-fo-20" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-20</code>
+            <span class="text-gray-900 font-semibold text-lg">VIP / Special Guest Handling</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Deliver personalized, high-touch services for VIP guests, repeat clients, and dignitaries, ensuring flawless room preparation and executive oversight.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>General Manager / Duty Manager</strong></li>
+              <li><strong>Front Office Supervisor</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>VIP Designation & Classification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>VIP 1 (Top Tier): Celebrities, government officials, resort owners/board members, high-value corporate clients.</li>
+                  <li>VIP 2 (Mid Tier): Long-stay guests (7+ nights), repeat guests (3+ stays), travel agency executives, travel influencers.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Pre-Arrival Coordination (24 Hours Prior):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Pre-assign premium room category (SOP-FO-07).</li>
+                  <li>Conduct pre-arrival joint inspection (Duty Manager & Housekeeping Head) checking: AC function, plumbing, water pressure, television, pristine linen, welcome fruit basket, personalized greeting note signed by General Manager.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Arrival & Check-in Experience:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Duty Manager or GM greets VIP directly upon vehicle arrival.</li>
+                  <li>Express Check-in: Bypass standard counter queue. Process registration comfortably in-room or in VIP lounge area.</li>
+                  <li>Offer complimentary welcome drink and fresh cold towel.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>In-House Care & Departure:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Duty Supervisor serves as single point of contact during stay.</li>
+                  <li>Daily Manager courtesy call or check-in.</li>
+                  <li>Priority reservations for dining, pool cabanas, and resort activities.</li>
+                  <li>GM/Duty Manager present at departure to bid farewell and present a local token/gift.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">VIP visits in Gamay may involve local municipal dignitaries or regional executives. Coordinate discrete security parking and privacy arrangements with local municipal police or resort security when hosting high-profile figures.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Joint DM/HK inspection completed 2 hours prior to VIP arrival.</li>
+              <li>In-room registration completed for 100% of VIP 1 arrivals.</li>
+              <li>Welcome amenity and signed GM letter in room upon arrival.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-21 -->
+      <article id="sop-fo-21" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-21</code>
+            <span class="text-gray-900 font-semibold text-lg">Front Desk Shift Handover</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Ensure smooth operational, financial, and informational continuity between outgoing and incoming Front Desk shifts.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Outgoing & Incoming Front Office Associates</strong></li>
+              <li><strong>Duty Supervisor</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Handover Schedule:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Morning to Afternoon Shift: 01:30 PM – 02:00 PM.</li>
+                  <li>Afternoon to Night Shift: 09:30 PM – 10:00 PM.</li>
+                  <li>Night to Morning Shift: 05:30 AM – 06:00 AM.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Financial Handover:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Outgoing staff counts cash drawer float in presence of incoming staff.</li>
+                  <li>Reconcile shift collections against PMS Shift Closing Report.</li>
+                  <li>Both associates sign Cash Float & Shift Collection Log.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Operational Review & Logbook Briefing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Pending guest requests / open maintenance tickets.</li>
+                  <li>Pending arrivals and late check-outs.</li>
+                  <li>Room status discrepancies (e.g., PMS vs Housekeeping physical count).</li>
+                  <li>Special events, VIP presence, or group movements.</li>
+                  <li>Weather updates or local municipal utility advisories.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Key & Equipment Audit:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Count physical master keys and safe keys against custody log.</li>
+                  <li>Inspect condition of front desk equipment (handheld radios, card encoders, POS terminals, company phones).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Formal Sign-off:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Incoming associate signs Logbook accepting full shift responsibility. Incoming associate assumes control of counter.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Handover briefings must explicitly state current regional weather conditions, SAMELCO I power status, and generator diesel fuel levels (recorded on fuel gauge) before the night shift begins.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Shift overlap maintained for minimum 15 minutes.</li>
+              <li>Cash float dual-counted and signed without discrepancies.</li>
+              <li>100% pending guest tasks verbally communicated and logged.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-22 -->
+      <article id="sop-fo-22" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-22</code>
+            <span class="text-gray-900 font-semibold text-lg">Night Audit / Daily Revenue Reconciliation</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Execute end-of-day system date roll, audit daily room/POS transactions, reconcile payment gateways, and publish the Daily Manager Report.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Night Auditor</strong></li>
+              <li><strong>Duty Manager / Finance Department</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Pre-Audit Checks (11:00 PM – 01:00 AM):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Verify all departure folios from the day are closed or properly transferred to City Ledger.</li>
+                  <li>Ensure all F&B, laundry, and incidental POS chits are posted to guest folios.</li>
+                  <li>Verify posted room rates match official system rate matrix. Correct unauthorized variances.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>System Posting & Room Rate Roll:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Process No-Shows and Cancellations (SOP-FO-18).</li>
+                  <li>Execute PMS automatic room revenue posting routine (<em>Room Charge Run</em>).</li>
+                  <li>Verify system successfully posts room rate + applicable government taxes across all in-house rooms.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Financial Reconciliation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Reconcile daily payment gateway collections (Credit Cards, GCash, Bank Transfers) against bank portal settlement summaries.</li>
+                  <li>Reconcile cashier drops across Morning, Afternoon, and Night shifts.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>System Date Rollover & Report Generation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Execute PMS End-Of-Day (EOD) date roll sequence.</li>
+                  <li>Generate and distribute Daily Manager Report (DMR) package via email to GM, Finance, and Department Heads.</li>
+                </ul>
+              </li>
+            </ol>
+            <div class="mt-3 bg-white p-2 rounded text-xs font-mono text-indigo-800">
+              [POS & Charge Reconciliation] ➔ [Execute Auto Room Charge Run] ➔ [Payment Gateway Balancing] ➔ [PMS Date Roll] ➔ [Publish Daily Manager Report]
+            </div>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Night Auditors must verify that backup system power supply (UPS) units are functioning smoothly before executing EOD PMS date roll routines to avoid system crashes during potential overnight rural power grid surges.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>EOD System Rollover completed by 04:00 AM daily.</li>
+              <li>Zero unposted POS charges or unbalanced shift drops.</li>
+              <li>DMR package delivered to management inbox by 05:00 AM.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-23 -->
+      <article id="sop-fo-23" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-23</code>
+            <span class="text-gray-900 font-semibold text-lg">Front Office Closing Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Secure lobby areas, transition front desk operations to night security baseline, and enforce data/cash safety controls overnight.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Night Auditor</strong></li>
+              <li><strong>Security Personnel / Duty Manager</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Lobby & Desk Energy Conservation (00:00 Midnight):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Dim non-essential lobby lights to night baseline settings per energy-saving guidelines.</li>
+                  <li>Adjust lobby air conditioning units to eco-mode or turn off peripheral units while retaining proper ventilation.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Cash & Data Security:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Ensure all physical cash drawers are locked and placed inside the main Front Office safe.</li>
+                  <li>Log off or lock inactive PMS terminals. Secure registration terminals, credit card machines, and key card encoders under key lock.</li>
+                  <li>Lock filing cabinets containing guest registration forms and personal data sheets (Data Privacy Compliance).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Lobby Access Security:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Lock primary glass entry sliding doors at 00:00 midnight.</li>
+                  <li>Switch entrance access to night bell / keycard access mode.</li>
+                  <li>Station Security Personnel near main entryway to handle late arrivals or guest reentry.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Emergency Contact Display:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Position night receptionist bell and prominently display night duty Manager phone contact number at front desk counter for overnight assistance.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Due to Gamay's coastal night breezes, secure exterior glass doors properly against sudden wind gusts or sea salt spray. Ensure outdoor path lighting remains illuminated to guarantee safe footing across tropical gardens.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Cash and guest data cabinets 100% locked by midnight.</li>
+              <li>Night entrance secured with active security guard post.</li>
+              <li>Emergency contact sign clearly visible on counter.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FO-24 -->
+      <article id="sop-fo-24" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FO-24</code>
+            <span class="text-gray-900 font-semibold text-lg">Emergency Guest Communication</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Respond systematically to regional typhoons, coastal surges, power blackouts, or structural emergencies by delivering clear guest advisories and executing orderly evacuations.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>General Manager / Duty Manager</strong></li>
+              <li><strong>Front Office Associates & Security Team</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Emergency Classification & Activation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Level 1 (Local Advisory): Moderate monsoon rain, scheduled power interruptions, minor earthquake tremor.</li>
+                  <li>Level 2 (Warning): PAGASA Severe Weather/Typhoon Signal No. 2/3, localized flooding risk, sustained power grid blackout.</li>
+                  <li>Level 3 (Evacuation Mandatory): PAGASA Typhoon Signal No. 4/5, Tsunami Warning, Fire, Structural Emergency.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Communication Channels Execution:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>In-Room Phone Broadcast / Public Address (PA) System: Announce clear, calm instructions in English and Tagalog.</li>
+                  <li>Door-to-Door Notification: Dispatch staff teams (Front Office + Security) to knock on doors, deliver safety advisories, or conduct assisted evacuations.</li>
+                  <li>Lobby Emergency Bulletin Board: Post updated weather maps, coast guard advisories, and emergency contact lists.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Evacuation Coordination (Level 3 Events):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Front Office Associate extracts physical In-House Guest Manifest and Emergency Master Key packet.</li>
+                  <li>Direct guests calmly toward designated safe assembly zones (e.g., Elevated Main Building Clubhouse / Structure).</li>
+                  <li>Conduct headcount against In-House Guest Manifest at assembly point. Report missing guests to GM and Emergency Responders immediately.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>External Liaison:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Duty Manager maintains direct phone link with Gamay Municipal Disaster Risk Reduction and Management Office (MDRRMO), local police, and coast guard stations.</li>
+                </ul>
+              </li>
+            </ol>
+            <div class="mt-3 bg-white p-2 rounded text-xs font-mono text-indigo-800">
+              [Identify Hazard Level] ➔ [Issue Public Address / Advisory] ➔ [Door-to-Door Notification Teams] ➔ [Evacuate to Assembly Zone] ➔ [Manifest Headcount & MDRRMO Liaison]
+            </div>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Northern Samar is located along the Philippine typhoon belt. In case of tsunami warnings triggered by offshore Pacific earthquakes, immediately execute upward evacuation to designated high-ground concrete structures on property, prioritizing elderly, injured, and child guests.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Physical In-House Guest Manifest printed every 4 hours for offline readiness.</li>
+              <li>100% guest headcount accountably checked within 15 minutes of evacuation signal.</li>
+              <li>MDRRMO and local emergency numbers updated monthly on desk speed dials.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Module Summary Table Section -->
+    <div class="mt-10 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <h3 class="text-xl font-bold text-indigo-900 mb-4 flex items-center">
+        <i class="fa-solid fa-table-list mr-2 text-indigo-600"></i>Module Summary Table
+      </h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm text-gray-700 border-collapse">
+          <thead>
+            <tr class="bg-indigo-50 border-b border-gray-200 text-indigo-900 font-semibold">
+              <th class="p-3">SOP Code</th>
+              <th class="p-3">Title</th>
+              <th class="p-3">Core Responsible Role</th>
+              <th class="p-3">Primary KPI Target</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-01</td><td class="p-3 font-medium">Opening Procedure</td><td class="p-3">Morning FO Associate</td><td class="p-3">Shift ready by 06:00 AM</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-02</td><td class="p-3 font-medium">Reservations Intake</td><td class="p-3">Reservations Clerk</td><td class="p-3">3-ring call pickup SLA</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-03</td><td class="p-3 font-medium">Confirmation & Changes</td><td class="p-3">Reservations Clerk</td><td class="p-3">Confirmation &lt; 2 hrs</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-04</td><td class="p-3 font-medium">Guest Check-in</td><td class="p-3">FO Associate</td><td class="p-3">Check-in &lt; 5 minutes</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-05</td><td class="p-3 font-medium">Walk-in Guests</td><td class="p-3">FO Associate</td><td class="p-3">100% upfront settlement</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-06</td><td class="p-3 font-medium">Identification & Registration</td><td class="p-3">FO Associate</td><td class="p-3">100% valid ID verification</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-07</td><td class="p-3 font-medium">Room Assignment</td><td class="p-3">FO Supervisor</td><td class="p-3">Zero room double-allocations</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-08</td><td class="p-3 font-medium">Access Control & Keys</td><td class="p-3">FO Associate / Security</td><td class="p-3">Zero written room # on cards</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-09</td><td class="p-3 font-medium">Concierge Services</td><td class="p-3">Concierge / FO Host</td><td class="p-3">Verified transport booking</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-10</td><td class="p-3 font-medium">Handling Guest Requests</td><td class="p-3">FO Associate / Runner</td><td class="p-3">Service SLA &lt; 15 minutes</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-11</td><td class="p-3 font-medium">Complaints & Service Recovery</td><td class="p-3">Duty Manager / FO</td><td class="p-3">Resolution &lt; 30 minutes</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-12</td><td class="p-3 font-medium">Room Transfer Procedure</td><td class="p-3">Duty Manager / Luggage</td><td class="p-3">Dual-witness room packing</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-13</td><td class="p-3 font-medium">Early In / Late Out</td><td class="p-3">FO Associate</td><td class="p-3">Rate policy compliance</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-14</td><td class="p-3 font-medium">Guest Check-out</td><td class="p-3">FO Associate</td><td class="p-3">Check-out &lt; 4 minutes</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-15</td><td class="p-3 font-medium">Cashiering & Payments</td><td class="p-3">FO Cashier</td><td class="p-3">Zero cash drawer variance</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-16</td><td class="p-3 font-medium">Credit & Charge Accounts</td><td class="p-3">Credit Manager / FO</td><td class="p-3">High-balance alerts issued</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-17</td><td class="p-3 font-medium">Deposits & Refunds</td><td class="p-3">Finance / FO Associate</td><td class="p-3">Refunds processed &lt; 5 days</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-18</td><td class="p-3 font-medium">No-shows & Cancellations</td><td class="p-3">Night Auditor / FO</td><td class="p-3">Unpaid inventory re-released</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-19</td><td class="p-3 font-medium">Lost & Found Coordination</td><td class="p-3">Housekeeping / FO</td><td class="p-3">Logged within 1 hour</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-20</td><td class="p-3 font-medium">VIP Handling</td><td class="p-3">GM / Duty Manager</td><td class="p-3">Joint pre-arrival inspection</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-21</td><td class="p-3 font-medium">Shift Handover</td><td class="p-3">FO Associates</td><td class="p-3">Dual sign-off on shift float</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-22</td><td class="p-3 font-medium">Night Audit & Reconciliation</td><td class="p-3">Night Auditor</td><td class="p-3">EOD report sent by 05:00 AM</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-23</td><td class="p-3 font-medium">Closing Procedure</td><td class="p-3">Night Auditor / Security</td><td class="p-3">Desk & cash safe secured</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FO-24</td><td class="p-3 font-medium">Emergency Communication</td><td class="p-3">GM / Duty Manager</td><td class="p-3">Headcount &lt; 15 min in crisis</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </main>
@@ -276,37 +2007,50 @@
 
   <script>
     function toggleSopDetails(header) {
-      const card = header.closest('.bg-white');
+      const card = header.closest('article');
+      if (!card) return;
+
       const details = card.querySelector('.sop-details');
+      const chevron = card.querySelector('.fa-chevron-down, .fa-chevron-up');
       const toggleBtn = card.querySelector('.toggle-btn');
-      
-      if (details.classList.contains('hidden')) {
-        details.classList.remove('hidden');
-        toggleBtn.classList.add('hidden');
-        header.innerHTML = `
-          <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">${header.querySelector('code').textContent}</code>
-            <span class="text-gray-900 font-semibold text-lg">${header.querySelector('span').textContent}</span>
-          </div>
-          <i class="fa-solid fa-chevron-up text-indigo-600 transform"></i>
-        `;
-      } else {
-        details.classList.add('hidden');
-        toggleBtn.classList.remove('hidden');
-        header.innerHTML = `
-          <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">${header.querySelector('code').textContent}</code>
-            <span class="text-gray-900 font-semibold text-lg">${header.querySelector('span').textContent}</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
-          </div>
-        `;
+
+      if (details) {
+        const isHidden = details.classList.contains('hidden');
+        if (isHidden) {
+          details.classList.remove('hidden');
+          if (chevron) chevron.classList.add('rotate-180');
+          if (toggleBtn) toggleBtn.textContent = '▲ Hide Details';
+        } else {
+          details.classList.add('hidden');
+          if (chevron) chevron.classList.remove('rotate-180');
+          if (toggleBtn) toggleBtn.textContent = '▼ Show Details';
+        }
       }
-    };
+    }
+
+    function jumpToSop(sopId) {
+      const card = document.getElementById(sopId);
+      if (!card) return;
+
+      const header = card.querySelector('.p-4.bg-indigo-50');
+      const details = card.querySelector('.sop-details');
+      
+      // Auto-expand card if collapsed
+      if (details && details.classList.contains('hidden')) {
+        toggleSopDetails(header);
+      }
+
+      // Smooth scroll into view
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Highlight target card temporarily
+      card.classList.add('ring-4', 'ring-indigo-400');
+      setTimeout(() => {
+        card.classList.remove('ring-4', 'ring-indigo-400');
+      }, 2000);
+    }
   </script>
 
 </body>
-</html>
 
+</html>

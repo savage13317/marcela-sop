@@ -1,13 +1,13 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 08: Digital Systems, Records & Maintenance   - Marcela's Resort Hotel</title>
+  <title>Module 08: Digital Systems, Records & Maintenance - Marcela's Resort Hotel</title>
   <link rel="manifest" href="/pwa/manifest.json">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="/css/main.css">
+  <link rel='stylesheet' href='/css/main.css'>
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('/pwa/sw.js');
@@ -19,20 +19,20 @@
   <!-- Header -->
   <header class="bg-indigo-700 text-white shadow-md sticky top-0 z-40">
     <nav class="container mx-auto px-4 py-3">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-        <a href="/" class="text-xl font-bold hover:text-indigo-200 transition-colors">
-          <i class="fa-solid fa-hotel mr-2"></i>Marcela's Resort Hotel
+      <div class='flex flex-col md:flex-row justify-between items-center gap-4'>
+        <a href='/' class='text-xl font-bold hover:text-indigo-200 transition-colors'>
+          <i class='fa-solid fa-hotel mr-2'></i>Marcela's Resort Hotel
         </a>
         <div class="flex gap-2 flex-wrap justify-center font-medium text-sm" id="moduleNav">
           <a href="/" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Home</a>
           <a href="01_front_office.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Front Office (FO)</a>
           <a href="02_housekeeping.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-broom mr-1"></i>Housekeeping (HK)</a>
-          <a href="03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Food & Beverage (FB)</a>
-          <a href="04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Function Hall (FH)</a>
-          <a href="05_facilities_pool.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Facilities & Pool (FM)</a>
+          <a href="03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-utensils mr-1"></i>Food & Beverage (FB)</a>
+          <a href="04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-glass-cheers mr-1"></i>Function Hall (FH)</a>
+          <a href="05_facilities_pool.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-wrench mr-1"></i>Facilities & Pool (FM)</a>
           <a href="06_safety_typhoon_final.html" class="px-4 py-2 bg-indigo-800 rounded text-red-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-shield-halved mr-1"></i>Safety (S)</a>
-          <a href="07_hr_admin.html" class="px-4 py-2 bg-indigo-800 rounded text-purple-300 hover:bg-indigo-600 transition">HR & Admin (HR)</a>
-          <a href="08_digital_maintenance.html" class="px-4 py-2 bg-indigo-800 rounded text-cyan-300 hover:bg-indigo-600 transition">Digital Systems (DS)</a>
+          <a href="07_hr_admin.html" class="px-4 py-2 bg-indigo-800 rounded text-purple-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-user-tie mr-1"></i>HR & Admin (HR)</a>
+          <a href="08_digital_maintenance.html" class="px-4 py-2 bg-indigo-800 rounded text-cyan-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-laptop-medical mr-1"></i>Digital Systems (DS)</a>
         </div>
       </div>
     </nav>
@@ -57,207 +57,1732 @@
   </script>
 
   <main class="flex-grow container mx-auto px-4 py-6">
-    
+
     <!-- Module Header -->
     <div class="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg shadow-sm p-6 mb-6 border-l-4 border-indigo-600">
-      <h1 class="text-3xl font-bold text-indigo-900 mb-2"><i class="fa-solid fa-user-tie mr-3"></i>Module 08: Digital Systems, Records & Maintenance  </h1>
-      <p class="text-gray-700 text-base">SOPs for front desk operations, guest reservations, check-in/out procedures, and guest services[cite: 11]</p>
+      <h1 class="text-3xl font-bold text-indigo-900 mb-2"><i class="fa-solid fa-laptop-medical mr-3"></i>Module 08: Digital Systems, Records & Maintenance</h1>
+      <p class="text-gray-700 text-base">PMS/POS systems, database management, digital records, IT support, cybersecurity protocols, and website maintenance standards[cite: 1, 3].</p>
+      
+      <!-- Quick Jump Procedure Buttons -->
+      <div class="mt-4 pt-4 border-t border-indigo-200">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-800 mb-2 flex items-center">
+          <i class="fa-solid fa-bolt mr-1 text-indigo-600"></i>Quick Jump to Procedure:
+        </h3>
+        <div class="flex flex-wrap gap-1.5" id="quickNavButtons">
+          <button onclick="jumpToSop('sop-ds-01')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">DS-01 Systems Overview</button>
+          <button onclick="jumpToSop('sop-ds-02')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">DS-02 PMS Operation</button>
+          <button onclick="jumpToSop('sop-ds-03')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">DS-03 POS Operation</button>
+          <button onclick="jumpToSop('sop-ds-04')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">DS-04 Guest Records</button>
+          <button onclick="jumpToSop('sop-ds-05')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">DS-05 Access Control</button>
+          <button onclick="jumpToSop('sop-ds-06')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">DS-06 Passwords</button>
+          <button onclick="jumpToSop('sop-ds-07')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">DS-07 CCTV Admin</button>
+          <button onclick="jumpToSop('sop-ds-08')" class="px-2.5 py-1 text-xs font-semibold bg-red-50 text-red-700 hover:bg-red-600 hover:text-white border border-red-200 rounded shadow-xs transition">DS-08 Wi-Fi Monitor</button>
+          <button onclick="jumpToSop('sop-ds-09')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">DS-09 Digital Payments</button>
+          <button onclick="jumpToSop('sop-ds-10')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">DS-10 Booking Platform</button>
+          <button onclick="jumpToSop('sop-ds-11')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">DS-11 Social Media</button>
+          <button onclick="jumpToSop('sop-ds-12')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">DS-12 Google Business</button>
+          <button onclick="jumpToSop('sop-ds-13')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">DS-13 Document Filing</button>
+          <button onclick="jumpToSop('sop-ds-14')" class="px-2.5 py-1 text-xs font-semibold bg-red-50 text-red-700 hover:bg-red-600 hover:text-white border border-red-200 rounded shadow-xs transition">DS-14 Data Backup</button>
+          <button onclick="jumpToSop('sop-ds-15')" class="px-2.5 py-1 text-xs font-semibold bg-red-50 text-red-700 hover:bg-red-600 hover:text-white border border-red-200 rounded shadow-xs transition">DS-15 Data Recovery</button>
+          <button onclick="jumpToSop('sop-ds-16')" class="px-2.5 py-1 text-xs font-semibold bg-red-50 text-red-700 hover:bg-red-600 hover:text-white border border-red-200 rounded shadow-xs transition">DS-16 Cybersecurity</button>
+          <button onclick="jumpToSop('sop-ds-17')" class="px-2.5 py-1 text-xs font-semibold bg-red-50 text-red-700 hover:bg-red-600 hover:text-white border border-red-200 rounded shadow-xs transition">DS-17 Data Privacy</button>
+          <button onclick="jumpToSop('sop-ds-18')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">DS-18 Incident Reporting</button>
+          <button onclick="jumpToSop('sop-ds-19')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">DS-19 IT Inventory</button>
+          <button onclick="jumpToSop('sop-ds-20')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">DS-20 Website Maintenance</button>
+          <button onclick="jumpToSop('sop-ds-21')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">DS-21 Version Control</button>
+          <button onclick="jumpToSop('sop-ds-22')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">DS-22 Digital Checklists</button>
+        </div>
+      </div>
     </div>
 
-    <!-- SOP Cards -->
+    <!-- SOP Cards Container -->
     <div class="space-y-4" id="sop-container">
-      
-      <!-- SOP-FO-01 -->
-      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+
+      <!-- SOP-DS-01 -->
+      <article id="sop-ds-01" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">FO-01</code>
-            <span class="text-gray-900 font-semibold text-lg">Front Desk Opening Procedure</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-01</code>
+            <span class="text-gray-900 font-semibold text-lg">Hotel Digital Systems Overview</span>
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
           </div>
         </div>
         <div class="sop-details hidden p-4 space-y-3 border-t">
-          
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Establish operational readiness for the Front Desk prior to peak guest traffic, ensuring accounting accuracy, physical cleanliness, system synchronization, and local infrastructure preparedness for the day[cite: 11].</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Provide a comprehensive operational framework for all hardware, software, network infrastructure, and digital tools utilized across Marcela’s Hotel & Resort. Applies to all resort departments and personnel utilizing digital touchpoints.</p>
           </div>
-
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Front Office Associate</strong> (Morning Shift)[cite: 11]</li>
-              <li><strong>Duty Supervisor</strong>[cite: 11]</li>
+              <li><strong>General Manager (GM)</strong></li>
+              <li><strong>IT Officer / System Administrator</strong></li>
+              <li><strong>Department Heads & Front Desk Staff</strong></li>
             </ul>
           </div>
-
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <p><strong>Physical Readiness & Security:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Arrive 15 minutes before the scheduled shift (05:45 AM for a 06:00 AM start)[cite: 11].</li>
-                  <li>Unlock the main Front Office drawer/counter and inspect the lobby, reception desk, and guest seating areas for cleanliness and safety[cite: 11].</li>
-                  <li>Turn on lobby lights, air conditioning, and guest display screens[cite: 11].</li>
+                <strong>System Architecture Identification:</strong> Maintain a master directory of core systems:
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><em>Property Management System (PMS):</em> Front Desk, Reservations, Room Inventory.</li>
+                  <li><em>Point of Sale (POS):</em> Restaurant, Bar, Room Service, Function Hall Billing.</li>
+                  <li><em>Network Infrastructure:</em> Dual-WAN Router (Starlink Primary + Local 4G LTE Backup), Unifi Access Points, UPS units.</li>
+                  <li><em>CCTV System:</em> 16-channel / 32-channel NVR with localized storage.</li>
+                  <li><em>Payment Gateways:</em> Maya Terminal, GCash Merchant QR Ph, Bank Transfer Portals.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>System & Terminal Startup:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Power on the Property Management System (PMS) terminal, point-of-sale (POS) card terminals, and receipt printers[cite: 11].</li>
-                  <li>Log into the PMS using personal staff credentials[cite: 11].</li>
+                <strong>Daily Startup Audit:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Verify online status of core server/router at 06:00 AM daily.</li>
+                  <li>Ensure Uninterruptible Power Supply (UPS) battery levels read 100%.</li>
+                  <li>Perform quick connectivity check across Front Desk and POS terminals.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Cash Float Verification:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Retrieve the shift cash drawer/float from the Front Office safe in the presence of the outgoing Night Auditor or Duty Supervisor[cite: 11].</li>
-                  <li>Count and verify the standard opening float (â‚±10,000 in mixed denominations)[cite: 11].</li>
-                  <li>Sign the Cash Float Logbook detailing denomination counts and variance notes (if any)[cite: 11].</li>
+                <strong>Operational Readiness Check:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Confirm synchronization between PMS and channel manager/OTAs (Agoda, Booking.com).</li>
+                  <li>Verify POS system printer connectivity in Kitchen and Restaurant cashier stations.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Information Review & Handover Audit:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Review the Night Audit Handover Log, unhandled guest requests from the previous night, and pending maintenance tickets[cite: 11].</li>
-                  <li>Print or generate digital daily reports: Arrivals List, Departures List, In-House Guest List, and Housekeeping Status Report[cite: 11].</li>
-                </ul>
-              </li>
-              <li>
-                <p><strong>Local Infrastructure & Power Check:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Verify grid power status (SAMELCO I). Confirm that the Automatic Transfer Switch (ATS) and standby generator unit are set to auto-start mode[cite: 11].</li>
-                  <li>Check local internet connectivity (primary and backup satellite/LTE connections) and test landlines[cite: 11].</li>
+                <strong>System Outage Escalation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Immediately log connectivity drops in the <em>Digital Systems Logbook</em>.</li>
+                  <li>Switch manually to offline failover protocols if downtime exceeds 5 minutes (refer to SOP-DS-02/03).</li>
                 </ul>
               </li>
             </ol>
           </div>
-
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
             <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Given Gamay's coastal provincial location, morning high humidity can affect electronic terminals. Ensure counter surfaces and card reader terminals are wiped dry. Keep physical backup printouts of daily arrival lists in the emergency binder to handle potential local grid power interruptions or internet lag[cite: 11].</p>
+            <p class="text-gray-700 text-sm">Gamay, Northern Samar experiences sudden power interruptions and heavy rain cell-site degradations. All core network equipment must remain plugged directly into dedicated online UPS systems backed up by the resort generator.</p>
           </div>
-
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
-            <ul class="space-y-1 text-gray-700 text-sm">
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-1" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-1" class="cursor-pointer select-none">Cash float counted, verified, and logged by 06:00 AM[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-2" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-2" class="cursor-pointer select-none">Daily arrival/departure/in-house reports printed/saved[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-3" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-3" class="cursor-pointer select-none">Generator status and internet connectivity verified[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2 font-semibold text-green-700">
-                Front desk and lobby neatness score: 100%[cite: 11].
-              </li>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% daily log completion of system status at shift openings.</li>
+              <li>System Uptime Target: 99.5% operational availability.</li>
+              <li>Zero untracked hardware or network outages.</li>
             </ul>
           </div>
-
         </div>
       </article>
 
-      <!-- SOP-FO-02 -->
-      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+      <!-- SOP-DS-02 -->
+      <article id="sop-ds-02" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">FO-02</code>
-            <span class="text-gray-900 font-semibold text-lg">Guest Reservation Procedure</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-02</code>
+            <span class="text-gray-900 font-semibold text-lg">PMS / Reservation System Operation</span>
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
           </div>
         </div>
         <div class="sop-details hidden p-4 space-y-3 border-t">
-          
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Standardize intake for direct and indirect room bookings across telephone, walk-in inquiries, messaging platforms, and online travel agencies (OTAs) while optimizing room yield and rate integrity[cite: 11].</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Standardize daily operation, guest booking management, check-in/check-out processing, and offline synchronization within the Property Management System (PMS).</p>
           </div>
-
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Reservations Clerk</strong>[cite: 11]</li>
-              <li><strong>Front Office Associate</strong>[cite: 11]</li>
+              <li><strong>Front Office Manager (FOM)</strong></li>
+              <li><strong>Front Desk Agents (FDA)</strong></li>
+              <li><strong>Reservations Staff</strong></li>
             </ul>
           </div>
-
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <p><strong>Inquiry Intake & Greetings:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Answer incoming calls within three (3) rings: "Warm greetings from Marcela's Resort Hotel Gamay! This is [Name], how may I assist your stay today?"[cite: 11]</li>
-                  <li>Capture caller details: full name, contact number, email, and preferred communication channel[cite: 11].</li>
+                <strong>Shift Login & Initialization:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Log in using individual assigned credentials (never share accounts).</li>
+                  <li>Review the daily dashboard: arrivals, departures, stay-overs, out-of-order rooms, and pending payments.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Needs Analysis & Availability Verification:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Identify travel dates, number of guests, room preference, and special requirements[cite: 11].</li>
-                  <li>Check room availability on the PMS calendar for requested dates[cite: 11].</li>
+                <strong>Processing Reservations & Check-Ins:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Cross-reference guest booking details (OTA voucher, walk-in registration, or direct booking).</li>
+                  <li>Assign room based on clean/inspected room status received from Housekeeping.</li>
+                  <li>Collect cash, GCash, or card deposit and record transaction immediately under guest folio.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Rate Quote & Inventory Management:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Quote Published Rates, Seasonal Rates, or Corporate Rates following property structures[cite: 11].</li>
-                  <li>Detail inclusions clearly (breakfast allocation, pool access, taxes)[cite: 11].</li>
+                <strong>Handling System Downtime (Offline Protocol):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Print physical <em>Daily Arrival & Departure Manifests</em> at the start of every shift (06:00, 14:00, 22:00).</li>
+                  <li>If PMS goes offline during power/internet outage, record check-ins/check-outs manually on the <em>Manual Guest Ledger</em>.</li>
+                  <li>Re-enter manual ledger records into the PMS within 1 hour after connectivity restoration.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Booking Capture in PMS:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Create a new reservation record in the PMS with complete guest data and booking source tags[cite: 11].</li>
-                </ul>
-              </li>
-              <li>
-                <p><strong>Payment Guarantee & Deposit Terms:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Inform guest of deposit policy (50% initial deposit required within 48 hours for regular season; 100% advance payment for peak holidays)[cite: 11].</li>
-                  <li>Provide accepted options: Bank Transfer (BDO/Landbank), GCash, Maya, or Credit Card link[cite: 11].</li>
+                <strong>End-of-Day Reconciliation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Perform night audit balance run; ensure all posted charges align with cash drawer, GCash logs, and card slips.</li>
                 </ul>
               </li>
             </ol>
           </div>
-
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
             <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Guests traveling to Gamay often face travel delays due to weather conditions along the Pacific board, ferry crossing delays, or provincial road conditions. Always ask for expected modes of arrival to estimate realistic arrival times[cite: 11].</p>
+            <p class="text-gray-700 text-sm">Northern Samar weather can affect cloud-PMS connections. Printing shift manifests on paper ensures check-in delays do not occur during sudden fiber or satellite connection drops.</p>
           </div>
-
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
-            <ul class="space-y-1 text-gray-700 text-sm">
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo02-1" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo02-1" class="cursor-pointer select-none">100% accurate data entry into PMS (zero misspelled names or mismatched contact numbers)[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo02-2" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo02-2" class="cursor-pointer select-none">Payment terms clearly communicated and logged in reservation notes[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2 font-semibold text-green-700">
-                Call answered within 3 rings[cite: 11].
-              </li>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Shift manifest printed at start of every shift.</li>
+              <li>Zero discrepancy between physical payment receipts and PMS folio postings.</li>
+              <li>100% catch-up sync completed within 60 minutes of internet recovery.</li>
             </ul>
           </div>
-
         </div>
       </article>
 
+      <!-- SOP-DS-03 -->
+      <article id="sop-ds-03" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-03</code>
+            <span class="text-gray-900 font-semibold text-lg">POS System Operation</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Regulate order entry, table management, charge posting to guest folios, and daily sales closing across F&B, Pool, and Function Hall outlets.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Restaurant Manager</strong></li>
+              <li><strong>F&B Cashiers, Waitstaff, Bartenders</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>POS Opening Routine:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Power on POS terminals and receipt printers at 06:00 AM.</li>
+                  <li>Log in using individual cashier PIN code.</li>
+                  <li>Verify opening float cash balance against physical cash drawer.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Order Entry & Processing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Select table number/outlet zone; enter items accurately based on guest request and special dietary notes.</li>
+                  <li>Send order digitally to Kitchen Display / Kitchen Slip Printer.</li>
+                  <li>For room charges: Search guest name/room number in POS; verify room active status on PMS before posting. Require guest signature on printed bill slip.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Offline POS Mode (Power Failure / Network Loss):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Switch POS terminal to local offline mode or use carbon-copy Order Tickets (OTs) and Official Receipts (ORs).</li>
+                  <li>Calculate taxes (VAT 12%) and service charge manually using local rate charts.</li>
+                  <li>Post offline receipts to the digital POS system immediately upon network recovery.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>POS Closing Routine:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Generate End-of-Day (Z-Reading) report.</li>
+                  <li>Reconcile total cash, GCash transfers, card slips, and room charges against system report.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Ensure thermal paper rolls are stored in airtight plastic containers to prevent moisture damage from high provincial humidity in Gamay.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Signed room-charge slips attached to daily cashier report.</li>
+              <li>Zero billing discrepancies between F&B receipts and PMS guest folios.</li>
+              <li>Maximum 3-minute resolution time for offline ticket re-entry post-restoration.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-04 -->
+      <article id="sop-ds-04" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-04</code>
+            <span class="text-gray-900 font-semibold text-lg">Digital Guest Records</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Direct the creation, updating, archival, and secure handling of digital guest profiles, preferences, and transaction histories while ensuring legal compliance.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Front Desk Agents</strong></li>
+              <li><strong>Reservations Officer</strong></li>
+              <li><strong>IT Administrator</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Guest Profile Creation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Input full legal name, contact number, email address, address, and nationality upon registration.</li>
+                  <li>Scanned government ID/passport attached directly to the guest profile in PMS.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Recording Guest Preferences & History:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Log dietary preferences, room location choices, allergy alerts, and special requests (e.g., extra pillows, pool towels).</li>
+                  <li>Record past stay history, incident notes, or unfulfilled booking flags.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Data Updating & Maintenance:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Verify email and phone details upon repeat check-in.</li>
+                  <li>Flag profile for merging if duplicate entries exist (handled by FOM weekly).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Data Purging & Archival:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Automatically archive inactive guest accounts older than 3 years in accordance with tax and legal requirements.</li>
+                  <li>Securely delete non-essential personal identifiers after statutory holding periods.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Guests from government agencies or local provincial offices frequently re-book; maintain accurate billing/TIN details on digital profiles to streamline local official invoicing (LGU requirements).</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Scanned valid ID attached to 100% of checked-in profiles.</li>
+              <li>Zero duplicate profile creation rate target (>95% accuracy).</li>
+              <li>Secure profile masking applied for credit card numbers.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-05 -->
+      <article id="sop-ds-05" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-05</code>
+            <span class="text-gray-900 font-semibold text-lg">User Access Control</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Define the authorization matrix, role-based access control (RBAC), user creation, and revocation across all property software systems to protect sensitive resort data.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>General Manager</strong></li>
+              <li><strong>IT Administrator</strong></li>
+              <li><strong>Department Heads</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Role-Based Access Level Assignment:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><em>Level 1 (Staff/Cashiers):</em> Read/Write operational functions (Order entry, check-in, billing generation). No void/discount access.</li>
+                  <li><em>Level 2 (Supervisors/Duty Managers):</em> Void items, apply standard discounts, process refunds, view daily summaries.</li>
+                  <li><em>Level 3 (Department Heads):</em> System adjustments, report generation, limited user authorization.</li>
+                  <li><em>Level 4 (GM / IT Admin):</em> Full system administration, user creation, privilege modification, audit log access.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Account Provisioning:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Department Head submits <em>User Account Request Form</em> to IT Administrator for new hires.</li>
+                  <li>IT creates account within 24 hours using official property email domain or standard staff ID prefix.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Immediate Account Revocation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Upon employee separation or resignation, HR notifies IT simultaneously during exit processing.</li>
+                  <li>IT deactivates all account credentials (PMS, POS, Email, Wi-Fi access) within 1 hour of exit notice.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Quarterly Access Audit:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Conduct quarterly audit of active system accounts against current payroll list to eliminate ghost or inactive users.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Prevent common provincial resort practice of staff sharing manager PINs/passwords during busy shifts. Shared account usage is strictly prohibited and subject to disciplinary action.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% offboarded staff accounts deactivated within 1 hour.</li>
+              <li>Quarterly user audit report signed by GM and IT.</li>
+              <li>Zero instances of shared administrative logins.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-06 -->
+      <article id="sop-ds-06" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-06</code>
+            <span class="text-gray-900 font-semibold text-lg">Password Management</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Enforce robust password security protocols, multi-factor authentication (MFA), and credential rotation to prevent unauthorized system intrusion.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>All System Users</strong></li>
+              <li><strong>IT Administrator</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Password Standard Mandate:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Minimum 12 characters combining uppercase letters, lowercase letters, numbers, and special symbols (e.g., <code>Gamay#Marcela2026</code>).</li>
+                  <li>Dictating, writing on sticky notes, or saving passwords in web browsers on shared terminals is strictly prohibited.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Password Renewal Cycle:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Mandatory forced system password change every 90 days for operational accounts; every 60 days for administrative/financial accounts.</li>
+                  <li>System prevents re-use of the last 5 previous passwords.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Multi-Factor Authentication (MFA):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Enforce MFA via authenticator apps or SMS OTPs for all cloud management tools, cloud-PMS, official social media accounts, and banking portals.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Credential Emergency Recovery:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Master passwords stored in a sealed physical envelope inside the GM Safe and in an encrypted off-site password manager controlled by property ownership.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Ensure backup cellular phones designated for receiving SMS OTPs are charged continuously via dedicated power banks during local brownouts.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% compliance with 90-day password expiration rules.</li>
+              <li>MFA enabled on all master cloud, email, and banking platforms.</li>
+              <li>Zero passwords exposed on physical desk surfaces or sticky notes.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-07 -->
+      <article id="sop-ds-07" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-07</code>
+            <span class="text-gray-900 font-semibold text-lg">CCTV Administration</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Standardize camera placement, recording retention, system maintenance, access control, and footage review compliance for security and operational monitoring.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Security Supervisor</strong></li>
+              <li><strong>IT Administrator</strong></li>
+              <li><strong>General Manager</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>System Health Inspection (Daily at 07:00 AM):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Check NVR status LEDs, recording indicators, disk storage health, and camera timestamps.</li>
+                  <li>Ensure all cameras covering critical zones (Front Desk, Cash Counter, Pool Area, Gates, Perimeter, Kitchen) are functioning properly.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Recording & Retention Parameters:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Minimum continuous recording retention of <strong>30 days</strong> at 1080p resolution.</li>
+                  <li>NVR storage configured to overwrite oldest footage automatically upon reaching 95% capacity.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Footage Review & Retrieval Request:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Viewing access restricted to Security Head, GM, and IT Administrator.</li>
+                  <li>Third-party or guest footage requests require a formal written request, GM approval, and a official police blotter/subpoena (under National Privacy Commission guidelines).</li>
+                  <li>Log all export actions in the <em>CCTV Review Register</em> detailing date, time, reason, and requesting authority.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Physical & Lens Maintenance:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Clean camera enclosures and glass weekly to clear spider webs, dust, and sea-salt residue common in coastal Samar.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Coastal air in Northern Samar accelerates lens fogging and bracket corrosion. Inspect external camera housings bi-weekly for saltwater degradation and seal tightness.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Minimum 30 days continuous video footage retained on local NVR.</li>
+              <li>Daily CCTV status log updated by Security/IT.</li>
+              <li>100% log recording for every footage review/export event.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-08 -->
+      <article id="sop-ds-08" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-08</code>
+            <span class="text-gray-900 font-semibold text-lg">Wi-Fi / Internet Monitoring</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Ensure continuous high-speed connectivity for resort operations and guest satisfaction through proactive WAN management, guest network bandwidth limits, and quick failover protocols.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>IT Officer</strong></li>
+              <li><strong>Front Office Staff</strong></li>
+              <li><strong>Duty Manager</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Network Bandwidth Allocation (VLAN Management):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><em>VLAN 10 (Operations):</em> PMS, POS, Payment Terminals (Priority Quality of Service - QoS).</li>
+                  <li><em>VLAN 20 (Administration):</em> Admin Offices, Management email, CCTV.</li>
+                  <li><em>VLAN 30 (Guest Wi-Fi):</em> Guest access via captive portal, rate-limited to 10 Mbps download / 5 Mbps upload per user.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Dual-WAN Auto-Failover Protocol:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Primary Connection: Starlink Satellite Internet (High Speed).</li>
+                  <li>Secondary Failover: Local 4G LTE Router / Fiber ISP line.</li>
+                  <li>Dual-WAN router configured to ping external DNS every 10 seconds; auto-switch to secondary line within 15 seconds of primary failure.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Daily Connectivity Audit:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Measure speed at Front Desk and Guest Pool area twice daily (08:00 AM and 18:00 PM).</li>
+                  <li>Reboot Access Points (APs) remotely during off-peak hours (03:00 AM) weekly.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Guest Wi-Fi Voucher/Access Handling:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Front Desk provides active Wi-Fi password/captive code upon check-in.</li>
+                  <li>Assist guests experiencing connection difficulties with resetting network settings on devices.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Starlink satellite dishes are prone to signal disruption during extreme tropical downpours in Gamay. During severe storms, notify guests that internet speeds may decrease and prioritize bandwidth to Front Office / POS terminals.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Automatic WAN failover operational within 15 seconds.</li>
+              <li>Guest captive portal landing page active and operational.</li>
+              <li>Less than 5 guest Wi-Fi complaints per month.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-09 -->
+      <article id="sop-ds-09" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-09</code>
+            <span class="text-gray-900 font-semibold text-lg">Digital Payment Monitoring</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Establish secure procedures for processing, verifying, and reconciling digital payments (GCash, Maya, QR Ph, Online Bank Transfers) to prevent fraud and billing discrepancies.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Front Desk Cashiers</strong></li>
+              <li><strong>F&B Cashiers</strong></li>
+              <li><strong>Finance / Accounting Staff</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Accepting QR Ph / GCash / Maya Payments:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Display official resort QR Ph codes at payment counters.</li>
+                  <li>Require guest to scan and process transaction in front of the cashier.</li>
+                  <li><strong>Verification Rule:</strong> Cashier <em>must</em> visually check the reference number, transaction date, amount, and recipient name ("Marcela's Resort Hotel") on the guest's mobile screen.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Logging Reference Numbers:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Input the exact 10-13 digit transaction Reference ID into the PMS/POS billing notes and write it on the duplicate official receipt.</li>
+                  <li>Print or save screenshot to the daily digital payment folder (for Front Desk transactions).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Online Bank Transfer Verification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>For pre-payments/deposits via BDO, BPI, or Landbank, require proof of transfer receipt sent via official email or messaging channel.</li>
+                  <li>Accounting staff verifies direct deposit in bank online portal before confirming booking status in PMS.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Daily Digital Payment Reconciliation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>At shift end, cross-reference GCash/Maya merchant web portal balances against logged transactions in POS/PMS daily reports.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Cellular network delays in Gamay may delay SMS notifications for received GCash/Maya merchant payments. Cashiers must rely on visual verification of guest app confirmation screen AND merchant app push notification before releasing guest.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% of digital transactions logged with valid reference numbers.</li>
+              <li>Zero balance mismatch between merchant digital portal and daily cash/POS sheets.</li>
+              <li>Zero acceptance of fake payment confirmation screenshots.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-10 -->
+      <article id="sop-ds-10" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-10</code>
+            <span class="text-gray-900 font-semibold text-lg">Online Booking Platform Management</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Regulate room rates, inventory availability, promotional setups, and channel synchronization across Online Travel Agencies (OTAs e.g., Agoda, Booking.com) and direct booking portals.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Sales & Marketing Manager</strong></li>
+              <li><strong>Reservations Officer</strong></li>
+              <li><strong>General Manager</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Daily Rate & Allotment Management:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Check Channel Manager / OTA extranets daily at 08:30 AM.</li>
+                  <li>Ensure rate parity across all public digital sales channels unless specific closed-user promotions are authorized.</li>
+                  <li>Update available room inventory to prevent overbooking during high-demand local festivals or holiday weekends.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Handling Direct OTA Bookings:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Verify instant sync from OTA to PMS.</li>
+                  <li>Manual entry for non-integrated channels within <strong>15 minutes</strong> of receiving booking notification email.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Stop-Sell Procedure (High Occupancy):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>When resort occupancy reaches 90% (27 out of 30 rooms), execute immediate "Stop-Sell" on external OTAs to preserve room buffer for walk-ins and direct phone bookings.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>OTA Review & Communication Monitoring:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Respond to guest messages on OTA portals within 2 hours of receipt.</li>
+                  <li>Track guest reviews weekly; submit management responses within 48 hours.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Gamay’s local events (e.g., town fiesta, regional government summits) cause sudden spikes in room demand. Reservations staff must lock down OTA discount rates during peak regional dates.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Zero overbooking instances caused by channel lag.</li>
+              <li>OTA messaging response rate >95% within 2 hours.</li>
+              <li>Rate parity maintained across all online portals daily.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-11 -->
+      <article id="sop-ds-11" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-11</code>
+            <span class="text-gray-900 font-semibold text-lg">Social Media Management</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Guide staff in responding to direct inquiries, reservations, and comments on official resort social media channels (Facebook, Instagram, TikTok) professionally and promptly.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Social Media Coordinator</strong></li>
+              <li><strong>Front Desk Officers</strong></li>
+              <li><strong>Duty Manager</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Channel Monitoring Schedule:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Monitor official Facebook Page, Instagram Direct Messages, and Messenger continuously between 06:00 AM and 10:00 PM daily.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Standard Response Protocol:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Acknowledge inquiries within <strong>15 minutes</strong> using friendly, professional branding language: <em>"Marhay na adlaw! Thank you for messaging Marcela’s Hotel & Resort..."</em></li>
+                  <li>Provide room rates, function hall rates, day-tour pool rates, and direct booking links clearly.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Handling Reservations via Messaging Apps:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Collect full name, contact number, email, check-in/out dates, room type, and total guests.</li>
+                  <li>Issue official payment instructions for reservation deposit (50% required within 24 hours).</li>
+                  <li>Input booking into PMS under "Pending Deposit" status.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Escalation of Complaints:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Do not debate or argue publicly on comment sections.</li>
+                  <li>Invite disgruntled guests to private message: <em>"We care about your experience. Please send us a direct message or call [Phone Number] so our Manager can assist you immediately."</em></li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">A majority of provincial domestic travelers in Eastern Visayas make inquiries directly through Facebook Messenger rather than email or website forms. Response speed directly impacts occupancy rates.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Average messaging response time under 15 minutes.</li>
+              <li>100% negative public comments directed to private resolution channels within 30 minutes.</li>
+              <li>Zero unauthorized staff personal statements on official pages.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-12 -->
+      <article id="sop-ds-12" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-12</code>
+            <span class="text-gray-900 font-semibold text-lg">Google Business Profile Management</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Maintain accurate property information, operating hours, photos, location mapping, and review management on Google Search and Google Maps.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>IT Administrator</strong></li>
+              <li><strong>Marketing Coordinator</strong></li>
+              <li><strong>General Manager</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Profile Data Accuracy Audit (Monthly):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Verify operational hours, phone numbers, contact email, street address (Gamay, Northern Samar), and website URL.</li>
+                  <li>Update room pricing ranges and amenity highlights (e.g., Pool, Function Hall, Restaurant, Parking, Free Wi-Fi).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Photo & Content Updates:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Upload high-resolution photos bi-weekly (e.g., guest events, fresh F&B dishes, clean pool, refurbished rooms).</li>
+                  <li>Post Google Updates regarding upcoming holiday promos, resort events, or weather/road access advisories.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Review Monitoring & Management:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Monitor incoming reviews every Monday and Thursday.</li>
+                  <li>Respond to all reviews (positive and negative) within 72 hours.</li>
+                  <li><em>Positive Review Response:</em> Thank the guest personally, mention specific details they enjoyed.</li>
+                  <li><em>Negative Review Response:</em> Express empathy, state commitment to service improvement, provide direct contact details of GM for resolution.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Map Pin & Navigation Verification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Periodically check pin placement on Google Maps to ensure GPS routing brings guests accurately to the resort entrance.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Heavy roadworks or typhoon repairs along Northern Samar highways can confuse travelers. Update profile posts with clear driving directions from Catarman or Calbayog airports during stormy seasons.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Profile information 100% accurate at all times.</li>
+              <li>100% of Google reviews responded to within 72 hours.</li>
+              <li>Minimum overall Google rating target: 4.2 Stars.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-13 -->
+      <article id="sop-ds-13" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-13</code>
+            <span class="text-gray-900 font-semibold text-lg">Digital Document Filing</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Establish a standardized directory structure, file naming convention, and cloud storage system for administrative, legal, financial, and operational digital records.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Administrative Assistant</strong></li>
+              <li><strong>IT Administrator</strong></li>
+              <li><strong>Department Heads</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Master Folder Structure (Google Drive / Shared Server):</strong>
+                <div class="bg-gray-800 text-gray-100 p-3 rounded text-xs font-mono my-2 overflow-x-auto">
+                  [00_MARCELA_MASTER_DRIVE]<br>
+                  ├── 01_ADMIN_LEGAL_PERMITS<br>
+                  ├── 02_FINANCE_ACCOUNTING<br>
+                  ├── 03_HUMAN_RESOURCES<br>
+                  ├── 04_OPERATIONS_SOP<br>
+                  ├── 05_MARKETING_ASSETS<br>
+                  └── 06_FACILITIES_MAINTENANCE
+                </div>
+              </li>
+              <li>
+                <strong>Standard File Naming Convention:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Standard Format: <code>YYYY-MM-DD_[DocType]_[Description]_[vVersion/Initials]</code>.</li>
+                  <li><em>Example:</em> <code>2026-10-15_PERMIT_MayorPermitRenewal_v1.pdf</code>.</li>
+                  <li><em>Example:</em> <code>2026-10-08_REPORT_DailyF&BSales_FDA.xlsx</code>.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Filing Timeline & Discipline:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Save daily financial reports before midnight.</li>
+                  <li>Scanned contracts and official receipts filed within 24 hours of execution.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Access Rights Control:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Apply read-only permissions for general staff folders; restrict edit rights to respective Department Heads.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Scanned copies of local government permits (Gamay LGU Mayor's Permit, DENR clearance, BIR registration) must be instantly downloadable on management phones during surprise local agency inspections.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% compliance with standardized file naming convention.</li>
+              <li>Zero unorganized documents on public shared desktop areas.</li>
+              <li>Instant retrieval time (<2 minutes) for any regulatory permit file.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-14 -->
+      <article id="sop-ds-14" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-14</code>
+            <span class="text-gray-900 font-semibold text-lg">Data Backup Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Define the automated and manual schedule, redundancy protocols, and off-site backup verification for all essential operational, guest, and financial data.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>IT Administrator</strong></li>
+              <li><strong>System Operator</strong></li>
+              <li><strong>Finance Head</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>3-2-1 Backup Strategy Implementation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Maintain <strong>3</strong> total copies of data.</li>
+                  <li>Stored across <strong>2</strong> different media types (Local NAS/SSD + Cloud Storage).</li>
+                  <li>Keeping <strong>1</strong> copy off-site (Encrypted Cloud Backup).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Daily Automated Backup Routine:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><em>Database/PMS/POS:</em> Automated incremental backup every night at 02:00 AM to local Network Attached Storage (NAS).</li>
+                  <li><em>Cloud Sync:</em> Automatic sync of NAS data to encrypted Google Workspace Enterprise Cloud Drive at 03:00 AM.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Weekly Manual Offline Backup:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>IT Administrator performs an offline snapshot backup to an external encrypted hard drive every Sunday at 23:00 PM.</li>
+                  <li>Store the external hard drive inside a fireproof, waterproof safe in the Executive Office.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Backup Log Verification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Check backup success notification log daily at 08:00 AM.</li>
+                  <li>Re-run failed backups immediately upon discovering network or execution errors.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Physical off-site drive backups are vital in Gamay to protect historical data against sudden severe typhoon flooding or extended regional power grid failures.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Daily backup verification log signed off every morning.</li>
+              <li>Weekly offline physical drive backup completed and secured in fireproof safe.</li>
+              <li>100% data integrity check success on cloud backup portals.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-15 -->
+      <article id="sop-ds-15" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-15</code>
+            <span class="text-gray-900 font-semibold text-lg">Data Recovery Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Detail step-by-step restore protocols to quickly recover digital systems, databases, and operational files following hardware failure, cyber incidents, or disaster events.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>IT Administrator</strong></li>
+              <li><strong>General Manager</strong></li>
+              <li><strong>Department Heads</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Incident Identification & System Isolation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Declare data loss event (e.g., corrupted PMS database, drive crash, ransomware infection).</li>
+                  <li>Immediately disconnect affected terminals/servers from the network (unplug Ethernet cables, disable Wi-Fi) to isolate damage.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Selecting Recovery Point Objective (RPO):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Identify the most recent clean backup timestamp (Target RPO: Less than 24 hours old).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Restoration Execution Steps:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><em>Step A:</em> Format/sanitize target hardware or prepare clean replacement equipment.</li>
+                  <li><em>Step B:</em> Retrieve clean backup image from Cloud or local offline external hard drive.</li>
+                  <li><em>Step C:</em> Execute system restore utility under IT Administrator supervision.</li>
+                  <li><em>Step D:</em> Perform database integrity check and verify record counts against paper logbooks/manifests.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Post-Recovery Verification & Re-connection:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Run isolated operational test transactions on POS/PMS before reconnecting system to main network.</li>
+                  <li>Re-key manual paper logs generated during downtime.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Disaster Recovery Simulation Test:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Conduct bi-annual mock data recovery drill (every April and October) to test restore speed (Target Recovery Time Objective - RTO: <4 hours).</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Maintain pre-configured spare replacement PCs/terminals on-site to swap out hardware ruined by electrical lightning surges during Samar thunderstorms.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>System Recovery Time Objective (RTO) achieved within 4 hours.</li>
+              <li>Zero permanent loss of critical guest or accounting records.</li>
+              <li>Bi-annual data recovery drill completed and documented.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-16 -->
+      <article id="sop-ds-16" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-16</code>
+            <span class="text-gray-900 font-semibold text-lg">Cybersecurity & Phishing Prevention</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Establish safeguards against malware, phishing emails, ransomware, unauthorized network intrusions, and social engineering attacks targeting hotel systems.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>IT Administrator</strong></li>
+              <li><strong>All Staff Members</strong></li>
+              <li><strong>Department Managers</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Endpoint Protection & Antivirus:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Install centralized managed Endpoint Protection/Antivirus software on all resort computers.</li>
+                  <li>Configure real-time scanning and automatic daily virus definition updates (05:00 AM).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Phishing Email Identification Protocol:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Train staff to inspect email senders carefully. Look out for red flags: unusual domains, urgent wire transfer requests, suspicious links, or unsolicited attachments (<code>.exe</code>, <code>.zip</code>, <code>.scr</code>).</li>
+                  <li><strong>Verification Rule:</strong> Never click external links or open attachments in unverified emails claiming to be from "Agoda", "Booking.com", "Bank", or "Government".</li>
+                </ul>
+              </li>
+              <li>
+                <strong>USB & External Device Control:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Disable unauthorized USB flash drive auto-run on Front Office and POS terminals.</li>
+                  <li>Require IT scanning of any external media before connecting to resort computers.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Reporting Security Incidents:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Staff must immediately report suspicious emails, pop-up security warnings, or locked files to IT (<code>it@marcelasresort.ph</code>) and disconnect the device from the network.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Staff Security Awareness Training:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Conduct mandatory cybersecurity orientation for new hires and bi-annual refreshers for all staff.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">OTA messaging platforms are frequent targets for spear-phishing scams. Front desk staff must never send guest credit card details or click external links sent via guest messaging apps.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% active endpoints with updated antivirus software.</li>
+              <li>Zero successful malware or ransomware infections.</li>
+              <li>100% new staff completion of cybersecurity orientation.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-17 -->
+      <article id="sop-ds-17" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-17</code>
+            <span class="text-gray-900 font-semibold text-lg">Guest Data Privacy & Confidentiality</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Ensure strict compliance with the <strong>Philippine Data Privacy Act of 2012 (Republic Act No. 10173)</strong>, safeguarding personal identifiable information (PII) of guests and employees.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Data Protection Officer (DPO / GM)</strong></li>
+              <li><strong>IT Administrator</strong></li>
+              <li><strong>Front Office Staff</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Data Minimization & Consent Collection:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Collect only necessary guest information required for booking, legal identification, and billing.</li>
+                  <li>Ensure guest sign the Data Privacy Consent Clause on physical or digital registration cards upon check-in.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Physical Data Security:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Keep printed guest folios, registration forms, and credit card slips inside locked drawers or cabinets.</li>
+                  <li>Shred discarded papers containing guest PII using a cross-cut shredder at shift end.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Digital Data Masking & Restrictions:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Mask credit card numbers (displaying only last 4 digits) on screen and printed receipts.</li>
+                  <li>Prohibit staff from taking personal photos/videos of guest registration screens, passports, or IDs using personal smartphones.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Handling Third-Party Inquiries:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Never confirm guest room numbers, stay dates, or presence to outside callers or visitors without explicit guest authorization.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Data Breach Reporting:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>DPO must report any confirmed data breach affecting personal information to the National Privacy Commission (NPC) and affected guests within 72 hours of discovery.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">In small communities like Gamay, local inquiries regarding famous or high-profile resort guests are common. Staff must strictly adhere to non-disclosure protocols regardless of local relationships.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Signed privacy consent obtained on 100% of guest registrations.</li>
+              <li>Zero unauthorized disclosures of guest personal information.</li>
+              <li>Daily cross-cut shredding of temporary documents containing PII.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-18 -->
+      <article id="sop-ds-18" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-18</code>
+            <span class="text-gray-900 font-semibold text-lg">Digital Incident Reporting</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Provide a structured reporting and resolution process for all digital equipment failures, network disruptions, software errors, and cyber security breaches.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Incident Reporter (Any Staff)</strong></li>
+              <li><strong>IT Officer</strong></li>
+              <li><strong>Duty Manager & GM</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Incident Severity Categorization:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><em>Low (Severity 3):</em> Single workstation bug, minor printer paper jam, individual Wi-Fi AP reboot needed.</li>
+                  <li><em>Medium (Severity 2):</em> POS printer down, individual payment terminal offline, partial OTA channel sync failure.</li>
+                  <li><em>High/Critical (Severity 1):</em> Complete network down, PMS crash, total power blackout affecting UPS, cybersecurity breach, CCTV failure.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Submitting Digital Work Order / Incident Ticket:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Staff fills out the <em>Digital Incident Form</em> on Google Forms / Local Intranet detailing: Time, System/Hardware affected, Error Message, Severity, Immediate Action Taken.</li>
+                  <li>For Critical (Severity 1) incidents: Call IT Officer and Duty Manager immediately via phone/radio.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Resolution & Escalation Matrix:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><em>Severity 3:</em> Resolution target <4 hours.</li>
+                  <li><em>Severity 2:</em> Resolution target <1 hour.</li>
+                  <li><em>Severity 1:</em> Immediate response (<15 mins); Resolution/Failover activated <30 mins.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Post-Incident Review:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>IT logs root cause, permanent fix, and preventive recommendations in the <em>Master IT Incident Logbook</em>.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">If local IT cannot resolve hardware issues due to rural location component shortages, escalate immediately to regional vendors in Tacloban or Manila with expedited courier transport.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% of IT incidents formally logged with ticket numbers.</li>
+              <li>Severity 1 incidents responded to within 15 minutes.</li>
+              <li>Monthly IT incident trend report submitted to GM.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-19 -->
+      <article id="sop-ds-19" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-19</code>
+            <span class="text-gray-900 font-semibold text-lg">IT Equipment Inventory</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Govern the tracking, asset tagging, physical maintenance, and auditing of all IT assets (PCs, printers, routers, switches, UPS, TV displays, POS hardware) across the property.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>IT Administrator</strong></li>
+              <li><strong>Property Auditor</strong></li>
+              <li><strong>Admin Manager</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Asset Tagging & Registry Entry:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Apply barcode/asset tag label to hardware upon delivery: Format <code>MH-IT-[Category]-[001]</code> (e.g., <code>MH-IT-POS-003</code>).</li>
+                  <li>Record serial number, purchase date, warranty period, vendor contact, cost, and location in <em>Master IT Asset Register</em>.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Quarterly Physical Audit:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Conduct physical audit every 3 months to verify location, working condition, and user assignment of every tagged asset.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Preventive Hardware Maintenance (Monthly):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Blow out dust from PC towers, server racks, and network switches using compressed dry air.</li>
+                  <li>Inspect battery terminals on UPS units for swelling or corrosion.</li>
+                  <li>Check marine-grade protective covers on outdoor access points and network cabling.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Decommissioning & Disposal:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Hardware older than statutory lifespan or broken beyond repair is sanitized (hard drive wiped/destroyed) and written off with GM and Finance approval.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Salty coastal air in Gamay accelerates hardware corrosion. Ensure desktop units and servers are housed in air-conditioned spaces with silica gel packs inside electrical cabinets.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% of resort IT assets tagged and registered.</li>
+              <li>Quarterly physical IT inventory match rate: 100%.</li>
+              <li>Monthly physical dust and UPS health checks logged.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-20 -->
+      <article id="sop-ds-20" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-20</code>
+            <span class="text-gray-900 font-semibold text-lg">Website / Google Sites SOP Manual Maintenance</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Outline procedures for publishing, updating, structuring, and maintaining accessibility of the online Google Sites operations manual (<code>08_digital_maintenance.html</code> and companion modules).</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>IT Administrator</strong></li>
+              <li><strong>Quality Assurance Officer</strong></li>
+              <li><strong>General Manager</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Site Structure & Navigation Management:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Maintain standardized Google Sites navigation tree corresponding to Modules 01 through 08.</li>
+                  <li>Ensure responsive viewing compatibility across desktop, tablet, and smartphone screens.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Content Updating Procedure:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Receive approved SOP revision from Department Head / GM.</li>
+                  <li>Update digital text, embedded checklists, and downloadable PDF forms on the Google Site page within 24 hours of approval.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Access Security & Viewer Controls:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Google Site access restricted to <code>@marcelasresort.ph</code> staff email domain accounts.</li>
+                  <li>Prevent public indexing or external sharing of internal SOP site links.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Broken Link & Page Speed Audits:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Run monthly site audit to check for broken links, missing embedded forms, or slow-loading attachments.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Staff access the SOP site on mobile phones via local Wi-Fi. Keep embedded image sizes optimized (<500KB) to ensure quick page loading during mobile network slowdowns.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% of approved SOP revisions updated on Google Site within 24 hours.</li>
+              <li>Zero public/external access permitted to internal SOP site.</li>
+              <li>Monthly link integrity check completed without errors.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-21 -->
+      <article id="sop-ds-21" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-21</code>
+            <span class="text-gray-900 font-semibold text-lg">SOP Revision & Version Control</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Maintain strict document control, version numbering, review workflows, and historical archiving for all resort Standard Operating Procedures.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>General Manager</strong></li>
+              <li><strong>QA / Compliance Officer</strong></li>
+              <li><strong>Department Heads</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Version Control Identification Standard:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Document header must show: Document Code, Title, Effective Date, Version Number.</li>
+                  <li><em>Version 1.0:</em> Initial official publish.</li>
+                  <li><em>Version 1.1 - 1.9:</em> Minor updates (typo fixes, minor step adjustments, formatting).</li>
+                  <li><em>Version 2.0:</em> Major structural overhaul or policy restructuring.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>SOP Change Request Workflow:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Department Head completes <em>SOP Revision Request Form</em> detailing proposed change and operational reason.</li>
+                  <li>GM reviews and signs approval.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Document Updating & Archival:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Update master document in digital drive; increment version number and update <em>Revision History Table</em> at end of document.</li>
+                  <li>Move previous version to <code>[04_OPERATIONS_SOP]/ARCHIVED_VERSIONS</code> folder. Never overwrite historical versions.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Annual Master SOP Review:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Conduct annual review of all 8 SOP modules every November to prepare for the upcoming year's operational standards.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Ensure paper copies displayed in operational zones (Kitchen, Front Desk, Maintenance shed) are stamped "CONTROLLED COPY - [Date]" and swapped out immediately upon digital version updates.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Master Revision History table updated on 100% of modified SOPs.</li>
+              <li>Archived versions preserved in dedicated secure folder.</li>
+              <li>Annual comprehensive SOP review executed every November.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-DS-22 -->
+      <article id="sop-ds-22" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">DS-22</code>
+            <span class="text-gray-900 font-semibold text-lg">Digital Forms & Checklists Management</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Standardize the creation, deployment, submission tracking, and data retention of all digital operational forms and inspection checklists (Google Forms / AppSheet / Web Forms).</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>IT Administrator</strong></li>
+              <li><strong>Department Supervisors</strong></li>
+              <li><strong>Quality Assurance Officer</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Digital Form Creation Guidelines:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Build forms with clear mandatory fields (<code>* Required</code>).</li>
+                  <li>Standard form structure: Date, Shift, Inspector Name, Department, Checklist Items (Pass / Fail / NA), Notes, Photo Upload field for deficiencies.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Form Deployment & QR Code Placement:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Generate unique QR codes linking directly to daily operational forms (e.g., <em>Housekeeping Room Inspection</em>, <em>Pool Water Test Log</em>, <em>Facilities Daily Audit</em>).</li>
+                  <li>Laminate and mount QR codes at designated inspection stations (Pool Pump Room, Housekeeping Pantry, Kitchen, Front Desk).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Daily Submission Auditing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>System automatically routes completed form responses to Google Sheets / central database.</li>
+                  <li>Department Supervisors verify 100% completion of daily digital checklists by 10:00 AM and 18:00 PM.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Deficiency Escalation Automation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Configure form logic so that any "FAIL" rating triggers an automated email notification to Maintenance / Department Manager for corrective action.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Data Retention & Archive:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Maintain digital checklist submissions for a minimum of 12 months for quality auditing and performance evaluation.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Mobile devices used for scanning QR codes and completing checklists in outdoor areas (Pool, Gardens) must be protected with heavy-duty waterproof/shockproof cases against tropical weather.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% submission rate for mandatory daily operational forms.</li>
+              <li>Automated email alert functioning for any failed checklist item.</li>
+              <li>QR code access points active and legible at all inspection locations.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Module Summary Table Section -->
+    <div class="mt-10 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <h3 class="text-xl font-bold text-indigo-900 mb-4 flex items-center">
+        <i class="fa-solid fa-table-list mr-2 text-indigo-600"></i>Module Summary Table
+      </h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm text-gray-700 border-collapse">
+          <thead>
+            <tr class="bg-indigo-50 border-b border-gray-200 text-indigo-900 font-semibold">
+              <th class="p-3">SOP Code</th>
+              <th class="p-3">Title</th>
+              <th class="p-3">Core Responsible Role</th>
+              <th class="p-3">Primary KPI Target</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-01</td><td class="p-3 font-medium">Hotel Digital Systems Overview</td><td class="p-3">IT Officer / GM</td><td class="p-3">99.5% uptime availability</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-02</td><td class="p-3 font-medium">PMS / Reservation System Operation</td><td class="p-3">Front Office Manager / FDA</td><td class="p-3">Manifest printed; 100% sync</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-03</td><td class="p-3 font-medium">POS System Operation</td><td class="p-3">Restaurant Manager / Cashier</td><td class="p-3">Zero billing discrepancies</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-04</td><td class="p-3 font-medium">Digital Guest Records</td><td class="p-3">Front Desk / IT</td><td class="p-3">100% valid ID attached</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-05</td><td class="p-3 font-medium">User Access Control</td><td class="p-3">IT Administrator / GM</td><td class="p-3">Deactivated in 1 hr upon exit</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-06</td><td class="p-3 font-medium">Password Management</td><td class="p-3">All Users / IT Admin</td><td class="p-3">90-day password renewal</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-07</td><td class="p-3 font-medium">CCTV Administration</td><td class="p-3">Security Supervisor / IT</td><td class="p-3">Minimum 30 days retention</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-08</td><td class="p-3 font-medium">Wi-Fi / Internet Monitoring</td><td class="p-3">IT Officer</td><td class="p-3">Failover within 15 seconds</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-09</td><td class="p-3 font-medium">Digital Payment Monitoring</td><td class="p-3">Cashiers / Finance</td><td class="p-3">100% reference ID logging</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-10</td><td class="p-3 font-medium">Online Booking Platform</td><td class="p-3">Sales & Marketing Manager</td><td class="p-3">Zero overbooking instances</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-11</td><td class="p-3 font-medium">Social Media Management</td><td class="p-3">Social Media Coordinator</td><td class="p-3">Response time <15 minutes</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-12</td><td class="p-3 font-medium">Google Business Profile</td><td class="p-3">IT / Marketing</td><td class="p-3">Reviews answered <72 hours</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-13</td><td class="p-3 font-medium">Digital Document Filing</td><td class="p-3">Admin Assistant / IT</td><td class="p-3">Standard file naming compliance</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-14</td><td class="p-3 font-medium">Data Backup Procedure</td><td class="p-3">IT Administrator</td><td class="p-3">Daily automated 3-2-1 backup</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-15</td><td class="p-3 font-medium">Data Recovery Procedure</td><td class="p-3">IT Administrator / GM</td><td class="p-3">RTO achieved within 4 hours</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-16</td><td class="p-3 font-medium">Cybersecurity & Phishing</td><td class="p-3">IT Admin / All Staff</td><td class="p-3">100% antivirus endpoints</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-17</td><td class="p-3 font-medium">Guest Data Privacy</td><td class="p-3">DPO / Front Office</td><td class="p-3">100% signed privacy consent</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-18</td><td class="p-3 font-medium">Digital Incident Reporting</td><td class="p-3">IT Officer / Duty Manager</td><td class="p-3">Severity 1 response <15 mins</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-19</td><td class="p-3 font-medium">IT Equipment Inventory</td><td class="p-3">IT Administrator</td><td class="p-3">Quarterly physical audit match</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-20</td><td class="p-3 font-medium">Website / Google Sites</td><td class="p-3">IT Administrator</td><td class="p-3">Revisions updated <24 hours</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-21</td><td class="p-3 font-medium">SOP Revision Control</td><td class="p-3">GM / QA Officer</td><td class="p-3">Annual comprehensive review</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-DS-22</td><td class="p-3 font-medium">Digital Forms & Checklists</td><td class="p-3">IT / Supervisors</td><td class="p-3">100% daily submission rate</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </main>
@@ -276,37 +1801,49 @@
 
   <script>
     function toggleSopDetails(header) {
-      const card = header.closest('.bg-white');
+      const card = header.closest('article');
+      if (!card) return;
+
       const details = card.querySelector('.sop-details');
+      const chevron = card.querySelector('.fa-chevron-down, .fa-chevron-up');
       const toggleBtn = card.querySelector('.toggle-btn');
-      
-      if (details.classList.contains('hidden')) {
-        details.classList.remove('hidden');
-        toggleBtn.classList.add('hidden');
-        header.innerHTML = `
-          <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">${header.querySelector('code').textContent}</code>
-            <span class="text-gray-900 font-semibold text-lg">${header.querySelector('span').textContent}</span>
-          </div>
-          <i class="fa-solid fa-chevron-up text-indigo-600 transform"></i>
-        `;
-      } else {
-        details.classList.add('hidden');
-        toggleBtn.classList.remove('hidden');
-        header.innerHTML = `
-          <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">${header.querySelector('code').textContent}</code>
-            <span class="text-gray-900 font-semibold text-lg">${header.querySelector('span').textContent}</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
-          </div>
-        `;
+
+      if (details) {
+        const isHidden = details.classList.contains('hidden');
+        if (isHidden) {
+          details.classList.remove('hidden');
+          if (chevron) chevron.classList.add('rotate-180');
+          if (toggleBtn) toggleBtn.textContent = '▲ Hide Details';
+        } else {
+          details.classList.add('hidden');
+          if (chevron) chevron.classList.remove('rotate-180');
+          if (toggleBtn) toggleBtn.textContent = '▼ Show Details';
+        }
       }
-    };
+    }
+
+    function jumpToSop(sopId) {
+      const card = document.getElementById(sopId);
+      if (!card) return;
+
+      const header = card.querySelector('.p-4.bg-indigo-50');
+      const details = card.querySelector('.sop-details');
+      
+      // Auto-expand card if collapsed
+      if (details && details.classList.contains('hidden')) {
+        toggleSopDetails(header);
+      }
+
+      // Smooth scroll into view
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Highlight target card temporarily
+      card.classList.add('ring-4', 'ring-indigo-400');
+      setTimeout(() => {
+        card.classList.remove('ring-4', 'ring-indigo-400');
+      }, 2000);
+    }
   </script>
 
 </body>
 </html>
-

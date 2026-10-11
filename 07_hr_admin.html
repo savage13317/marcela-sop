@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 07: HR & Administration   - Marcela's Resort Hotel</title>
+  <title>Module 07: Human Resources & Administration - Marcela's Resort Hotel SOP</title>
   <link rel="manifest" href="/pwa/manifest.json">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -14,6 +15,7 @@
     }
   </script>
 </head>
+
 <body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
 
   <!-- Header -->
@@ -27,12 +29,12 @@
           <a href="/" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Home</a>
           <a href="01_front_office.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Front Office (FO)</a>
           <a href="02_housekeeping.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-broom mr-1"></i>Housekeeping (HK)</a>
-          <a href="03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Food & Beverage (FB)</a>
-          <a href="04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Function Hall (FH)</a>
-          <a href="05_facilities_pool.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Facilities & Pool (FM)</a>
+          <a href="03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-utensils mr-1"></i>Food & Beverage (FB)</a>
+          <a href="04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-glass-cheers mr-1"></i>Function Hall (FH)</a>
+          <a href="05_facilities_pool.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-wrench mr-1"></i>Facilities & Pool (FM)</a>
           <a href="06_safety_typhoon_final.html" class="px-4 py-2 bg-indigo-800 rounded text-red-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-shield-halved mr-1"></i>Safety (S)</a>
-          <a href="07_hr_admin.html" class="px-4 py-2 bg-indigo-800 rounded text-purple-300 hover:bg-indigo-600 transition">HR & Admin (HR)</a>
-          <a href="08_digital_maintenance.html" class="px-4 py-2 bg-indigo-800 rounded text-cyan-300 hover:bg-indigo-600 transition">Digital Systems (DS)</a>
+          <a href="07_hr_admin.html" class="px-4 py-2 bg-indigo-800 rounded text-purple-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-user-tie mr-1"></i>HR & Admin (HR)</a>
+          <a href="08_digital_maintenance.html" class="px-4 py-2 bg-indigo-800 rounded text-cyan-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-laptop-medical mr-1"></i>Digital Systems (DS)</a>
         </div>
       </div>
     </nav>
@@ -40,14 +42,14 @@
 
   <!-- Page Highlight Script -->
   <script>
-    (function() {
+    (function () {
       const currentPage = window.location.pathname.split('/').pop() || 'index.html';
       const navLinks = document.querySelectorAll('#moduleNav a');
-      
+
       navLinks.forEach(link => {
         link.classList.remove('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
         link.classList.add('bg-indigo-800', 'hover:bg-indigo-600');
-        
+
         if (link.getAttribute('href') === currentPage) {
           link.classList.add('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
           link.classList.remove('bg-indigo-800', 'hover:bg-indigo-600');
@@ -57,207 +59,1245 @@
   </script>
 
   <main class="flex-grow container mx-auto px-4 py-6">
-    
+
     <!-- Module Header -->
     <div class="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg shadow-sm p-6 mb-6 border-l-4 border-indigo-600">
-      <h1 class="text-3xl font-bold text-indigo-900 mb-2"><i class="fa-solid fa-user-tie mr-3"></i>Module 07: HR & Administration  </h1>
-      <p class="text-gray-700 text-base">SOPs for front desk operations, guest reservations, check-in/out procedures, and guest services[cite: 11]</p>
+      <h1 class="text-3xl font-bold text-indigo-900 mb-2"><i class="fa-solid fa-users-gear mr-3"></i>Module 07: Human Resources & Administration</h1>
+      <p class="text-gray-700 text-base">Recruitment, onboarding, payroll, performance management, training, employee relations, document control, procurement, inventory, financial administration, and regulatory compliance.</p>
+
+      <!-- Quick Jump Procedure Buttons -->
+      <div class="mt-4 pt-4 border-t border-indigo-200">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-800 mb-2 flex items-center">
+          <i class="fa-solid fa-bolt mr-1 text-indigo-600"></i>Quick Jump — Human Resources:
+        </h3>
+        <div class="flex flex-wrap gap-1.5 mb-3" id="quickNavButtons">
+          <button onclick="jumpToSop('sop-hr-01')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HR-01 Recruitment</button>
+          <button onclick="jumpToSop('sop-hr-02')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HR-02 Pre-employment</button>
+          <button onclick="jumpToSop('sop-hr-03')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HR-03 Orientation</button>
+          <button onclick="jumpToSop('sop-hr-04')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HR-04 Job Description</button>
+          <button onclick="jumpToSop('sop-hr-05')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HR-05 Attendance</button>
+          <button onclick="jumpToSop('sop-hr-06')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HR-06 Scheduling</button>
+          <button onclick="jumpToSop('sop-hr-07')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HR-07 Overtime</button>
+          <button onclick="jumpToSop('sop-hr-08')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HR-08 Leave</button>
+          <button onclick="jumpToSop('sop-hr-09')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HR-09 Uniform & Grooming</button>
+          <button onclick="jumpToSop('sop-hr-10')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HR-10 Conduct</button>
+          <button onclick="jumpToSop('sop-hr-11')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HR-11 Performance</button>
+          <button onclick="jumpToSop('sop-hr-12')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HR-12 Training</button>
+          <button onclick="jumpToSop('sop-hr-13')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HR-13 Grievance</button>
+          <button onclick="jumpToSop('sop-hr-14')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HR-14 Workplace Safety</button>
+          <button onclick="jumpToSop('sop-hr-15')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HR-15 Payroll</button>
+          <button onclick="jumpToSop('sop-hr-16')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HR-16 Separation</button>
+        </div>
+        <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-800 mb-2 flex items-center">
+          <i class="fa-solid fa-bolt mr-1 text-indigo-600"></i>Quick Jump — Administration:
+        </h3>
+        <div class="flex flex-wrap gap-1.5" id="quickNavButtonsAD">
+          <button onclick="jumpToSop('sop-ad-01')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">AD-01 Document Control</button>
+          <button onclick="jumpToSop('sop-ad-02')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">AD-02 Records</button>
+          <button onclick="jumpToSop('sop-ad-03')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">AD-03 Purchasing</button>
+          <button onclick="jumpToSop('sop-ad-04')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">AD-04 Supplier</button>
+          <button onclick="jumpToSop('sop-ad-05')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">AD-05 Receiving</button>
+          <button onclick="jumpToSop('sop-ad-06')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">AD-06 Inventory</button>
+          <button onclick="jumpToSop('sop-ad-07')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">AD-07 Petty Cash</button>
+          <button onclick="jumpToSop('sop-ad-08')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">AD-08 Accounts Payable</button>
+          <button onclick="jumpToSop('sop-ad-09')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">AD-09 Revenue Report</button>
+          <button onclick="jumpToSop('sop-ad-10')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">AD-10 Expense Auth</button>
+          <button onclick="jumpToSop('sop-ad-11')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">AD-11 Asset Mgmt</button>
+          <button onclick="jumpToSop('sop-ad-12')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">AD-12 Permits</button>
+          <button onclick="jumpToSop('sop-ad-13')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">AD-13 Insurance</button>
+          <button onclick="jumpToSop('sop-ad-14')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">AD-14 Admin Reporting</button>
+        </div>
+      </div>
     </div>
 
-    <!-- SOP Cards -->
+    <!-- ============================================================ -->
+    <!-- SECTION 1: HUMAN RESOURCES (HR) -->
+    <!-- ============================================================ -->
+    <div class="mb-6">
+      <h2 class="text-xl font-bold text-indigo-800 mb-4 flex items-center"><i class="fa-solid fa-people-group mr-2 text-indigo-600"></i>Section 1: Human Resources (HR)</h2>
+    </div>
+
     <div class="space-y-4" id="sop-container">
-      
-      <!-- SOP-FO-01 -->
-      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+
+      <!-- SOP-HR-01 -->
+      <article id="sop-hr-01" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">FO-01</code>
-            <span class="text-gray-900 font-semibold text-lg">Front Desk Opening Procedure</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">HR-01</code>
+            <span class="text-gray-900 font-semibold text-lg">Recruitment & Hiring</span>
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
           </div>
         </div>
         <div class="sop-details hidden p-4 space-y-3 border-t">
-          
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Establish operational readiness for the Front Desk prior to peak guest traffic, ensuring accounting accuracy, physical cleanliness, system synchronization, and local infrastructure preparedness for the day[cite: 11].</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">To establish a structured, transparent, non-discriminatory, and merit-based recruitment process compliant with Philippine Labor Code standards to source, interview, and select qualified personnel for Marcela's Resort Hotel.</p>
           </div>
-
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Front Office Associate</strong> (Morning Shift)[cite: 11]</li>
-              <li><strong>Duty Supervisor</strong>[cite: 11]</li>
+              <li><strong>Department Head:</strong> Submits Personnel Requisition Form (PRF) with justified operational headcount needs.</li>
+              <li><strong>HR Officer:</strong> Manages job postings, candidate screening, interview scheduling, and background checks.</li>
+              <li><strong>General Manager (GM):</strong> Conducts final interview for supervisory/head roles and approves all hiring offers.</li>
             </ul>
           </div>
-
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <p><strong>Physical Readiness & Security:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Arrive 15 minutes before the scheduled shift (05:45 AM for a 06:00 AM start)[cite: 11].</li>
-                  <li>Unlock the main Front Office drawer/counter and inspect the lobby, reception desk, and guest seating areas for cleanliness and safety[cite: 11].</li>
-                  <li>Turn on lobby lights, air conditioning, and guest display screens[cite: 11].</li>
+                <strong>Personnel Requisition:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Department Head completes PRF detailing position title, job level, salary grade, and operational justification.</li>
+                  <li>PRF requires dual approval from HR Officer and GM prior to posting.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>System & Terminal Startup:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Power on the Property Management System (PMS) terminal, point-of-sale (POS) card terminals, and receipt printers[cite: 11].</li>
-                  <li>Log into the PMS using personal staff credentials[cite: 11].</li>
+                <strong>Sourcing & Job Posting:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Post vacancies internally (notice boards) and externally (local job portals, PESO Gamay / Northern Samar, social media pages, local university job boards in Catarman/Tacloban).</li>
+                  <li>Minimum posting window: 7 calendar days.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Cash Float Verification:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Retrieve the shift cash drawer/float from the Front Office safe in the presence of the outgoing Night Auditor or Duty Supervisor[cite: 11].</li>
-                  <li>Count and verify the standard opening float (â‚±10,000 in mixed denominations)[cite: 11].</li>
-                  <li>Sign the Cash Float Logbook detailing denomination counts and variance notes (if any)[cite: 11].</li>
+                <strong>Screening & Initial Interview:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>HR Officer screens CVs against minimum position standards (SOP-HR-04).</li>
+                  <li>Conduct initial structured interview (in-person or video call for non-local applicants) evaluating basic qualifications, communication skills, and service orientation.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Information Review & Handover Audit:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Review the Night Audit Handover Log, unhandled guest requests from the previous night, and pending maintenance tickets[cite: 11].</li>
-                  <li>Print or generate digital daily reports: Arrivals List, Departures List, In-House Guest List, and Housekeeping Status Report[cite: 11].</li>
+                <strong>Technical / Practical Assessment & Department Interview:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Shortlisted candidates undergo position-specific practical tests (e.g., mock table setup for F&B, bed-making drill for HK, practical cooking exam for Kitchen).</li>
+                  <li>Department Head conducts technical interview using standardized scoring rubrics (1–5 scale).</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Local Infrastructure & Power Check:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Verify grid power status (SAMELCO I). Confirm that the Automatic Transfer Switch (ATS) and standby generator unit are set to auto-start mode[cite: 11].</li>
-                  <li>Check local internet connectivity (primary and backup satellite/LTE connections) and test landlines[cite: 11].</li>
+                <strong>Final Interview & Background Check:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>GM interviews top 2 candidates.</li>
+                  <li>HR verifies work references from prior employers (at least 2 professional references verified via phone/email).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Job Offer & Appointment:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>HR issues formal Job Offer Letter detailing salary, employment status (probationary/contractual), benefits, start date, and reporting structure. Candidate must sign within 3 business days.</li>
                 </ul>
               </li>
             </ol>
           </div>
-
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
             <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Given Gamay's coastal provincial location, morning high humidity can affect electronic terminals. Ensure counter surfaces and card reader terminals are wiped dry. Keep physical backup printouts of daily arrival lists in the emergency binder to handle potential local grid power interruptions or internet lag[cite: 11].</p>
+            <p class="text-gray-700 text-sm"><strong>Community First Hiring:</strong> Priority sourcing is given to qualified residents of Gamay and neighboring municipalities in Northern Samar to foster local employment and community integration. All recruitment activities must strictly comply with RA 10911 (Anti-Age Discrimination in Employment Act) and DOLE regulations prohibiting unauthorized recruitment fees.</p>
           </div>
-
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
-            <ul class="space-y-1 text-gray-700 text-sm">
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-1" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-1" class="cursor-pointer select-none">Cash float counted, verified, and logged by 06:00 AM[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-2" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-2" class="cursor-pointer select-none">Daily arrival/departure/in-house reports printed/saved[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-3" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-3" class="cursor-pointer select-none">Generator status and internet connectivity verified[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2 font-semibold text-green-700">
-                Front desk and lobby neatness score: 100%[cite: 11].
-              </li>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>PRF fully signed before job vacancy announcement.</li>
+              <li>Minimum 2 professional background checks completed and documented in candidate file.</li>
+              <li>Practical competency test conducted for all technical operational positions.</li>
+              <li><strong>Target Metric:</strong> Vacancy fill time &lt; 30 calendar days; zero DOLE non-compliance findings.</li>
             </ul>
           </div>
-
         </div>
       </article>
 
-      <!-- SOP-FO-02 -->
-      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+      <!-- SOP-HR-02 -->
+      <article id="sop-hr-02" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">FO-02</code>
-            <span class="text-gray-900 font-semibold text-lg">Guest Reservation Procedure</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">HR-02</code>
+            <span class="text-gray-900 font-semibold text-lg">Employee Pre-employment Requirements</span>
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
           </div>
         </div>
         <div class="sop-details hidden p-4 space-y-3 border-t">
-          
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Standardize intake for direct and indirect room bookings across telephone, walk-in inquiries, messaging platforms, and online travel agencies (OTAs) while optimizing room yield and rate integrity[cite: 11].</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">To ensure all newly hired personnel complete mandatory Philippine statutory registrations, background verifications, and medical fitness assessments prior to their first official working shift.</p>
           </div>
-
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Reservations Clerk</strong>[cite: 11]</li>
-              <li><strong>Front Office Associate</strong>[cite: 11]</li>
+              <li><strong>New Employee:</strong> Submits all required legal, medical, and statutory documents within the stipulated onboarding timeframe.</li>
+              <li><strong>HR Officer:</strong> Validates authenticity of documents, creates physical/digital 201 Files, and registers employee in statutory portals.</li>
             </ul>
           </div>
-
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <p><strong>Inquiry Intake & Greetings:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Answer incoming calls within three (3) rings: "Warm greetings from Marcela's Resort Hotel Gamay! This is [Name], how may I assist your stay today?"[cite: 11]</li>
-                  <li>Capture caller details: full name, contact number, email, and preferred communication channel[cite: 11].</li>
+                <strong>Issuance of Checklist:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Upon signing the Job Offer, HR hands the candidate the Pre-employment Requirements Checklist.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Needs Analysis & Availability Verification:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Identify travel dates, number of guests, room preference, and special requirements[cite: 11].</li>
-                  <li>Check room availability on the PMS calendar for requested dates[cite: 11].</li>
+                <strong>Mandatory Document Submission:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Statutory ID Numbers:</strong> SSS Number, PhilHealth PIN, Pag-IBIG Fund MID Number, BIR TIN / Form 1902 or 1905.</li>
+                  <li><strong>Clearances & Certifications:</strong> Valid NBI Clearance (Original), Barangay Clearance from resident barangay in Samar, PSA Birth Certificate & Marriage Certificate (if applicable), Academic Records (TOR / Diploma / TESDA NC II Certificate), Certificate of Employment from previous employers.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Rate Quote & Inventory Management:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Quote Published Rates, Seasonal Rates, or Corporate Rates following property structures[cite: 11].</li>
-                  <li>Detail inclusions clearly (breakfast allocation, pool access, taxes)[cite: 11].</li>
+                <strong>Medical & Health Clearances:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Pre-employment Medical Examination (PEME) from an accredited clinic/hospital (CBC, Chest X-Ray, Urinalysis, Fecalysis, Drug Test).</li>
+                  <li>Sanitary Permit / Health Card issued by the Gamay Rural Health Unit (RHU) — mandatory for all F&B, Kitchen, and Housekeeping personnel.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Booking Capture in PMS:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Create a new reservation record in the PMS with complete guest data and booking source tags[cite: 11].</li>
+                <strong>201 File Creation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>HR verifies submitted documents against originals, stamps "COPY VERIFIED WITH ORIGINAL," and files them in the employee's physical 201 File and digital HRIS directory.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Payment Guarantee & Deposit Terms:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Inform guest of deposit policy (50% initial deposit required within 48 hours for regular season; 100% advance payment for peak holidays)[cite: 11].</li>
-                  <li>Provide accepted options: Bank Transfer (BDO/Landbank), GCash, Maya, or Credit Card link[cite: 11].</li>
+                <strong>Statutory Enrollment:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>HR registers employee in SSS, PhilHealth, Pag-IBIG, and BIR online portals prior to first payroll run.</li>
                 </ul>
               </li>
             </ol>
           </div>
-
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
             <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Guests traveling to Gamay often face travel delays due to weather conditions along the Pacific board, ferry crossing delays, or provincial road conditions. Always ask for expected modes of arrival to estimate realistic arrival times[cite: 11].</p>
+            <p class="text-gray-700 text-sm"><strong>RHU Gamay Health Card:</strong> F&B and Kitchen staff must obtain their official Health Card from the Gamay Municipal Health Office prior to handling food or guestware. Applicants from outlying Samar island barangays are granted a grace period of up to 10 business days post-hire to submit final NBI clearances, provided local Police Clearance is presented immediately.</p>
           </div>
-
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
-            <ul class="space-y-1 text-gray-700 text-sm">
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo02-1" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo02-1" class="cursor-pointer select-none">100% accurate data entry into PMS (zero misspelled names or mismatched contact numbers)[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo02-2" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo02-2" class="cursor-pointer select-none">Payment terms clearly communicated and logged in reservation notes[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2 font-semibold text-green-700">
-                Call answered within 3 rings[cite: 11].
-              </li>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% completion of statutory registration numbers (SSS, PhilHealth, Pag-IBIG, TIN) prior to first salary payment.</li>
+              <li>Active RHU Health Card filed for 100% of F&B, Kitchen, and Housekeeping personnel.</li>
+              <li>Physical and digital 201 file verified and locked before Day 1 shift.</li>
+              <li><strong>Target Metric:</strong> 100% compliance with pre-employment documentation standards; zero statutory penalty fines.</li>
             </ul>
           </div>
-
         </div>
       </article>
 
+      <!-- SOP-HR-03 -->
+      <article id="sop-hr-03" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HR-03</code>
+            <span class="text-gray-900 font-semibold text-lg">New Employee Orientation</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">To onboard new hires through a comprehensive 3-day orientation program covering resort history, operational culture, Code of Conduct, safety protocols, and cross-departmental familiarity to ensure rapid integration.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>HR Officer:</strong> Facilitates Day 1 General Orientation and policy review.</li>
+              <li><strong>Department Head / Assigned Buddy:</strong> Conducts departmental orientation, practical job walkthrough, and buddy assignment.</li>
+              <li><strong>General Manager:</strong> Delivers welcome address and articulates resort vision/mission.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Day 1: General Resort Orientation (HR Led):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Welcome & Overview:</strong> GM welcome address; presentation of Marcela's Hotel & Resort vision, core values, and guest service philosophy.</li>
+                  <li><strong>Employee Handbook Review:</strong> Detailed review of company rules, attendance policy, compensation, statutory benefits, and uniform standards.</li>
+                  <li><strong>Resort Property Tour:</strong> Full walkthrough of 30 guest rooms, restaurant, function hall, swimming pool, engineering plant, staff dining room, and emergency exits.</li>
+                  <li><strong>IT & Access Setup:</strong> Biometric registration, uniform issuance, locker assignment, and system login distribution.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Day 2: Safety, Security & Service Standards (HR & Security Led):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Review of Module 06 (Typhoon preparedness, fire alarm response, evacuation routes, pool safety).</li>
+                  <li>Customer Service Excellence Training: Standards of provincial warmth, polite communication, body language, and "Samar Hospitality" guest interaction standards.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Day 3: Departmental Onboarding (Department Head Led):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Introduction to department team, supervisor, and assigned senior employee ("Onboarding Buddy").</li>
+                  <li>Review of Departmental SOPs and job description responsibilities.</li>
+                  <li>Shadowing assigned buddy during live operational shifts.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Orientation Evaluation & Acknowledgment:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>New employee completes Orientation Feedback Form.</li>
+                  <li>Employee signs Handbook Acknowledgment Receipt and Safety Policy Receipt for inclusion in 201 File.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Orientation emphasizes respect, teamwork, and warm provincial hospitality, encouraging hires from different Samar municipalities to work cohesively under unified resort standards.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Biometric enrollment completed on Day 1.</li>
+              <li>Signed Handbook Acknowledgment filed in 201 File within 3 days.</li>
+              <li>Day 1 to Day 3 structured onboarding checklist signed off by HR and Department Head.</li>
+              <li><strong>Target Metric:</strong> 100% new hire orientation completion rate prior to independent shift assignment.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HR-04 -->
+      <article id="sop-hr-04" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HR-04</code>
+            <span class="text-gray-900 font-semibold text-lg">Job Description & Position Standards</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">To define clear, standardized job descriptions, performance expectations, reporting relationships, and key performance indicators (KPIs) for every operational role at Marcela's Resort Hotel.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>HR Officer:</strong> Maintains master job description database, updates position templates, and audits role alignment.</li>
+              <li><strong>Department Head:</strong> Drafts technical duties, updates operational KPIs, and reviews job duties annually.</li>
+              <li><strong>Employee:</strong> Executes duties as outlined in signed Job Description.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li><strong>Job Description Structure:</strong> Every official JD must contain: Position Title, Department, Job Grade level, Direct Supervisor, Core Purpose / Job Summary, Key Responsibilities & Daily/Weekly/Monthly Tasks, Minimum Qualifications, and Measurable KPIs.</li>
+              <li><strong>Issuance & Signing:</strong> Issued to candidate alongside employment contract on Day 1. HR and candidate review every duty clause. Candidate signs two original copies (1 for employee, 1 for 201 file).</li>
+              <li><strong>Annual Review & Updating:</strong> Reviewed annually every October during budget and operational strategy planning. Modifications require mutual discussion between Department Head, HR, and GM.</li>
+              <li><strong>Flexibility Clause Standard:</strong> All job descriptions include the standard multi-skilling clause: <em>"Perform other operational tasks and cross-departmental support duties assigned by management to ensure seamless resort operations, especially during peak event dates or severe weather emergencies."</em></li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Due to the 30-room boutique scale in a provincial location, staff are cross-trained (e.g., Housekeeping assisting F&B during large Function Hall events, Maintenance assisting Security during typhoon setup).</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% of active staff have signed, updated Job Descriptions in 201 Files.</li>
+              <li>Multi-skilling clause included in every job description.</li>
+              <li>KPIs clearly quantifiable (e.g., clean room turnover time &lt; 25 mins, guest satisfaction score ≥ 90%).</li>
+              <li><strong>Target Metric:</strong> 100% alignment between job descriptions and actual daily operational duties during annual audits.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HR-05 -->
+      <article id="sop-hr-05" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HR-05</code>
+            <span class="text-gray-900 font-semibold text-lg">Employee Attendance & Timekeeping</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">To establish accurate, fraud-proof timekeeping standards using biometric registration, manual backup logs, and strict attendance monitoring to ensure fair payroll processing and operational coverage.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>All Staff:</strong> Clock in and clock out accurately using biometric scanners for all shifts and meal breaks.</li>
+              <li><strong>HR Officer / Timekeeper:</strong> Audits daily biometric logs, verifies discrepancies, and prepares payroll timecards.</li>
+              <li><strong>Department Head:</strong> Approves shift logs, grace period exemptions, and official business trips.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Clocking In/Out Mandate:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Staff must clock in at the employee entrance biometric terminal in full uniform no earlier than 15 minutes prior to scheduled shift start.</li>
+                  <li>Clock out required for: Lunch/Meal break start, Lunch/Meal break end, and Shift end.</li>
+                  <li><strong>Biometric Failure Protocol:</strong> If fingerprint scanner fails due to wet hands or technical outage, staff must sign the Manual Time Register co-signed by the Duty Supervisor within 1 hour.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Grace Period & Tardiness Definitions:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>T₀ + 1 to 5 mins: On-time / Grace window (not penalized, but tracked).</li>
+                  <li>T₀ + 6 to 15 mins: LATE (deducted per minute from salary).</li>
+                  <li>T₀ &gt; 15 mins: SEVERE LATE (deducted + subject to verbal/written warning upon repeat).</li>
+                  <li>T₀ &gt; 2 hours without notice: UNEXCUSED ABSENCE / HALF-DAY ABSENT.</li>
+                </ul>
+              </li>
+              <li><strong>Absence Notification Protocol:</strong> Employee must notify Supervisor via direct call/SMS at least 3 hours before shift start if unable to report due to sudden illness or emergency.</li>
+              <li><strong>Timecard Audit & Reconciliation:</strong> HR pulls biometric data weekly, cross-checks against approved shift schedules, and routes Weekly Time Verification Sheets to Department Heads for approval.</li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">During Samar grid outages, the biometric clock runs on internal battery backup. If completely discharged, the manual hardcopy logbook managed by Security at the staff entrance serves as official legal timekeeping.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Biometric data synchronized weekly with payroll system.</li>
+              <li>100% of manual time log entries co-signed by Department Head within 24 hours.</li>
+              <li>Tardiness reports generated and reviewed weekly.</li>
+              <li><strong>Target Metric:</strong> Timecard error rate &lt; 0.5% per payroll cycle.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HR-06 -->
+      <article id="sop-hr-06" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HR-06</code>
+            <span class="text-gray-900 font-semibold text-lg">Shift Scheduling</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">To regulate employee work shift creation, rest day allocation, rotational scheduling, and schedule adjustments in full compliance with the 8-hour Labor Code mandate and resort operational demands.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Department Head:</strong> Drafts weekly shift rosters based on resort occupancy and function hall bookings.</li>
+              <li><strong>HR Officer:</strong> Reviews rosters for Labor Code compliance (rest days, maximum hours) before publication.</li>
+              <li><strong>Employee:</strong> Adheres to published schedules and submits swap requests in advance.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Shift Schedule Drafting Guidelines:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Standard work shift: 8 working hours + 1 hour unpaid meal break = 9 total elapsed hours.</li>
+                  <li>Every employee is entitled to 1 mandatory 24-hour continuous rest day for every 6 consecutive working days.</li>
+                  <li>Minimum 11 hours rest time required between consecutive shifts ("turnaround time").</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Roster Publication Timeline:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Department Heads draft weekly rosters every Wednesday by 12:00 PM.</li>
+                  <li>HR reviews and GM approves roster by Thursday 03:00 PM.</li>
+                  <li>Final weekly schedule posted on employee bulletin boards and digital communication channels by Thursday 05:00 PM for the upcoming work week (Monday to Sunday).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Shift Swap / Change Requests:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Shift swaps between employees in the same position require a completed Shift Swap Request Form.</li>
+                  <li>Submitted at least 24 hours in advance; must be approved in writing by Department Head.</li>
+                  <li>Unapproved informal shift swapping is strictly prohibited and subject to disciplinary action.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">When PAGASA declares TCWS #2 or higher for Northern Samar, Department Heads may reconfigure shifts into 12-hour disaster readiness rotations (with proper OT authorization) to keep essential staff on-site before road conditions deteriorate.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Shift schedule posted every Thursday by 05:00 PM without fail.</li>
+              <li>100% compliance with 24-hour weekly rest day rule per employee.</li>
+              <li>All shift swaps supported by signed request forms in HR files.</li>
+              <li><strong>Target Metric:</strong> Zero Labor Code rest day violations; schedule publication timeliness 100%.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HR-07 -->
+      <article id="sop-hr-07" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HR-07</code>
+            <span class="text-gray-900 font-semibold text-lg">Overtime & Rest Day Work</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">To govern the authorization, computation, and recording of Overtime (OT) work, Rest Day work, and Holiday premiums in strict accordance with the Philippine Labor Code.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Department Head:</strong> Evaluates operational necessity and pre-approves OT requests.</li>
+              <li><strong>HR / Payroll Officer:</strong> Computes OT pay multipliers based on verified biometric timecards and approved OT slips.</li>
+              <li><strong>General Manager:</strong> Grants final approval for high-volume or emergency OT authorization.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li><strong>Prior Authorization Requirement:</strong> OT work is strictly pre-authorized. Performing work beyond 8 hours without an approved Overtime Authorization Form (OTAF) will not be compensated as OT. Department Head completes OTAF specifying employee name, reason, and estimated OT hours.</li>
+              <li><strong>Filing & Biometric Verification:</strong> Approved OTAF submitted to HR prior to or within 12 hours post-shift (for unforeseen operational emergencies). HR cross-checks biometric timecard against approved OTAF hours.</li>
+              <li>
+                <strong>Statutory Overtime Pay Multiplier Rates:</strong>
+                <div class="overflow-x-auto mt-2">
+                  <table class="w-full text-left text-xs text-gray-700 border-collapse border border-gray-300">
+                    <thead><tr class="bg-indigo-100"><th class="border border-gray-300 px-2 py-1 font-semibold">Work Category</th><th class="border border-gray-300 px-2 py-1 font-semibold">Statutory Pay Rate Multiplier</th></tr></thead>
+                    <tbody>
+                      <tr><td class="border border-gray-300 px-2 py-1">Regular Workday Overtime</td><td class="border border-gray-300 px-2 py-1">Base hourly rate × 125% (1.25)</td></tr>
+                      <tr class="bg-gray-50"><td class="border border-gray-300 px-2 py-1">Scheduled Rest Day Work (First 8 Hours)</td><td class="border border-gray-300 px-2 py-1">Base daily rate × 130% (1.30)</td></tr>
+                      <tr><td class="border border-gray-300 px-2 py-1">Scheduled Rest Day Overtime</td><td class="border border-gray-300 px-2 py-1">Hourly rest day rate × 130% (1.69 base hourly)</td></tr>
+                      <tr class="bg-gray-50"><td class="border border-gray-300 px-2 py-1">Regular Holiday Work (First 8 Hours)</td><td class="border border-gray-300 px-2 py-1">Base daily rate × 200% (2.00)</td></tr>
+                      <tr><td class="border border-gray-300 px-2 py-1">Regular Holiday Overtime</td><td class="border border-gray-300 px-2 py-1">Hourly regular holiday rate × 130% (2.60 base hourly)</td></tr>
+                      <tr class="bg-gray-50"><td class="border border-gray-300 px-2 py-1">Special Non-Working Day Work</td><td class="border border-gray-300 px-2 py-1">Base daily rate × 130% (1.30)</td></tr>
+                      <tr><td class="border border-gray-300 px-2 py-1">Special Non-Working Day OT</td><td class="border border-gray-300 px-2 py-1">Hourly special day rate × 130% (1.69 base hourly)</td></tr>
+                      <tr class="bg-gray-50"><td class="border border-gray-300 px-2 py-1">Night Shift Differential (10 PM–6 AM)</td><td class="border border-gray-300 px-2 py-1">Applicable hourly rate × 110% (1.10)</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Under Article 89 of the Labor Code (Emergency Overtime), management may require employees to perform OT work during typhoons, floods, or structural emergencies in Gamay to protect guest lives and property. Statutory emergency OT rates apply.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% of processed OT supported by pre-approved OTAF slips.</li>
+              <li>Overtime computations verified against DOLE multiplier tables every payroll.</li>
+              <li>Night shift differential applied accurately for shifts spanning 10:00 PM to 06:00 AM.</li>
+              <li><strong>Target Metric:</strong> Zero unauthorized overtime cost variance; 100% payroll calculation accuracy.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HR-08 -->
+      <article id="sop-hr-08" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HR-08</code>
+            <span class="text-gray-900 font-semibold text-lg">Leave Application</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">To standardize the application, approval, tracking, and liquidation of statutory and company-provided leave entitlements for all regular and eligible employees.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Employee:</strong> Submits Leave Application Form within required lead time.</li>
+              <li><strong>Department Head:</strong> Recommends approval/disapproval based on operational manpower coverage.</li>
+              <li><strong>HR Officer:</strong> Verifies leave balance credits, approves filing, and logs usage in HRIS.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Leave Entitlements Overview:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Service Incentive Leave (SIL):</strong> 5 days paid annual leave for regularized employees after 1 year of service (DOLE statutory).</li>
+                  <li><strong>Maternity Leave (RA 11210):</strong> 105 days paid leave (115 days for solo parents), plus optional 30 days unpaid.</li>
+                  <li><strong>Paternity Leave (RA 8187):</strong> 7 days paid leave for married male employees for first 4 deliveries of legitimate spouse.</li>
+                  <li><strong>Solo Parent Leave (RA 8972 / RA 11861):</strong> 7 days paid flexible leave per year for qualified solo parents.</li>
+                  <li><strong>VAWC Leave (RA 9262):</strong> Up to 10 days paid leave for female employees victimized by violence.</li>
+                  <li><strong>Special Leave for Women (RA 9710 Magna Carta):</strong> Up to 2 months paid leave following gynecological surgery.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Application Lead Times & Workflow:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Planned Leave (Vacation / SIL):</strong> Application submitted at least 7 calendar days prior to intended start date using Leave Application Form.</li>
+                  <li><strong>Sick Leave:</strong> Employee notifies supervisor within 2 hours of shift start. Upon return, employee submits Leave Form attached with Medical Certificate from a licensed physician (mandatory for absences ≥ 2 consecutive days).</li>
+                </ul>
+              </li>
+              <li><strong>Approval & HR Logging:</strong> Department Head reviews coverage, signs recommendation, forwards to HR. HR verifies credit availability, approves, updates leave ledger, and informs employee.</li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">If an employee's residence in Northern Samar is directly devastated by a typhoon or severe flooding, GM may approve up to 3 days emergency calamity leave upon verification by HR and local Barangay certification.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Leave balance ledgers updated within 24 hours of leave execution.</li>
+              <li>Valid medical certificates attached for sick leaves exceeding 1 day.</li>
+              <li>Statutory leaves (Maternity, Paternity, Solo Parent) properly reported to SSS/DOLE portals.</li>
+              <li><strong>Target Metric:</strong> 100% accuracy in leave credit ledger records.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HR-09 -->
+      <article id="sop-hr-09" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HR-09</code>
+            <span class="text-gray-900 font-semibold text-lg">Employee Uniform & Grooming</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">To maintain crisp, professional, hygienic, and culturally appropriate grooming and uniform standards across all customer-facing and back-of-house resort departments.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>All Employees:</strong> Maintain personal hygiene, wear complete clean uniform, and adhere to grooming standards daily.</li>
+              <li><strong>Department Head / Duty Supervisor:</strong> Conducts daily pre-shift lineup grooming inspection.</li>
+              <li><strong>Executive Housekeeper:</strong> Oversees uniform issuance, repair, and laundering standards.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Uniform Issuance & Care:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Each regular employee receives 3 sets of position-specific uniforms upon hire.</li>
+                  <li>Uniforms remain property of Marcela's Hotel & Resort; employee is responsible for maintaining clean, pressed condition.</li>
+                  <li>Uniform replacement provided free annually; damaged uniforms replaced immediately upon surrender of worn set.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Grooming Standards:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Name Tags:</strong> Worn on left chest at all times during duty hours.</li>
+                  <li><strong>Hair (Female):</strong> Neat, tied back in a professional bun with hairnet if hair extends past collar (mandatory for Kitchen and F&B). Natural hair colors only.</li>
+                  <li><strong>Hair (Male):</strong> Neat corporate haircut (above collar, ears clear). Well-groomed, clean-shaved facial hair or neatly trimmed mustache/beard (&lt; 5 mm).</li>
+                  <li><strong>Footwear:</strong> Department-specific black anti-slip closed shoes (F&B/FO), safety steel-toe shoes (Engineering), white anti-slip kitchen clogs (Kitchen). Clean black socks.</li>
+                  <li><strong>Jewelry & Piercings:</strong> Minimal jewelry (1 plain wedding band, 1 pair small stud earrings for females). No visible body piercings or excessive wrist jewelry (food safety risk).</li>
+                  <li><strong>Personal Hygiene:</strong> Daily bathing mandatory before shift. Subtle deodorant; heavy perfumes/colognes prohibited in guest and dining areas.</li>
+                </ul>
+              </li>
+              <li><strong>Pre-Shift Lineup Inspection:</strong> Supervisors conduct a 5-minute daily lineup before shift start to verify complete uniform, grooming, and name tag placement. Non-compliant staff are sent to fix grooming before clocking in.</li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Uniform materials selected are breathable linen/cotton blends tailored for Samar's humid tropical weather. Staff are strictly prohibited from wearing uniforms outside resort grounds during personal off-duty hours.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Daily pre-shift grooming inspection logged by shift supervisor.</li>
+              <li>100% name tag wearing rate across all active staff.</li>
+              <li>Kitchen/F&B hairnet and anti-slip shoe compliance 100%.</li>
+              <li><strong>Target Metric:</strong> Zero guest complaints regarding employee grooming or uniform cleanliness.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HR-10 -->
+      <article id="sop-hr-10" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HR-10</code>
+            <span class="text-gray-900 font-semibold text-lg">Employee Conduct & Discipline</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">To enforce fair, constructive, progressive, and legally sound disciplinary procedures adhering strictly to Philippine Labor Code Twin Notice Rule due process for offenses detailed in the Resort Employee Code of Conduct.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Supervisor / Department Head:</strong> Documents infractions, issues incident reports, enforces workplace rules.</li>
+              <li><strong>HR Officer:</strong> Issues formal notices, leads administrative hearings, ensures due process compliance.</li>
+              <li><strong>General Manager:</strong> Reviews panel findings and approves major disciplinary actions (suspension, termination).</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Progressive Discipline Framework:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Class A (Minor):</strong> Verbal Warning → Written Reprimand → 1-Day Suspension (e.g., minor tardiness, uniform non-compliance).</li>
+                  <li><strong>Class B (Moderate):</strong> Written Reprimand → 3-Day Suspension → 5-Day Suspension (e.g., unexcused absence, unauthorized shift swap, rudeness to colleague).</li>
+                  <li><strong>Class C (Major/Severe):</strong> 7 to 15-Day Suspension or Termination on First Offense depending on gravity (e.g., theft, physical fight, drunkenness on duty, sexual harassment, gross guest neglect, drug usage).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Due Process Procedure (Twin Notice Rule):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Incident Report (IR):</strong> Supervisor files IR within 24 hours of offense discovery.</li>
+                  <li><strong>First Notice — Notice to Explain (NTE):</strong> HR issues written NTE to employee detailing specific offense, date, code violation, and relevant evidence. Employee is given at least 5 calendar days (120 hours) to submit written explanation.</li>
+                  <li><strong>Preventive Suspension (Optional):</strong> Applied only if employee presence poses an imminent threat to life, property, or investigation integrity (maximum 30 calendar days unpaid).</li>
+                  <li><strong>Administrative Hearing:</strong> Convened for major offenses. Panel consists of HR, GM, and Department Head. Employee may be accompanied by a colleague or legal counsel.</li>
+                  <li><strong>Second Notice — Notice of Decision (NOD):</strong> Issued within 10 business days post-investigation/hearing stating management's final decision (Exoneration, Warning, Suspension, or Termination with Just Cause per Article 297 of Labor Code).</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Working under the influence of alcohol or illegal drugs is strictly prohibited. Given the resort setting, random alcohol breathalyzer and drug testing are conducted in compliance with DOLE Department Order 53-03.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% adherence to 5-day response window for all NTEs issued.</li>
+              <li>Complete documentation attached to 201 File for every disciplinary action.</li>
+              <li>Twin Notice Rule strictly fulfilled prior to enforcing suspensions or terminations.</li>
+              <li><strong>Target Metric:</strong> Zero DOLE illegal dismissal cases or lost labor arbitrations.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HR-11 -->
+      <article id="sop-hr-11" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HR-11</code>
+            <span class="text-gray-900 font-semibold text-lg">Performance Evaluation</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">To provide an objective, transparent evaluation system assessing employee job performance during probationary periods (3rd and 5th month review) and annual reviews for regularized employees to drive continuous professional growth.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Department Head:</strong> Conducts objective performance evaluation ratings and face-to-face feedback sessions.</li>
+              <li><strong>HR Officer:</strong> Schedules review cycles, audits rating consistency, and manages performance records.</li>
+              <li><strong>General Manager:</strong> Approves regularization recommendations, merit increases, and promotion proposals.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li><strong>Evaluation Timelines:</strong> Probationary evaluation at end of 3rd month (mid-probationary feedback) and 5th month (regularization decision). Annual Performance Appraisal every October/November for all regular employees.</li>
+              <li>
+                <strong>Evaluation Criteria & Grading Scale:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Evaluated across 5 Core Pillars: Job Competency & Accuracy (25%), Attendance & Punctuality (20%), Guest Service & Interpersonal Skills (25%), Teamwork & Initiative (15%), Safety & SOP Compliance (15%).</li>
+                  <li>Rating Scale: 5 = Outstanding, 4 = Exceeds Expectations, 3 = Meets Expectations, 2 = Needs Improvement, 1 = Unsatisfactory.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Evaluation Process Workflow:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>HR dispatches Performance Appraisal Forms 2 weeks prior to evaluation due date.</li>
+                  <li>Supervisor completes rating score, provides specific written justifications for ratings of 1, 2, or 5.</li>
+                  <li>Face-to-Face Evaluation Interview: Supervisor meets privately with employee to discuss scores, celebrate strengths, address development areas, and establish mutual goals.</li>
+                  <li>Employee signs form (signature acknowledges receipt/discussion). Employee may attach written comments.</li>
+                </ul>
+              </li>
+              <li><strong>Regularization / Action Outcomes:</strong> Score ≥ 3.0 at 5th month = Recommendation for Regularization. Score &lt; 3.0 at 5th month = Non-regularization / End of probationary contract with lawful written notice prior to 6th month.</li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Evaluations emphasize supportive provincial mentorship, helping staff overcome local skill gaps through internal training rather than punitive scoring.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>5th-month probationary evaluations completed at least 30 days before the 6th-month employment mark.</li>
+              <li>Face-to-face evaluation interview conducted for 100% of appraised employees.</li>
+              <li>Signed appraisal forms archived in 201 files within 5 business days.</li>
+              <li><strong>Target Metric:</strong> 100% appraisal completion rate; zero missed probationary regularization deadlines.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HR-12 -->
+      <article id="sop-hr-12" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HR-12</code>
+            <span class="text-gray-900 font-semibold text-lg">Training & Development</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">To plan, execute, evaluate, and track mandatory skills training, cross-departmental development, emergency response refresher courses, and guest service elevation for all resort staff.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>HR Officer / Training Lead:</strong> Prepares Annual Training Calendar, tracks training hours, and measures effectiveness.</li>
+              <li><strong>Department Heads:</strong> Conduct technical skill drills, SOP refresher sessions, and cross-training assignments.</li>
+              <li><strong>External Trainers / TESDA Assessors:</strong> Invited periodically for specialized certification courses.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li><strong>Training Needs Analysis (TNA):</strong> Conducted annually in November by reviewing guest feedback scores, operational audit findings, incident reports, and performance appraisal gaps.</li>
+              <li>
+                <strong>Core Annual Training Modules:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Mandatory Universal Modules (All Staff):</strong> Service Excellence & Provincial Hospitality Standards; Typhoon Preparedness & Emergency Response (Module 06); Workplace Health, Safety & Fire Extinguisher Training; Anti-Harassment & Ethics in Hospitality.</li>
+                  <li><strong>Departmental Technical Modules:</strong> FO: PMS System Mastery, Complaint Handling, Upselling. HK: Chemical Handling, Deep Cleaning, Bed-Making Speed Drills. FB/Kitchen: Food Safety (HACCP/Hygiene), POS Efficiency, Wine & Beverage Service. FM: Genset Maintenance, Pool Water Chemistry, Solar Grid Diagnostics.</li>
+                </ul>
+              </li>
+              <li><strong>Execution & Attendance Logging:</strong> Every training session requires an Attendance Sign-in Sheet and Post-Training Assessment Quiz. Minimum mandatory training allocation per employee: 24 hours per year.</li>
+              <li><strong>Cross-Training Program:</strong> High-performing staff may apply for cross-training in second departments (e.g., HK staff learning FO check-in routines) during off-peak rainy months to support resort multi-skilling.</li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Partner with local TESDA regional centers in Northern Samar to facilitate national certifications (NC II in Housekeeping, Cookery, Food & Beverage Service) for local staff lacking formal hotel degrees.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Annual Training Calendar published every January.</li>
+              <li>Post-training evaluation test administered for every technical module.</li>
+              <li>Training records logged in digital HR database per employee.</li>
+              <li><strong>Target Metric:</strong> Average ≥ 24 training hours completed per employee annually; post-training test pass rate ≥ 85%.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HR-13 -->
+      <article id="sop-hr-13" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HR-13</code>
+            <span class="text-gray-900 font-semibold text-lg">Employee Grievance Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">To provide a neutral, confidential, fair, and accessible mechanism for employees to report workplace grievances, interpersonal conflicts, unfair treatment, or policy violations without fear of retaliation.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Employee:</strong> Raises concerns honestly following the established step-by-step escalation path.</li>
+              <li><strong>HR Officer:</strong> Mediates conflict, investigates complaints confidentially, and records resolution.</li>
+              <li><strong>General Manager:</strong> Serves as final internal appeal authority for unresolved grievances.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li><strong>Step 1 — Informal Resolution (Immediate Supervisor Level):</strong> Employee discusses issue verbally with immediate supervisor within 5 business days of incident. Supervisor conducts informal discussion to resolve concern within 3 business days. (If grievance involves the immediate supervisor, employee proceeds directly to Step 2.)</li>
+              <li><strong>Step 2 — Formal Written Grievance (HR Level):</strong> If unresolved at Step 1, employee completes and submits Formal Grievance Form to HR Officer. HR opens confidential case file, notifies respondent within 48 hours, and conducts separate private interviews with complainant, respondent, and witnesses. HR conducts formal mediation session within 5 business days of receipt and issues written resolution.</li>
+              <li><strong>Step 3 — Management Appeal (GM Level):</strong> If either party rejects HR resolution, written appeal submitted to GM within 3 business days. GM reviews evidence, convenes Grievance Committee (GM, HR, neutral Department Head), and issues final binding internal written decision within 7 business days.</li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">In tight-knit provincial communities like Gamay, strict confidentiality is enforced during grievance proceedings to prevent gossip, preserve working relationships, and protect employee dignity.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Grievances logged in confidential HR Grievance Register upon receipt.</li>
+              <li>Step 2 HR investigation initiated within 48 hours.</li>
+              <li>Zero acts of retaliation against reporting employees tolerated or recorded.</li>
+              <li><strong>Target Metric:</strong> 100% of formal grievances investigated and resolved internally within 14 business days.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HR-14 -->
+      <article id="sop-hr-14" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HR-14</code>
+            <span class="text-gray-900 font-semibold text-lg">Workplace Health & Safety</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">To establish a comprehensive Occupational Safety and Health (OSH) program complying with Republic Act No. 11058 (DOLE OSH Law) to prevent workplace injuries, eliminate hazards, provide Personal Protective Equipment (PPE), and promote staff well-being.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Certified OSH Safety Officer:</strong> Oversees safety inspections, leads OSH Committee, and files DOLE accident reports.</li>
+              <li><strong>Department Heads:</strong> Enforces PPE usage and immediate hazard reporting within their shift areas.</li>
+              <li><strong>All Staff:</strong> Complies strictly with safety rules, wears required PPE, and reports hazards immediately.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li><strong>OSH Committee Structure:</strong> Resort establishes an active OSH Committee meeting monthly, comprising: GM (Chairman), Safety Officer (Secretary), Chief Engineer, HR Officer, and 2 Employee Representatives.</li>
+              <li>
+                <strong>Mandatory PPE Provision:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><em>Housekeeping:</em> Rubber gloves, facemasks, eye protection goggles (chemical diluting).</li>
+                  <li><em>Kitchen:</em> Heat-resistant aprons, cut-resistant gloves, anti-slip water-resistant shoes.</li>
+                  <li><em>Maintenance:</em> Hardhats, safety goggles, heavy-duty insulated gloves, steel-toe boots, safety harness.</li>
+                  <li><em>Pool Attendants:</em> UV protective hats, sunblock, flotation throw devices.</li>
+                </ul>
+              </li>
+              <li><strong>Hazard Identification & Inspection Routine:</strong> Weekly physical OSH audit across all departments checking wet floors, exposed wiring, chemical storage, fire extinguisher access, and ventilation.</li>
+              <li>
+                <strong>Workplace Accident Reporting Workflow:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Medical first aid administered immediately per SOP-SS-06.</li>
+                  <li>Supervisor files Work Accident / Incident Report within 12 hours.</li>
+                  <li>For disabling injuries or severe accidents, Safety Officer files official DOLE Work Accident Report (WAIR) within 24 hours.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">High heat and humidity during Samar summer months pose heat exhaustion risks for outdoor groundskeepers and kitchen staff. Mandatory 10-minute shaded hydration breaks mandated every 2 hours during peak heat warnings (≥ 38°C Heat Index).</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Monthly OSH Committee meeting minutes recorded and posted on bulletin board.</li>
+              <li>100% free PPE issuance verified for all technical/operational staff.</li>
+              <li>DOLE annual OSH reports submitted on schedule.</li>
+              <li><strong>Target Metric:</strong> Zero lost-time work accidents; 100% OSH compliance audit score.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HR-15 -->
+      <article id="sop-hr-15" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HR-15</code>
+            <span class="text-gray-900 font-semibold text-lg">Payroll Coordination</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">To define the bi-monthly payroll processing workflow, ensuring accurate calculation of base salaries, overtime premiums, statutory deductions, tax withholdings, and timely salary disbursements.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>HR Officer / Timekeeper:</strong> Audits timecards, logs leave/OT/deductions, and generates payroll summary.</li>
+              <li><strong>Finance / Payroll Accountant:</strong> Computes monetary net pay, statutory contributions, and prepares bank payroll files.</li>
+              <li><strong>General Manager:</strong> Conducts final audit and authorizes payroll release.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Payroll Cycles & Cut-off Dates:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Payroll is disbursed bi-monthly on the 15th and 30th (or 31st) of every month.</li>
+                  <li>1st Payroll Period (15th Payday): Cut-off covers work dates from 26th of previous month to 10th of current month.</li>
+                  <li>2nd Payroll Period (30th Payday): Cut-off covers work dates from 11th to 25th of current month.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Payroll Workflow Timeline:</strong>
+                <div class="mt-2 bg-white p-2 rounded text-xs font-mono text-indigo-800">
+                  [Cut-Off Date (10th/25th)] ➔ [HR Timecard Audit (11th/26th)] ➔ [Finance Calculation (12th/27th)] ➔ [GM Approval (13th/28th)] ➔ [Bank Disbursement (15th/30th)]
+                </div>
+              </li>
+              <li>
+                <strong>Statutory Deductions & Computation Standard:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>SSS Premium:</strong> Employee share based on SSS Monthly Salary Credit table.</li>
+                  <li><strong>PhilHealth Premium:</strong> Employee share based on PhilHealth contribution rate.</li>
+                  <li><strong>Pag-IBIG Premium:</strong> Standard employee share (₱100 or 2% max).</li>
+                  <li><strong>Withholding Tax:</strong> Computed per BIR TRAIN Law revised withholding tax tables.</li>
+                </ul>
+              </li>
+              <li><strong>Payslip Issuance:</strong> Digital or sealed physical paper payslips issued to every employee on payday detailing gross pay, basic pay, OT pay, night differential, holiday pay, itemized statutory deductions, loan deductions, and net pay.</li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Salary is disbursed via direct bank transfer to employee ATM accounts. During extended regional ATM / banking network failures in Gamay following typhoons, management executes manual cash payroll disbursement co-signed on physical payroll sheets.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Timecard audit completed by HR within 24 hours of cut-off.</li>
+              <li>Statutory deduction tables verified against current SSS/PhilHealth/Pag-IBIG/BIR circulars.</li>
+              <li>Payslips distributed to 100% of staff on or before payday.</li>
+              <li><strong>Target Metric:</strong> 100% on-time payroll disbursement rate; payroll calculation error rate &lt; 0.1%.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HR-16 -->
+      <article id="sop-hr-16" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HR-16</code>
+            <span class="text-gray-900 font-semibold text-lg">Employee Separation / Clearance</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">To govern voluntary resignations, employment terminations, asset accountabilities, exit interviews, multi-departmental clearances, and the release of final pay in full compliance with DOLE Labor Advisory No. 06-20.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Resigning / Separating Employee:</strong> Submits 30-day notice, returns property, and completes clearance.</li>
+              <li><strong>HR Officer:</strong> Facilitates clearance workflow, conducts Exit Interview, and issues Certificate of Employment.</li>
+              <li><strong>Accounting Lead:</strong> Computes final pay, prorated 13th month pay, and tax adjustments.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li><strong>Resignation Notice Submission:</strong> Employee submits formal written resignation letter giving at least 30 calendar days notice (Labor Code requirement). HR issues written acceptance letter confirming exact effective date and turnover expectations.</li>
+              <li>
+                <strong>Multi-Departmental Clearance Workflow:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Employee routes Master Employee Clearance Form for sign-offs across all units:</li>
+                  <li><em>Department Head:</em> Work turnover, keys, tools, manuals.</li>
+                  <li><em>Housekeeping / Linen:</em> Uniform sets surrendered.</li>
+                  <li><em>IT / Admin:</em> System access deactivated, ID card surrendered.</li>
+                  <li><em>Accounting:</em> Cash advance liquidations, petty cash balance clear.</li>
+                  <li><em>HR:</em> Exit interview completed, 201 file closure.</li>
+                </ul>
+              </li>
+              <li><strong>Exit Interview Execution:</strong> HR conducts confidential Exit Interview to gather candid feedback on management, working conditions, culture, and reasons for leaving.</li>
+              <li>
+                <strong>Final Pay Computation & Release Timeline:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Final pay includes: Unpaid salary up to last working day, prorated 13th-month pay, cash conversion of unused SIL credits (if applicable), and tax refund/adjustment.</li>
+                  <li><strong>DOLE 30-Day Rule:</strong> Final pay and Certificate of Employment (COE) must be released within 30 calendar days from the date of separation.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Certificates of Employment are issued promptly within 3 business days upon clearance completion to assist departing local staff with subsequent regional employment or overseas applications.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% signed clearance form completed before final pay check release.</li>
+              <li>Exit interview feedback logged in HR retention database.</li>
+              <li>Final pay released strictly within 30 calendar days per DOLE Labor Advisory 06-20.</li>
+              <li><strong>Target Metric:</strong> 100% compliance with 30-day final pay release deadline; zero pending post-separation labor complaints.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div><!-- end HR SOP container -->
+
+    <!-- ============================================================ -->
+    <!-- SECTION 2: ADMINISTRATION (AD) -->
+    <!-- ============================================================ -->
+    <div class="mb-6 mt-10">
+      <h2 class="text-xl font-bold text-indigo-800 mb-4 flex items-center"><i class="fa-solid fa-building-columns mr-2 text-indigo-600"></i>Section 2: Administration (AD)</h2>
+    </div>
+
+    <div class="space-y-4" id="sop-container-ad">
+
+      <!-- SOP-AD-01 -->
+      <article id="sop-ad-01" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">AD-01</code>
+            <span class="text-gray-900 font-semibold text-lg">Document Control</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600"><h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4><p class="text-gray-700 text-sm whitespace-pre-wrap">To establish uniform document creation, coding, revision control, approval matrices, distribution, and archiving standards across all operational manuals, forms, policies, and contracts of Marcela's Resort Hotel.</p></div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600"><h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li><strong>Document Control Officer / HR Admin:</strong> Maintains Master Document Register, enforces coding standards, and controls versioning.</li><li><strong>Department Heads:</strong> Drafts and reviews operational SOPs and departmental forms.</li><li><strong>General Manager:</strong> Final approving authority for all official resort policies and manual revisions.</li></ul></div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600"><h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4><ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm"><li><strong>Standard Document Coding Matrix:</strong> SOP-FO-XX (Front Office), SOP-HK-XX (Housekeeping), SOP-FB-XX (Food & Beverage), SOP-FH-XX (Function Hall), SOP-FM-XX (Facilities), SOP-SS-XX (Safety), SOP-HR-XX (Human Resources), SOP-AD-XX (Administration), SOP-DS-XX (Digital Systems).</li><li><strong>Version Control & Revision Header:</strong> Every document must display: Code | Title | Effective Date | Revision Number (e.g., 1.0, 1.1) | Page X of Y.</li><li><strong>Review & Approval Matrix:</strong> Draft Creation → Department Head Review → Document Control Officer Verification → GM Approval.</li><li><strong>Master Document Register & Distribution:</strong> Active soft copies published on the internal Google Sites SOP Repository in read-only PDF format. Hardcopies stamped "CONTROLLED COPY." Superseded versions stamped "OBSOLETE — FOR ARCHIVE ONLY" and moved to storage.</li></ol></div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600"><h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4><p class="text-gray-700 text-sm">Because power or internet disruptions can occur in Northern Samar, one complete printed set of "CONTROLLED COPY" SOP binders is kept permanently locked in the GM Office for offline operational reference.</p></div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600"><h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li>Master Document Register updated within 24 hours of any document revision.</li><li>Obsolete printed versions stamped and removed from active shift stations immediately.</li><li>Read-only PDF permissions maintained across internal digital SOP drives.</li><li><strong>Target Metric:</strong> 100% document revision traceability; zero unapproved forms in shift use.</li></ul></div>
+        </div>
+      </article>
+
+      <!-- SOP-AD-02 -->
+      <article id="sop-ad-02" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center"><code class="text-indigo-700 font-bold text-sm mr-2">AD-02</code><span class="text-gray-900 font-semibold text-lg">Records Management</span></div>
+          <div class="flex items-center gap-2"><button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button><i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i></div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600"><h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4><p class="text-gray-700 text-sm whitespace-pre-wrap">To define retention periods, safe physical/digital storage standards, access permissions, and secure disposal protocols for operational, financial, guest, legal, and personnel records.</p></div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600"><h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li><strong>Administrative Assistant:</strong> Manages physical records vault, labeling, and archive indexing.</li><li><strong>IT Specialist:</strong> Manages encrypted digital archives, server backups, and access logs.</li><li><strong>General Manager:</strong> Approves document destruction requests upon retention expiration.</li></ul></div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600"><h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4><ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm"><li><strong>Mandatory Retention Schedule:</strong><div class="overflow-x-auto mt-2"><table class="w-full text-left text-xs text-gray-700 border-collapse border border-gray-300"><thead><tr class="bg-indigo-100"><th class="border border-gray-300 px-2 py-1 font-semibold">Record Category</th><th class="border border-gray-300 px-2 py-1 font-semibold">Retention</th><th class="border border-gray-300 px-2 py-1 font-semibold">Format</th></tr></thead><tbody><tr><td class="border border-gray-300 px-2 py-1">Tax Records / Receipts / Invoices</td><td class="border border-gray-300 px-2 py-1">10 Years</td><td class="border border-gray-300 px-2 py-1">Hardcopy + Digital</td></tr><tr class="bg-gray-50"><td class="border border-gray-300 px-2 py-1">Audited Financial Statements</td><td class="border border-gray-300 px-2 py-1">10 Years</td><td class="border border-gray-300 px-2 py-1">Hardcopy + Digital</td></tr><tr><td class="border border-gray-300 px-2 py-1">Employee 201 Files & Payroll</td><td class="border border-gray-300 px-2 py-1">5 Years post-separation</td><td class="border border-gray-300 px-2 py-1">Locked + HRIS</td></tr><tr class="bg-gray-50"><td class="border border-gray-300 px-2 py-1">Guest Registration & Folios</td><td class="border border-gray-300 px-2 py-1">5 Years</td><td class="border border-gray-300 px-2 py-1">Hardcopy + PMS</td></tr><tr><td class="border border-gray-300 px-2 py-1">CCTV Footage</td><td class="border border-gray-300 px-2 py-1">30 Days</td><td class="border border-gray-300 px-2 py-1">NVR Storage</td></tr><tr class="bg-gray-50"><td class="border border-gray-300 px-2 py-1">Daily Shift / Maintenance Logs</td><td class="border border-gray-300 px-2 py-1">3 Years</td><td class="border border-gray-300 px-2 py-1">Binder / Digital</td></tr></tbody></table></div></li><li><strong>Physical Storage Standards:</strong> Archival documents stored in labeled water-resistant plastic archive boxes raised at least 15 cm off the floor in the climate-controlled Admin Archive Room, equipped with dehumidifiers, smoke detectors, and locked access.</li><li><strong>Secure Disposal:</strong> Expired non-confidential records recycled. Confidential records destroyed via heavy-duty cross-cut shredding under direct supervision and logged in the Disposal Register.</li></ol></div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600"><h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4><p class="text-gray-700 text-sm">Gamay's tropical coastal climate presents high humidity and flooding risks during typhoons. Physical archives are kept in airtight plastic containers on high shelving units (never on concrete ground floors) with silica gel desiccant packs.</p></div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600"><h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li>Archival box index register matched with physical contents.</li><li>Dehumidifiers running continuously (&lt; 60% humidity target).</li><li>Disposal register signed by GM prior to any document destruction.</li><li><strong>Target Metric:</strong> Zero lost or damaged statutory financial or personnel records.</li></ul></div>
+        </div>
+      </article>
+
+      <!-- SOP-AD-03 through AD-14: Following exact same pattern -->
+      <!-- AD-03 --> <article id="sop-ad-03" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden"><div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)"><div class="flex items-center"><code class="text-indigo-700 font-bold text-sm mr-2">AD-03</code><span class="text-gray-900 font-semibold text-lg">Purchasing & Procurement</span></div><div class="flex items-center gap-2"><button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button><i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i></div></div><div class="sop-details hidden p-4 space-y-3 border-t"><div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600"><h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4><p class="text-gray-700 text-sm whitespace-pre-wrap">To regulate the requisition, canvas, price negotiation, Purchase Order (PO) approval, and purchasing workflow to secure quality goods, equipment, and services at competitive prices.</p></div><div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600"><h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li><strong>Requisitioner (Department Head):</strong> Identifies supply needs and submits Purchase Requisition (PR).</li><li><strong>Purchasing Officer:</strong> Conducts supplier canvassing, negotiates terms, and prepares POs.</li><li><strong>General Manager / Finance Lead:</strong> Approves PRs and POs per financial threshold limits.</li></ul></div><div class="bg-green-50 p-4 rounded border-l-4 border-green-600"><h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4><ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm"><li><strong>PR Initiation:</strong> Department Head completes PR detailing item description, specifications, quantity, estimated unit cost, and urgency.</li><li><strong>Canvassing & Quotation Requirements:</strong> Low Value (&lt; ₱5,000): Single quotation acceptable. Standard Value (₱5,000–₱50,000): Minimum 3 written competitive canvass quotations required. High Value / CapEx (&gt; ₱50,000): Formal bidding process with 3 detailed bids.</li><li><strong>PO Issuance:</strong> Purchasing Officer generates official PO selecting vendor with optimal balance of price, quality, warranty, and delivery lead time. PO must be approved per financial threshold matrix before issuing.</li><li><strong>Order Tracking:</strong> Purchasing Officer tracks vendor delivery timelines and liaises with Receiving Supervisor upon arrival.</li></ol></div><div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600"><h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4><p class="text-gray-700 text-sm">Procurement planning must factor in regional transit lead times from major trade hubs (Catarman: 1–2 days; Tacloban: 3–5 days; Manila via sea/land: 7–10 days). Emergency buffer stocks ordered before typhoon seasons.</p></div><div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600"><h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li>Minimum 3 written canvas quotes attached to all PRs exceeding ₱5,000.</li><li>PO signatures fully compliant with authorization threshold limits.</li><li>Delivery lead time logged and monitored per vendor.</li><li><strong>Target Metric:</strong> 100% procurement compliance; zero unapproved purchasing commitments.</li></ul></div></div></article>
+
+      <!-- AD-04 --> <article id="sop-ad-04" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden"><div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)"><div class="flex items-center"><code class="text-indigo-700 font-bold text-sm mr-2">AD-04</code><span class="text-gray-900 font-semibold text-lg">Supplier Accreditation</span></div><div class="flex items-center gap-2"><button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button><i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i></div></div><div class="sop-details hidden p-4 space-y-3 border-t"><div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600"><h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4><p class="text-gray-700 text-sm whitespace-pre-wrap">To evaluate, accredit, and annually review vendors, local farmers, seafood suppliers, and service contractors to ensure quality consistency, legal compliance, and reliable commercial terms.</p></div><div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600"><h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li><strong>Purchasing Officer:</strong> Gathers accreditation documents, conducts vendor site visits, and maintains Master Supplier List.</li><li><strong>Finance Lead:</strong> Evaluates credit payment terms and tax registration legitimacy.</li><li><strong>General Manager:</strong> Grants final accreditation approval.</li></ul></div><div class="bg-green-50 p-4 rounded border-l-4 border-green-600"><h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4><ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm"><li><strong>Mandatory Accreditation Documents:</strong> BIR Form 2303, Valid Mayor's Business Permit / DTI or SEC Registration, Official Receipt/Sales Invoice sample, Sanitary Permit & Health Certificates (for food suppliers), Product price list and warranty terms.</li><li><strong>Evaluation & Site Audit:</strong> Purchasing Officer and Head Chef / Chief Engineer evaluate supplier quality, hygiene standards, and supply capacity. For fresh seafood/produce, conduct site audit of local Gamay/Samar supplier facilities.</li><li><strong>Accreditation Approval:</strong> Approved suppliers logged in Accredited Vendor Directory with standard commercial terms (Target credit terms: Net 30 days).</li><li><strong>Annual Performance Review:</strong> Conducted every November evaluating: Product Quality (40%), On-Time Delivery (30%), Price Competitiveness (20%), Invoice Accuracy (10%). Score &lt; 70% results in vendor delisting.</li></ol></div><div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600"><h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4><p class="text-gray-700 text-sm">Local Samar agricultural producers and municipal fisherfolk supplying fresh daily catch are eligible for a simplified "Local Micro-Vendor Accreditation" process with expedited weekly cash/check settlement terms.</p></div><div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600"><h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li>Valid BIR 2303 and Mayor's permit verified for 100% of commercial accredited vendors.</li><li>Sanitary clearance filed for all food/beverage vendors.</li><li>Annual vendor performance evaluation executed every November.</li><li><strong>Target Metric:</strong> Minimum 85% accredited vendor retention rate; zero food safety issues from accredited suppliers.</li></ul></div></div></article>
+
+      <!-- AD-05 --> <article id="sop-ad-05" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden"><div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)"><div class="flex items-center"><code class="text-indigo-700 font-bold text-sm mr-2">AD-05</code><span class="text-gray-900 font-semibold text-lg">Receiving & Inspection of Supplies</span></div><div class="flex items-center gap-2"><button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button><i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i></div></div><div class="sop-details hidden p-4 space-y-3 border-t"><div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600"><h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4><p class="text-gray-700 text-sm whitespace-pre-wrap">To establish strict physical receiving, count verification, quality inspection, temperature checking, and documentation procedures for all incoming goods, perishables, and equipment delivered to the resort.</p></div><div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600"><h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li><strong>Receiving Clerk / Storekeeper:</strong> Inspects physical goods, verifies quantities against PO, and accepts deliveries.</li><li><strong>Head Chef / Sous Chef:</strong> Inspects fresh food, meat, seafood, and dairy quality/temperatures upon arrival.</li><li><strong>Chief Engineer:</strong> Inspects technical hardware, machinery, spare parts, and chemical supplies.</li></ul></div><div class="bg-green-50 p-4 rounded border-l-4 border-green-600"><h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4><ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm"><li><strong>PO & Delivery Documentation Match:</strong> Vendor presents Delivery Receipt (DR) and Sales Invoice (SI). Receiving Clerk retrieves original approved PO and cross-checks item description, brand, unit size, and ordered quantity.</li><li><strong>Physical Quality Inspection:</strong> Perishables/Meat/Seafood: Inspect freshness, odor, color, packaging integrity, and temperature (&lt; 4°C for chilled; &lt; -18°C for frozen). Reject spoiled items immediately. Dry Goods: Check expiry dates (minimum 6 months shelf-life remaining). Technical Hardware: Inspect model numbers, test power functionality, verify warranty cards.</li><li><strong>Receiving Report:</strong> If delivery passes inspection, clerk signs DR/SI, stamps "RECEIVED & INSPECTED" seal, and generates Receiving Report (RR) co-signed by requisitioner.</li><li><strong>Rejection Procedure:</strong> For damaged, sub-standard, or wrong items, complete Receiving Rejection Slip detailing rejected quantities and reasons. Annotate rejection clearly on vendor DR before driver departs.</li></ol></div><div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600"><h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4><p class="text-gray-700 text-sm">High ambient temperatures in Samar mean fresh fish, poultry, and meat arriving at the service dock must be inspected, logged, and transferred into walk-in chillers/freezers within 15 minutes of truck arrival to prevent spoilage.</p></div><div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600"><h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li>100% of deliveries verified against approved PO prior to unloading.</li><li>Receiving stamp, signature, and date affixed to all accepted vendor invoices.</li><li>Temperature log documented for all meat/seafood deliveries.</li><li><strong>Target Metric:</strong> Zero accepted defective or expired goods entering resort inventory.</li></ul></div></div></article>
+
+      <!-- AD-06 --> <article id="sop-ad-06" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden"><div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)"><div class="flex items-center"><code class="text-indigo-700 font-bold text-sm mr-2">AD-06</code><span class="text-gray-900 font-semibold text-lg">Inventory Management</span></div><div class="flex items-center gap-2"><button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button><i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i></div></div><div class="sop-details hidden p-4 space-y-3 border-t"><div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600"><h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4><p class="text-gray-700 text-sm whitespace-pre-wrap">To regulate inventory storage, par-level monitoring, FIFO/FEFO stock rotation, stock requisitions, and monthly physical inventory counts across all central storerooms.</p></div><div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600"><h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li><strong>Materials Controller / Storekeeper:</strong> Manages central warehouse, issues stock, tracks par levels.</li><li><strong>Department Heads:</strong> Submits Store Requisitions (SR) and monitors departmental operating stocks.</li><li><strong>Internal Auditor / Accountant:</strong> Conducts monthly physical count audits and variance reconciliations.</li></ul></div><div class="bg-green-50 p-4 rounded border-l-4 border-green-600"><h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4><ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm"><li><strong>Par Level Establishment:</strong> Define Minimum Stock, Reorder Point, and Maximum Par Level for all SKUs. Automatically trigger PR when stock reaches Reorder Point.</li><li><strong>Storage & FIFO/FEFO Enforcement:</strong> Store all items off the floor on heavy-duty wire shelving (15 cm above floor). Enforce FIFO for dry goods and FEFO for food/beverages. Affix date labels upon receiving.</li><li><strong>Store Requisition & Stock Issuance:</strong> Stock issued strictly against approved Store Requisition Form (SRF) signed by Department Head. Storekeeper updates stock cards/system and obtains receiving signature.</li><li><strong>Monthly Physical Inventory Count:</strong> Conducted on the last day of every month. Joint counting team: Storekeeper + Accountant. Variance Threshold: Investigate any variance exceeding ±2% and submit Inventory Variance Report to GM.</li></ol></div><div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600"><h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4><p class="text-gray-700 text-sm">Upon declaration of PAGASA Typhoon Signal #1, the Materials Controller automatically increases par levels for non-perishable food, bottled water, batteries, fuel, and cleaning chemicals to 150% standard par to withstand regional supply chain cut-offs.</p></div><div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600"><h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li>Bin cards updated instantly upon every stock entry or issuance.</li><li>FIFO/FEFO date stickers applied to 100% of incoming inventory.</li><li>Monthly physical inventory count signed by Accountant and Storekeeper.</li><li><strong>Target Metric:</strong> Inventory variance score &lt; 1.5% per monthly count cycle.</li></ul></div></div></article>
+
+      <!-- AD-07 --> <article id="sop-ad-07" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden"><div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)"><div class="flex items-center"><code class="text-indigo-700 font-bold text-sm mr-2">AD-07</code><span class="text-gray-900 font-semibold text-lg">Petty Cash Management</span></div><div class="flex items-center gap-2"><button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button><i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i></div></div><div class="sop-details hidden p-4 space-y-3 border-t"><div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600"><h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4><p class="text-gray-700 text-sm whitespace-pre-wrap">To govern the establishment, custody, disbursement, liquidation, and replenishment of the Petty Cash Fund (PCF) under an imprest system for minor, urgent operational expenses.</p></div><div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600"><h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li><strong>Petty Cash Custodian (Admin Assistant):</strong> Maintains physical security of cash box, verifies vouchers, requests replenishment.</li><li><strong>Department Head:</strong> Pre-approves petty cash expense requests within authorized limits.</li><li><strong>Finance Lead / GM:</strong> Audits vouchers, conducts surprise cash counts, and approves replenishment checks.</li></ul></div><div class="bg-green-50 p-4 rounded border-l-4 border-green-600"><h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4><ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm"><li><strong>Fund Establishment:</strong> Main Imprest PCF total: ₱15,000.00. Maximum single disbursement limit per voucher: ₱2,000.00. Expenses exceeding ₱2,000 must go through standard PO / AP processing.</li><li><strong>Disbursement Workflow:</strong> Requisitioner submits Petty Cash Voucher (PCV) signed by Department Head. Custodian verifies request, issues cash advance, and records entry in PCV Ledger.</li><li><strong>Liquidation Requirement:</strong> Expense liquidated within 24 hours. Requisitioner submits PCV with original BIR ORs/Sales Invoices plus change. Custodian stamps "PAID & LIQUIDATED."</li><li><strong>Replenishment:</strong> Requested when cash balance drops to 30% (₱4,500.00). Accounting audits summary and issues replenishment check to restore fund to ₱15,000.00.</li><li><strong>Surprise Cash Counts:</strong> Finance Lead conducts unannounced monthly surprise physical cash counts. Unverified shortages must be reimbursed immediately and investigated.</li></ol></div><div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600"><h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4><p class="text-gray-700 text-sm">For local market purchasing or municipal trips in Gamay where formal BIR ORs are unavailable from local tricycle drivers, a signed Reimbursement Expense Receipt (RER) co-signed by the Department Head is accepted up to a maximum of ₱300.00.</p></div><div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600"><h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li>Petty cash box locked inside main executive office vault 24/7.</li><li>100% of disbursements supported by pre-approved PCVs and original ORs/SIs.</li><li>Monthly surprise cash counts logged with zero unaccounted variances.</li><li><strong>Target Metric:</strong> 100% compliance with 24-hour liquidation policy; zero unverified cash shortages.</li></ul></div></div></article>
+
+      <!-- AD-08 --> <article id="sop-ad-08" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden"><div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)"><div class="flex items-center"><code class="text-indigo-700 font-bold text-sm mr-2">AD-08</code><span class="text-gray-900 font-semibold text-lg">Accounts Payable Processing</span></div><div class="flex items-center gap-2"><button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button><i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i></div></div><div class="sop-details hidden p-4 space-y-3 border-t"><div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600"><h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4><p class="text-gray-700 text-sm whitespace-pre-wrap">To establish a systematic workflow for matching, auditing, approving, scheduling, and paying vendor invoices, utility bills, and contractual obligations while maximizing cash flow and capturing early payment discounts.</p></div><div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600"><h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li><strong>AP Clerk:</strong> Receives invoices, performs 3-way matching, prepares Disbursement Vouchers.</li><li><strong>Finance Lead / Accountant:</strong> Audits voucher packages, schedules payment runs, verifies tax withholding.</li><li><strong>GM / Authorized Signatories:</strong> Approves disbursement vouchers and signs payment checks / bank transfers.</li></ul></div><div class="bg-green-50 p-4 rounded border-l-4 border-green-600"><h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4><ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm"><li><strong>Invoice Receipt & Log:</strong> All incoming vendor invoices, utility bills (NORSAMELCO power, water, telecom), and service bills logged in AP Tracking Register.</li><li><strong>Three-Way Matching:</strong> AP Clerk matches: Approved PO + Signed Receiving Report (RR) + Vendor Sales Invoice (SI). Verify 100% matching on unit prices, extensions, and tax computations.</li><li><strong>DV Preparation & Tax Withholding:</strong> AP Clerk prepares Disbursement Voucher, computing applicable Creditable Withholding Tax (EWT - BIR Form 2307) based on supplier classification (1% for goods, 2% for services).</li><li><strong>Payment Schedule:</strong> Standard payment terms: Net 30 days. Payment releases processed bi-weekly (15th and 30th). DV package routed for approval per authorization matrix.</li><li><strong>Payment Release:</strong> Check or EFT processed. Vendor surrenders official BIR OR upon check collection or bank transfer confirmation.</li></ol></div><div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600"><h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4><p class="text-gray-700 text-sm">NORSAMELCO power and municipal water bills must be processed with high priority prior to due dates to avoid disconnection, as municipal service restoration in Gamay can take up to 48 hours.</p></div><div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600"><h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li>3-way matching verified for 100% of trade vendor payments.</li><li>BIR Form 2307 certificates issued to vendors alongside tax-withheld payments.</li><li>Zero late penalty charges incurred on utility bills.</li><li><strong>Target Metric:</strong> 100% on-time payment processing; zero duplicate vendor disbursements.</li></ul></div></div></article>
+
+      <!-- AD-09 --> <article id="sop-ad-09" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden"><div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)"><div class="flex items-center"><code class="text-indigo-700 font-bold text-sm mr-2">AD-09</code><span class="text-gray-900 font-semibold text-lg">Daily Revenue Reporting</span></div><div class="flex items-center gap-2"><button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button><i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i></div></div><div class="sop-details hidden p-4 space-y-3 border-t"><div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600"><h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4><p class="text-gray-700 text-sm whitespace-pre-wrap">To consolidate, reconcile, analyze, and publish the Daily Revenue Flash Report summarizing room sales, F&B revenue, event charges, pool admissions, and cashier settlement accuracy.</p></div><div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600"><h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li><strong>Night Auditor / Income Auditor:</strong> Reconciles daily PMS and POS system totals against physical collections.</li><li><strong>Accounting Lead:</strong> Compiles Daily Revenue Report and verifies bank deposits.</li><li><strong>GM & Owners:</strong> Reviews daily revenue performance against budget targets.</li></ul></div><div class="bg-green-50 p-4 rounded border-l-4 border-green-600"><h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4><ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm"><li><strong>End-of-Day Data Consolidation (01:00 AM):</strong> Night Auditor executes PMS night audit and pulls daily sales summaries from: FO PMS (Room Revenue), Restaurant POS, Function Hall Events System, and Swimming Pool Cashier Terminal.</li><li><strong>Payment Settlement Reconciliation:</strong> Cross-check total recorded revenues against actual settlements: cash, credit/debit card batch settlements, digital payments (GCash/Maya), and approved City Ledger / Room Charge folios.</li><li><strong>Daily Revenue Flash Report:</strong> Occupancy %, ADR, RevPAR, Total Revenue Breakdown (Rooms, F&B, Events, Pool, Misc), MTD vs Budget Comparison, Cash/Bank Settlement Variances.</li><li><strong>Report Distribution:</strong> Emailed to GM, Department Heads, and Resort Owners daily by 09:00 AM.</li></ol></div><div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600"><h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4><p class="text-gray-700 text-sm">High usage of GCash and Maya by local walk-in guests requires daily manual verification against official merchant portal reference numbers to prevent fraudulent altered SMS receipt presentations.</p></div><div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600"><h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li>PMS and POS daily closing reports fully reconciled nightly.</li><li>Cash drops matched 100% with physical cash counting sheets.</li><li>Daily Revenue Flash Report distributed every morning by 09:00 AM.</li><li><strong>Target Metric:</strong> 100% accuracy in daily revenue reporting; zero unresolved cashier drop variances.</li></ul></div></div></article>
+
+      <!-- AD-10 --> <article id="sop-ad-10" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden"><div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)"><div class="flex items-center"><code class="text-indigo-700 font-bold text-sm mr-2">AD-10</code><span class="text-gray-900 font-semibold text-lg">Expense Authorization</span></div><div class="flex items-center gap-2"><button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button><i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i></div></div><div class="sop-details hidden p-4 space-y-3 border-t"><div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600"><h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4><p class="text-gray-700 text-sm whitespace-pre-wrap">To define financial sign-off authority limits, approval tiers, and approval requirements for operational expenses (OpEx), emergency expenditures, and capital expenditures (CapEx).</p></div><div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600"><h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li><strong>Department Head:</strong> Recommends functional operating expenditures within budgeted limits.</li><li><strong>Finance Lead:</strong> Verifies budget availability and financial coding.</li><li><strong>General Manager:</strong> Approves routine operational expenses and standard PRs.</li><li><strong>Resort Owners / Board:</strong> Approves unbudgeted, high-value, and CapEx investments.</li></ul></div><div class="bg-green-50 p-4 rounded border-l-4 border-green-600"><h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4><ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm"><li><strong>Financial Approval Authorization Matrix:</strong><div class="overflow-x-auto mt-2"><table class="w-full text-left text-xs text-gray-700 border-collapse border border-gray-300"><thead><tr class="bg-indigo-100"><th class="border border-gray-300 px-2 py-1 font-semibold">Threshold</th><th class="border border-gray-300 px-2 py-1 font-semibold">Requisitioner</th><th class="border border-gray-300 px-2 py-1 font-semibold">Reviewer</th><th class="border border-gray-300 px-2 py-1 font-semibold">Final Approval</th></tr></thead><tbody><tr><td class="border border-gray-300 px-2 py-1">Up to ₱2,000</td><td class="border border-gray-300 px-2 py-1">Shift Supervisor</td><td class="border border-gray-300 px-2 py-1">Admin Assistant</td><td class="border border-gray-300 px-2 py-1">Department Head</td></tr><tr class="bg-gray-50"><td class="border border-gray-300 px-2 py-1">₱2,001–₱10,000</td><td class="border border-gray-300 px-2 py-1">Department Head</td><td class="border border-gray-300 px-2 py-1">Finance Lead</td><td class="border border-gray-300 px-2 py-1">HR Admin Officer</td></tr><tr><td class="border border-gray-300 px-2 py-1">₱10,001–₱50,000</td><td class="border border-gray-300 px-2 py-1">Department Head</td><td class="border border-gray-300 px-2 py-1">Finance Lead</td><td class="border border-gray-300 px-2 py-1">General Manager</td></tr><tr class="bg-gray-50"><td class="border border-gray-300 px-2 py-1">Above ₱50,000 / CapEx</td><td class="border border-gray-300 px-2 py-1">General Manager</td><td class="border border-gray-300 px-2 py-1">Finance Lead</td><td class="border border-gray-300 px-2 py-1">Resort Owners</td></tr></tbody></table></div></li><li><strong>Budget Verification:</strong> Finance Lead verifies whether the expense is in the approved Annual Operating Budget. Unbudgeted expenses require an Unbudgeted Expense Justification Form signed by GM and approved by Owners if exceeding ₱10,000.</li><li><strong>Emergency Expense Exception:</strong> During active disaster emergencies, GM is authorized to execute emergency expenses up to ₱100,000.00 immediately, provided written notice is transmitted to Owners within 12 hours.</li></ol></div><div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600"><h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4><p class="text-gray-700 text-sm">Pre-approved standing authorization allows GM to instantly disburse emergency cash for local fuel, tree-clearing equipment, or urgent roof repairs during typhoons without waiting for formal owner sign-off.</p></div><div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600"><h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li>100% of disbursements backed by authorization signatures matching the financial matrix.</li><li>Budget availability verified by Finance prior to PO commitment.</li><li>Emergency expenses fully documented with post-incident reports.</li><li><strong>Target Metric:</strong> 100% compliance with authorization matrix limits; zero unauthorized expenditures.</li></ul></div></div></article>
+
+      <!-- AD-11 --> <article id="sop-ad-11" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden"><div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)"><div class="flex items-center"><code class="text-indigo-700 font-bold text-sm mr-2">AD-11</code><span class="text-gray-900 font-semibold text-lg">Asset & Property Management</span></div><div class="flex items-center gap-2"><button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button><i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i></div></div><div class="sop-details hidden p-4 space-y-3 border-t"><div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600"><h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4><p class="text-gray-700 text-sm whitespace-pre-wrap">To govern property asset tagging, inventory recording, preventive maintenance tracking, asset transfers, semi-annual physical audits, and retirement/disposal of hotel capital assets.</p></div><div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600"><h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li><strong>Property Asset Officer / Admin:</strong> Tags assets, maintains Fixed Asset Register (FAR), records transfers.</li><li><strong>Chief Engineer:</strong> Tracks technical asset performance, repairs, and maintenance records.</li><li><strong>Internal Auditor / Finance Lead:</strong> Conducts semi-annual physical asset counts and depreciation audits.</li></ul></div><div class="bg-green-50 p-4 rounded border-l-4 border-green-600"><h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4><ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm"><li><strong>Asset Identification & Barcode Tagging:</strong> Every physical asset with unit value ≥ ₱5,000 or useful life &gt; 1 year must be tagged. Coding: MHR-FA-[DEPT]-[CATEGORY]-[NUMBER].</li><li><strong>Fixed Asset Register (FAR):</strong> Records: Asset Tag Number, Description, Brand/Model, Serial Number, Date Purchased, Acquisition Cost, Location/Room, Department, Depreciation Schedule, Warranty Expiration.</li><li><strong>Asset Transfer:</strong> Moving assets between rooms/departments/off-property requires an approved Asset Transfer Form (ATF) signed by both sending and receiving Department Heads.</li><li><strong>Semi-Annual Physical Audit:</strong> Conducted every June and December. Physical audit team sweeps all 30 rooms, public areas, kitchens, and offices checking presence, tag integrity, and condition.</li><li><strong>Asset Retirement & Disposal:</strong> Obsolete/broken assets evaluated by Chief Engineer. Complete Asset Disposal Form (ADF) approved by GM and Owners. Disposed via auction, salvage sale, or certified e-waste recycling.</li></ol></div><div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600"><h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4><p class="text-gray-700 text-sm">Metal assets (AC outdoor condenser units, pool pumps, exterior light fixtures) exposed to Gamay's salt air carry higher wear rates. FAR tracks anti-corrosion coating dates and marine-grade maintenance histories.</p></div><div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600"><h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li>100% of capital assets tagged prior to operational deployment.</li><li>FAR updated within 48 hours of any asset acquisition or disposal.</li><li>Semi-annual physical asset count verified against FAR balance.</li><li><strong>Target Metric:</strong> Asset audit reconciliation variance &lt; 0.5%.</li></ul></div></div></article>
+
+      <!-- AD-12 --> <article id="sop-ad-12" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden"><div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)"><div class="flex items-center"><code class="text-indigo-700 font-bold text-sm mr-2">AD-12</code><span class="text-gray-900 font-semibold text-lg">Government Permit & License Monitoring</span></div><div class="flex items-center gap-2"><button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button><i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i></div></div><div class="sop-details hidden p-4 space-y-3 border-t"><div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600"><h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4><p class="text-gray-700 text-sm whitespace-pre-wrap">To track, renew, and display all mandatory municipal, provincial, national, environmental, and industry permits, licenses, and accreditations to guarantee continuous 100% legal compliance.</p></div><div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600"><h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li><strong>Administrative Officer:</strong> Maintains Master Permit Calendar, compiles renewal applications, liaises with LGU/government agencies.</li><li><strong>Chief Engineer:</strong> Coordinates technical inspections (BFP Fire Safety, Electrical, Sanitary).</li><li><strong>General Manager:</strong> Authorizes permit renewal fees and reviews compliance status monthly.</li></ul></div><div class="bg-green-50 p-4 rounded border-l-4 border-green-600"><h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4><ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm"><li><strong>Master Permit Register:</strong><div class="overflow-x-auto mt-2"><table class="w-full text-left text-xs text-gray-700 border-collapse border border-gray-300"><thead><tr class="bg-indigo-100"><th class="border border-gray-300 px-2 py-1 font-semibold">Permit / License</th><th class="border border-gray-300 px-2 py-1 font-semibold">Agency</th><th class="border border-gray-300 px-2 py-1 font-semibold">Renewal Window</th></tr></thead><tbody><tr><td class="border border-gray-300 px-2 py-1">Mayor's Business Permit</td><td class="border border-gray-300 px-2 py-1">LGU Gamay</td><td class="border border-gray-300 px-2 py-1">January 1–20</td></tr><tr class="bg-gray-50"><td class="border border-gray-300 px-2 py-1">Barangay Business Clearance</td><td class="border border-gray-300 px-2 py-1">Resident Barangay</td><td class="border border-gray-300 px-2 py-1">December</td></tr><tr><td class="border border-gray-300 px-2 py-1">BIR Annual Registration (Form 0605)</td><td class="border border-gray-300 px-2 py-1">BIR RDO</td><td class="border border-gray-300 px-2 py-1">January 31</td></tr><tr class="bg-gray-50"><td class="border border-gray-300 px-2 py-1">Fire Safety Inspection Certificate</td><td class="border border-gray-300 px-2 py-1">BFP Gamay</td><td class="border border-gray-300 px-2 py-1">Nov–Dec</td></tr><tr><td class="border border-gray-300 px-2 py-1">Sanitary Permit / Water Test</td><td class="border border-gray-300 px-2 py-1">Gamay RHU</td><td class="border border-gray-300 px-2 py-1">Bi-annually</td></tr><tr class="bg-gray-50"><td class="border border-gray-300 px-2 py-1">DOT Tourism Accreditation</td><td class="border border-gray-300 px-2 py-1">DOT</td><td class="border border-gray-300 px-2 py-1">Every 2 years</td></tr><tr><td class="border border-gray-300 px-2 py-1">DENR Environmental Compliance</td><td class="border border-gray-300 px-2 py-1">DENR Regional</td><td class="border border-gray-300 px-2 py-1">Annual check</td></tr><tr class="bg-gray-50"><td class="border border-gray-300 px-2 py-1">DOLE OSH Certification</td><td class="border border-gray-300 px-2 py-1">DOLE Regional</td><td class="border border-gray-300 px-2 py-1">Annual Audit</td></tr><tr><td class="border border-gray-300 px-2 py-1">Music / Public Performance License</td><td class="border border-gray-300 px-2 py-1">FILSCAP / PAROP</td><td class="border border-gray-300 px-2 py-1">Annual</td></tr></tbody></table></div></li><li><strong>Permit Renewal Lead Time Alerts:</strong> Automated calendar alerts set for 60 days and 30 days prior to expiration. Compile required documents 30 days in advance.</li><li><strong>Mandatory Public Display:</strong> Frame and mount primary licenses (Mayor's Permit, BIR 2303, DOT Accreditation, Sanitary Permit, FSIC) on the official Compliance Display Board in the Front Desk Lobby.</li></ol></div><div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600"><h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4><p class="text-gray-700 text-sm">Municipal offices in Gamay enforce strict deadlines for January Mayor's Permit renewals. All local barangay clearances, sanitary inspections, and tax clearances must be finalized in December to avoid 25% LGU late renewal surcharges.</p></div><div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600"><h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li>Master Permit Calendar updated monthly; zero expired permits.</li><li>Primary business permits visibly framed on Front Desk lobby wall.</li><li>Water potability test certificates updated every 6 months.</li><li><strong>Target Metric:</strong> 100% on-time permit renewal compliance; zero regulatory stop-work orders or LGU penalty fines.</li></ul></div></div></article>
+
+      <!-- AD-13 --> <article id="sop-ad-13" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden"><div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)"><div class="flex items-center"><code class="text-indigo-700 font-bold text-sm mr-2">AD-13</code><span class="text-gray-900 font-semibold text-lg">Insurance & Contract Records</span></div><div class="flex items-center gap-2"><button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button><i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i></div></div><div class="sop-details hidden p-4 space-y-3 border-t"><div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600"><h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4><p class="text-gray-700 text-sm whitespace-pre-wrap">To manage, secure, track, and annually evaluate all commercial insurance policies, property coverage, third-party vendor contracts, lease agreements, and service level agreements (SLAs).</p></div><div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600"><h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li><strong>Administrative Assistant:</strong> Indexes contracts, tracks expiration dates, maintains secure contract vault.</li><li><strong>Finance Lead:</strong> Reviews insurance coverage adequacy, premium schedules, and contract payment terms.</li><li><strong>General Manager:</strong> Negotiates terms, liaises with legal counsel, and signs operational contracts.</li></ul></div><div class="bg-green-50 p-4 rounded border-l-4 border-green-600"><h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4><ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm"><li><strong>Mandatory Commercial Insurance:</strong> Property Damage & Fire Insurance (all 30 rooms, restaurant, function hall, pool, machinery). Typhoon, Storm Surge & Natural Disaster Rider. Comprehensive General Liability (CGL) Insurance. Equipment Breakdown & Business Interruption Insurance.</li><li><strong>Contract Repository & Expiration Tracking:</strong> All vendor contracts and lease agreements logged in the Master Contract Register. Digital copies filed encrypted; original hardcopies in the fireproof Admin Vault.</li><li><strong>60-Day Contract Expiration Protocol:</strong> Automated system flags contracts 60 days prior. Department Head evaluates vendor performance; GM determines whether to renew, renegotiate, or re-bid per SOP-AD-03.</li><li><strong>Insurance Claim Filing:</strong> Following property damage or liability incident, Admin Officer notifies insurance broker within 24 hours. Compile Incident Report, photos, repair estimates, and police reports for immediate submission.</li></ol></div><div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600"><h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4><p class="text-gray-700 text-sm">Given Northern Samar's location in the primary Philippine typhoon belt, property insurance structural valuations and typhoon endorsements are reviewed annually every September prior to the onset of the peak typhoon season.</p></div><div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600"><h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li>100% active insurance policy coverage with zero gaps.</li><li>Original signed contracts secured in fireproof vault.</li><li>60-day contract expiration notices dispatched systematically.</li><li><strong>Target Metric:</strong> 100% contract compliance; claims submitted within 48 hours of insurable incidents.</li></ul></div></div></article>
+
+      <!-- AD-14 --> <article id="sop-ad-14" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden"><div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)"><div class="flex items-center"><code class="text-indigo-700 font-bold text-sm mr-2">AD-14</code><span class="text-gray-900 font-semibold text-lg">Administrative Reporting</span></div><div class="flex items-center gap-2"><button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button><i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i></div></div><div class="sop-details hidden p-4 space-y-3 border-t"><div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600"><h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4><p class="text-gray-700 text-sm whitespace-pre-wrap">To structure the monthly, quarterly, and annual administrative reporting framework, consolidating HR statistics, procurement metrics, permit statuses, inventory valuations, and operational overheads for executive decision-making.</p></div><div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600"><h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li><strong>HR Admin Officer:</strong> Consolidates departmental data, drafts monthly administrative summary report.</li><li><strong>Finance Lead / Accountant:</strong> Appends audited expense figures, payroll costs, and variance analyses.</li><li><strong>General Manager:</strong> Reviews, approves, and presents Master Administrative Report to Resort Owners.</li></ul></div><div class="bg-green-50 p-4 rounded border-l-4 border-green-600"><h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4><ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm"><li><strong>Monthly Administrative Report (6 Core Pillars):</strong><ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs"><li><strong>HR Summary:</strong> Active headcount, recruitment status, turnover rate, tardiness/absenteeism, training hours, disciplinary cases, pending grievances.</li><li><strong>Payroll & Labor Cost Analysis:</strong> Total payroll spend, OT costs, night diff breakdown, statutory contributions, labor cost % relative to total revenue.</li><li><strong>Procurement & Inventory:</strong> Total purchasing spend, top 5 vendors by volume, stock valuations, variance report, damaged/spoiled goods losses.</li><li><strong>Permits & Regulatory Compliance:</strong> Active permits, upcoming renewal deadlines within 60 days, government audit findings.</li><li><strong>Property, Facilities & Assets:</strong> Capital asset status, completed PM tasks, major repair expenditures, asset disposals.</li><li><strong>Legal, Insurance & Incident Log:</strong> Guest/staff accidents, security incidents, insurance claims pending, active contract expirations.</li></ul></li><li><strong>Reporting Timeline:</strong> Departmental inputs due by 3rd calendar day of following month. Consolidated report finalized by 5th. GM presents during Monthly Executive Meeting by 10th.</li></ol></div><div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600"><h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4><p class="text-gray-700 text-sm">Administrative reporting includes a dedicated section tracking local municipal utility reliability metrics (number of NORSAMELCO outage hours, total diesel fuel liters consumed by generator) to evaluate energy efficiency investments like solar power expansions.</p></div><div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600"><h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4><ul class="list-disc list-inside space-y-1 text-gray-700 text-sm"><li>Departmental report inputs received by 3rd of every month.</li><li>Consolidated Master Administrative Report delivered to GM by 5th of every month.</li><li>Action items from monthly owner reviews logged with assigned deadlines.</li><li><strong>Target Metric:</strong> 100% on-time administrative report submission; zero reporting data discrepancies.</li></ul></div></div></article>
+
+    </div><!-- end AD SOP container -->
+
+    <!-- Module Summary Table -->
+    <div class="mt-10 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <h3 class="text-xl font-bold text-indigo-900 mb-4 flex items-center">
+        <i class="fa-solid fa-table-list mr-2 text-indigo-600"></i>Module 07 Summary Table
+      </h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm text-gray-700 border-collapse">
+          <thead>
+            <tr class="bg-indigo-100">
+              <th class="border border-gray-300 px-3 py-2 font-semibold">SOP Code</th>
+              <th class="border border-gray-300 px-3 py-2 font-semibold">Title</th>
+              <th class="border border-gray-300 px-3 py-2 font-semibold">Section</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">HR-01</td><td class="border border-gray-300 px-3 py-1.5">Recruitment & Hiring</td><td class="border border-gray-300 px-3 py-1.5">Human Resources</td></tr>
+            <tr class="bg-gray-50"><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">HR-02</td><td class="border border-gray-300 px-3 py-1.5">Employee Pre-employment Requirements</td><td class="border border-gray-300 px-3 py-1.5">Human Resources</td></tr>
+            <tr><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">HR-03</td><td class="border border-gray-300 px-3 py-1.5">New Employee Orientation</td><td class="border border-gray-300 px-3 py-1.5">Human Resources</td></tr>
+            <tr class="bg-gray-50"><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">HR-04</td><td class="border border-gray-300 px-3 py-1.5">Job Description & Position Standards</td><td class="border border-gray-300 px-3 py-1.5">Human Resources</td></tr>
+            <tr><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">HR-05</td><td class="border border-gray-300 px-3 py-1.5">Employee Attendance & Timekeeping</td><td class="border border-gray-300 px-3 py-1.5">Human Resources</td></tr>
+            <tr class="bg-gray-50"><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">HR-06</td><td class="border border-gray-300 px-3 py-1.5">Shift Scheduling</td><td class="border border-gray-300 px-3 py-1.5">Human Resources</td></tr>
+            <tr><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">HR-07</td><td class="border border-gray-300 px-3 py-1.5">Overtime & Rest Day Work</td><td class="border border-gray-300 px-3 py-1.5">Human Resources</td></tr>
+            <tr class="bg-gray-50"><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">HR-08</td><td class="border border-gray-300 px-3 py-1.5">Leave Application</td><td class="border border-gray-300 px-3 py-1.5">Human Resources</td></tr>
+            <tr><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">HR-09</td><td class="border border-gray-300 px-3 py-1.5">Employee Uniform & Grooming</td><td class="border border-gray-300 px-3 py-1.5">Human Resources</td></tr>
+            <tr class="bg-gray-50"><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">HR-10</td><td class="border border-gray-300 px-3 py-1.5">Employee Conduct & Discipline</td><td class="border border-gray-300 px-3 py-1.5">Human Resources</td></tr>
+            <tr><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">HR-11</td><td class="border border-gray-300 px-3 py-1.5">Performance Evaluation</td><td class="border border-gray-300 px-3 py-1.5">Human Resources</td></tr>
+            <tr class="bg-gray-50"><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">HR-12</td><td class="border border-gray-300 px-3 py-1.5">Training & Development</td><td class="border border-gray-300 px-3 py-1.5">Human Resources</td></tr>
+            <tr><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">HR-13</td><td class="border border-gray-300 px-3 py-1.5">Employee Grievance Procedure</td><td class="border border-gray-300 px-3 py-1.5">Human Resources</td></tr>
+            <tr class="bg-gray-50"><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">HR-14</td><td class="border border-gray-300 px-3 py-1.5">Workplace Health & Safety</td><td class="border border-gray-300 px-3 py-1.5">Human Resources</td></tr>
+            <tr><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">HR-15</td><td class="border border-gray-300 px-3 py-1.5">Payroll Coordination</td><td class="border border-gray-300 px-3 py-1.5">Human Resources</td></tr>
+            <tr class="bg-gray-50"><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">HR-16</td><td class="border border-gray-300 px-3 py-1.5">Employee Separation / Clearance</td><td class="border border-gray-300 px-3 py-1.5">Human Resources</td></tr>
+            <tr><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">AD-01</td><td class="border border-gray-300 px-3 py-1.5">Document Control</td><td class="border border-gray-300 px-3 py-1.5">Administration</td></tr>
+            <tr class="bg-gray-50"><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">AD-02</td><td class="border border-gray-300 px-3 py-1.5">Records Management</td><td class="border border-gray-300 px-3 py-1.5">Administration</td></tr>
+            <tr><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">AD-03</td><td class="border border-gray-300 px-3 py-1.5">Purchasing & Procurement</td><td class="border border-gray-300 px-3 py-1.5">Administration</td></tr>
+            <tr class="bg-gray-50"><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">AD-04</td><td class="border border-gray-300 px-3 py-1.5">Supplier Accreditation</td><td class="border border-gray-300 px-3 py-1.5">Administration</td></tr>
+            <tr><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">AD-05</td><td class="border border-gray-300 px-3 py-1.5">Receiving & Inspection of Supplies</td><td class="border border-gray-300 px-3 py-1.5">Administration</td></tr>
+            <tr class="bg-gray-50"><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">AD-06</td><td class="border border-gray-300 px-3 py-1.5">Inventory Management</td><td class="border border-gray-300 px-3 py-1.5">Administration</td></tr>
+            <tr><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">AD-07</td><td class="border border-gray-300 px-3 py-1.5">Petty Cash Management</td><td class="border border-gray-300 px-3 py-1.5">Administration</td></tr>
+            <tr class="bg-gray-50"><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">AD-08</td><td class="border border-gray-300 px-3 py-1.5">Accounts Payable Processing</td><td class="border border-gray-300 px-3 py-1.5">Administration</td></tr>
+            <tr><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">AD-09</td><td class="border border-gray-300 px-3 py-1.5">Daily Revenue Reporting</td><td class="border border-gray-300 px-3 py-1.5">Administration</td></tr>
+            <tr class="bg-gray-50"><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">AD-10</td><td class="border border-gray-300 px-3 py-1.5">Expense Authorization</td><td class="border border-gray-300 px-3 py-1.5">Administration</td></tr>
+            <tr><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">AD-11</td><td class="border border-gray-300 px-3 py-1.5">Asset & Property Management</td><td class="border border-gray-300 px-3 py-1.5">Administration</td></tr>
+            <tr class="bg-gray-50"><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">AD-12</td><td class="border border-gray-300 px-3 py-1.5">Government Permit & License Monitoring</td><td class="border border-gray-300 px-3 py-1.5">Administration</td></tr>
+            <tr><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">AD-13</td><td class="border border-gray-300 px-3 py-1.5">Insurance & Contract Records</td><td class="border border-gray-300 px-3 py-1.5">Administration</td></tr>
+            <tr class="bg-gray-50"><td class="border border-gray-300 px-3 py-1.5 font-mono text-xs">AD-14</td><td class="border border-gray-300 px-3 py-1.5">Administrative Reporting</td><td class="border border-gray-300 px-3 py-1.5">Administration</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </main>
@@ -276,37 +1316,49 @@
 
   <script>
     function toggleSopDetails(header) {
-      const card = header.closest('.bg-white');
+      const card = header.closest('article');
+      if (!card) return;
+
       const details = card.querySelector('.sop-details');
+      const chevron = card.querySelector('.fa-chevron-down, .fa-chevron-up');
       const toggleBtn = card.querySelector('.toggle-btn');
-      
-      if (details.classList.contains('hidden')) {
-        details.classList.remove('hidden');
-        toggleBtn.classList.add('hidden');
-        header.innerHTML = `
-          <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">${header.querySelector('code').textContent}</code>
-            <span class="text-gray-900 font-semibold text-lg">${header.querySelector('span').textContent}</span>
-          </div>
-          <i class="fa-solid fa-chevron-up text-indigo-600 transform"></i>
-        `;
-      } else {
-        details.classList.add('hidden');
-        toggleBtn.classList.remove('hidden');
-        header.innerHTML = `
-          <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">${header.querySelector('code').textContent}</code>
-            <span class="text-gray-900 font-semibold text-lg">${header.querySelector('span').textContent}</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
-          </div>
-        `;
+
+      if (details) {
+        const isHidden = details.classList.contains('hidden');
+        if (isHidden) {
+          details.classList.remove('hidden');
+          if (chevron) chevron.classList.add('rotate-180');
+          if (toggleBtn) toggleBtn.textContent = '▲ Hide Details';
+        } else {
+          details.classList.add('hidden');
+          if (chevron) chevron.classList.remove('rotate-180');
+          if (toggleBtn) toggleBtn.textContent = '▼ Show Details';
+        }
       }
-    };
+    }
+
+    function jumpToSop(sopId) {
+      const card = document.getElementById(sopId);
+      if (!card) return;
+
+      const header = card.querySelector('.p-4.bg-indigo-50');
+      const details = card.querySelector('.sop-details');
+
+      // Auto-expand card if collapsed
+      if (details && details.classList.contains('hidden')) {
+        toggleSopDetails(header);
+      }
+
+      // Smooth scroll into view
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Highlight target card temporarily
+      card.classList.add('ring-4', 'ring-indigo-400');
+      setTimeout(() => {
+        card.classList.remove('ring-4', 'ring-indigo-400');
+      }, 2000);
+    }
   </script>
 
 </body>
 </html>
-

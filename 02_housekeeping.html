@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 02: Housekeeping & Laundry   - Marcela's Resort Hotel</title>
+  <title>Module 02: Housekeeping & Laundry - Marcela's Resort Hotel</title>
   <link rel="manifest" href="/pwa/manifest.json">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -14,6 +15,7 @@
     }
   </script>
 </head>
+
 <body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
 
   <!-- Header -->
@@ -27,12 +29,12 @@
           <a href="/" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Home</a>
           <a href="01_front_office.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Front Office (FO)</a>
           <a href="02_housekeeping.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-broom mr-1"></i>Housekeeping (HK)</a>
-          <a href="03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Food & Beverage (FB)</a>
-          <a href="04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Function Hall (FH)</a>
-          <a href="05_facilities_pool.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Facilities & Pool (FM)</a>
+          <a href="03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-utensils mr-1"></i>Food & Beverage (FB)</a>
+          <a href="04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-glass-cheers mr-1"></i>Function Hall (FH)</a>
+          <a href="05_facilities_pool.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-wrench mr-1"></i>Facilities & Pool (FM)</a>
           <a href="06_safety_typhoon_final.html" class="px-4 py-2 bg-indigo-800 rounded text-red-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-shield-halved mr-1"></i>Safety (S)</a>
-          <a href="07_hr_admin.html" class="px-4 py-2 bg-indigo-800 rounded text-purple-300 hover:bg-indigo-600 transition">HR & Admin (HR)</a>
-          <a href="08_digital_maintenance.html" class="px-4 py-2 bg-indigo-800 rounded text-cyan-300 hover:bg-indigo-600 transition">Digital Systems (DS)</a>
+          <a href="07_hr_admin.html" class="px-4 py-2 bg-indigo-800 rounded text-purple-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-user-tie mr-1"></i>HR & Admin (HR)</a>
+          <a href="08_digital_maintenance.html" class="px-4 py-2 bg-indigo-800 rounded text-cyan-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-laptop-medical mr-1"></i>Digital Systems (DS)</a>
         </div>
       </div>
     </nav>
@@ -40,14 +42,14 @@
 
   <!-- Page Highlight Script -->
   <script>
-    (function() {
+    (function () {
       const currentPage = window.location.pathname.split('/').pop() || 'index.html';
       const navLinks = document.querySelectorAll('#moduleNav a');
-      
+
       navLinks.forEach(link => {
         link.classList.remove('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
         link.classList.add('bg-indigo-800', 'hover:bg-indigo-600');
-        
+
         if (link.getAttribute('href') === currentPage) {
           link.classList.add('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
           link.classList.remove('bg-indigo-800', 'hover:bg-indigo-600');
@@ -57,207 +59,1919 @@
   </script>
 
   <main class="flex-grow container mx-auto px-4 py-6">
-    
+
     <!-- Module Header -->
     <div class="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg shadow-sm p-6 mb-6 border-l-4 border-indigo-600">
-      <h1 class="text-3xl font-bold text-indigo-900 mb-2"><i class="fa-solid fa-user-tie mr-3"></i>Module 02: Housekeeping & Laundry  </h1>
-      <p class="text-gray-700 text-base">SOPs for front desk operations, guest reservations, check-in/out procedures, and guest services[cite: 11]</p>
+      <h1 class="text-3xl font-bold text-indigo-900 mb-2"><i class="fa-solid fa-broom mr-3"></i>Module 02: Housekeeping & Laundry</h1>
+      <p class="text-gray-700 text-base">Standard Operating Procedures for room cleaning standards, linen management, public area maintenance, and laundry operations.</p>
+      
+      <!-- Quick Jump Procedure Buttons -->
+      <div class="mt-4 pt-4 border-t border-indigo-200">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-800 mb-2 flex items-center">
+          <i class="fa-solid fa-bolt mr-1 text-indigo-600"></i>Quick Jump to Procedure:
+        </h3>
+        <div class="flex flex-wrap gap-1.5" id="quickNavButtons">
+          <button onclick="jumpToSop('sop-hk-01')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-01 Opening</button>
+          <button onclick="jumpToSop('sop-hk-02')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-02 Daily Cleaning</button>
+          <button onclick="jumpToSop('sop-hk-03')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-03 Stay-over</button>
+          <button onclick="jumpToSop('sop-hk-04')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-04 Check-out</button>
+          <button onclick="jumpToSop('sop-hk-05')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-05 Inspection</button>
+          <button onclick="jumpToSop('sop-hk-06')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-06 Status Update</button>
+          <button onclick="jumpToSop('sop-hk-07')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-07 Bathroom</button>
+          <button onclick="jumpToSop('sop-hk-08')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-08 Bed Making</button>
+          <button onclick="jumpToSop('sop-hk-09')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-09 Towels</button>
+          <button onclick="jumpToSop('sop-hk-10')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-10 Amenities</button>
+          <button onclick="jumpToSop('sop-hk-11')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-11 Minibar</button>
+          <button onclick="jumpToSop('sop-hk-12')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-12 Deep Cleaning</button>
+          <button onclick="jumpToSop('sop-hk-13')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-13 Public Areas</button>
+          <button onclick="jumpToSop('sop-hk-14')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-14 Pool Area</button>
+          <button onclick="jumpToSop('sop-hk-15')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-15 F&B Coordination</button>
+          <button onclick="jumpToSop('sop-hk-16')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-16 Laundry</button>
+          <button onclick="jumpToSop('sop-hk-17')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-17 Washing</button>
+          <button onclick="jumpToSop('sop-hk-18')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-18 Storage</button>
+          <button onclick="jumpToSop('sop-hk-19')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-19 Damaged Linen</button>
+          <button onclick="jumpToSop('sop-hk-20')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-20 Lost & Found</button>
+          <button onclick="jumpToSop('sop-hk-21')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-21 Pest Control</button>
+          <button onclick="jumpToSop('sop-hk-22')" class="px-2.5 py-1 text-xs font-semibold bg-amber-50 text-amber-800 hover:bg-amber-600 hover:text-white border border-amber-200 rounded shadow-xs transition"><i class="fa-solid fa-flask mr-1"></i>HK-22 Chemicals</button>
+          <button onclick="jumpToSop('sop-hk-23')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-23 Equipment</button>
+          <button onclick="jumpToSop('sop-hk-24')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">HK-24 Shift Handover</button>
+        </div>
+      </div>
     </div>
 
-    <!-- SOP Cards -->
+    <!-- SOP Cards Container -->
     <div class="space-y-4" id="sop-container">
-      
-      <!-- SOP-FO-01 -->
-      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+
+      <!-- SOP-HK-01 -->
+      <article id="sop-hk-01" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">FO-01</code>
-            <span class="text-gray-900 font-semibold text-lg">Front Desk Opening Procedure</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-01</code>
+            <span class="text-gray-900 font-semibold text-lg">Housekeeping Department Opening</span>
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
           </div>
         </div>
         <div class="sop-details hidden p-4 space-y-3 border-t">
-          
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Establish operational readiness for the Front Desk prior to peak guest traffic, ensuring accounting accuracy, physical cleanliness, system synchronization, and local infrastructure preparedness for the day[cite: 11].</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Standardize morning operational setup to ensure smooth workflow, staff readiness, key distribution, and accurate room assignment tracking across all 30 rooms.</p>
           </div>
-
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Front Office Associate</strong> (Morning Shift)[cite: 11]</li>
-              <li><strong>Duty Supervisor</strong>[cite: 11]</li>
+              <li><strong>Housekeeping Supervisor</strong></li>
+              <li><strong>Room Attendants</strong></li>
+              <li><strong>Public Area (PA) Attendants</strong></li>
             </ul>
           </div>
-
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <p><strong>Physical Readiness & Security:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Arrive 15 minutes before the scheduled shift (05:45 AM for a 06:00 AM start)[cite: 11].</li>
-                  <li>Unlock the main Front Office drawer/counter and inspect the lobby, reception desk, and guest seating areas for cleanliness and safety[cite: 11].</li>
-                  <li>Turn on lobby lights, air conditioning, and guest display screens[cite: 11].</li>
+                <strong>Clock-in & Uniform Check (6:00 AM):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Arrive 15 minutes prior to shift start. Inspect personal grooming, clean uniform, anti-slip rubber footwear, and required name badge.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>System & Terminal Startup:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Power on the Property Management System (PMS) terminal, point-of-sale (POS) card terminals, and receipt printers[cite: 11].</li>
-                  <li>Log into the PMS using personal staff credentials[cite: 11].</li>
+                <strong>Key Control Issuing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Receive HK master keys from Front Office desk. Sign the Master Key Log with date, time, key ID, and employee signature.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Cash Float Verification:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Retrieve the shift cash drawer/float from the Front Office safe in the presence of the outgoing Night Auditor or Duty Supervisor[cite: 11].</li>
-                  <li>Count and verify the standard opening float (â‚±10,000 in mixed denominations)[cite: 11].</li>
-                  <li>Sign the Cash Float Logbook detailing denomination counts and variance notes (if any)[cite: 11].</li>
+                <strong>Daily Morning Briefing (6:15 AM):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Review overnight arrivals, high-priority check-outs, VIP stays, special guest requests, and daily weather outlook (e.g., wind velocity, tidal conditions, rainfall forecasts).</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Information Review & Handover Audit:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Review the Night Audit Handover Log, unhandled guest requests from the previous night, and pending maintenance tickets[cite: 11].</li>
-                  <li>Print or generate digital daily reports: Arrivals List, Departures List, In-House Guest List, and Housekeeping Status Report[cite: 11].</li>
+                <strong>Morning Room Status Reconciliation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Retrieve current PMS Room Status Report. Reconcile overnight PMS statuses against physical room statuses with the Front Office Duty Manager.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Local Infrastructure & Power Check:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Verify grid power status (SAMELCO I). Confirm that the Automatic Transfer Switch (ATS) and standby generator unit are set to auto-start mode[cite: 11].</li>
-                  <li>Check local internet connectivity (primary and backup satellite/LTE connections) and test landlines[cite: 11].</li>
+                <strong>Trolley & Supply Preparation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Stock housekeeping carts with fresh linens, towels, guest amenities, chemical caddies, vacuum cleaners, and color-coded cleaning cloths according to daily room assignment sheets.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Equipment Check:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Verify operational readiness of vacuums, floor scrubbers, spray bottles, emergency flashlights, and two-way radios.</li>
                 </ul>
               </li>
             </ol>
           </div>
-
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
-            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Given Gamay's coastal provincial location, morning high humidity can affect electronic terminals. Ensure counter surfaces and card reader terminals are wiped dry. Keep physical backup printouts of daily arrival lists in the emergency binder to handle potential local grid power interruptions or internet lag[cite: 11].</p>
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">During rainy mornings or post-typhoon conditions, check for water seepage along outdoor corridors and glass panels. Ensure wet-vacs and floor blowers are plugged into generator-backed outlets if main grid brownouts occur.</p>
           </div>
-
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
-            <ul class="space-y-1 text-gray-700 text-sm">
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-1" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-1" class="cursor-pointer select-none">Cash float counted, verified, and logged by 06:00 AM[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-2" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-2" class="cursor-pointer select-none">Daily arrival/departure/in-house reports printed/saved[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-3" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-3" class="cursor-pointer select-none">Generator status and internet connectivity verified[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2 font-semibold text-green-700">
-                Front desk and lobby neatness score: 100%[cite: 11].
-              </li>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Master Key Log 100% signed before shift deployment.</li>
+              <li>Housekeeping carts fully stocked by 6:45 AM.</li>
+              <li>Zero discrepancy between PMS status and physical room status report at morning handover.</li>
             </ul>
           </div>
-
         </div>
       </article>
 
-      <!-- SOP-FO-02 -->
-      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+      <!-- SOP-HK-02 -->
+      <article id="sop-hk-02" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">FO-02</code>
-            <span class="text-gray-900 font-semibold text-lg">Guest Reservation Procedure</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-02</code>
+            <span class="text-gray-900 font-semibold text-lg">Daily Guest Room Cleaning</span>
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
           </div>
         </div>
         <div class="sop-details hidden p-4 space-y-3 border-t">
-          
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Standardize intake for direct and indirect room bookings across telephone, walk-in inquiries, messaging platforms, and online travel agencies (OTAs) while optimizing room yield and rate integrity[cite: 11].</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Establish systematic room cleaning standards to maintain clinical hygiene, aesthetic appeal, and guest comfort across occupied and vacant rooms.</p>
           </div>
-
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Reservations Clerk</strong>[cite: 11]</li>
-              <li><strong>Front Office Associate</strong>[cite: 11]</li>
+              <li><strong>Room Attendants</strong></li>
+              <li><strong>Housekeeping Supervisor</strong></li>
             </ul>
           </div>
-
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <p><strong>Inquiry Intake & Greetings:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Answer incoming calls within three (3) rings: "Warm greetings from Marcela's Resort Hotel Gamay! This is [Name], how may I assist your stay today?"[cite: 11]</li>
-                  <li>Capture caller details: full name, contact number, email, and preferred communication channel[cite: 11].</li>
+                <strong>Room Entry:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Knock on guest room door 3 times, stating "Housekeeping." Wait 5 seconds between knocks. If no response, unlock door carefully and announce "Housekeeping" before stepping inside.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Needs Analysis & Availability Verification:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Identify travel dates, number of guests, room preference, and special requirements[cite: 11].</li>
-                  <li>Check room availability on the PMS calendar for requested dates[cite: 11].</li>
+                <strong>Ventilation & Initial Inspection:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Open curtains and balcony sliding doors to let in natural light and fresh air. Inspect for property damage, left items, or pest activity.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Rate Quote & Inventory Management:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Quote Published Rates, Seasonal Rates, or Corporate Rates following property structures[cite: 11].</li>
-                  <li>Detail inclusions clearly (breakfast allocation, pool access, taxes)[cite: 11].</li>
+                <strong>Trash Removal:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Empty all trash cans (bedroom and bathroom), replace poly-liners, and remove organic food waste to avoid attracting insects.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Booking Capture in PMS:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Create a new reservation record in the PMS with complete guest data and booking source tags[cite: 11].</li>
+                <strong>Linen Removal:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Strip bed sheets, pillowcases, duvet covers, and bathroom towels. Place soiled linens directly into linen hamper bags on the cart; never lay dirty linen on the bare floor.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Payment Guarantee & Deposit Terms:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Inform guest of deposit policy (50% initial deposit required within 48 hours for regular season; 100% advance payment for peak holidays)[cite: 11].</li>
-                  <li>Provide accepted options: Bank Transfer (BDO/Landbank), GCash, Maya, or Credit Card link[cite: 11].</li>
+                <strong>Surface Dusting & Disinfection:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Wipe all high-touch surfaces (door handles, light switches, remote controls, phone, desk, nightstands) using microfiber cloths and multi-surface disinfectant.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Floor Care:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Sweep and mop hard tile floors using neutral pH disinfectant cleaner. Vacuum carpeted or rug areas thoroughly.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Final Quality Check:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Restock amenities, adjust air-conditioning setpoint (22°C–24°C), lock patio doors, turn off unnecessary lights, and exit closing door securely.</li>
                 </ul>
               </li>
             </ol>
           </div>
-
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
-            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Guests traveling to Gamay often face travel delays due to weather conditions along the Pacific board, ferry crossing delays, or provincial road conditions. Always ask for expected modes of arrival to estimate realistic arrival times[cite: 11].</p>
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">High tropical coastal humidity causes rapid mold/mildew buildup. Wipe wooden furniture and metallic fixtures with dry microfiber after damp cleaning. Keep sliding doors closed while AC is running to prevent interior wall condensation.</p>
           </div>
-
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
-            <ul class="space-y-1 text-gray-700 text-sm">
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo02-1" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo02-1" class="cursor-pointer select-none">100% accurate data entry into PMS (zero misspelled names or mismatched contact numbers)[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo02-2" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo02-2" class="cursor-pointer select-none">Payment terms clearly communicated and logged in reservation notes[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2 font-semibold text-green-700">
-                Call answered within 3 rings[cite: 11].
-              </li>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Cleaning completed within target time (30 mins stay-over / 45 mins check-out).</li>
+              <li>100% high-touch surface sanitization verified.</li>
+              <li>Zero dampness or residual moisture on furniture or mattress bases.</li>
             </ul>
           </div>
-
         </div>
       </article>
 
+      <!-- SOP-HK-03 -->
+      <article id="sop-hk-03" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-03</code>
+            <span class="text-gray-900 font-semibold text-lg">Stay-over Room Cleaning</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Perform non-intrusive daily maintenance cleaning for in-house guests while respecting guest privacy and personal belongings.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Room Attendants</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Status Verification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Verify door does not display "Do Not Disturb" (DND). If DND is displayed, log time on worksheet and re-check after 2:00 PM. Contact Front Office if DND remains past 3:00 PM.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Greeting & Entry:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>If guest is present, politely ask permission to clean and inquire about preferred cleaning times or specific service requests.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Bed Servicing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Remake bed with existing linens if clean, pulling sheets tightly; replace linens if soiled or if guest requested replacement (standard eco-policy replaces sheets every 2nd day).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Bathroom Touch-up:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Clean wash basin, toilet seat/bowl, shower screen, replace used towels hung on floor, and replenish toilet paper/toiletries.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Personal Belongings Care:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Never move personal money, jewelry, electronics, or open luggage. Arrange personal clothing neatly if left on chairs or bed.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Restocking:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Replenish complimentary water bottles, instant coffee/tea bags, and refresh drinking glasses.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Guests returning from island tours or pool areas often bring in sand and wet swimwear. Hang damp swimwear on designated balcony drying racks, sweep sand off tile entryways, and replace damp foot towels daily.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Room cleaned without displacing personal guest items or valuables.</li>
+              <li>Daily complimentary water and coffee items 100% replenished.</li>
+              <li>Floor sand and beach grit completely removed.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-04 -->
+      <article id="sop-hk-04" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-04</code>
+            <span class="text-gray-900 font-semibold text-lg">Check-out Room Cleaning</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Restore turn-over rooms to pristine, inspection-ready standard for incoming guests following guest departure.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Room Attendants</strong></li>
+              <li><strong>Housekeeping Supervisor</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Lost Item & Minibar Check:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Conduct immediate walkthrough for items left behind by departed guest and verify minibar consumption. Report found items and minibar charges to Front Office within 5 minutes of entry.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Complete Linen & Towel Strip:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Strip 100% of bed linens, pillow protectors (if stained), bath towels, hand towels, and bath mats. Place into trolley hamper immediately.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Deep Sanitation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Disinfect bathroom fixtures, toilet bowl, shower floor, telephone, remote controls, door knobs, and closet interiors using hospital-grade sanitizer.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Fresh Bed Setup:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Install fresh mattress protector, fitted sheet, flat sheet, pillowcases, and duvet cover per resort visual standards.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>In-room Inventory & Amenities Setup:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Restock complete room setup: hanger count (6 per closet), slippers, hair dryer, laundry bag, mug set, and full toilet amenity set.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Floor & AC Servicing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Mop tile floors with sanitizer solution, clean AC filter mesh if dusty, set AC to 24°C eco-mode, and perform final room scenting.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Check for salt spray film on glass windows and balcony doors facing the coast; wipe window glass using anti-smear glass cleaner to maintain clear ocean views.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Turn-around time per departure room under 45 minutes.</li>
+              <li>100% full linen change completed.</li>
+              <li>Room passes Supervisor inspection on first attempt.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-05 -->
+      <article id="sop-hk-05" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-05</code>
+            <span class="text-gray-900 font-semibold text-lg">Room Inspection Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Validate room cleanliness, mechanical functionality, and amenity standards prior to releasing rooms as "Ready for Check-in" in the PMS.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Housekeeping Supervisor</strong></li>
+              <li><strong>Executive Housekeeper</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Entry Approach:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Approach room, verify room status on mobile PMS/checklist, enter room, and initiate a 360-degree clockwise visual inspection.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Touch & Spot Inspection:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Bedding:</strong> Check sheet tautness, pillow alignment, bed skirt clearance, and inspect for stray hair or lint.</li>
+                  <li><strong>Furniture & Surfaces:</strong> Check top of wardrobe, behind TV, under bed frame, and inside drawer interiors for dust or debris.</li>
+                  <li><strong>Bathroom:</strong> Inspect tile grout, mirror clarity, drain flow rate, water pressure, toilet flush efficiency, and towel folding uniformity.</li>
+                  <li><strong>Appliances:</strong> Test remote controls, TV channels, air conditioner cooling performance, mini-fridge temperature, electric kettle, and light fixtures.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Defect Logging:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>If minor defect found (e.g., missed dust spot), direct Room Attendant to correct immediately. If technical fault found (e.g., air-con leak), log work order in maintenance system.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Final Sign-off:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Sign physical Room Inspection Log and update room status to "Vacant Clean & Inspected" (VCI) in PMS.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Inspect water fixtures for mineral buildup or brownish tap discharge common in coastal deep wells; ensure inline water filters are active and water runs crystal clear.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% of vacant clean rooms physically inspected prior to guest check-in.</li>
+              <li>Rejection rate on Front Office guest move-in under 1%.</li>
+              <li>Inspection log updated in real-time in PMS.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-06 -->
+      <article id="sop-hk-06" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-06</code>
+            <span class="text-gray-900 font-semibold text-lg">Room Status Updating</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Maintain real-time synchronization between Housekeeping and Front Office regarding room availability, maintenance holds, and cleaning statuses.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Room Attendants</strong></li>
+              <li><strong>Housekeeping Supervisor</strong></li>
+              <li><strong>Front Office Associates</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Status Code Definition Standard:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>VD:</strong> Vacant Dirty</li>
+                  <li><strong>VC:</strong> Vacant Clean</li>
+                  <li><strong>VCI:</strong> Vacant Clean & Inspected</li>
+                  <li><strong>OD:</strong> Occupied Dirty</li>
+                  <li><strong>OC:</strong> Occupied Clean</li>
+                  <li><strong>OOO:</strong> Out of Order (Maintenance / Major Repair)</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Real-time PMS Updates:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Update room status via handheld tablet or Front Office PMS terminal immediately upon completion of cleaning and inspection.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Rush Room Prioritization:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>When Front Office flags a "Rush Room" for pending check-in, prioritize cleaning for that specific room and notify FO within 2 minutes of completion.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Status Discrepancy Reconciliation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Compare physical room count against system status at 11:00 AM and 4:00 PM. Investigate and resolve discrepancies (e.g., Sleep-out or Skip status) immediately.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">In case of local internet or power outage, switch immediately to the physical white-board room status board located in the Housekeeping Office and perform hourly radio updates with Front Desk.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Maximum 5-minute lag between room readiness and PMS status update.</li>
+              <li>Zero room assignment errors resulting from incorrect status reporting.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-07 -->
+      <article id="sop-hk-07" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-07</code>
+            <span class="text-gray-900 font-semibold text-lg">Bathroom Cleaning & Sanitization</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Eliminate pathogens, mineral deposits, mold, and odor from all guest bathroom surfaces to achieve clinical-grade hygiene.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Room Attendants</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Chemical Pre-treatment:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Spray multi-surface bathroom disinfectant inside toilet bowl, shower walls, floor tiles, and basin. Allow 5 minutes contact dwell time.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Basin & Countertop Cleaning:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Scrub sink basin, chrome faucets, pop-up stopper, and countertop using non-abrasive sponge. Polish fixtures dry with microfiber cloth.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Shower Enclosure & Tub:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Scrub wall tiles, glass door enclosure, shower head, and floor drain. Remove soap scum, hair buildup from drain grate, and hard water spots.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Toilet Bowl Sanitization:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Scrub interior toilet bowl with bowl brush, paying attention to under-rim areas. Wipe down toilet seat, lid, tank exterior, and flush handle using fresh sanitizing wipes.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Mirror & Glass Care:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Apply glass cleaner to bathroom mirror and polish thoroughly using lint-free glass cloth to remove water spots and streaks.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Floor Mopping:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Mop tile floor starting from furthest corner toward door, using disinfectant floor solution. Allow to dry completely before placing bath mat.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Northern Samar's high humidity accelerates mold growth in grout lines. Apply anti-fungal disinfectant solution twice weekly and verify exhaust fans run continuously during cleaning.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Zero hair, water spots, or soap residue on shower enclosures and chrome fixtures.</li>
+              <li>Toilet bowl sanitized and sealed with paper hygiene band.</li>
+              <li>Floor completely dry prior to guest availability.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-08 -->
+      <article id="sop-hk-08" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-08</code>
+            <span class="text-gray-900 font-semibold text-lg">Bed Making & Linen Standards</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Ensure consistent, crisp, wrinkle-free, and comfortable bed setups matching 4-star boutique resort standards.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Room Attendants</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Mattress & Protector Inspection:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Position mattress centered on bed base. Smooth out mattress protector, ensuring full elastic corner coverage and checking for stains or tears.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Bottom Sheet Application:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Spread bottom fitted sheet over mattress protector. Pull corners tightly under mattress, ensuring zero wrinkles on sleep surface.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Flat Sheet & Duvet Dressing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Lay top flat sheet wrong-side-up, aligning top edge with mattress headboard end.</li>
+                  <li>Insert duvet inner into crisp duvet cover, ensuring corners align perfectly and button/zipper closure is fastened.</li>
+                  <li>Fold top sheet back over duvet by 15-20 cm to create a neat top cuff.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Mitred Cornering:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Tuck sheet and duvet edges at foot of bed using tight 45-degree hospital/mitred corners.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Pillow Dressing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Insert pillow inner into pillowcase without allowing inner pillow to touch floor or uniform. Plump pillow and align seam neatly. Position 2 sleeping pillows upright against headboard, followed by decorative accent pillows centered in front.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Bed Runner:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Lay resort decorative bed runner neatly across lower third of bed.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Due to high coastal humidity, store freshly ironed linen in dehumidified linen store rooms to prevent damp odors before bed dressing.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Sheets pulled 100% taut without wrinkles or visible sagging.</li>
+              <li>Mitred corners tight and symmetrical on both sides.</li>
+              <li>Pillows plump, upright, and uniform across all rooms.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-09 -->
+      <article id="sop-hk-09" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-09</code>
+            <span class="text-gray-900 font-semibold text-lg">Towel Replacement Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Maintain pristine towel inventory per room while honoring environmental towel reuse policies.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Room Attendants</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Inventory Verification Standard per Room (Base 2 Pax):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>2 Bath Towels (70 cm x 140 cm, white, 500+ GSM)</li>
+                  <li>2 Hand Towels (40 cm x 70 cm)</li>
+                  <li>2 Face Towels / Washcloths (30 cm x 30 cm)</li>
+                  <li>1 Bath Mat (50 cm x 80 cm, heavy-duty weave)</li>
+                  <li>2 Pool/Beach Towels (Resort Blue color-coded)</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Environmental Towel Policy Execution:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Towels hung neatly on bathroom towel racks mean "I will use them again." Do not replace unless visibly soiled or wet.</li>
+                  <li>Towels placed on bathroom floor or inside tub mean "Please replace."</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Replacement Handling:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Collect used towels, place in linen bag, and restock clean, dry, fluffy towels matching standard folding patterns.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Pool Towel Exchange:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Replace blue pool towels daily or upon guest request at HK station or poolside desk.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">High ocean air salinity and rain prevent towels from air-drying quickly on balconies. Ensure guest towels are dried thoroughly in industrial laundry dryers to maintain fluffiness and avoid mildew smells.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Exact towel count matches room category allocation.</li>
+              <li>Towels free from frayed edges, discoloration, or musty damp odors.</li>
+              <li>Towels folded neatly with edges facing away from bathroom entrance view.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-10 -->
+      <article id="sop-hk-10" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-10</code>
+            <span class="text-gray-900 font-semibold text-lg">Amenities Replenishment</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Ensure consistent presentation and adequate stock of personal care and guest convenience products in all guest rooms.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Room Attendants</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Bathroom Amenity Setup Verification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Shampoo (30 ml bottle / wall dispenser filled to 80%+)</li>
+                  <li>Conditioner (30 ml bottle / wall dispenser filled to 80%+)</li>
+                  <li>Body Wash (30 ml bottle / wall dispenser filled to 80%+)</li>
+                  <li>Hand Soap bar (30g wrapped) or liquid soap dispenser</li>
+                  <li>Dental Kit (2 sets: toothbrush + toothpaste)</li>
+                  <li>Hygiene Kit (cotton buds, sanitary bag, shower cap)</li>
+                  <li>Comb and Vanity set</li>
+                </ul>
+              </li>
+              <li>
+                <strong>In-Room Beverage & Hospitality Amenities:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>2 complimentary bottles of purified drinking water (500 ml)</li>
+                  <li>Coffee/Tea station: 2 sachets instant coffee, 2 sachets tea bags, 4 sugar packets, 2 creamer sachets</li>
+                  <li>Electric water kettle cleaned and wiped dry</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Restocking Rule:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Replenish any item used past 50% capacity or discarded by guest. Wipe amenity tray clean before arranging items.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Display Standard:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Align label fronts facing forward on bamboo amenity tray in bathroom vanity.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Local water salinity requires supplying sealed bottled drinking water daily. Remind guests via table tent card that tap water is for washing only and bottled water is provided for drinking and brushing teeth.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% full amenity set provided upon departure cleaning.</li>
+              <li>Amenity tray free from dust, water spots, or soap residue.</li>
+              <li>Expired or damaged amenity packaging discarded immediately.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-11 -->
+      <article id="sop-hk-11" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-11</code>
+            <span class="text-gray-900 font-semibold text-lg">Minibar / In-room Inventory Control</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Regulate in-room beverage and snack inventory, prevent revenue loss, and maintain product freshness across all rooms.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Room Attendants</strong></li>
+              <li><strong>Minibar Runner</strong></li>
+              <li><strong>Front Office Cashier</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Inspection Process:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>During check-out room cleaning or daily stay-over cleaning, inspect minibar fridge and snack basket.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Consumption Tracking:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Compare physical contents against Master Minibar Inventory Voucher.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Reporting:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Immediately call Front Office or log in PMS any consumed items for check-out billing before guest settles bill.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Replenishment & Rotation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Restock consumed items with fresh stock from HK floor storage. Apply First-In, First-Out (FIFO) principle; ensure stock expiration date is at least 30 days out.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Refrigerator Sanitation & Temp Check:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Check minibar cooling temperature (set to 4°C–7°C). Wipe inside surfaces and defrost if ice buildup exceeds 5 mm.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Power brownouts can cause minibar fridges to lose cooling and spoil items or leak water. Check fridge drip pans daily and clear melted water.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Minibar consumption posted to guest folio prior to physical departure.</li>
+              <li>Zero expired food or beverage items present in minibar inventory.</li>
+              <li>Mini-fridge clean, odor-free, and operating within 4°C–7°C range.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-12 -->
+      <article id="sop-hk-12" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-12</code>
+            <span class="text-gray-900 font-semibold text-lg">Deep Cleaning Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Execute intensive, periodic deep cleaning tasks beyond daily room cleaning to preserve room assets and maintain high standards of hygiene.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Deep Cleaning Team</strong></li>
+              <li><strong>Housekeeping Supervisor</strong></li>
+              <li><strong>Maintenance Technician</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Scheduling:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Perform deep cleaning on rotational schedule (2 rooms per week during low occupancy) or minimum once every quarter per room.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>High Level & Architectural Cleaning:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Dust ceiling fan blades, light tracks, high corner moldings, and curtain rods.</li>
+                  <li>Vacuum and wash curtains, blackout drapes, and window blinds.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Furniture & Upholstery Care:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Shift heavy furniture (beds, sofas, wardrobes) to clean underneath.</li>
+                  <li>Shampoo fabric sofa chairs and vacuum bed base enclosures.</li>
+                  <li>Polish solid wooden furniture with timber conditioner.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Deep Floor & Grout Scrubbing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Scrub tile floor grout with floor scrubber machine and heavy-duty degreaser/sanitizer. Apply tile floor sealer if required.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>AC & Vent Servicing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Coordinate with Engineering to flush AC condensate line, clean evaporator coils, and wash washable air filters.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Post-Deep Clean Inspection:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Supervisor conducts comprehensive 50-point inspection before returning room to active inventory.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Coastal salt air and high rainfall create ideal conditions for wall algae and mildew behind wardrobes. Apply anti-mold solution behind all heavy wood furniture during deep cleaning cycles.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Every room completes deep cleaning cycle every 90 days.</li>
+              <li>Supervisor deep clean checklist signed off with 100% pass score.</li>
+              <li>Air-con cooling efficiency restored to factory specs post-coil cleaning.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-13 -->
+      <article id="sop-hk-13" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-13</code>
+            <span class="text-gray-900 font-semibold text-lg">Public Area Cleaning</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Keep all public resort spaces—lobby, hallways, public restrooms, walkways, and reception—immaculately clean, safe, and presentable at all times.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Public Area (PA) Attendants</strong></li>
+              <li><strong>Housekeeping Supervisor</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Lobby & Entrance (Cleaned continuously / Intensive 5:00 AM – 7:00 AM):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Sweep, mop, and polish main entrance tile floors and glass entrance doors.</li>
+                  <li>Vacuum entryway entrance mats. Wipe front desk counter, guest lounge chairs, and coffee tables.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Public Restrooms (Inspected & cleaned hourly):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Scrub toilets, wash basins, mirrors, floor drains, and replenish paper towels, soap, and toilet tissues.</li>
+                  <li>Sign hourly Public Restroom Cleaning Log posted behind door.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Corridors & Stairwells (Cleaned 7:00 AM – 9:00 AM & 3:00 PM – 5:00 PM):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Sweep and mop passenger walkways, wipe handrails, remove cobwebs from outdoor overhangs, clean wall sconces.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Trash Can Servicing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Empty all public outdoor and indoor waste bins before they reach 75% capacity.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Rainy weather causes wet, muddy footprints on tile pathways. Deploy rubber entry matting at all outdoor-to-indoor transitions and place wet floor caution signs immediately during rain.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Public restrooms inspected and signed hourly without exception.</li>
+              <li>Public area trash bins never overflow past 75% capacity.</li>
+              <li>Zero slip incidents reported on wet lobby or pathway tiles.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-14 -->
+      <article id="sop-hk-14" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-14</code>
+            <span class="text-gray-900 font-semibold text-lg">Pool Area Housekeeping</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Maintain cleanliness, orderliness, towel distribution, and hygiene across the swimming pool deck, sun loungers, and changing rooms.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Pool Deck Attendant</strong></li>
+              <li><strong>Public Area Attendant</strong></li>
+              <li><strong>Pool Maintenance Technician</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Morning Setup (6:00 AM – 7:00 AM):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Hose down pool deck tiles with fresh water to clear dust and fallen leaves.</li>
+                  <li>Align sun loungers, wipe down lounge cushions, and open patio umbrellas.</li>
+                  <li>Stock Pool Towel Station with clean blue resort towels and update issue counter log.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Operational Maintenance (Throughout Shift):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Collect wet, used pool towels from towel deposit bins every 2 hours and route to laundry.</li>
+                  <li>Clear empty drink glassware, food plates, and trash from pool lounger side tables.</li>
+                  <li>Wipe spilled drinks or excess pooled water on sun lounge areas to prevent slips.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Pool Restroom & Shower Check:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect and sanitize outdoor pool showers and changing rooms every 2 hours.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Evening Pack-up (7:00 PM):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Close patio umbrellas, secure loose lounge cushions, collect remaining towels, and lock pool amenities store.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Strong coastal breeze or sudden tropical gust storms can blow open patio umbrellas and damage frames. Fasten all sun umbrellas with safety tie straps when wind exceeds 15 knots.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Pool deck free from trash, food items, or discarded towels at all times.</li>
+              <li>Pool towels 100% available at pool towel kiosk during operating hours.</li>
+              <li>Umbrellas safely tied down during adverse wind conditions.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-15 -->
+      <article id="sop-hk-15" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-15</code>
+            <span class="text-gray-900 font-semibold text-lg">Restaurant & Function Area Coordination</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Define clear boundaries and collaborative workflows between Housekeeping and F&B/Event staff for maintaining dining and event spaces.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>PA Attendants</strong></li>
+              <li><strong>F&B Captain</strong></li>
+              <li><strong>Function Hall Setup Crew</strong></li>
+              <li><strong>Housekeeping Supervisor</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Daily Restaurant Pre-opening (6:00 AM – 7:00 AM):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Housekeeping PA team scrubs and mops restaurant dining room floor tiles.</li>
+                  <li>F&B staff handles table setup, condiment bottles, and dining chair placement.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Mid-day / Between Shift Cleaning:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>F&B staff wipes dining tables and sweeps immediate food crumbs post-meal periods.</li>
+                  <li>Housekeeping handles deep floor spill mopping and public dining restroom maintenance.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Function Hall Pre-Event & Post-Event Cleaning:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Pre-event:</strong> Housekeeping performs high-dusting, window cleaning, stage scrubbing, and deep floor buffing 4 hours prior to event setup.</li>
+                  <li><strong>Post-event:</strong> F&B/Event crew clears catering trays and decor; Housekeeping performs garbage clearing, floor scrubbing, and restroom restore within 3 hours of event end.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Sign-off:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Joint handover inspection signed by HK Supervisor and Duty F&B Manager after major function cleanings.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Tropical food scraps attract ants and rodents rapidly in Samar. Ensure all food waste bags from function events are sealed immediately in double trash bags and moved to BOH outdoor dumpster bins.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Restaurant floor mopped and completely dry 15 minutes before breakfast opens.</li>
+              <li>Function hall cleaned and handed over within 3 hours after event conclusion.</li>
+              <li>Joint HK/F&B checklist signed post-function.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-16 -->
+      <article id="sop-hk-16" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-16</code>
+            <span class="text-gray-900 font-semibold text-lg">Laundry Collection & Sorting</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Standardize collection, sorting, weighing, and pre-treatment processing of dirty hotel linens and guest garments to maximize wash efficiency and garment life.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Laundry Attendants</strong></li>
+              <li><strong>Room Attendants</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Collection Routing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Collect soiled linen bags from floor HK pantries twice daily (10:00 AM and 2:00 PM) using designated laundry hampers.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Receiving & Weighing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Transport linen hampers to Laundry Facility. Weigh linen loads on laundry floor scale and log weight in Daily Laundry Receiving Log.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Sorting Categories:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Type:</strong> Bed sheets/duvet covers, bath towels/mats, table linens, pool towels, guest personal laundry.</li>
+                  <li><strong>Color:</strong> Pure Whites, Colors/Pool Towels, Dark Items.</li>
+                  <li><strong>Soiling Level:</strong> Lightly soiled, heavily soiled, damaged/stained requiring pre-soak.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Pre-treatment Inspection:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect for foreign objects (pens, guest items, cutlery wrapped in napery). Spray heavy stains (blood, grease, wine, coffee) with enzyme pre-spotter chemical.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Wet, muddy linens resulting from rainy outdoor guest activities must be processed immediately without standing in hampers to prevent mildew rot and permanent sour odors in humid weather.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% of collected linens weighed and logged prior to washing.</li>
+              <li>Zero foreign object damage to laundry machine drums.</li>
+              <li>Linens sorted into correct wash categories 100% of time.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-17 -->
+      <article id="sop-hk-17" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-17</code>
+            <span class="text-gray-900 font-semibold text-lg">Linen & Towel Washing</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Process dirty hotel linens using optimized wash cycles, water temperatures, and chemical dosages to guarantee spotlessly clean, sanitized linens.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Laundry Attendants</strong></li>
+              <li><strong>Laundry Supervisor</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Machine Loading:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Load commercial washer-extractors to 80% maximum rated drum capacity (do not overload or underload).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Cycle Selection & Chemical Dosing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>White Bed Linen:</strong> Main Wash 60°C - Hot Water, heavy duty alkali detergent + oxygen bleach + neutralizer/sour in final rinse.</li>
+                  <li><strong>White Towels:</strong> Main Wash 65°C - Hot Water, heavy duty detergent + fabric softener in final rinse cycle.</li>
+                  <li><strong>Colored / Pool Towels:</strong> Warm Wash 40°C - Color-safe bleach detergent.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Extraction Cycle:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Ensure high-speed spin extraction removes excess water prior to transfer to dryers.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Drying Cycle:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Transfer towels to tumble dryers; set to High Heat (70°C) for 35–40 minutes until completely dry and fluffy.</li>
+                  <li>Transfer bed sheets to flatwork ironer/roller while slightly damp (15% moisture retention) for crisp flatwork pressing.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">During frequent local grid power disruptions, ensure washer/dryer operations switch seamlessly to the property's backup diesel generator. Avoid starting high-amp dryer heaters simultaneously to manage generator electrical load.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Re-wash rate for stained linens below 2%.</li>
+              <li>100% compliance with chemical dosing specifications.</li>
+              <li>Linens thoroughly dry with zero dampness before folding/storage.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-18 -->
+      <article id="sop-hk-18" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-18</code>
+            <span class="text-gray-900 font-semibold text-lg">Linen Storage & Inventory</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Maintain pristine storage conditions for clean linen stock and manage par stock levels to support 100% occupancy without shortages.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Linen Room Attendant</strong></li>
+              <li><strong>Housekeeping Supervisor</strong></li>
+              <li><strong>Executive Housekeeper</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Par Stock Level Standard:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Maintain a total 3.0 Par Inventory level across property:</li>
+                  <li><strong>1 Par:</strong> In guest rooms (in use)</li>
+                  <li><strong>1 Par:</strong> In linen store room (clean & ready)</li>
+                  <li><strong>1 Par:</strong> In laundry process / floor pantries</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Storage Standards:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Store linens in dedicated, clean, enclosed, dry Central Linen Room.</li>
+                  <li>Keep shelves 15 cm off floor, 45 cm below ceiling, and away from exterior walls.</li>
+                  <li>Stack linens neatly by size and type, with folded edge facing outward.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Resting Period:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Allow freshly ironed sheets to "rest" on shelves for 24 hours prior to room deployment to prolong fabric lifespan.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Monthly Physical Count:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Conduct physical linen count on last calendar day of each month. Reconcile against physical count log, scrap log, and loss records.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Keep dehumidifier unit active inside Central Linen Room 24/7 (maintaining 50% relative humidity) to counteract Gamay's coastal air moisture and prevent mildew spores.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Monthly physical inventory variance within +/- 1.5%.</li>
+              <li>Central Linen Room relative humidity maintained under 55%.</li>
+              <li>Shelf layout labeled clearly with zero mixed-size linen stacks.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-19 -->
+      <article id="sop-hk-19" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-19</code>
+            <span class="text-gray-900 font-semibold text-lg">Damaged / Stained Linen Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Standardize detection, chemical reclaim attempts, discard logging, and replacement of compromised hotel linens.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Laundry Attendants</strong></li>
+              <li><strong>Room Attendants</strong></li>
+              <li><strong>Housekeeping Supervisor</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Identification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Separate damaged (torn, frayed, burnt) or heavily stained (makeup, food grease, rust, shoe polish) linens during sorting or room stripping.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Stain Reclaim Bath:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Route stained linens to Reclaim Wash Station.</li>
+                  <li>Soak in specialized stain remover solution (rust remover, enzyme soak, or concentrated bleach solution) for 4 to 6 hours at 50°C.</li>
+                  <li>Re-wash through heavy-duty cycle.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Condemnation / Discard Procedure:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>If stain cannot be removed or fabric has permanent tears, present item to Housekeeping Supervisor for inspection.</li>
+                  <li>Stamp item as "CONDEMNED" with fabric ink.</li>
+                  <li>Record item in Discard / Condemned Linen Log book with date, item type, size, and cause.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Repurposing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Cut down unrepairable sheets/towels into color-coded cleaning rags for Housekeeping/Engineering use (never use guest towels as cleaning rags).</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Local iron-rich deep well water can cause reddish rust spots on white linens. Utilize water softener filtration and iron-out chemical rinses in laundry process to prevent permanent water stains.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Minimum 70% stain reclaim success rate achieved through soaking.</li>
+              <li>Discard log updated weekly and audited by Finance/Admin monthly.</li>
+              <li>Zero condemned or stained linens issued to guest rooms.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-20 -->
+      <article id="sop-hk-20" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-20</code>
+            <span class="text-gray-900 font-semibold text-lg">Lost & Found Handling</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Safeguard guest property left behind in guest rooms or public areas with absolute integrity, structured logging, and secure storage.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Finder (Any Staff Member)</strong></li>
+              <li><strong>Housekeeping Supervisor</strong></li>
+              <li><strong>Front Office Manager</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Discovery & Immediate Handover:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>When an item is found, place it in clear plastic bag immediately. Bring item to Housekeeping Office within 30 minutes of discovery.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Categorization:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Valuables:</strong> Cash, jewelry, watches, mobile phones, laptops, passports, official documents.</li>
+                  <li><strong>Non-Valuables:</strong> Clothing, shoes, books, sunglasses, toiletries, toys.</li>
+                  <li><strong>Perishables:</strong> Food, unsealed beverages, fruits (discarded after 24 hours).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Logging & Storage:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Log details in Master Lost & Found Register: Date/Time, Found Location (Room #), Item Description, Serial #, Finder's Name.</li>
+                  <li>Place item inside sealed L&F Bag with reference label number.</li>
+                  <li>Secure <strong>Valuables</strong> inside Housekeeping Double-Lock Safe; store <strong>Non-Valuables</strong> in locked L&F Cabinet.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Guest Claim & Dispatch:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Verify claimant's identity and matching item details before release.</li>
+                  <li>Guest signs Lost & Found Release Form upon physical receipt or courier dispatch.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Holding Period & Disposition:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Hold non-valuables for 90 days; hold valuables for 180 days. Unclaimed non-valuables are awarded to finder via supervisor authorization.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">For items left by regional tourists returning to Manila or Tacloban, coordinate secure door-to-door courier shipment (e.g., LBC) upon guest payment for freight fee.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% of found items logged within 1 hour of discovery.</li>
+              <li>Safe and cabinet audit conducted weekly with zero unaccounted items.</li>
+              <li>Lost item claimed rate tracked and maximized through proactive FO guest notification.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-21 -->
+      <article id="sop-hk-21" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-21</code>
+            <span class="text-gray-900 font-semibold text-lg">Pest Observation & Reporting</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Maintain pest-free hotel environment through vigilance, early detection, clear reporting, and preventive physical barriers.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>All Housekeeping Personnel</strong></li>
+              <li><strong>Pest Control Contractor</strong></li>
+              <li><strong>Maintenance Staff</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Vigilant Observation During Cleaning:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Insects (Ants, Cockroaches, Termites):</strong> Check under sinks, inside timber wardrobes, bed frames, behind mini-fridge, wall skirtings. Look for wood dust/mud tubes (termites).</li>
+                  <li><strong>Rodents:</strong> Check for droppings, gnaw marks in pantry cabinets, electrical wire casing damage.</li>
+                  <li><strong>Bed Bugs:</strong> Check mattress seams, headboard reverse side, sheet corners for small reddish-brown specks.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Immediate Isolation & Reporting:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>If active bed bug or major pest infestation found in guest room, halt cleaning, seal room, remove room from inventory (OOO status), and report to HK Supervisor instantly.</li>
+                  <li>Fill Pest Activity Log entry noting room number, pest type, date, exact location.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Preventive Sanitation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Ensure all room trash cans are emptied daily, no standing food crumbs remain, and drain covers are fitted with mesh screens.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Pest Control Spraying Coordination:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Assist certified Pest Control Provider during bi-weekly treatment runs, unlocking rooms and inspecting treatment points.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Gamay's humid, lush tropical environment presents high termite, ant, and mosquito exposure. Ensure fly screens on bathroom louvers are intact, and keep exterior room doors closed during dawn and dusk hours.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Zero active guest complaints regarding pests in rooms.</li>
+              <li>100% of reported pest observations attended to by pest contractor within 24 hours.</li>
+              <li>Monthly pest control treatment audit completed and signed.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-22 -->
+      <article id="sop-hk-22" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-22</code>
+            <span class="text-gray-900 font-semibold text-lg">Housekeeping Chemical Handling</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Standardize safe handling, dilution, dispensing, and storage of commercial cleaning chemicals to protect staff health and surface integrity.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Room Attendants</strong></li>
+              <li><strong>PA Attendants</strong></li>
+              <li><strong>Laundry Attendants</strong></li>
+              <li><strong>Housekeeping Supervisor</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Personal Protective Equipment (PPE) Mandatory Requirement:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Always wear rubber gloves, eye protection goggles, and protective apron when diluting concentrated chemicals.</li>
+                  <li>Wear closed anti-slip rubber boots when floor scrubbing or handling laundry chemicals.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Chemical Color-Coding & Usage Standard:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Chemical 1 (Neutral Cleaner - Blue Label):</strong> Floor mopping & daily multi-surface wiping.</li>
+                  <li><strong>Chemical 2 (Bathroom Disinfectant - Yellow Label):</strong> Basin, tiles, tub, and shower enclosure.</li>
+                  <li><strong>Chemical 3 (Glass Cleaner - Light Blue/Clear):</strong> Mirrors, window glass, picture frames.</li>
+                  <li><strong>Chemical 4 (Heavy Bowl Cleaner - Red Label):</strong> Toilet bowl interior only.</li>
+                  <li><strong>Chemical 5 (Degreaser - Orange Label):</strong> Kitchen floors, deep clean grease surfaces.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Auto-Dispenser & Dilution System:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Always use automated chemical dilution dispensers in chemical dispensing room to mix chemical concentrate with water. Never manually pour unmeasured concentrates into bottles.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Secondary Container Labeling:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Every secondary spray bottle must carry official manufacturer label indicating chemical name, dilution ratio, and safety warnings.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Safety Data Sheets (SDS):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Maintain physical SDS Binder at chemical station in both English and Waray-Waray/Filipino.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Store chemical drums on raised plastic spill pallets in well-ventilated areas to prevent chemical runoff during accidental room flooding or heavy downpours.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>100% compliance with PPE usage during chemical handling.</li>
+              <li>Zero un-labeled or mislabeled spray bottles on HK carts.</li>
+              <li>SDS binder complete, legible, and accessible 24/7.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-23 -->
+      <article id="sop-hk-23" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-23</code>
+            <span class="text-gray-900 font-semibold text-lg">Housekeeping Equipment Maintenance</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Ensure longevity, operational safety, and optimal performance of all mechanical and manual housekeeping equipment.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Housekeeping Attendants</strong></li>
+              <li><strong>Housekeeping Supervisor</strong></li>
+              <li><strong>Maintenance Engineer</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Daily Post-Use Equipment Cleaning:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Vacuum Cleaners:</strong> Empty dust bags/canisters after shift, clean roller brush hair/lint, wipe exterior housing, coil cord loosely without twisting.</li>
+                  <li><strong>Floor Scrubbers / Buffers:</strong> Drain dirty water recovery tanks, rinse tank with clean water, clean pad drivers, wipe machine frame.</li>
+                  <li><strong>Mop Buckets & Mop Heads:</strong> Wash mop heads thoroughly with disinfectant, wring dry, hang mop heads head-up to air dry. Drain dirty bucket water.</li>
+                  <li><strong>Housekeeping Carts:</strong> Remove leftover trash, clean top trays, organize shelves, wipe cart wheels free of hair/string buildup.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Weekly Preventive Checks:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect power plugs for frayed wiring, check wheel castors, check vacuum suction hoses for clogs.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Fault Tagging & Repair Work Order:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>If equipment malfunctions (e.g., burning smell, damaged wire, weak suction), attach red "OUT OF SERVICE" tag, log work order with Engineering, and move to repair shop.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Equipment Log:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Record maintenance services in Housekeeping Equipment History Log.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Coastal salt air corrodes metal components quickly. Wipe stainless steel and metal frames of HK trolleys and scrubber handles weekly with anti-corrosion light oil or silicon spray.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Zero electrical safety incidents from damaged power cords.</li>
+              <li>100% of mop heads washed and hung dry at end of shift (zero sour smell).</li>
+              <li>Preventive equipment maintenance log updated weekly.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-HK-24 -->
+      <article id="sop-hk-24" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">HK-24</code>
+            <span class="text-gray-900 font-semibold text-lg">Housekeeping Shift Handover</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Guarantee seamless continuity of operational communication, pending tasks, room status, and guest requests between outgoing and incoming shifts.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Outgoing Housekeeping Supervisor / Attendants</strong></li>
+              <li><strong>Incoming Housekeeping Supervisor / Attendants</strong></li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Handover Timing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Conduct physical shift handover 15 minutes before outgoing shift departure (e.g., 2:45 PM for Morning-to-Afternoon shift change).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Logbook & Status Review:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Review Master Housekeeping Shift Logbook together:</li>
+                  <li>Pending check-out rooms still dirty or under inspection.</li>
+                  <li>Special guest requests or delayed stay-over cleanings.</li>
+                  <li>Out-of-Order (OOO) rooms status and estimated completion time.</li>
+                  <li>Pending maintenance work orders submitted to Engineering.</li>
+                  <li>Lost & Found items logged during shift.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Key Audit & Asset Reconciliation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Audit Master Key Board; verify all issued master keys are accounted for or transferred to incoming shift supervisor with signature.</li>
+                  <li>Count radio transceivers, handheld tablets, and specialized equipment.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Physical Walkthrough (if necessary):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Perform joint inspection of floor pantries, rush rooms, or public area trouble spots.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Handover Sign-off:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Both outgoing and incoming Supervisors sign Shift Handover Log.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Incoming evening shift must double-check night storm readiness, verifying all public area windows/shutters are latched and exterior trash bins are weighted/secured against overnight coastal wind gusts.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Master keys 100% reconciled and signed during every shift change.</li>
+              <li>Zero dropped guest requests or uncommunicated room status delays.</li>
+              <li>Handover log signed by both outgoing and incoming supervisors daily.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Module Summary Table -->
+    <div class="mt-10 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <h3 class="text-xl font-bold text-indigo-900 mb-4 flex items-center">
+        <i class="fa-solid fa-table-list mr-2 text-indigo-600"></i>Module Summary Table
+      </h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm text-gray-700 border-collapse">
+          <thead>
+            <tr class="bg-indigo-50 border-b border-gray-200 text-indigo-900 font-semibold">
+              <th class="p-3">SOP Code</th>
+              <th class="p-3">Title</th>
+              <th class="p-3">Core Responsible Role</th>
+              <th class="p-3">Primary KPI Target</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-01</td><td class="p-3 font-medium">Housekeeping Department Opening</td><td class="p-3">Housekeeping Supervisor</td><td class="p-3">Carts stocked &amp; briefings complete by 06:45 AM</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-02</td><td class="p-3 font-medium">Daily Guest Room Cleaning</td><td class="p-3">Room Attendants</td><td class="p-3">Stay-over &lt; 30 min / Departure &lt; 45 min</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-03</td><td class="p-3 font-medium">Stay-over Room Cleaning</td><td class="p-3">Room Attendants</td><td class="p-3">Guest belongings undisturbed &amp; 100% restocked</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-04</td><td class="p-3 font-medium">Check-out Room Cleaning</td><td class="p-3">Room Attendants</td><td class="p-3">Departure turn-around &lt; 45 min</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-05</td><td class="p-3 font-medium">Room Inspection Procedure</td><td class="p-3">HK Supervisor / Executive HK</td><td class="p-3">100% pre-check-in inspection (Rejection &lt; 1%)</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-06</td><td class="p-3 font-medium">Room Status Updating</td><td class="p-3">HK Supervisor / FO Associates</td><td class="p-3">Real-time PMS update lag &lt; 5 minutes</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-07</td><td class="p-3 font-medium">Bathroom Cleaning &amp; Sanitization</td><td class="p-3">Room Attendants</td><td class="p-3">Zero residue &amp; sealed hygiene band</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-08</td><td class="p-3 font-medium">Bed Making &amp; Linen Standards</td><td class="p-3">Room Attendants</td><td class="p-3">100% taut sheets &amp; 45° mitred corners</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-09</td><td class="p-3 font-medium">Towel Replacement Procedure</td><td class="p-3">Room Attendants</td><td class="p-3">100% par allocation &amp; zero musty odor</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-10</td><td class="p-3 font-medium">Amenities Replenishment</td><td class="p-3">Room Attendants</td><td class="p-3">100% complete amenity set on turn-over</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-11</td><td class="p-3 font-medium">Minibar / In-room Inventory Control</td><td class="p-3">Minibar Runner / FO Cashier</td><td class="p-3">Charges posted prior to departure checkout</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-12</td><td class="p-3 font-medium">Deep Cleaning Procedure</td><td class="p-3">Deep Cleaning Team / HK Supervisor</td><td class="p-3">100% room rotation every 90 days</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-13</td><td class="p-3 font-medium">Public Area Cleaning</td><td class="p-3">PA Attendants</td><td class="p-3">Hourly signed restroom logs &amp; zero slips</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-14</td><td class="p-3 font-medium">Pool Area Housekeeping</td><td class="p-3">Pool Deck Attendant</td><td class="p-3">Towels 100% stocked &amp; 2-hr debris sweeps</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-15</td><td class="p-3 font-medium">Restaurant &amp; Function Area Coordination</td><td class="p-3">PA Attendants / F&B Captain</td><td class="p-3">Function hall turnover &lt; 3 hrs post-event</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-16</td><td class="p-3 font-medium">Laundry Collection &amp; Sorting</td><td class="p-3">Laundry Attendants</td><td class="p-3">100% weighed &amp; logged; zero drum damage</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-17</td><td class="p-3 font-medium">Linen &amp; Towel Washing</td><td class="p-3">Laundry Attendants</td><td class="p-3">Re-wash rate &lt; 2%; 100% dry before storage</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-18</td><td class="p-3 font-medium">Linen Storage &amp; Inventory</td><td class="p-3">Linen Room Attendant / HK Supervisor</td><td class="p-3">3.0 Par stock &amp; monthly variance &lt; +/- 1.5%</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-19</td><td class="p-3 font-medium">Damaged / Stained Linen Procedure</td><td class="p-3">Laundry Attendants / HK Supervisor</td><td class="p-3">Stain reclaim rate &ge; 70%; zero stained linen in rooms</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-20</td><td class="p-3 font-medium">Lost &amp; Found Handling</td><td class="p-3">HK Supervisor / Front Office</td><td class="p-3">100% logged &lt; 1 hr; weekly safe audit</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-21</td><td class="p-3 font-medium">Pest Observation &amp; Reporting</td><td class="p-3">All HK Staff / Pest Contractor</td><td class="p-3">Contractor response &lt; 24 hrs; zero in-room pests</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-22</td><td class="p-3 font-medium">Housekeeping Chemical Handling</td><td class="p-3">Room / PA / Laundry Attendants</td><td class="p-3">100% PPE compliance &amp; zero unlabeled bottles</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-23</td><td class="p-3 font-medium">Housekeeping Equipment Maintenance</td><td class="p-3">HK Attendants / Maintenance Eng</td><td class="p-3">100% clean/hung dry mop heads; weekly PM log</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-HK-24</td><td class="p-3 font-medium">Housekeeping Shift Handover</td><td class="p-3">Outgoing &amp; Incoming HK Supervisors</td><td class="p-3">100% key reconciliation &amp; signed handover log</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </main>
@@ -276,37 +1990,50 @@
 
   <script>
     function toggleSopDetails(header) {
-      const card = header.closest('.bg-white');
+      const card = header.closest('article');
+      if (!card) return;
+
       const details = card.querySelector('.sop-details');
+      const chevron = card.querySelector('.fa-chevron-down, .fa-chevron-up');
       const toggleBtn = card.querySelector('.toggle-btn');
-      
-      if (details.classList.contains('hidden')) {
-        details.classList.remove('hidden');
-        toggleBtn.classList.add('hidden');
-        header.innerHTML = `
-          <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">${header.querySelector('code').textContent}</code>
-            <span class="text-gray-900 font-semibold text-lg">${header.querySelector('span').textContent}</span>
-          </div>
-          <i class="fa-solid fa-chevron-up text-indigo-600 transform"></i>
-        `;
-      } else {
-        details.classList.add('hidden');
-        toggleBtn.classList.remove('hidden');
-        header.innerHTML = `
-          <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">${header.querySelector('code').textContent}</code>
-            <span class="text-gray-900 font-semibold text-lg">${header.querySelector('span').textContent}</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
-          </div>
-        `;
+
+      if (details) {
+        const isHidden = details.classList.contains('hidden');
+        if (isHidden) {
+          details.classList.remove('hidden');
+          if (chevron) chevron.classList.add('rotate-180');
+          if (toggleBtn) toggleBtn.textContent = '▲ Hide Details';
+        } else {
+          details.classList.add('hidden');
+          if (chevron) chevron.classList.remove('rotate-180');
+          if (toggleBtn) toggleBtn.textContent = '▼ Show Details';
+        }
       }
-    };
+    }
+
+    function jumpToSop(sopId) {
+      const card = document.getElementById(sopId);
+      if (!card) return;
+
+      const header = card.querySelector('.p-4.bg-indigo-50');
+      const details = card.querySelector('.sop-details');
+      
+      // Auto-expand card if collapsed
+      if (details && details.classList.contains('hidden')) {
+        toggleSopDetails(header);
+      }
+
+      // Smooth scroll into view
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Highlight target card temporarily
+      card.classList.add('ring-4', 'ring-indigo-400');
+      setTimeout(() => {
+        card.classList.remove('ring-4', 'ring-indigo-400');
+      }, 2000);
+    }
   </script>
 
 </body>
-</html>
 
+</html>

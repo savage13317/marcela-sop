@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 05: Facilities, Engineering & Swimming Pool   - Marcela's Resort Hotel</title>
+  <title>Module 05: Facilities Engineering & Swimming Pool - Marcela's Resort Hotel</title>
   <link rel="manifest" href="/pwa/manifest.json">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -14,6 +15,7 @@
     }
   </script>
 </head>
+
 <body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
 
   <!-- Header -->
@@ -27,12 +29,12 @@
           <a href="/" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Home</a>
           <a href="01_front_office.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Front Office (FO)</a>
           <a href="02_housekeeping.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-broom mr-1"></i>Housekeeping (HK)</a>
-          <a href="03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Food & Beverage (FB)</a>
-          <a href="04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Function Hall (FH)</a>
-          <a href="05_facilities_pool.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Facilities & Pool (FM)</a>
+          <a href="03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-utensils mr-1"></i>Food & Beverage (FB)</a>
+          <a href="04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-glass-cheers mr-1"></i>Function Hall (FH)</a>
+          <a href="05_facilities_pool.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-wrench mr-1"></i>Facilities & Pool (FM)</a>
           <a href="06_safety_typhoon_final.html" class="px-4 py-2 bg-indigo-800 rounded text-red-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-shield-halved mr-1"></i>Safety (S)</a>
-          <a href="07_hr_admin.html" class="px-4 py-2 bg-indigo-800 rounded text-purple-300 hover:bg-indigo-600 transition">HR & Admin (HR)</a>
-          <a href="08_digital_maintenance.html" class="px-4 py-2 bg-indigo-800 rounded text-cyan-300 hover:bg-indigo-600 transition">Digital Systems (DS)</a>
+          <a href="07_hr_admin.html" class="px-4 py-2 bg-indigo-800 rounded text-purple-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-user-tie mr-1"></i>HR & Admin (HR)</a>
+          <a href="08_digital_maintenance.html" class="px-4 py-2 bg-indigo-800 rounded text-cyan-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-laptop-medical mr-1"></i>Digital Systems (DS)</a>
         </div>
       </div>
     </nav>
@@ -40,14 +42,14 @@
 
   <!-- Page Highlight Script -->
   <script>
-    (function() {
+    (function () {
       const currentPage = window.location.pathname.split('/').pop() || 'index.html';
       const navLinks = document.querySelectorAll('#moduleNav a');
-      
+
       navLinks.forEach(link => {
         link.classList.remove('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
         link.classList.add('bg-indigo-800', 'hover:bg-indigo-600');
-        
+
         if (link.getAttribute('href') === currentPage) {
           link.classList.add('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
           link.classList.remove('bg-indigo-800', 'hover:bg-indigo-600');
@@ -57,207 +59,1850 @@
   </script>
 
   <main class="flex-grow container mx-auto px-4 py-6">
-    
+
     <!-- Module Header -->
     <div class="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg shadow-sm p-6 mb-6 border-l-4 border-indigo-600">
-      <h1 class="text-3xl font-bold text-indigo-900 mb-2"><i class="fa-solid fa-user-tie mr-3"></i>Module 05: Facilities, Engineering & Swimming Pool  </h1>
-      <p class="text-gray-700 text-base">SOPs for front desk operations, guest reservations, check-in/out procedures, and guest services[cite: 11]</p>
+      <h1 class="text-3xl font-bold text-indigo-900 mb-2"><i class="fa-solid fa-wrench mr-3"></i>Module 05: Facilities, Engineering & Swimming Pool</h1>
+      <p class="text-gray-700 text-base">Standard Operating Procedures for physical plant operations, preventive maintenance, electrical distribution, plumbing, HVAC, diesel generator backup, solar energy, and commercial swimming pool sanitation and safety.</p>
+      
+      <!-- Quick Jump Procedure Buttons -->
+      <div class="mt-4 pt-4 border-t border-indigo-200">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-800 mb-2 flex items-center">
+          <i class="fa-solid fa-bolt mr-1 text-indigo-600"></i>Quick Jump to Procedure:
+        </h3>
+        <div class="flex flex-wrap gap-1.5" id="quickNavButtons">
+          <button onclick="jumpToSop('sop-fm-01')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-01 Daily Inspection</button>
+          <button onclick="jumpToSop('sop-fm-02')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-02 Preventive Maint</button>
+          <button onclick="jumpToSop('sop-fm-03')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-03 Work Orders</button>
+          <button onclick="jumpToSop('sop-fm-04')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-04 Electrical</button>
+          <button onclick="jumpToSop('sop-fm-05')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-05 Plumbing</button>
+          <button onclick="jumpToSop('sop-fm-06')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-06 Aircon</button>
+          <button onclick="jumpToSop('sop-fm-07')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-07 Water Supply</button>
+          <button onclick="jumpToSop('sop-fm-08')" class="px-2.5 py-1 text-xs font-semibold bg-amber-50 text-amber-800 hover:bg-amber-600 hover:text-white border border-amber-200 rounded shadow-xs transition"><i class="fa-solid fa-bolt mr-1"></i>FM-08 Generator</button>
+          <button onclick="jumpToSop('sop-fm-09')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-09 Solar Power</button>
+          <button onclick="jumpToSop('sop-fm-10')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-10 Lighting</button>
+          <button onclick="jumpToSop('sop-fm-11')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-11 Structural</button>
+          <button onclick="jumpToSop('sop-fm-12')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-12 Roof & Gutters</button>
+          <button onclick="jumpToSop('sop-fm-13')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-13 Pest Control</button>
+          <button onclick="jumpToSop('sop-fm-14')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-14 Tools & Equip</button>
+          <button onclick="jumpToSop('sop-fm-15')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-15 Spare Parts</button>
+          <button onclick="jumpToSop('sop-fm-16')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-16 Contractors</button>
+          <button onclick="jumpToSop('sop-fm-17')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-17 Pool Opening</button>
+          <button onclick="jumpToSop('sop-fm-18')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-18 Water Testing</button>
+          <button onclick="jumpToSop('sop-fm-19')" class="px-2.5 py-1 text-xs font-semibold bg-amber-50 text-amber-800 hover:bg-amber-600 hover:text-white border border-amber-200 rounded shadow-xs transition"><i class="fa-solid fa-flask mr-1"></i>FM-19 Chemicals</button>
+          <button onclick="jumpToSop('sop-fm-20')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-20 Pool Cleaning</button>
+          <button onclick="jumpToSop('sop-fm-21')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-21 Filtration</button>
+          <button onclick="jumpToSop('sop-fm-22')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-22 Pool Hardware</button>
+          <button onclick="jumpToSop('sop-fm-23')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-23 Pool Rules</button>
+          <button onclick="jumpToSop('sop-fm-24')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-24 Lifesaving Equip</button>
+          <button onclick="jumpToSop('sop-fm-25')" class="px-2.5 py-1 text-xs font-semibold bg-red-50 text-red-700 hover:bg-red-600 hover:text-white border border-red-200 rounded shadow-xs transition"><i class="fa-solid fa-triangle-exclamation mr-1"></i>FM-25 Drowning Response</button>
+          <button onclick="jumpToSop('sop-fm-26')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FM-26 Pool Closing</button>
+        </div>
+      </div>
     </div>
 
-    <!-- SOP Cards -->
+    <!-- SOP Cards Container -->
     <div class="space-y-4" id="sop-container">
-      
-      <!-- SOP-FO-01 -->
-      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+
+      <!-- SOP-FM-01 -->
+      <article id="sop-fm-01" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">FO-01</code>
-            <span class="text-gray-900 font-semibold text-lg">Front Desk Opening Procedure</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-01</code>
+            <span class="text-gray-900 font-semibold text-lg">Daily Facilities Inspection</span>
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
           </div>
         </div>
         <div class="sop-details hidden p-4 space-y-3 border-t">
-          
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Establish operational readiness for the Front Desk prior to peak guest traffic, ensuring accounting accuracy, physical cleanliness, system synchronization, and local infrastructure preparedness for the day[cite: 11].</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Perform systematic daily morning walkthrough inspections across all physical structures, guest spaces, utility rooms, and public grounds to identify maintenance deficiencies, safety hazards, or equipment malfunctions before they impact guests.</p>
           </div>
-
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Front Office Associate</strong> (Morning Shift)[cite: 11]</li>
-              <li><strong>Duty Supervisor</strong>[cite: 11]</li>
+              <li><strong>Maintenance Supervisor:</strong> Conducts primary morning inspection walkthrough and assigns work tickets.</li>
+              <li><strong>Duty Maintenance Technician:</strong> Assists in testing mechanical and electrical fixtures during the walkthrough.</li>
+              <li><strong>General Manager:</strong> Performs random spot checks and reviews daily inspection logs.</li>
             </ul>
           </div>
-
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <p><strong>Physical Readiness & Security:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Arrive 15 minutes before the scheduled shift (05:45 AM for a 06:00 AM start)[cite: 11].</li>
-                  <li>Unlock the main Front Office drawer/counter and inspect the lobby, reception desk, and guest seating areas for cleanliness and safety[cite: 11].</li>
-                  <li>Turn on lobby lights, air conditioning, and guest display screens[cite: 11].</li>
+                <strong>Initiate Morning Walkthrough (07:00 AM):</strong> Retrieve the Daily Facilities Walkthrough Checklist and master keys from the Engineering Office.
+              </li>
+              <li>
+                <strong>Public Areas & Lobby Inspection:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect all interior and exterior lighting fixtures for burnt-out bulbs or loose wiring.</li>
+                  <li>Check lobby air conditioning operation, target setpoint at 22°C - 24°C.</li>
+                  <li>Verify doors, glass panels, locks, and automatic closures operate smoothly.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>System & Terminal Startup:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Power on the Property Management System (PMS) terminal, point-of-sale (POS) card terminals, and receipt printers[cite: 11].</li>
-                  <li>Log into the PMS using personal staff credentials[cite: 11].</li>
+                <strong>Walkway & Grounds Inspection:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Check pathway pavers, perimeter walls, and outdoor lamps for cracks, trip hazards, or weather damage.</li>
+                  <li>Verify clear drainage pathways along garden perimeters.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Cash Float Verification:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Retrieve the shift cash drawer/float from the Front Office safe in the presence of the outgoing Night Auditor or Duty Supervisor[cite: 11].</li>
-                  <li>Count and verify the standard opening float (â‚±10,000 in mixed denominations)[cite: 11].</li>
-                  <li>Sign the Cash Float Logbook detailing denomination counts and variance notes (if any)[cite: 11].</li>
+                <strong>Utility & Plant Room Inspection:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect main circuit breaker panels for excessive heat, buzzing sounds, or tripped breakers.</li>
+                  <li>Record water supply pressure gauge readings (40 - 60 psi).</li>
+                  <li>Inspect transfer pump and booster pump for leaks, abnormal vibration, or overheating.</li>
+                  <li>Check backup diesel generator fuel gauge (≥ 80% full) and battery voltage meter (12V / 24V).</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Information Review & Handover Audit:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Review the Night Audit Handover Log, unhandled guest requests from the previous night, and pending maintenance tickets[cite: 11].</li>
-                  <li>Print or generate digital daily reports: Arrivals List, Departures List, In-House Guest List, and Housekeeping Status Report[cite: 11].</li>
-                </ul>
-              </li>
-              <li>
-                <p><strong>Local Infrastructure & Power Check:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Verify grid power status (SAMELCO I). Confirm that the Automatic Transfer Switch (ATS) and standby generator unit are set to auto-start mode[cite: 11].</li>
-                  <li>Check local internet connectivity (primary and backup satellite/LTE connections) and test landlines[cite: 11].</li>
-                </ul>
+                <strong>Log & Action Assignment:</strong> Log all identified defects into the digital PMS Maintenance Module or Physical Engineering Logbook. Issue immediate work tickets for high-priority items.
               </li>
             </ol>
           </div>
-
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
-            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Given Gamay's coastal provincial location, morning high humidity can affect electronic terminals. Ensure counter surfaces and card reader terminals are wiped dry. Keep physical backup printouts of daily arrival lists in the emergency binder to handle potential local grid power interruptions or internet lag[cite: 11].</p>
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Gamay’s coastal atmosphere accelerates rust on outdoor metal lamps, door hinges, and screws. Inspect exterior metal fixtures daily for salt crusting and early corrosion. During the Samar rainy season, check garden drainage basins daily to prevent localized pooling near ground-floor guest rooms.</p>
           </div>
-
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
-            <ul class="space-y-1 text-gray-700 text-sm">
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-1" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-1" class="cursor-pointer select-none">Cash float counted, verified, and logged by 06:00 AM[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-2" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-2" class="cursor-pointer select-none">Daily arrival/departure/in-house reports printed/saved[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-3" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-3" class="cursor-pointer select-none">Generator status and internet connectivity verified[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2 font-semibold text-green-700">
-                Front desk and lobby neatness score: 100%[cite: 11].
-              </li>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Walkthrough completed and logged prior to 08:30 AM daily.</li>
+              <li>Water supply pressure verified between 40 psi and 60 psi.</li>
+              <li>Generator fuel level verified at ≥ 80%.</li>
+              <li><strong>Target Metric:</strong> 100% daily inspection completion rate; zero unaddressed high-priority hazards past 09:00 AM.</li>
             </ul>
           </div>
-
         </div>
       </article>
 
-      <!-- SOP-FO-02 -->
-      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+      <!-- SOP-FM-02 -->
+      <article id="sop-fm-02" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">FO-02</code>
-            <span class="text-gray-900 font-semibold text-lg">Guest Reservation Procedure</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-02</code>
+            <span class="text-gray-900 font-semibold text-lg">Preventive Maintenance Program</span>
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
           </div>
         </div>
         <div class="sop-details hidden p-4 space-y-3 border-t">
-          
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Standardize intake for direct and indirect room bookings across telephone, walk-in inquiries, messaging platforms, and online travel agencies (OTAs) while optimizing room yield and rate integrity[cite: 11].</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Maintain a scheduled, proactive maintenance calendar for all guest rooms, mechanical equipment, HVAC systems, and building structures to extend asset life and minimize unexpected operational breakdowns.</p>
           </div>
-
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Reservations Clerk</strong>[cite: 11]</li>
-              <li><strong>Front Office Associate</strong>[cite: 11]</li>
+              <li><strong>Chief Engineer / Maintenance Supervisor:</strong> Manages the Master PM Schedule, orders spare parts, and oversees execution.</li>
+              <li><strong>Maintenance Technicians:</strong> Executes scheduled PM tasks according to equipment checklists.</li>
+              <li><strong>Front Office Manager:</strong> Coordinates room blocks for Room Preventive Maintenance (RPM) cycles.</li>
             </ul>
           </div>
-
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <p><strong>Inquiry Intake & Greetings:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Answer incoming calls within three (3) rings: "Warm greetings from Marcela's Resort Hotel Gamay! This is [Name], how may I assist your stay today?"[cite: 11]</li>
-                  <li>Capture caller details: full name, contact number, email, and preferred communication channel[cite: 11].</li>
+                <strong>Master PM Calendar Maintenance:</strong> Establish annual, quarterly, monthly, and weekly preventive maintenance schedules covering:
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Guest Rooms (RPM):</strong> Cycle through all 30 rooms (1 room per day, completing a full cycle every month).</li>
+                  <li><strong>HVAC Systems:</strong> Deep coil cleaning and filter washing quarterly.</li>
+                  <li><strong>Generators & Pumps:</strong> Engine oil, filter, and belt replacements every 250 run hours or semi-annually.</li>
+                  <li><strong>Pool Filtration:</strong> Backwashing sand filters weekly; deep pump strainer cleanouts bi-weekly.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Needs Analysis & Availability Verification:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Identify travel dates, number of guests, room preference, and special requirements[cite: 11].</li>
-                  <li>Check room availability on the PMS calendar for requested dates[cite: 11].</li>
+                <strong>Room PM (RPM) Execution:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Block room with Front Office as "Out of Service - Maintenance" for 4 hours.</li>
+                  <li>Test AC cooling performance, flush drain line, clean filters.</li>
+                  <li>Inspect all plumbing fixtures, water heater tank, flush valve, and drain flow rate.</li>
+                  <li>Inspect electrical outlets, light switches, TV/cable connection, and safe box operation.</li>
+                  <li>Check furniture stability, silicon sealants around shower doors, and door lock battery voltage.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Rate Quote & Inventory Management:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Quote Published Rates, Seasonal Rates, or Corporate Rates following property structures[cite: 11].</li>
-                  <li>Detail inclusions clearly (breakfast allocation, pool access, taxes)[cite: 11].</li>
+                <strong>Equipment PM Execution:</strong> Follow manufacturer service manuals for all heavy equipment (pumps, generator, kitchen freezers, water heaters).
+              </li>
+              <li>
+                <strong>Sign-Off & Logging:</strong> Record completed PM tasks in the Master Asset Card and PMS PM Log.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">In Samar’s tropical climate, AC condensate lines accumulate mold rapidly. Flush all room AC drain lines with a mild bleach solution during monthly RPM to prevent indoor water leaks. Schedule comprehensive PM checks on all roof flashings, gutters, and generator systems prior to the peak typhoon season (September to December).</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>All 30 guest rooms undergo complete RPM at least once every 30 days.</li>
+              <li>Generator maintenance log updated after every service interval.</li>
+              <li>AC cooling temperature delta verified (≥ 8°C difference between intake and supply air).</li>
+              <li><strong>Target Metric:</strong> ≥ 95% adherence to Master PM Schedule; &lt; 2% emergency breakdown rate on PM-covered assets.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-03 -->
+      <article id="sop-fm-03" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-03</code>
+            <span class="text-gray-900 font-semibold text-lg">Corrective Maintenance & Work Orders</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Provide a fast, standardized workflow for reporting, prioritizing, assigning, executing, and closing corrective maintenance work orders across all departments.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Department Heads / Staff (Initiators):</strong> Spot defects and submit Work Orders via PMS or physical work order slips.</li>
+              <li><strong>Maintenance Supervisor:</strong> Receives, prioritizes, and assigns work tickets to technicians.</li>
+              <li><strong>Duty Maintenance Technician:</strong> Executes repairs and reports completion details.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Work Order Creation:</strong> Upon discovering a defect (e.g., leaking faucet, dead light, noisy AC), the observing staff member creates a Work Order ticket specifying:
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Location / Room Number</li>
+                  <li>Specific Description of Problem</li>
+                  <li>Date and Time Reported</li>
+                  <li>Priority Level: Urgent (Life safety/Guest discomfort), High (Operational impairment), Normal (Cosmetic/Routine).</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Booking Capture in PMS:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Create a new reservation record in the PMS with complete guest data and booking source tags[cite: 11].</li>
+                <strong>Priority Triaging:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Urgent (Response &lt; 15 mins):</strong> Power failure, active plumbing leak, AC failure in occupied room, door lock failure.</li>
+                  <li><strong>High (Response &lt; 2 hours):</strong> Public restroom defect, kitchen equipment malfunction, pool light failure.</li>
+                  <li><strong>Normal (Response &lt; 24 hours):</strong> Loose cabinet hinge, minor touch-up paint, garden fixture repair.</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Payment Guarantee & Deposit Terms:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Inform guest of deposit policy (50% initial deposit required within 48 hours for regular season; 100% advance payment for peak holidays)[cite: 11].</li>
-                  <li>Provide accepted options: Bank Transfer (BDO/Landbank), GCash, Maya, or Credit Card link[cite: 11].</li>
+                <strong>Dispatch & Repair:</strong> Technician retrieves ticket, gathers necessary tools/parts from storage, and proceeds to location.
+              </li>
+              <li>
+                <strong>In-Room Repair Protocol:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Knock 3 times, announcing "Maintenance Service."</li>
+                  <li>If occupied, politely explain reason for visit and estimated duration.</li>
+                  <li>Place drop cloth under work zone to protect resort carpet or tile floor.</li>
+                  <li>Complete repair cleanly and sanitize work area post-repair.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Testing & Sign-Off:</strong> Test repaired equipment in presence of requesting department lead or guest. Obtain requesting department signature on Work Order.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">If replacement parts are not in stock locally in Gamay and require procurement from Catarman or Tacloban (2 - 5 days lead time), immediately notify Front Office to keep the guest room out of order or offer room change.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Urgent work orders responded to within 15 minutes.</li>
+              <li>Repair site left completely clean and sanitized.</li>
+              <li>Requesting department signature obtained upon completion.</li>
+              <li><strong>Target Metric:</strong> 90% of work orders resolved within target response time; 0 unaddressed guest-room tickets past 24 hours.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-04 -->
+      <article id="sop-fm-04" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-04</code>
+            <span class="text-gray-900 font-semibold text-lg">Electrical System Inspection</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Ensure safe, continuous electrical power distribution, prevent electrical fires, monitor voltage stability, and maintain all primary and secondary distribution panels across the property.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Licensed Electrician / Maintenance Tech:</strong> Performs electrical panel inspections, thermal testing, and load balancing.</li>
+              <li><strong>Chief Engineer:</strong> Reviews electrical inspection logs and oversees high-voltage maintenance.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Daily Main Breaker Panel Inspection:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect Main Distribution Panel (MDP) and Sub-Distribution Panels (SDPs).</li>
+                  <li>Measure incoming supply line voltage (220V ± 10%, 60 Hz).</li>
+                  <li>Check panel door seals to prevent moisture, dust, or insect entry.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Monthly Thermal Scan & Wire Tightening:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>De-energize sub-panels during scheduled low-occupancy window using proper Lockout/Tagout (LOTO) safety protocol.</li>
+                  <li>Check for loose terminal screws caused by thermal expansion; torque to manufacturer specification.</li>
+                  <li>Use an infrared thermal scanner to detect overheating breakers or wiring busbars (temperature &gt; 60°C indicates overload or loose connection).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Grounding System Verification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect main ground rod connections quarterly.</li>
+                  <li>Verify Ground Fault Circuit Interrupter (GFCI) outlets in bathrooms, kitchen wet zones, and swimming pool perimeter function correctly by pressing the "Test/Reset" button monthly.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Emergency Lighting & Battery Bank Check:</strong> Test all emergency hallway exit signs and battery backup emergency lights monthly for a minimum 30-minute illumination run.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">The local electrical grid in Northern Samar experiences frequent voltage surges and brownouts. <strong>MANDATORY:</strong> Verify that main Automatic Voltage Regulators (AVRs) and surge protectors servicing sensitive hotel equipment (PMS server, elevators, kitchen refrigeration, AV gear) are operational daily.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Line voltage verified daily within 198V - 242V range.</li>
+              <li>All GFCI wet-zone outlets tested monthly.</li>
+              <li>Electrical panel thermal scan completed quarterly.</li>
+              <li><strong>Target Metric:</strong> 0 electrical fire incidents; 100% functional GFCI outlet protection in wet zones.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-05 -->
+      <article id="sop-fm-05" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-05</code>
+            <span class="text-gray-900 font-semibold text-lg">Plumbing Inspection & Repair</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Maintain leak-free, clean, and efficient fresh water supply lines, water heaters, sanitary drainage, septic tanks, and kitchen grease traps throughout the resort.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Duty Plumber / Maintenance Tech:</strong> Conducts daily plumbing checks, unblocks lines, and services water heaters.</li>
+              <li><strong>Executive Housekeeper:</strong> Reports room water leaks or slow drainage immediately to Engineering.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Daily Water Pressure Check:</strong> Check manifold pressure gauges at booster pump output; maintain between 40 psi and 60 psi to ensure strong shower pressure across all 30 rooms.
+              </li>
+              <li>
+                <strong>Weekly Guest Room Plumbing Audit:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect under-sink angle valves, flex hoses, and p-traps for moisture or slow drips.</li>
+                  <li>Test shower mixer valve, verify hot water delivery reaches 45°C - 50°C within 45 seconds.</li>
+                  <li>Check toilet flush tank flapper valve and fill valve seal to eliminate silent water leaks into the bowl.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Sanitary Sewer & Septic System Maintenance:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect septic tank levels monthly. Schedule desludging via certified local waste contractor when solids reach 2/3 capacity.</li>
+                  <li>Clean kitchen grease traps weekly: skim grease layer, clean filter basket, and dispose of grease according to environmental disposal guidelines.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Drain Line Unblocking:</strong> Use drain snake or plunger for clogs. Avoid harsh chemical drain cleaners that damage PVC piping and destroy septic tank anaerobic bacterial cultures.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Local deep well water sources in Northern Samar often contain elevated mineral content. Perform bi-monthly descaling of showerheads and water heater heating elements using vinegar or commercial descaling solution to prevent clogging.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Hot water temperature delivered at 45°C - 50°C within 45 seconds.</li>
+              <li>Kitchen grease traps cleaned and logged weekly.</li>
+              <li>Zero silent toilet flapper leaks active across 30 rooms.</li>
+              <li><strong>Target Metric:</strong> Water loss from leaks maintained at &lt; 3% of total utility consumption.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-06 -->
+      <article id="sop-fm-06" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-06</code>
+            <span class="text-gray-900 font-semibold text-lg">Air-Conditioning Maintenance</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Maximize cooling efficiency, maintain indoor air quality, optimize power consumption, and prevent water leakage from split-type and window-type air conditioning units across all rooms and public areas.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>HVAC Technician:</strong> Performs bi-weekly filter cleaning, quarterly chemical coil washing, and refrigerant pressure checks.</li>
+              <li><strong>Maintenance Supervisor:</strong> Schedules preventive service cycles and monitors AC energy performance.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Bi-Weekly Air Filter Cleaning:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Turn off AC power breaker. Remove air filters from evaporator unit.</li>
+                  <li>Wash filters under clean tap water using soft brush; dry completely in shade before reinstalling.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Quarterly Chemical Coil Cleaning:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Place protective waterproof jacket around indoor evaporator unit.</li>
+                  <li>Apply biodegradable coil cleaning solution to aluminum fins; flush thoroughly with low-pressure washer.</li>
+                  <li>Clear condensate drain tray and flush drain line using pressurized water or bleach mixture.</li>
+                  <li>Wash outdoor condenser coil fins to remove dirt, salt crust, and debris.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Refrigerant & Performance Audit:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Measure operating suction pressure (R410A: 120 - 140 psi; R32: 110 - 130 psi).</li>
+                  <li>Measure air temperature differential (ΔT = T_return - T_supply). A properly operating unit must yield ΔT ≥ 8°C.</li>
+                  <li>Check compressor running amperage against rated nameplate value.</li>
                 </ul>
               </li>
             </ol>
           </div>
-
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
-            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Guests traveling to Gamay often face travel delays due to weather conditions along the Pacific board, ferry crossing delays, or provincial road conditions. Always ask for expected modes of arrival to estimate realistic arrival times[cite: 11].</p>
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Coastal salt spray degrades aluminum condenser fins rapidly. Apply anti-corrosion blue-coat protective spray to all outdoor condenser coils semi-annually to extend coil life in Gamay's marine environment.</p>
           </div>
-
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
-            <ul class="space-y-1 text-gray-700 text-sm">
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo02-1" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo02-1" class="cursor-pointer select-none">100% accurate data entry into PMS (zero misspelled names or mismatched contact numbers)[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo02-2" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo02-2" class="cursor-pointer select-none">Payment terms clearly communicated and logged in reservation notes[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2 font-semibold text-green-700">
-                Call answered within 3 rings[cite: 11].
-              </li>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Air filters cleaned every 14 days.</li>
+              <li>Temperature differential ΔT ≥ 8°C verified post-service.</li>
+              <li>Condensate drain line flushed during every coil cleaning.</li>
+              <li><strong>Target Metric:</strong> Zero in-room AC condensate leaks; 100% scheduled chemical wash completion rate.</li>
             </ul>
           </div>
-
         </div>
       </article>
 
+      <!-- SOP-FM-07 -->
+      <article id="sop-fm-07" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-07</code>
+            <span class="text-gray-900 font-semibold text-lg">Water Supply & Pump System</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Manage primary deep well systems, municipal water connections, filtration units, storage cisterns, and distribution pumps to ensure uninterrupted 24/7 supply of potable water across the property.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Duty Maintenance Technician:</strong> Monitors water levels, operates transfer pumps, and manages filtration backwash.</li>
+              <li><strong>Chief Engineer:</strong> Oversees water quality testing and pump overhaul maintenance.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Daily Water Level Monitoring:</strong> Inspect main underground cistern tank (50,000L capacity) and overhead day tank (10,000L capacity) at 06:00 AM, 12:00 PM, and 06:00 PM. Maintain combined volume at ≥ 75% capacity.
+              </li>
+              <li>
+                <strong>Pump System Operation & Alternation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Check primary and standby pressure booster pumps. Set control panel to automatic dual-pump alternator mode to ensure equal wear on pump motors.</li>
+                  <li>Inspect pump mechanical seals for water leaks and verify motor operating temperature (&lt; 70°C).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Filtration & Chlorination Management:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Check inline multi-media sand filters and active carbon filters. Perform manual backwash when differential pressure exceeds 10 psi.</li>
+                  <li>Test free chlorine level at the farthest guest room tap daily using DPD test kit. Target residual chlorine: 0.5 - 1.5 ppm.</li>
+                  <li>Refill automatic chlorine dosing tank with sodium hypochlorite solution as needed.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Monthly Water Bacteriological Test:</strong> Send water samples to an accredited DOH laboratory in Catarman monthly for E. coli and coliform analysis.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Gamay municipal water pressure can fluctuate or drop without warning. Maintain automatic float switches on deep well transfer pumps to seamlessly refill cisterns whenever municipal pressure drops below 20 psi.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Cistern storage maintained at ≥ 75% capacity at all times.</li>
+              <li>Residual chlorine tested daily (0.5 - 1.5 ppm).</li>
+              <li>Monthly DOH-accredited water quality lab test passed (0 coliform count).</li>
+              <li><strong>Target Metric:</strong> 100% water availability; zero water supply outages.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-08 -->
+      <article id="sop-fm-08" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-amber-700 font-bold text-sm mr-2">FM-08</code>
+            <span class="text-gray-900 font-semibold text-lg">Generator & Backup Power Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Operate, test, and maintain the resort’s primary diesel generator set and Automatic Transfer Switch (ATS) to guarantee seamless emergency power restoration within 15 seconds of an electrical grid outage.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Duty Maintenance Tech / Generator Operator:</strong> Performs daily checks, fuel management, and manual changeovers if required.</li>
+              <li><strong>Chief Engineer:</strong> Supervises load testing, ATS servicing, and fuel supplier agreements.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Daily Generator Readiness Inspection:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Check diesel fuel level in main base tank; must remain ≥ 80% full (minimum 24 hours continuous full-load run capacity).</li>
+                  <li>Check engine oil level, coolant radiator level, and drive belt tension.</li>
+                  <li>Verify starter battery trickler charger voltage (13.5V - 14.2V).</li>
+                  <li>Ensure ATS control panel switch is set to "AUTO" mode.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Automatic Outage Sequence Execution:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Upon grid power failure, ATS senses line loss, signals generator engine start within 3 seconds, and transfers load within 10 - 15 seconds.</li>
+                  <li>Duty Tech immediately verifies generator voltage (220V), frequency (60 Hz), and engine water temperature (80°C - 90°C).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Manual Override Procedure (In Case of ATS Failure):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Switch ATS selector switch from "AUTO" to "MANUAL".</li>
+                  <li>Press "START" button on generator control panel; allow engine warm-up for 30 seconds.</li>
+                  <li>Manually throw ATS main breaker switch to "GENERATOR" position.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Weekly No-Load / Monthly Load Testing:</strong> Run generator under actual resort load for 30 minutes on the 1st and 15th day of every month to keep engine lubricated and purge moist air from alternator windings.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Northern Samar experiences scheduled and unscheduled power blackouts from NORSAMELCO. Keep a minimum reserve stock of 500L of clean diesel fuel on-site in approved double-walled storage tanks to handle prolonged regional power outages.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Automatic transfer completed within 15 seconds of grid failure.</li>
+              <li>Fuel level maintained at ≥ 80% daily.</li>
+              <li>Monthly load test executed and recorded in Generator Logbook.</li>
+              <li><strong>Target Metric:</strong> 100% backup power reliability during grid outages.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-09 -->
+      <article id="sop-fm-09" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-09</code>
+            <span class="text-gray-900 font-semibold text-lg">Solar Power & Energy System Monitoring</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Monitor, clean, and maintain the resort's solar photovoltaic (PV) array and hybrid inverter system to maximize renewable energy output and reduce utility power expenses.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Solar Systems Technician / Maintenance Staff:</strong> Performs solar panel cleaning, inverter readings, and cable checks.</li>
+              <li><strong>Chief Engineer:</strong> Tracks daily power production analytics (kWh) against resort utility benchmarks.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Daily System Inspection (08:00 AM & 04:00 PM):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect solar inverter display panel. Verify status reads "NORMAL / GRID-TIED".</li>
+                  <li>Record daily generation metric (kWh generated), peak output power (kW), and fault error logs.</li>
+                  <li>Check battery bank (if equipped) state of charge (SOC) and cell temperatures (&lt; 35°C).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Bi-Weekly Solar Panel Cleaning:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Clean panels during early morning (06:00 AM - 07:30 AM) when glass surfaces are cool to prevent thermal shock breakage.</li>
+                  <li>Spray panels with low-pressure fresh water; wipe clean using soft microfiber squeegees to remove salt haze, dust, bird droppings, and leaves.</li>
+                  <li>Never use harsh chemical detergents or abrasive brushes on anti-reflective glass coatings.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Monthly Cable & Mounting Frame Audit:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect aluminum mounting rails and stainless steel clamps for corrosion or wind looseness.</li>
+                  <li>Check DC junction boxes and MC4 connectors for weather seals and heat damage.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Sea breeze coats solar panels in a thin salt layer that can reduce energy yield by 15% - 20%. Increase cleaning frequency to weekly during dry, windy months.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Panels cleaned every 14 days (or weekly during dry wind conditions).</li>
+              <li>Inverter generation metrics recorded daily.</li>
+              <li>Zero physical thermal damage on MC4 connectors and wiring harness.</li>
+              <li><strong>Target Metric:</strong> Solar system performing at ≥ 90% of rated design generation profile.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-10 -->
+      <article id="sop-fm-10" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-10</code>
+            <span class="text-gray-900 font-semibold text-lg">Lighting Inspection</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Systematically inspect, repair, and upgrade all interior, outdoor, emergency, and decorative lighting systems across the property to ensure safety, security, and warm ambiance.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Duty Maintenance Technician:</strong> Conducts nightly lighting audits and replaces defective lamps.</li>
+              <li><strong>Security Officer:</strong> Reports dark zones or exterior lighting failures during night patrols.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Nightly Lighting Audit (06:00 PM):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Conduct a complete walk of resort perimeter, pool area, garden paths, building facades, parking lot, and guest corridors.</li>
+                  <li>Identify dead LED bulbs, flickering fixtures, broken diffusers, or exposed wiring.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Immediate Lamp Replacement Standard:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Replace burnt-out bulbs within 1 hour in guest areas and 12 hours in back-of-house service zones.</li>
+                  <li>Ensure replacement bulbs match color temperature standards: Guest Rooms/Lobby/Restaurant Warm White (2700K - 3000K); Kitchen/Utility Cool Daylight (6000K - 6500K).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Automated Lighting Timer Management:</strong> Check digital timer clocks and photocell sensors weekly to ensure outdoor perimeter lights switch on automatically at dusk (approx. 05:45 PM) and off at dawn (approx. 05:45 AM).
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Warm LED lights (2700K) attract significantly fewer nocturnal insects and mosquitoes than high-UV cool white lights. Ensure all outdoor pathway standees use warm amber/yellow LED modules.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Nightly audit log completed daily at 06:00 PM.</li>
+              <li>Replacement bulb color temperature matched to zone standards.</li>
+              <li>Photocell timers switching correctly at dusk/dawn.</li>
+              <li><strong>Target Metric:</strong> ≥ 99% functional lighting across all resort zones at all times.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-11 -->
+      <article id="sop-fm-11" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-11</code>
+            <span class="text-gray-900 font-semibold text-lg">Building & Structural Inspection</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Conduct periodic structural integrity assessments of concrete foundations, timber supports, roof trusses, exterior walls, staircases, and resort decking to prevent structural deterioration.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Chief Engineer / Structural Inspector:</strong> Conducts quarterly structural audits and manages masonry/carpentry repairs.</li>
+              <li><strong>General Manager:</strong> Authorizes major structural remediation projects.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Quarterly Structural Audit Execution:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Concrete Elements:</strong> Check exterior pillars, beams, and foundation walls for hairline cracks, spalling concrete, or exposed rebar.</li>
+                  <li><strong>Timber Structures:</strong> Inspect wooden posts, roof trusses, gazebos, and pool decks for rot, soft spots, warping, or termite infestation.</li>
+                  <li><strong>Walls & Paint:</strong> Check exterior paint for peeling, water penetration stains, or efflorescence (salt leeching).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Defect Remediation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Concrete Spalling:</strong> Chip away loose concrete, treat exposed rebar with anti-corrosion primer, apply high-strength epoxy repair mortar.</li>
+                  <li><strong>Timber Rot:</strong> Replace rotted wood members with pressure-treated hardwood; seal with weather-resistant exterior wood varnish.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Annual Paint Refresh Schedule:</strong> Schedule annual exterior wall repainting using high-grade elastomeric waterproof paint.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Chloride ions from sea spray penetrate porous concrete, causing internal rebar to rust, expand, and spall concrete off beams. Inspect all ocean-facing pillars quarterly for rust bleed marks.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Quarterly structural audit executed and documented with photos.</li>
+              <li>Exposed rebar treated with anti-corrosion coating immediately upon detection.</li>
+              <li>Exterior paint integrity maintained without visible peeling or mold staining.</li>
+              <li><strong>Target Metric:</strong> Zero structural safety incidents; 100% remediation of detected cracks within 30 days.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-12 -->
+      <article id="sop-fm-12" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-12</code>
+            <span class="text-gray-900 font-semibold text-lg">Roof & Gutter Inspection</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Inspect roof coverings, flashing seals, downspouts, and rainwater gutter channels monthly and before major weather events to prevent water ingress and roof structure damage.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Maintenance Technicians:</strong> Performs roof climbing inspections, gutter clearing, and sealant repairs.</li>
+              <li><strong>Maintenance Supervisor:</strong> Verifies safety harness compliance and signs off inspection logs.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Safety Protocol Setup:</strong> Ensure technicians wear fall protection harnesses, non-slip footwear, and secure safety lifelines before ascending roof structures.
+              </li>
+              <li>
+                <strong>Monthly Roof Walk:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect roofing sheets/tiles for loose screws, cracked tiles, rusted flashing, or lifted overlaps.</li>
+                  <li>Check waterproofing membrane seals around roof vents, plumbing stacks, and AC pipe penetrations. Apply silicone sealant or asphalt coating where cracked.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Gutter & Downspout Clearing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Remove all accumulated leaves, twigs, sand, and debris from gutter runs.</li>
+                  <li>Flush downspouts with water hose to verify unobstructed drainage to ground level storm drains.</li>
+                  <li>Repair loose gutter hanging brackets.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Pre-Typhoon Roof Audit:</strong> Execute an immediate mandatory roof check upon issuance of PAGASA Typhoon Signal #1.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Gamay’s lush foliage drops large palm fronds and heavy organic matter onto roofs. Clogged downspouts during Samar downpours cause gutters to overflow into room ceiling cavities within minutes.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Technicians hooked to safety lifelines during all roof work.</li>
+              <li>All roof gutters flushed and proven unobstructed monthly.</li>
+              <li>Pre-typhoon roof checks completed within 4 hours of typhoon signal alert.</li>
+              <li><strong>Target Metric:</strong> Zero active roof leaks during heavy monsoon downpours.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-13 -->
+      <article id="sop-fm-13" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-13</code>
+            <span class="text-gray-900 font-semibold text-lg">Pest Control Coordination</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Execute an integrated pest management (IPM) program controlling insects (mosquitoes, flies, ants, cockroaches, termites) and rodents across guest rooms, F&B zones, grounds, and storage areas.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Maintenance Supervisor / Pest Control Coordinator:</strong> Accompanies external licensed pest control technicians and maintains chemical safety records.</li>
+              <li><strong>Executive Housekeeper & Head Chef:</strong> Ensures daily sanitation standards that remove pest food sources.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Pest Control Schedule Execution:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Bi-Weekly:</strong> Thermal fogging for outdoor mosquito control (conducted early morning at 05:30 AM or evening at 06:00 PM).</li>
+                  <li><strong>Monthly:</strong> Gel baiting and residual spraying in kitchen, restaurant, waste staging, and public restrooms.</li>
+                  <li><strong>Quarterly:</strong> Termite bait station inspection and barrier soil treatment around building foundations.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>In-Room Pest Treatment Protocol:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Treat vacant rooms using odorless, low-toxicity eco-friendly gel baits and targeted perimeter sprays.</li>
+                  <li>Block room from guest sales for 4 hours post-treatment; ventilate thoroughly before releasing to Housekeeping.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Rodent Control:</strong> Maintain tamper-resistant rodent bait stations along exterior fence lines. Log bait consumption monthly.
+              </li>
+              <li>
+                <strong>Safety & SDS Management:</strong> Maintain physical Safety Data Sheets (SDS) for all pesticides used in the Engineering Office.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Coastal Northern Samar has high mosquito activity during rainy months. Ensure zero standing water collects in garden saucers, tires, or outdoor storage items. Perform thermal fogging twice weekly during rainy season.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Thermal fogging executed bi-weekly without guest disruption.</li>
+              <li>All chemical SDS filed in Engineering Office.</li>
+              <li>Kitchen area 100% free of visible pest activity during audits.</li>
+              <li><strong>Target Metric:</strong> Zero guest complaints regarding in-room insects or rodents.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-14 -->
+      <article id="sop-fm-14" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-14</code>
+            <span class="text-gray-900 font-semibold text-lg">Maintenance Tools & Equipment Control</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Store, inspect, track, and maintain all hand tools, power tools, ladders, meters, and specialized machinery owned by the Engineering Department.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Engineering Storekeeper / Supervisor:</strong> Controls tool room access, manages tool check-out/in logs, and performs safety audits.</li>
+              <li><strong>Maintenance Technicians:</strong> Responsible for clean return and proper care of checked-out tools.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Tool Check-Out/Check-In Procedure:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Store all hand and power tools in the locked Engineering Tool Crib.</li>
+                  <li>Technicians sign the Tool Logbook specifying: Date, Tool Name, Purpose/Location, Technician Signature, Check-out Time.</li>
+                  <li>Return tools before end of shift; Storekeeper inspects condition and logs Check-in Time.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Power Tool Safety Inspection:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect power cords for frayed insulation, exposed wires, or damaged plugs prior to use.</li>
+                  <li>Verify safety guards are installed on angle grinders, circular saws, and lawn mowers.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Ladder Safety Standards:</strong> Inspect aluminum extension and step ladders monthly for loose rivets, bent rungs, or worn rubber safety feet. Tag damaged ladders "DO NOT USE - DEFECTIVE".
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Coastal humidity causes steel tools to rust rapidly. <strong>MANDATORY:</strong> Wipe down all hand tools, drill bits, and metal blades with a light coat of machine oil (WD-40 or 3-in-1 oil) before returning them to storage cabinets.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>All tools accounted for and logged back into crib at shift end.</li>
+              <li>Power cords inspected and tagged safe.</li>
+              <li>Steel tools oiled to prevent coastal rust.</li>
+              <li><strong>Target Metric:</strong> 0 lost tools; 0 workplace injuries resulting from defective tools.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-15 -->
+      <article id="sop-fm-15" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-15</code>
+            <span class="text-gray-900 font-semibold text-lg">Spare Parts Inventory</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Maintain an adequate inventory of critical maintenance spare parts, plumbing fittings, electrical supplies, AC components, and hardware to support immediate repairs.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Engineering Storekeeper:</strong> Tracks stock levels, issues parts, and initiates purchase requisitions.</li>
+              <li><strong>Chief Engineer:</strong> Establishes Reorder Points (ROP) and approves inventory purchases.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Critical Spare Parts Reorder Point (ROP) Matrix:</strong> Maintain minimum stock levels for high-turnover items:
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Electrical:</strong> LED Bulbs (20 pcs per wattage type), 15A Breakers (5 pcs), GFCI Outlets (5 pcs).</li>
+                  <li><strong>Plumbing:</strong> Faucet Cartridges (6 pcs), Toilet Flappers (10 pcs), Angle Valves (6 pcs), PVC Glue (2 cans).</li>
+                  <li><strong>HVAC:</strong> AC Capacitors (6 pcs), R410A/R32 Refrigerant Tanks (1 tank each), Contactors (4 pcs).</li>
+                  <li><strong>Pool:</strong> Chlorine Granules (2 drums), Muriatic Acid (4 carboys).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Stock Issuance:</strong> Issue parts only against an approved Work Order ticket number. Log item quantity, ticket number, and date into the PMS Inventory Module.
+              </li>
+              <li>
+                <strong>Monthly Inventory Count:</strong> Perform a physical stock count on the last day of every month. Reconcile variances &gt; 2% with the Chief Engineer.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Due to Gamay’s remote location in Northern Samar, standard spare parts orders take 3 - 7 days to arrive from major suppliers. Maintain higher safety stock levels (+30%) compared to urban hotel properties.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>All stock issuances linked to a valid Work Order number.</li>
+              <li>Monthly physical inventory count completed and reconciled.</li>
+              <li>Safety stock levels maintained above minimum ROP thresholds.</li>
+              <li><strong>Target Metric:</strong> Zero out-of-stock delays on critical plumbing, electrical, or AC spare parts.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-16 -->
+      <article id="sop-fm-16" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-16</code>
+            <span class="text-gray-900 font-semibold text-lg">Contractor Access & Maintenance Work</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Regulate, monitor, and enforce safety, operational, and security protocols for third-party contractors performing specialized repairs, construction, or servicing on resort premises.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Maintenance Supervisor:</strong> Reviews contractor scopes of work, issues work permits, and supervises on-site activities.</li>
+              <li><strong>Duty Security Officer:</strong> Manages contractor gate entry, badge issuance, and bag inspections.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Contractor Pre-Approval & Orientation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Verify contractor business permits, liability insurance, and worker clearance documents 48 hours before arrival.</li>
+                  <li>Conduct brief safety orientation covering resort noise rules, smoking bans, designated restrooms, and emergency assembly points.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Work Permit Issuance:</strong> Issue specialized Work Permits prior to job start:
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Hot Work Permit:</strong> For welding, cutting, or flame torches (requires fire extinguisher staged on-site).</li>
+                  <li><strong>Confined Space Permit:</strong> For septic tank or underground tank entry.</li>
+                  <li><strong>Electrical LOTO Permit:</strong> For high-voltage main panel work.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>On-Site Supervision & Egress:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Supervisor conducts periodic site inspections during work execution.</li>
+                  <li>Ensure contractor cleans work zone, removes all debris/construction waste, and vacates property post-completion.</li>
+                  <li>Conduct final inspection before signing off contractor completion certificate and releasing payment.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Limit heavy drilling, demolition, or loud equipment operation strictly to 09:00 AM - 04:00 PM to protect guest rest in resort areas.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Contractor badges issued and worn at all times.</li>
+              <li>Hot Work Permits signed with fire extinguisher staged on-site.</li>
+              <li>Loud construction noise strictly restricted to 09:00 AM - 04:00 PM.</li>
+              <li><strong>Target Metric:</strong> 0 accidents or fire incidents related to third-party contractor activities.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-17 -->
+      <article id="sop-fm-17" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-17</code>
+            <span class="text-gray-900 font-semibold text-lg">Swimming Pool Opening Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Execute a daily morning routine that inspects water clarity, tests chemical balance, cleans pool surfaces, readies safety equipment, and opens the swimming pool safely for guest use at 06:00 AM.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Pool Attendant / Certified Pool Operator (CPO):</strong> Performs opening checks, skimming, chemical testing, and furniture arrangement.</li>
+              <li><strong>Duty Security / Lifeguard:</strong> Verifies deck safety and lifesaving equipment readiness.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Start Morning Opening Shift (05:30 AM):</strong> Unlock pool equipment shed and turn on pool deck area lighting.
+              </li>
+              <li>
+                <strong>Visual Inspection & Skimming:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect pool water clarity; bottom drain must be crystal clear and fully visible.</li>
+                  <li>Use leaf skimmer net to clear floating leaves, insects, or debris from water surface.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Chemical Testing & Dosing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Perform morning water test for Free Chlorine (1.0 - 3.0 ppm) and pH (7.2 - 7.8).</li>
+                  <li>Record readings in Daily Pool Chemical Logbook.</li>
+                  <li>If chemical levels are within range, clear pool for swimming. If out of range, execute quick adjustment or delay opening.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Deck Setup & Safety Readiness:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Wipe down pool lounge chairs, tables, and sun umbrellas; arrange neatly.</li>
+                  <li>Verify ring buoys with throwing ropes and shepherd’s hook are mounted in designated deck stations.</li>
+                  <li>Unlock pool deck access gates at 06:00 AM; turn on waterfall/fountain features.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Gamay’s tropical trees and ocean breeze deposit leaves and fine sand into the pool overnight. Always perform surface skimming and skimmer basket clearing before starting the circulation pump.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Pool bottom drain 100% visible from deck.</li>
+              <li>Free chlorine (1.0 - 3.0 ppm) and pH (7.2 - 7.8) verified before 06:00 AM.</li>
+              <li>Lifesaving equipment staged in correct positions.</li>
+              <li><strong>Target Metric:</strong> 100% on-time pool opening at 06:00 AM with perfect water clarity.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-18 -->
+      <article id="sop-fm-18" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-18</code>
+            <span class="text-gray-900 font-semibold text-lg">Pool Water Testing</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Measure, analyze, and record pool water chemistry parameters three times daily to guarantee guest safety, prevent waterborne illnesses, and protect pool filtration equipment from corrosion or scaling.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Pool Attendant / Certified Pool Operator:</strong> Collects water samples, performs DPD/Phenol Red chemical tests, and logs metrics.</li>
+              <li><strong>Maintenance Supervisor:</strong> Audits test logs and calculates corrective chemical dosing schedules.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Testing Schedule:</strong> Perform water testing 3 times daily:
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Test 1:</strong> 05:30 AM (Pre-opening)</li>
+                  <li><strong>Test 2:</strong> 12:00 PM (Peak sun / High bather load)</li>
+                  <li><strong>Test 3:</strong> 05:00 PM (Late afternoon)</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Sample Collection Method:</strong> Take water sample at elbow depth (18 inches / 45 cm below surface) away from return jets and skimmer openings.
+              </li>
+              <li>
+                <strong>Parameter Ranges & Standard Testing Protocol:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Free Available Chlorine (FAC):</strong> Ideal range 1.0 - 3.0 ppm (Use DPD #1 tablet/reagent).</li>
+                  <li><strong>pH Level:</strong> Ideal range 7.2 - 7.8 (Use Phenol Red reagent).</li>
+                  <li><strong>Total Alkalinity (TA):</strong> Tested weekly; Ideal range 80 - 120 ppm.</li>
+                  <li><strong>Cyanuric Acid (CYA):</strong> Tested monthly; Ideal range 30 - 50 ppm.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Action Thresholds:</strong> If Free Chlorine drops &lt; 1.0 ppm or pH strays outside 7.0 - 8.0, close pool immediately to guests until chemical balance is restored.
+              </li>
+              <li>
+                <strong>Logbook Entry:</strong> Record all test values, ambient weather, bather count, and added chemical dosages into the Master Pool Water Logbook.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Intense tropical sun in Northern Samar rapidly degrades free chlorine via UV rays (requiring proper stabilizer/CYA levels). Heavy tropical rains dilute chlorine and lower pH drastically; test water immediately post-downpours.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Water tested and logged 3x daily without fail.</li>
+              <li>Sample collected from elbow depth away from jets.</li>
+              <li>Pool closed immediately if FAC &lt; 1.0 ppm or pH &lt; 7.0 / &gt; 8.0.</li>
+              <li><strong>Target Metric:</strong> 100% compliance with recommended water chemistry parameters.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-19 -->
+      <article id="sop-fm-19" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-amber-700 font-bold text-sm mr-2">FM-19</code>
+            <span class="text-gray-900 font-semibold text-lg">Pool Chemical Management</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Govern the safe handling, precise dosing calculation, storage, and application of pool treatment chemicals including chlorine, pH adjusters, algaecides, and flocculants.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Certified Pool Operator / Attendant:</strong> Measures and applies chemicals safely.</li>
+              <li><strong>Maintenance Supervisor:</strong> Manages chemical inventory and hazardous material compliance.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Personal Protective Equipment (PPE) Mandate:</strong> <strong>ALWAYS</strong> wear safety goggles, heavy chemical gloves, rubber apron, and dust mask/respirator when handling pool chemicals.
+              </li>
+              <li>
+                <strong>Dosing Application Guidelines:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Raising Free Chlorine:</strong> Add Calcium Hypochlorite (65% - 70%) or Sodium Hypochlorite liquid. Pre-dissolve granules in a bucket of water before pouring slowly around pool perimeter.</li>
+                  <li><strong>Raising pH:</strong> Add Soda Ash (Sodium Carbonate) pre-dissolved in water.</li>
+                  <li><strong>Lowering pH / Alkalinity:</strong> Add Muriatic Acid (Hydrochloric Acid) poured slowly into deep end with pump running. <strong>RULE: Always add acid to water, NEVER add water to acid.</strong></li>
+                </ul>
+              </li>
+              <li>
+                <strong>Timing of Chemical Application:</strong> Perform heavy chemical dosing or chlorine shock treatment (5.0 - 10.0 ppm) strictly after pool closing (post-10:00 PM) to allow chemical dissipation before morning opening.
+              </li>
+              <li>
+                <strong>Chemical Storage Facility Rules:</strong> Store pool chemicals in a dedicated, locked, well-ventilated, dry chemical shed. Keep chlorine products physically separated from acid products by a minimum distance of 3 meters to prevent explosive gas reactions.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Northern Samar’s high humidity can turn powdered chlorine into clumpy mass and degrade potencies. Keep chemical drums tightly sealed with desiccants in raised plastic pallets off concrete floors.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>PPE worn during all chemical measuring and mixing operations.</li>
+              <li>"Acid to water" mixing rule strictly observed.</li>
+              <li>Chlorine and acid stored in separate, dry, locked zones.</li>
+              <li><strong>Target Metric:</strong> 0 chemical handling safety incidents or chemical burn injuries.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-20 -->
+      <article id="sop-fm-20" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-20</code>
+            <span class="text-gray-900 font-semibold text-lg">Pool Cleaning & Vacuuming</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Maintain pristine visual cleanliness, remove settled silt and algae, clean waterline tile scum, and brush pool walls using manual and automatic vacuuming systems.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Pool Attendant:</strong> Executes daily floor vacuuming, wall brushing, and tile line scrubbing.</li>
+              <li><strong>Maintenance Technician:</strong> Serves and maintains vacuum hoses, suction heads, and automatic robotic cleaners.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Daily Morning Cleaning Sequence (05:30 AM - 07:00 AM):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Wall Brushing:</strong> Use 18-inch nylon pool brush attached to telescopic pole to brush pool walls, steps, and corners down toward bottom main drain.</li>
+                  <li><strong>Waterline Tile Scrubbing:</strong> Apply non-abrasive pool tile cleaner to tile line using scrub pad to remove suntan oil scum marks.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Manual Pool Vacuuming Execution:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Attach vacuum head to telescopic pole and swivel vacuum hose.</li>
+                  <li>Fill vacuum hose completely with water by holding against a return jet until all air bubbles exit hose.</li>
+                  <li>Connect hose cuff into skimmer suction plate or dedicated vacuum suction port.</li>
+                  <li>Set multiport pump valve to "FILTER" (or "WASTE" if heavy algae/dirt is present).</li>
+                  <li>Slowly push vacuum head across pool floor overlapping paths to avoid kicking up settled sediment.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Post-Vacuum Cleanout:</strong> Disconnect hose, clear skimmer basket and pump strainer basket of trapped debris.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Coastal winds bring fine sand onto the resort grounds, settling on the pool floor. Vacuum daily using fine-mesh filter bags or slow manual suction to prevent sand from scouring pump impellers.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Pool floor vacuumed completely prior to opening.</li>
+              <li>Waterline tiles free of suntan oil line.</li>
+              <li>Skimmer and pump baskets emptied post-vacuuming.</li>
+              <li><strong>Target Metric:</strong> Zero visible dirt or sand patches on pool floor during guest hours.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-21 -->
+      <article id="sop-fm-21" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-21</code>
+            <span class="text-gray-900 font-semibold text-lg">Pool Filtration & Pump Operation</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Operate recirculation pumps, backwash media sand filters, monitor pressure differentials, and ensure complete water turnover every 6 hours.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Maintenance Tech / Certified Pool Operator:</strong> Manages pump room operations, backwashing, and mechanical valve adjustments.</li>
+              <li><strong>Chief Engineer:</strong> Oversees pump motor overhauls and filter media replacement cycles.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Daily Pump Room Audit:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect circulation pump running sound, check mechanical shaft seal for water drips.</li>
+                  <li>Read filter pressure gauge. Baseline clean filter pressure: 10 - 15 psi.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Sand Filter Backwash Procedure (Required when gauge reads 8 - 10 psi above baseline):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Turn <strong>OFF</strong> main pool pump power switch.</li>
+                  <li>Turn multiport valve handle to <strong>"BACKWASH"</strong> position.</li>
+                  <li>Open backwash sight glass drain line valve.</li>
+                  <li>Turn <strong>ON</strong> pump; run for 2 - 3 minutes until water in sight glass turns crystal clear.</li>
+                  <li>Turn <strong>OFF</strong> pump. Turn multiport valve handle to <strong>"RINSE"</strong>.</li>
+                  <li>Turn <strong>ON</strong> pump; run rinse cycle for 1 minute to settle sand bed.</li>
+                  <li>Turn <strong>OFF</strong> pump. Reset multiport valve handle to <strong>"FILTER"</strong>. Open main return valves and turn <strong>ON</strong> pump.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Turnover Rate Standard:</strong> Run circulation pumps for a minimum of 12 - 16 hours daily to achieve a minimum of 3 complete water turnover cycles per day.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">When grid power cuts and the generator starts, pump control panels must feature a 3-minute time-delay relay to prevent electrical current surges from damaging pump motor windings during power transfer.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Filter backwashed whenever pressure rises 8 - 10 psi above baseline.</li>
+              <li>Multiport valve handle turned ONLY when pump is powered OFF.</li>
+              <li>Minimum 3 complete water turnovers executed daily.</li>
+              <li><strong>Target Metric:</strong> 100% operational pump recirculation; zero pump burnout failures.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-22 -->
+      <article id="sop-fm-22" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-22</code>
+            <span class="text-gray-900 font-semibold text-lg">Pool Equipment Inspection</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Systematically inspect all physical pool hardware, underwater LED lights, anti-entrapment main drain covers, handrails, ladders, and deck drainage fittings for safety and operational readiness.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Maintenance Technician:</strong> Performs daily and weekly mechanical and structural pool equipment checks.</li>
+              <li><strong>Duty Lifeguard / Pool Attendant:</strong> Reports loose handrails or damaged drain covers immediately.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Daily Safety Equipment Check:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Main Drain Anti-Entrapment Covers:</strong> Inspect main drain covers at pool bottom daily. Verify covers are securely fastened with stainless steel screws and undamaged. <strong>CRITICAL WARNING: Never open pool to guests if a main drain cover is loose or missing.</strong></li>
+                  <li><strong>Ladders & Handrails:</strong> Shake grab rails and entry ladders to verify mounting bolts are tight and stainless steel handles are rust-free.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Weekly Underwater Lighting & Electrical Inspection:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Test underwater LED lights; verify low-voltage transformer (12V AC) supply operates safely.</li>
+                  <li>Test Ground Fault Circuit Interrupters (GFCI) servicing all pool deck lighting and equipment circuits.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Skimmer Assembly Inspection:</strong> Check skimmer weir doors move freely; verify skimmer baskets are free of cracks or structural damage.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Coastal salt air causes tea-staining (surface flash rust) on 304/316 grade stainless steel ladders. Polish stainless steel pool rails weekly using specialized stainless steel cleaner and protective metal wax.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Main drain anti-entrapment covers verified intact daily.</li>
+              <li>Ladders and grab rails tight and rust-free.</li>
+              <li>Pool 12V lighting GFCI protection verified weekly.</li>
+              <li><strong>Target Metric:</strong> 0 entrapment or pool hardware safety incidents.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-23 -->
+      <article id="sop-fm-23" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-23</code>
+            <span class="text-gray-900 font-semibold text-lg">Pool Guest Rules & Signage</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Maintain clear, visible pool rule signage, inform guests of safety parameters, enforce swimwear policies, and regulate operating hours for guest safety and comfort.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Pool Attendant / Security Staff:</strong> Enforces pool rules politely and maintains clear signage displays.</li>
+              <li><strong>Front Office Staff:</strong> Informs guests of pool rules and operating hours during check-in orientation.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Mandatory Signage Display Verification:</strong> Ensure permanent, prominent weather-proof rule signs are displayed at all pool entry points, stating:
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Pool Operating Hours:</strong> 06:00 AM – 10:00 PM.</li>
+                  <li><strong>No Lifeguard on Duty:</strong> Swim at your own risk (Children under 12 must be accompanied by an adult).</li>
+                  <li><strong>Proper Swimwear Required:</strong> Nylon/Lycra swimsuits only. No cotton shirts, cut-offs, or denim allowed in pool.</li>
+                  <li><strong>Shower Before Entering:</strong> Mandatory foot bath and body shower before pool entry.</li>
+                  <li><strong>Prohibited Items:</strong> No glass containers, diving, running, pets, or smoking on pool deck.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Polite Rule Enforcement Protocol:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Approach non-compliant guests warmly: *"Good morning/afternoon! Welcome to the pool! For your safety and water cleanliness, may we kindly request you to use proper nylon swimwear / shower before entering?"*</li>
+                  <li>If guests bring glass bottles onto the deck, offer to transfer their beverages into plastic/acrylic resort tumblers immediately.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Local or provincial guests may occasionally attempt to enter the pool in cotton t-shirts. Staff must handle swimwear rules with exceptional diplomacy, offering resort swimwear options or explaining water filter clogging caused by loose cotton fibers.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Pool signage clearly visible, well-lit, and legible in English and Tagalog.</li>
+              <li>Zero glass bottles present on pool deck at any time.</li>
+              <li>Polite enforcement carried out with guest goodwill intact.</li>
+              <li><strong>Target Metric:</strong> 100% compliance with pool deck glass ban and swimwear standards.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-24 -->
+      <article id="sop-fm-24" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-24</code>
+            <span class="text-gray-900 font-semibold text-lg">Pool Safety & Lifesaving Equipment</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Inspect, stage, maintain, and ensure instant accessibility of all lifesaving equipment, first aid kits, and emergency communication links on the pool deck.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Pool Attendant / On-Duty Lifeguard:</strong> Inspects lifesaving equipment daily and responds to pool emergencies.</li>
+              <li><strong>Safety Officer / Supervisor:</strong> Conducts monthly safety audits and manages staff CPR recertifications.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Daily Lifesaving Equipment Audit (05:30 AM):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Ring Buoys (Life Rings):</strong> Verify minimum 2 units of 24-inch Coast Guard approved ring buoys mounted on deck walls, each attached to a 60-foot / 18-meter polypropylene throwing line.</li>
+                  <li><strong>Shepherd’s Hook:</strong> Verify 1 unit non-conductive fiberglass telescopic pole (16 ft / 5 m) with blunt-ended body hook mounted on wall.</li>
+                  <li><strong>Pool First Aid Box:</strong> Inspect wall-mounted first aid kit; ensure full stock of sterile gauze, bandages, antiseptic solution, CPR pocket mask, and medical shears.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Emergency Call Button / Intercom Test:</strong> Test the dedicated poolside Emergency Hotline Intercom connected directly to the Front Desk weekly.
+              </li>
+              <li>
+                <strong>Staff Training Standard:</strong> Ensure all Pool Attendants and Security Officers hold active First Aid and CPR / AED certification (recertified annually).
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Intense tropical sun degrades plastic life rings and ropes over time. Inspect throwing ropes monthly for sun-dry brittleness and replace ropes immediately if fibers fray.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Ring buoys and Shepherd's hook staged in clear view without obstructions.</li>
+              <li>First aid kit fully stocked and checked daily.</li>
+              <li>All pool staff hold active CPR / First Aid certifications.</li>
+              <li><strong>Target Metric:</strong> 100% functional readiness of lifesaving equipment 24/7.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-25 -->
+      <article id="sop-fm-25" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-red-700 font-bold text-sm mr-2">FM-25</code>
+            <span class="text-gray-900 font-semibold text-lg">Pool Accident & Drowning Response</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Provide an immediate, coordinated emergency response plan for aquatic distress, near-drowning, or major physical injury occurring in or around the swimming pool.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>First Responder (Pool Attendant / Security / Staff):</strong> Executes rescue, extracts victim, and initiates CPR.</li>
+              <li><strong>Front Office Manager / Duty Manager:</strong> Calls local emergency medical services (EMS), coordinates ambulance entry, and alerts General Manager.</li>
+              <li><strong>General Manager:</strong> Manages family communication, legal documentation, and incident reporting.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>RESCUE INITIATION (Seconds Count):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Spot swimmer in distress. Sound emergency whistle (3 long blasts) to alert nearby staff.</li>
+                  <li>Extend Shepherd’s Hook or throw Ring Buoy if victim is conscious.</li>
+                  <li>If victim is unconscious or submerged, enter water immediately, lift victim’s head above water, and extract onto pool deck maintaining neck/spine stabilization.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>ASSESSMENT & CPR (0 – 2 Minutes):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Place victim flat on back. Check responsiveness and breathing.</li>
+                  <li>If not breathing, assign specific staff member: "YOU! Call Front Office for Ambulance and bring the First Aid Kit and AED immediately!"</li>
+                  <li>Begin CPR immediately: 30 chest compressions followed by 2 rescue breaths (using CPR pocket mask). Continue cycle without interruption until victim revives or EMS arrives.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>EMERGENCY MEDICAL DISPATCH:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Front Office immediately dials Gamay Municipal Health Office / Emergency Rescue or Catarman Provincial Hospital Ambulance.</li>
+                  <li>Security clears front driveway for fast ambulance entry.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>POST-INCIDENT PROTOCOL:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Close pool area immediately; clear all guests from deck.</li>
+                  <li>Preserve scene; take high-resolution photographs of pool water clarity, chemical levels, and equipment.</li>
+                  <li>Complete formal Resort Medical Incident Report within 2 hours.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Gamay Health Center provides basic stabilization, but advanced trauma care requires transit to Catarman (1.5 - 2 hours by road). Continuous on-site CPR capabilities are vital during transport preparation.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Emergency whistle sounded and staff dispatched immediately upon incident discovery.</li>
+              <li>CPR initiated within 60 seconds of victim extraction.</li>
+              <li>Front Office dispatched ambulance without delay.</li>
+              <li><strong>Target Metric:</strong> Rapid rescue execution (&lt; 30 seconds water access time); 100% staff adherence to CPR protocol.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FM-26 -->
+      <article id="sop-fm-26" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FM-26</code>
+            <span class="text-gray-900 font-semibold text-lg">Swimming Pool Closing Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Systematically clear guests, execute evening chemical dosing, secure deck furniture, turn off water features, and lock access gates at the 10:00 PM closing time.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Pool Attendant / Night Shift Maintenance:</strong> Executes closing checklist, evening chemical dosing, and equipment shutdown.</li>
+              <li><strong>Duty Security Officer:</strong> Performs post-closing pool perimeter sweeps.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Closing Call (09:45 PM):</strong> Make polite announcement to remaining pool guests: "Good evening ladies and gentlemen! Our swimming pool will close in 15 minutes at 10:00 PM. Thank you for swimming with us!"
+              </li>
+              <li>
+                <strong>Guest Departure & Gate Closure (10:00 PM):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Ensure all guests exit pool area safely.</li>
+                  <li>Lock all pool deck access gates; post "Pool Closed" standee.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Night Chemical Treatment & Skimmer Service:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Perform evening water test; calculate required night chlorine maintenance dose or shock treatment.</li>
+                  <li>Add treatment chemicals directly to deep end with pump running.</li>
+                  <li>Empty skimmer baskets and clear pump strainer pot.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Deck & Lighting Power Shutdown:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Collapse and tie sun umbrellas securely to prevent wind damage.</li>
+                  <li>Turn off waterfall pumps, decorative fountains, and main pool deck floodlights. Maintain low-voltage security lighting.</li>
+                  <li>Verify pool pump timer is set to night filtration program.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Sudden night squalls in Northern Samar can launch open sun umbrellas across pool decks. <strong>MANDATORY:</strong> Always collapse, lower, and tie down all fabric sun umbrellas during the 10:00 PM closing routine.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Closing announcement delivered at 09:45 PM.</li>
+              <li>Sun umbrellas collapsed and secured.</li>
+              <li>Pool access gates locked securely at 10:00 PM.</li>
+              <li><strong>Target Metric:</strong> 100% compliance with night closure safety protocols and umbrella wind tie-downs.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Module Summary Table -->
+    <div class="mt-10 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <h3 class="text-xl font-bold text-indigo-900 mb-4 flex items-center">
+        <i class="fa-solid fa-table-list mr-2 text-indigo-600"></i>Module Summary Table
+      </h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm text-gray-700 border-collapse">
+          <thead>
+            <tr class="bg-indigo-100 text-indigo-900 border-b border-indigo-200">
+              <th class="p-3 font-semibold">SOP Code</th>
+              <th class="p-3 font-semibold">SOP Title</th>
+              <th class="p-3 font-semibold">Responsible Roles</th>
+              <th class="p-3 font-semibold">Key SLA / Target Metric</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-01</td><td class="p-3 font-medium">Daily Facilities Inspection</td><td class="p-3">Maintenance Supervisor / Duty Tech / GM</td><td class="p-3">Walkthrough &lt; 08:30 AM; water 40–60 psi; fuel ≥ 80%</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-02</td><td class="p-3 font-medium">Preventive Maintenance Program</td><td class="p-3">Chief Engineer / Maint Techs / FOM</td><td class="p-3">≥ 95% adherence; all 30 rooms cycled monthly; breakdown &lt; 2%</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-03</td><td class="p-3 font-medium">Corrective Maintenance & Work Orders</td><td class="p-3">Department Leads / Supervisor / Techs</td><td class="p-3">Urgent &lt; 15 min; High &lt; 2h; Normal &lt; 24h; 90% resolution SLA</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-04</td><td class="p-3 font-medium">Electrical System Inspection</td><td class="p-3">Licensed Electrician / Tech / Chief Eng</td><td class="p-3">0 fires; line voltage 198V–242V daily; 100% GFCI verified</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-05</td><td class="p-3 font-medium">Plumbing Inspection & Repair</td><td class="p-3">Duty Plumber / Tech / Exec HK</td><td class="p-3">Hot water 45°C–50°C &lt; 45s; weekly grease trap; water loss &lt; 3%</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-06</td><td class="p-3 font-medium">Air-Conditioning Maintenance</td><td class="p-3">HVAC Tech / Maintenance Supervisor</td><td class="p-3">Filters cleaned every 14 days; ΔT ≥ 8°C; 0 in-room leaks</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-07</td><td class="p-3 font-medium">Water Supply & Pump System</td><td class="p-3">Duty Tech / Chief Engineer</td><td class="p-3">Cistern volume ≥ 75%; residual chlorine 0.5–1.5 ppm; monthly DOH lab test</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-amber-700">SOP-FM-08</td><td class="p-3 font-medium">Generator & Backup Power Procedure</td><td class="p-3">Duty Tech / Generator Operator / Chief Eng</td><td class="p-3">Load transfer &lt; 15s; fuel ≥ 80% (500L reserve); 100% outage reliability</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-09</td><td class="p-3 font-medium">Solar Power & Energy System Monitoring</td><td class="p-3">Solar Tech / Chief Engineer</td><td class="p-3">Wash every 14 days; daily kWh logged; system yield ≥ 90%</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-10</td><td class="p-3 font-medium">Lighting Inspection</td><td class="p-3">Duty Tech / Security Officer</td><td class="p-3">Nightly audit 06:00 PM; bulb fix &lt; 1h guest / &lt; 12h BOH; ≥ 99% uptime</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-11</td><td class="p-3 font-medium">Building & Structural Inspection</td><td class="p-3">Chief Engineer / General Manager</td><td class="p-3">Quarterly photo audit; 0 structural hazards; spalling sealed &lt; 30d</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-12</td><td class="p-3 font-medium">Roof & Gutter Inspection</td><td class="p-3">Maintenance Techs / Supervisor</td><td class="p-3">Safety lifelines 100%; gutters flushed monthly; pre-typhoon check &lt; 4h</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-13</td><td class="p-3 font-medium">Pest Control Coordination</td><td class="p-3">Maintenance Supervisor / Exec HK / Chef</td><td class="p-3">Bi-weekly thermal fogging; kitchen 100% pest-free; 0 complaints</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-14</td><td class="p-3 font-medium">Maintenance Tools & Equipment Control</td><td class="p-3">Engineering Storekeeper / Techs</td><td class="p-3">100% tools checked in/oiled daily; 0 tool loss; 0 tool injuries</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-15</td><td class="p-3 font-medium">Spare Parts Inventory</td><td class="p-3">Engineering Storekeeper / Chief Engineer</td><td class="p-3">Safety stock +30% remote buffer; stock logged to WO; 0 parts delay</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-16</td><td class="p-3 font-medium">Contractor Access & Maintenance Work</td><td class="p-3">Maintenance Supervisor / Security</td><td class="p-3">Hot work / LOTO permits signed; noise strictly 09:00–16:00; 0 accidents</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-17</td><td class="p-3 font-medium">Swimming Pool Opening Procedure</td><td class="p-3">Pool Attendant / Certified Pool Operator</td><td class="p-3">Bottom drain 100% visible; chlorine 1–3 ppm & pH 7.2–7.8 before 06:00 AM</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-18</td><td class="p-3 font-medium">Pool Water Testing</td><td class="p-3">Pool Attendant / Certified Pool Operator</td><td class="p-3">Water tested 3x daily (05:30, 12:00, 17:00); immediate closure if out of range</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-amber-700">SOP-FM-19</td><td class="p-3 font-medium">Pool Chemical Management</td><td class="p-3">Certified Pool Operator / Maint Supervisor</td><td class="p-3">PPE 100% worn; acid-to-water rule; chlorine & acid separated ≥ 3m</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-20</td><td class="p-3 font-medium">Pool Cleaning & Vacuuming</td><td class="p-3">Pool Attendant / Maintenance Tech</td><td class="p-3">Daily vacuuming &lt; 07:00 AM; scum tile line clean; 0 floor sand patches</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-21</td><td class="p-3 font-medium">Pool Filtration & Pump Operation</td><td class="p-3">Maintenance Tech / Certified Pool Operator</td><td class="p-3">Backwash at +8–10 psi over baseline; ≥ 3 water turnovers/day</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-22</td><td class="p-3 font-medium">Pool Equipment Inspection</td><td class="p-3">Maintenance Tech / Duty Lifeguard</td><td class="p-3">Anti-entrapment covers 100% verified daily; handrails tight; 12V GFCI safe</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-23</td><td class="p-3 font-medium">Pool Guest Rules & Signage</td><td class="p-3">Pool Attendant / Security / Front Office</td><td class="p-3">100% compliance with glass ban & nylon swimwear; signage in EN/TL</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-24</td><td class="p-3 font-medium">Pool Safety & Lifesaving Equipment</td><td class="p-3">Pool Attendant / Lifeguard / Safety Officer</td><td class="p-3">2 ring buoys + 60ft line; 16ft shepherd hook; annual CPR certs</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-red-700">SOP-FM-25</td><td class="p-3 font-medium">Pool Accident & Drowning Response</td><td class="p-3">First Responder / Duty Manager / GM</td><td class="p-3">Rescue &lt; 30s; CPR started &lt; 60s; EMS dispatched immediately</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FM-26</td><td class="p-3 font-medium">Swimming Pool Closing Procedure</td><td class="p-3">Pool Attendant / Night Tech / Security</td><td class="p-3">Closing call at 09:45 PM; umbrellas tied down; gates locked at 10:00 PM</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </main>
@@ -276,37 +1921,50 @@
 
   <script>
     function toggleSopDetails(header) {
-      const card = header.closest('.bg-white');
+      const card = header.closest('article');
+      if (!card) return;
+
       const details = card.querySelector('.sop-details');
+      const chevron = card.querySelector('.fa-chevron-down, .fa-chevron-up');
       const toggleBtn = card.querySelector('.toggle-btn');
-      
-      if (details.classList.contains('hidden')) {
-        details.classList.remove('hidden');
-        toggleBtn.classList.add('hidden');
-        header.innerHTML = `
-          <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">${header.querySelector('code').textContent}</code>
-            <span class="text-gray-900 font-semibold text-lg">${header.querySelector('span').textContent}</span>
-          </div>
-          <i class="fa-solid fa-chevron-up text-indigo-600 transform"></i>
-        `;
-      } else {
-        details.classList.add('hidden');
-        toggleBtn.classList.remove('hidden');
-        header.innerHTML = `
-          <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">${header.querySelector('code').textContent}</code>
-            <span class="text-gray-900 font-semibold text-lg">${header.querySelector('span').textContent}</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
-          </div>
-        `;
+
+      if (details) {
+        const isHidden = details.classList.contains('hidden');
+        if (isHidden) {
+          details.classList.remove('hidden');
+          if (chevron) chevron.classList.add('rotate-180');
+          if (toggleBtn) toggleBtn.textContent = '▲ Hide Details';
+        } else {
+          details.classList.add('hidden');
+          if (chevron) chevron.classList.remove('rotate-180');
+          if (toggleBtn) toggleBtn.textContent = '▼ Show Details';
+        }
       }
-    };
+    }
+
+    function jumpToSop(sopId) {
+      const card = document.getElementById(sopId);
+      if (!card) return;
+
+      const header = card.querySelector('.p-4.bg-indigo-50');
+      const details = card.querySelector('.sop-details');
+      
+      // Auto-expand card if collapsed
+      if (details && details.classList.contains('hidden')) {
+        toggleSopDetails(header);
+      }
+
+      // Smooth scroll into view
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Highlight target card temporarily
+      card.classList.add('ring-4', 'ring-indigo-400');
+      setTimeout(() => {
+        card.classList.remove('ring-4', 'ring-indigo-400');
+      }, 2000);
+    }
   </script>
 
 </body>
-</html>
 
+</html>

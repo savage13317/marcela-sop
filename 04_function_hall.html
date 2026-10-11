@@ -1,9 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 04: Function Hall & Events   - Marcela's Resort Hotel</title>
+  <title>Module 04: Function Hall & Events - Marcela's Resort Hotel</title>
   <link rel="manifest" href="/pwa/manifest.json">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -14,6 +15,7 @@
     }
   </script>
 </head>
+
 <body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
 
   <!-- Header -->
@@ -27,12 +29,12 @@
           <a href="/" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Home</a>
           <a href="01_front_office.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Front Office (FO)</a>
           <a href="02_housekeeping.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-broom mr-1"></i>Housekeeping (HK)</a>
-          <a href="03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Food & Beverage (FB)</a>
-          <a href="04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Function Hall (FH)</a>
-          <a href="05_facilities_pool.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition">Facilities & Pool (FM)</a>
+          <a href="03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-utensils mr-1"></i>Food & Beverage (FB)</a>
+          <a href="04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-glass-cheers mr-1"></i>Function Hall (FH)</a>
+          <a href="05_facilities_pool.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-wrench mr-1"></i>Facilities & Pool (FM)</a>
           <a href="06_safety_typhoon_final.html" class="px-4 py-2 bg-indigo-800 rounded text-red-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-shield-halved mr-1"></i>Safety (S)</a>
-          <a href="07_hr_admin.html" class="px-4 py-2 bg-indigo-800 rounded text-purple-300 hover:bg-indigo-600 transition">HR & Admin (HR)</a>
-          <a href="08_digital_maintenance.html" class="px-4 py-2 bg-indigo-800 rounded text-cyan-300 hover:bg-indigo-600 transition">Digital Systems (DS)</a>
+          <a href="07_hr_admin.html" class="px-4 py-2 bg-indigo-800 rounded text-purple-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-user-tie mr-1"></i>HR & Admin (HR)</a>
+          <a href="08_digital_maintenance.html" class="px-4 py-2 bg-indigo-800 rounded text-cyan-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-laptop-medical mr-1"></i>Digital Systems (DS)</a>
         </div>
       </div>
     </nav>
@@ -40,14 +42,14 @@
 
   <!-- Page Highlight Script -->
   <script>
-    (function() {
+    (function () {
       const currentPage = window.location.pathname.split('/').pop() || 'index.html';
       const navLinks = document.querySelectorAll('#moduleNav a');
-      
+
       navLinks.forEach(link => {
         link.classList.remove('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
         link.classList.add('bg-indigo-800', 'hover:bg-indigo-600');
-        
+
         if (link.getAttribute('href') === currentPage) {
           link.classList.add('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
           link.classList.remove('bg-indigo-800', 'hover:bg-indigo-600');
@@ -57,207 +59,1486 @@
   </script>
 
   <main class="flex-grow container mx-auto px-4 py-6">
-    
+
     <!-- Module Header -->
     <div class="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg shadow-sm p-6 mb-6 border-l-4 border-indigo-600">
-      <h1 class="text-3xl font-bold text-indigo-900 mb-2"><i class="fa-solid fa-user-tie mr-3"></i>Module 04: Function Hall & Events  </h1>
-      <p class="text-gray-700 text-base">SOPs for front desk operations, guest reservations, check-in/out procedures, and guest services[cite: 11]</p>
+      <h1 class="text-3xl font-bold text-indigo-900 mb-2"><i class="fa-solid fa-glass-cheers mr-3"></i>Module 04: Function Hall & Events</h1>
+      <p class="text-gray-700 text-base">Standard Operating Procedures for event reservations, client consultations, audio-visual technical staging, banquet catering, wedding coordination, and post-event turnaround.</p>
+      
+      <!-- Quick Jump Procedure Buttons -->
+      <div class="mt-4 pt-4 border-t border-indigo-200">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-800 mb-2 flex items-center">
+          <i class="fa-solid fa-bolt mr-1 text-indigo-600"></i>Quick Jump to Procedure:
+        </h3>
+        <div class="flex flex-wrap gap-1.5" id="quickNavButtons">
+          <button onclick="jumpToSop('sop-fh-01')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-01 Reservation</button>
+          <button onclick="jumpToSop('sop-fh-02')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-02 Inquiry</button>
+          <button onclick="jumpToSop('sop-fh-03')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-03 Proposal</button>
+          <button onclick="jumpToSop('sop-fh-04')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-04 Contract</button>
+          <button onclick="jumpToSop('sop-fh-05')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-05 Planning</button>
+          <button onclick="jumpToSop('sop-fh-06')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-06 Room Setup</button>
+          <button onclick="jumpToSop('sop-fh-07')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-07 Tables & Chairs</button>
+          <button onclick="jumpToSop('sop-fh-08')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-08 AV Setup</button>
+          <button onclick="jumpToSop('sop-fh-09')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-09 Registration</button>
+          <button onclick="jumpToSop('sop-fh-10')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-10 Catering</button>
+          <button onclick="jumpToSop('sop-fh-11')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-11 Suppliers</button>
+          <button onclick="jumpToSop('sop-fh-12')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-12 Wedding & Special</button>
+          <button onclick="jumpToSop('sop-fh-13')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-13 Corporate & Gov</button>
+          <button onclick="jumpToSop('sop-fh-14')" class="px-2.5 py-1 text-xs font-semibold bg-red-50 text-red-700 hover:bg-red-600 hover:text-white border border-red-200 rounded shadow-xs transition"><i class="fa-solid fa-triangle-exclamation mr-1"></i>FH-14 Cancellation</button>
+          <button onclick="jumpToSop('sop-fh-15')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-15 Billing</button>
+          <button onclick="jumpToSop('sop-fh-16')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-16 Inspection</button>
+          <button onclick="jumpToSop('sop-fh-17')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-17 Inventory</button>
+          <button onclick="jumpToSop('sop-fh-18')" class="px-2.5 py-1 text-xs font-semibold bg-amber-50 text-amber-800 hover:bg-amber-600 hover:text-white border border-amber-200 rounded shadow-xs transition"><i class="fa-solid fa-triangle-exclamation mr-1"></i>FH-18 Damage & Loss</button>
+          <button onclick="jumpToSop('sop-fh-19')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-19 Cleaning & Reset</button>
+          <button onclick="jumpToSop('sop-fh-20')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">FH-20 Feedback</button>
+        </div>
+      </div>
     </div>
 
-    <!-- SOP Cards -->
+    <!-- SOP Cards Container -->
     <div class="space-y-4" id="sop-container">
-      
-      <!-- SOP-FO-01 -->
-      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+
+      <!-- SOP-FH-01 -->
+      <article id="sop-fh-01" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">FO-01</code>
-            <span class="text-gray-900 font-semibold text-lg">Front Desk Opening Procedure</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-01</code>
+            <span class="text-gray-900 font-semibold text-lg">Function Hall Reservation</span>
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
           </div>
         </div>
         <div class="sop-details hidden p-4 space-y-3 border-t">
-          
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Establish operational readiness for the Front Desk prior to peak guest traffic, ensuring accounting accuracy, physical cleanliness, system synchronization, and local infrastructure preparedness for the day[cite: 11].</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Establish a structured, error-free procedure for receiving, recording, and holding function hall date reservations. This procedure applies to all event inquiries handled by Front Office and Events staff for weddings, birthdays, corporate meetings, government seminars, and private gatherings at Marcela’s Hotel & Resort.</p>
           </div>
-
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Front Office Associate</strong> (Morning Shift)[cite: 11]</li>
-              <li><strong>Duty Supervisor</strong>[cite: 11]</li>
+              <li><strong>Events Coordinator / Banquet Manager:</strong> Primary owner for log management, calendar verification, and tentative date blocking.</li>
+              <li><strong>Front Desk Agent (FDA):</strong> Receives walk-in or telephone inquiries during off-peak/night shifts and records initial reservation details.</li>
+              <li><strong>General Manager:</strong> Approves non-standard discounts, prolonged pencil bookings, or special multi-day function holds.</li>
             </ul>
           </div>
-
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <p><strong>Physical Readiness & Security:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Arrive 15 minutes before the scheduled shift (05:45 AM for a 06:00 AM start)[cite: 11].</li>
-                  <li>Unlock the main Front Office drawer/counter and inspect the lobby, reception desk, and guest seating areas for cleanliness and safety[cite: 11].</li>
-                  <li>Turn on lobby lights, air conditioning, and guest display screens[cite: 11].</li>
-                </ul>
+                <strong>Receive Inquiry:</strong> Greet the prospective client warmly. Gather basic details: target event date, event type, estimated guest count, preferred setup, and contact information.
               </li>
               <li>
-                <p><strong>System & Terminal Startup:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Power on the Property Management System (PMS) terminal, point-of-sale (POS) card terminals, and receipt printers[cite: 11].</li>
-                  <li>Log into the PMS using personal staff credentials[cite: 11].</li>
-                </ul>
+                <strong>Check Availability:</strong> Cross-check the requested date and time slot against the Master Events Calendar (Digital PMS & Physical Events Logbook). Ensure adequate buffer time (3 hours before and 2 hours after) for cleaning, setup, and teardown.
               </li>
               <li>
-                <p><strong>Cash Float Verification:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Retrieve the shift cash drawer/float from the Front Office safe in the presence of the outgoing Night Auditor or Duty Supervisor[cite: 11].</li>
-                  <li>Count and verify the standard opening float (â‚±10,000 in mixed denominations)[cite: 11].</li>
-                  <li>Sign the Cash Float Logbook detailing denomination counts and variance notes (if any)[cite: 11].</li>
-                </ul>
+                <strong>Log Pencil Booking:</strong> If the slot is available, log a "Pencil Booking" status. Note the client's name, contact details, proposed event date, and temporary holding expiration date (maximum 7 calendar days).
               </li>
               <li>
-                <p><strong>Information Review & Handover Audit:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Review the Night Audit Handover Log, unhandled guest requests from the previous night, and pending maintenance tickets[cite: 11].</li>
-                  <li>Print or generate digital daily reports: Arrivals List, Departures List, In-House Guest List, and Housekeeping Status Report[cite: 11].</li>
-                </ul>
+                <strong>Issue Reservation Hold Notice:</strong> Send an SMS or Email confirmation to the client stating that the date is temporarily held for 7 days pending contract signing and deposit payment.
               </li>
               <li>
-                <p><strong>Local Infrastructure & Power Check:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Verify grid power status (SAMELCO I). Confirm that the Automatic Transfer Switch (ATS) and standby generator unit are set to auto-start mode[cite: 11].</li>
-                  <li>Check local internet connectivity (primary and backup satellite/LTE connections) and test landlines[cite: 11].</li>
-                </ul>
+                <strong>Manage Expiration:</strong> If no deposit is received by Day 7, contact the client once for confirmation. If no response or commitment is made within 24 hours, release the date hold and update the Master Events Calendar.
+              </li>
+              <li>
+                <strong>Confirm Booking:</strong> Upon receipt of the contract and required 50% initial deposit, convert the booking status from "Pencil Booked" to "Firm Booking" in both digital and physical logs.
               </li>
             </ol>
           </div>
-
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
-            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Given Gamay's coastal provincial location, morning high humidity can affect electronic terminals. Ensure counter surfaces and card reader terminals are wiped dry. Keep physical backup printouts of daily arrival lists in the emergency binder to handle potential local grid power interruptions or internet lag[cite: 11].</p>
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Pay close attention to local Gamay municipal town fiesta dates (July), Provincial Samar events, and local school graduation seasons (March–May) which create high demand for the Function Hall. Inform clients during initial booking about the resort’s 100% generator backup capability to reassure them regarding local NORSAMELCO power supply stability in Northern Samar.</p>
           </div>
-
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
-            <ul class="space-y-1 text-gray-700 text-sm">
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-1" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-1" class="cursor-pointer select-none">Cash float counted, verified, and logged by 06:00 AM[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-2" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-2" class="cursor-pointer select-none">Daily arrival/departure/in-house reports printed/saved[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo01-3" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo01-3" class="cursor-pointer select-none">Generator status and internet connectivity verified[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2 font-semibold text-green-700">
-                Front desk and lobby neatness score: 100%[cite: 11].
-              </li>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Date logged accurately in both Digital PMS and Physical Events Logbook.</li>
+              <li>3-hour ingress/egress buffer strictly applied between consecutive events.</li>
+              <li>Pencil booking release policy (7 days) strictly enforced.</li>
+              <li><strong>Target Metric:</strong> 0% double-booking rate; 100% client notification before releasing tentative dates.</li>
             </ul>
           </div>
-
         </div>
       </article>
 
-      <!-- SOP-FO-02 -->
-      <article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
+      <!-- SOP-FH-02 -->
+      <article id="sop-fh-02" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">FO-02</code>
-            <span class="text-gray-900 font-semibold text-lg">Guest Reservation Procedure</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-02</code>
+            <span class="text-gray-900 font-semibold text-lg">Event Inquiry & Client Coordination</span>
           </div>
           <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
           </div>
         </div>
         <div class="sop-details hidden p-4 space-y-3 border-t">
-          
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Standardize intake for direct and indirect room bookings across telephone, walk-in inquiries, messaging platforms, and online travel agencies (OTAs) while optimizing room yield and rate integrity[cite: 11].</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Provide a standardized process for conducting client walkthroughs, determining exact event requirements, and offering personalized event options tailored to provincial and corporate client preferences.</p>
           </div>
-
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Reservations Clerk</strong>[cite: 11]</li>
-              <li><strong>Front Office Associate</strong>[cite: 11]</li>
+              <li><strong>Events Coordinator:</strong> Lead contact for conducting site tours, answering inquiries, and gathering requirements.</li>
+              <li><strong>F&B Supervisor:</strong> Consults on custom menu preferences and dietary needs.</li>
+              <li><strong>Head Chef:</strong> Consults on custom culinary requests and Waray local specialty inclusions.</li>
             </ul>
           </div>
-
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <p><strong>Inquiry Intake & Greetings:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Answer incoming calls within three (3) rings: "Warm greetings from Marcela's Resort Hotel Gamay! This is [Name], how may I assist your stay today?"[cite: 11]</li>
-                  <li>Capture caller details: full name, contact number, email, and preferred communication channel[cite: 11].</li>
+                <strong>Initial Engagement:</strong> Welcome the client at the Front Office or Events Office. Offer refreshments (iced tea or cold water).
+              </li>
+              <li>
+                <strong>Site Walkthrough:</strong> Escort the client to the Function Hall, pool area, and sample guest rooms if overnight accommodations are required. Point out air conditioning units, stage area, emergency exits, and restrooms.
+              </li>
+              <li>
+                <strong>Requirement Gathering:</strong> Complete the Event Inquiry Worksheet, recording:
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Event Title / Occasion</li>
+                  <li>Estimated Number of Attendees</li>
+                  <li>Budget Range</li>
+                  <li>Required Date & Time (Start & End)</li>
+                  <li>Preferred Seating Arrangement (Banquet, Classroom, Theater, Cocktail)</li>
+                  <li>Meal Requirements (Buffet, Plated, Snacks, Drinks)</li>
+                  <li>Audio-Visual Requirements (Microphones, Sound System, Projector)</li>
                 </ul>
               </li>
               <li>
-                <p><strong>Needs Analysis & Availability Verification:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Identify travel dates, number of guests, room preference, and special requirements[cite: 11].</li>
-                  <li>Check room availability on the PMS calendar for requested dates[cite: 11].</li>
-                </ul>
+                <strong>Provide Standard Package Sheets:</strong> Present pre-printed function packages (Weddings, Debuts, Seminars, Birthdays) with transparent pricing.
               </li>
               <li>
-                <p><strong>Rate Quote & Inventory Management:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Quote Published Rates, Seasonal Rates, or Corporate Rates following property structures[cite: 11].</li>
-                  <li>Detail inclusions clearly (breakfast allocation, pool access, taxes)[cite: 11].</li>
-                </ul>
-              </li>
-              <li>
-                <p><strong>Booking Capture in PMS:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Create a new reservation record in the PMS with complete guest data and booking source tags[cite: 11].</li>
-                </ul>
-              </li>
-              <li>
-                <p><strong>Payment Guarantee & Deposit Terms:</strong>[cite: 11]</p>
-                <ul class="list-disc list-inside mt-2 text-gray-700 text-xs bg-white p-2 rounded space-y-1">
-                  <li>Inform guest of deposit policy (50% initial deposit required within 48 hours for regular season; 100% advance payment for peak holidays)[cite: 11].</li>
-                  <li>Provide accepted options: Bank Transfer (BDO/Landbank), GCash, Maya, or Credit Card link[cite: 11].</li>
-                </ul>
+                <strong>Follow-Up:</strong> Send a written summary via Email or Messenger/Viber within 24 hours after the site tour.
               </li>
             </ol>
           </div>
-
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
-            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Guests traveling to Gamay often face travel delays due to weather conditions along the Pacific board, ferry crossing delays, or provincial road conditions. Always ask for expected modes of arrival to estimate realistic arrival times[cite: 11].</p>
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Greet clients with genuine local warmth ("Kamusta po/Maupay nga adlaw"). Ask if guests are traveling from neighboring towns (Lapinig, Mapanas, Palapag, Catarman) to coordinate vehicle parking spaces, shuttle coordination, or early room check-ins.</p>
           </div>
-
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
-            <ul class="space-y-1 text-gray-700 text-sm">
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo02-1" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo02-1" class="cursor-pointer select-none">100% accurate data entry into PMS (zero misspelled names or mismatched contact numbers)[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2">
-                <input type="checkbox" id="qc-fo02-2" class="mt-1 h-4 w-4 border-gray-300 rounded bg-white cursor-pointer" />
-                <label for="qc-fo02-2" class="cursor-pointer select-none">Payment terms clearly communicated and logged in reservation notes[cite: 11].</label>
-              </li>
-              <li class="flex items-start gap-2 font-semibold text-green-700">
-                Call answered within 3 rings[cite: 11].
-              </li>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Event Inquiry Worksheet fully filled out during or immediately after the meeting.</li>
+              <li>Function Hall air conditioning switched on 10 minutes prior to scheduled client site tour.</li>
+              <li>Formal proposal sent within 24 hours of initial consultation.</li>
+              <li><strong>Target Metric:</strong> 100% inquiry logged in CRM/PMS; response time &lt; 24 hours.</li>
             </ul>
           </div>
-
         </div>
       </article>
 
+      <!-- SOP-FH-03 -->
+      <article id="sop-fh-03" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-03</code>
+            <span class="text-gray-900 font-semibold text-lg">Event Proposal & Quotation</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Guide staff in calculating accurate, profitable, and transparent event quotations and issuing official proposals to clients for events hosted at Marcela’s Hotel & Resort.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Events Coordinator:</strong> Prepares the itemized quotation and formal proposal document.</li>
+              <li><strong>Finance / Cashier Manager:</strong> Reviews non-standard pricing, government tax exemptions, and payment terms.</li>
+              <li><strong>General Manager:</strong> Signs off on proposals exceeding PHP 100,000 or custom corporate packages.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Cost Calculation:</strong> Using the Event Inquiry Worksheet, calculate total charges based on:
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Function Hall Rental Rate (Base rate includes 4 hours with aircon, basic light/sound).</li>
+                  <li>Overtime Rate per hour (Hall + Aircon fees).</li>
+                  <li>Food & Beverage Cost per head × minimum guaranteed headcount.</li>
+                  <li>Special Setup / Decor / AV Equipment Rental fees.</li>
+                  <li>Room accommodation packages (if bundled).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Draft Proposal:</strong> Fill out the standardized Event Proposal Template, specifying:
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Itemized breakdown of rates (Venue, Food, AV, Inclusions).</li>
+                  <li>Payment milestones (50% deposit upon contract signing, 50% full balance 7 days before the event).</li>
+                  <li>Included amenities (e.g., free use of pool for 5 VIPs, sound system, podium, parking).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Internal Review:</strong> Verify prices against current F&B menu costing sheets and peak/off-peak venue rate cards.
+              </li>
+              <li>
+                <strong>Dispatch:</strong> Send the formal proposal via Email/PDF or present an official printed copy in a folder to the client within 24 hours.
+              </li>
+              <li>
+                <strong>Validity Notice:</strong> State clearly on the proposal: "Quotation valid for 14 calendar days from date of issue."
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">For Department of Education (DepEd), LGU Gamay, or Provincial Government events, ensure quotations include complete BIR Tax breakdown (VAT/Non-VAT exemptions where applicable) and support Purchase Order (PO) / Agency Voucher terms.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Quotation uses current pricing matrix approved by Resort Management.</li>
+              <li>Payment terms, deposit rules, and overtime fees explicitly listed.</li>
+              <li>Tax calculations verified (BIR compliance).</li>
+              <li><strong>Target Metric:</strong> 0% pricing error rate in issued proposals; 100% proposals delivered within 24 hours.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FH-04 -->
+      <article id="sop-fh-04" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-04</code>
+            <span class="text-gray-900 font-semibold text-lg">Event Contract & Deposit</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Ensure legally binding agreements, formal terms of agreement, and clear financial commitments between Marcela’s Hotel & Resort and event clients prior to event execution.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Events Coordinator:</strong> Drafts contract, presents terms, and collects client signature.</li>
+              <li><strong>Front Office / Finance Cashier:</strong> Receives payments, issues Official Receipts (OR).</li>
+              <li><strong>General Manager:</strong> Executes signature on behalf of Marcela’s Hotel & Resort.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Contract Drafting:</strong> Populate the standard Event Service Agreement template with approved quotation details, agreed menu items, exact headcount, setup times, and breakdown of fees.
+              </li>
+              <li>
+                <strong>Reviewing Terms with Client:</strong> Walk the client through key clauses:
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Minimum Guaranteed Headcount Policy (billing will be based on guaranteed headcount or actual attendance, whichever is higher).</li>
+                  <li>Cancellation & Refund Policy.</li>
+                  <li>Damage / Loss Liability clause.</li>
+                  <li>Force Majeure clause (Typhoons, Natural Disasters, Power Disruptions).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Contract Signing:</strong> Require the client (or authorized corporate signatory) to sign all pages of the contract in duplicate.
+              </li>
+              <li>
+                <strong>Deposit Collection:</strong> Collect the 50% Non-Refundable Mobilization Deposit.
+              </li>
+              <li>
+                <strong>Issue Receipt:</strong> Issue an Official Receipt (OR) specifying: Client Name, Event Title, Event Date, Deposit Amount, and Remaining Balance.
+              </li>
+              <li>
+                <strong>File Documents:</strong> Place the signed contract and receipt copy into the Master Event File (Digital & Hardcopy).
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Accept cash, GCash, Bank Transfer (BDO/LBP), or Manager's Check. For regional LGU/Government clients, accept approved Purchase Orders (PO) accompanied by an official Letter of Commitment signed by the Municipal Treasurer/Mayor/Head of Agency.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Standard Event Contract signed on all pages by both parties.</li>
+              <li>50% deposit collected and Official Receipt issued.</li>
+              <li>Force Majeure clause clearly explained regarding typhoon warnings in Northern Samar.</li>
+              <li><strong>Target Metric:</strong> 100% events covered by signed contracts and verified deposits prior to event date.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FH-05 -->
+      <article id="sop-fh-05" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-05</code>
+            <span class="text-gray-900 font-semibold text-lg">Event Planning Checklist</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Maintain a synchronized operational timeline leading up to an event, ensuring seamless inter-departmental communication across Front Office, Kitchen, Housekeeping, and Engineering.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Events Coordinator:</strong> Tracks execution milestones and distributes Event Orders.</li>
+              <li><strong>Head Chef:</strong> Plans food purchasing and kitchen staging.</li>
+              <li><strong>Executive Housekeeper:</strong> Schedules deep cleaning and linen prep.</li>
+              <li><strong>Chief Engineer / Maintenance Technician:</strong> Conducts AV, AC, and generator readiness checks.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Issue Banquet Event Order (BEO):</strong> At least 14 days prior to the event, generate and distribute the official BEO to all department heads.
+              </li>
+              <li>
+                <strong>30-Day Milestone Check:</strong> Confirm event program outline, color themes, and special vendor requests.
+              </li>
+              <li>
+                <strong>14-Day Milestone Check:</strong> Reconfirm estimated headcount, finalize F&B menu choices, confirm guest accommodation counts.
+              </li>
+              <li>
+                <strong>7-Day Milestone Check:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Collect final 50% payment balance.</li>
+                  <li>Lock in Final Guaranteed Headcount.</li>
+                  <li>Conduct inter-departmental BEO Briefing Meeting.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>2-Day Milestone Check:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Kitchen completes raw material procurement (seafood, meats, fresh produce).</li>
+                  <li>Housekeeping prepares linens, chair covers, and table skirts.</li>
+                  <li>Maintenance inspects AC, lighting, backup generator, and sound systems.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Day of Event (4 Hours Before):</strong> Execute physical hall setup, test AV, align catering lines, and conduct final pre-event walkthrough.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Procurement of specialized items (decorations, sound gear, specific beverages, imported cheeses/meats) from Catarman or Tacloban requires at least 5 to 7 days advance ordering due to provincial transit schedules.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>BEO distributed to all department heads 14 days in advance.</li>
+              <li>Final headcount locked 7 days prior.</li>
+              <li>Pre-event briefing conducted 48 hours before event start.</li>
+              <li><strong>Target Metric:</strong> 100% operational readiness 2 hours prior to event scheduled start time.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FH-06 -->
+      <article id="sop-fh-06" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-06</code>
+            <span class="text-gray-900 font-semibold text-lg">Function Room Setup</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Outline physical staging, environment control, and safety protocols for preparing the Function Hall before guests arrive.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Banquet Setup Team / Housekeeping:</strong> Positions furniture, stage, podium, and decorations.</li>
+              <li><strong>Maintenance Staff:</strong> Controls air conditioning, primary power routing, and lighting fixtures.</li>
+              <li><strong>Events Coordinator:</strong> Inspects final floor plan execution against approved BEO.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Pre-Setup Clearance:</strong> Ensure Function Hall floor is thoroughly swept, mopped, and sanitized by Housekeeping before moving furniture.
+              </li>
+              <li>
+                <strong>Floor Plan Execution:</strong> Align tables, chairs, stage, registration desk, buffet station, and gift tables according to the approved layout diagram in the BEO.
+              </li>
+              <li>
+                <strong>Safety & Ingress/Egress Verification:</strong> Maintain a minimum main aisle width of 1.5 meters and unobstructed 1.2-meter clearance to all emergency exits and fire extinguishers.
+              </li>
+              <li>
+                <strong>Environment & Temperature Control:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Switch on air conditioning units 1 hour prior to event start to pre-cool the hall to 21°C - 23°C.</li>
+                  <li>Verify all ceiling lights, wall sconces, and accent lighting are fully functional.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Restroom Verification:</strong> Ensure dedicated Function Hall restrooms are scrubbed, equipped with tissue, hand soap, hand towels, and trash bins.
+              </li>
+              <li>
+                <strong>Final Sign-off:</strong> Events Coordinator inspects layout against BEO and signs the Pre-Event Setup Checklist.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Northern Samar’s high ambient humidity requires pre-cooling the hall well in advance. Keep all double doors tightly closed during setup to prevent condensation on tiled floors, which creates slip hazards.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Layout matches approved BEO layout diagram.</li>
+              <li>All emergency exits clear and unblocked.</li>
+              <li>Temperature locked at 21°C - 23°C 1 hour prior to guest arrival.</li>
+              <li><strong>Target Metric:</strong> Hall setup completed 2 hours before client arrival time.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FH-07 -->
+      <article id="sop-fh-07" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-07</code>
+            <span class="text-gray-900 font-semibold text-lg">Table & Chair Arrangement</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Ensure uniform, visually appealing, and ergonomically correct table and chair setups for various event formats.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Banquet Captain:</strong> Oversees table spacing, linen placement, and chair alignment.</li>
+              <li><strong>Banquet Housemen:</strong> Handles heavy lifting, table/chair positioning, and skirting.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Layout Selections:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Banquet Style (Round Tables):</strong> Space 10-seater round tables 1.8 meters apart from table edge to table edge to permit comfortable server movement.</li>
+                  <li><strong>Classroom Style:</strong> Space long tables 1 meter apart; allow 60 cm per seated participant.</li>
+                  <li><strong>Theater Style:</strong> Space chair rows 80 cm front-to-back; limit to 10 chairs per row block before inserting a 1-meter aisle.</li>
+                  <li><strong>U-Shape / Boardroom:</strong> Align rectangular tables seamlessly, using tablecloth clips for uniform appearance.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Linen Application:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect all tablecloths and chair covers for stains, tears, or wrinkles.</li>
+                  <li>Lay main tablecloths centered with equal drop on all sides (30 cm drop standard).</li>
+                  <li>Fit seat covers tightly and align bows/ribbons uniformly if requested.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Table Setting:</strong> Position centerpieces, table numbers, water glasses, and folded napkins according to service standards.
+              </li>
+              <li>
+                <strong>Chair Inspection:</strong> Ensure every chair is stable, wobble-free, clean, and free from structural defects.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Check chair linens carefully for storage dampness or humidity odors prior to dressing chairs. Keep backup dry linens staged in sealed plastic totes in the linen storage room.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Table spacing verified with tape measure or standard stride check.</li>
+              <li>Linens freshly pressed, stain-free, and aligned.</li>
+              <li>Chairs checked for stability and safety.</li>
+              <li><strong>Target Metric:</strong> 100% compliance with table spacing and linen visual cleanliness standards.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FH-08 -->
+      <article id="sop-fh-08" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-08</code>
+            <span class="text-gray-900 font-semibold text-lg">Audio-Visual Equipment Setup</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Establish reliable installation, testing, and operational safeguards for sound systems, wireless microphones, projectors, screens, and lighting gear.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>AV Technician / Maintenance Staff:</strong> Sets up gear, conducts sound checks, and remains on standby during events.</li>
+              <li><strong>Events Coordinator:</strong> Communicates audio-visual requirements from the client's program script.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Equipment Retrieval:</strong> Retrieve mixer console, amplifiers, speakers, wireless microphones, HDMI cables, projector, and projector screen from the secure IT/AV storage room.
+              </li>
+              <li>
+                <strong>Cable Management:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Run power and audio cables along walls or perimeter lines.</li>
+                  <li>Secure all floor-crossing cables with heavy-duty rubber cable ramps or gaffer tape to prevent tripping hazards.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Sound Check Procedure:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Connect and test main speakers and monitors.</li>
+                  <li>Test wireless microphones: check battery levels (replace if &lt; 75%), eliminate feedback loops, adjust treble/bass/echo.</li>
+                  <li>Test audio auxiliary connection for client laptop/mobile background music playback.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Visual Check Procedure:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Set up projector/display screen. Align image centered without keystone distortion.</li>
+                  <li>Test client presentation files or videos via HDMI connection 2 hours prior to start.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Power Backup Routing:</strong> Plug core AV gear into designated uninterruptible power supply (UPS) units connected to the generator circuit.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Northern Samar experiences frequent grid voltage fluctuations. <strong>MANDATORY:</strong> All AV equipment MUST be plugged into automatic voltage regulators (AVR) and UPS units to prevent system reboots or damage during generator auto-transfer procedures.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>All floor cables taped down securely.</li>
+              <li>Fresh AA batteries loaded into wireless microphones; spare batteries staged.</li>
+              <li>AVR and UPS active on all AV circuits.</li>
+              <li><strong>Target Metric:</strong> 0% AV downtime during live client events; sound check completed 90 minutes prior to event.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FH-09 -->
+      <article id="sop-fh-09" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-09</code>
+            <span class="text-gray-900 font-semibold text-lg">Event Registration & Guest Reception</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Provide a welcoming, organized, and professional arrival experience for event attendees at the resort entrance and Function Hall foyer.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Event Receptionist / Guest Service Agent:</strong> Welcomes arriving guests, manages registration tables, and directs guest flow.</li>
+              <li><strong>Security Guard:</strong> Directs vehicle parking at the main gate and assists guests with umbrellas during inclement weather.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Foyer Reception Desk Setup:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Position registration table at the hall foyer entrance 1 hour prior to event start.</li>
+                  <li>Dress table with clean linen, registration sign-in books, pens, name tags, and welcome signage.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Directional Signage:</strong> Place professional acrylic directional standees at the resort lobby and pathway guiding guests toward the Function Hall.
+              </li>
+              <li>
+                <strong>Welcoming Guests:</strong> Greet arriving attendees warmly ("Good morning/afternoon, welcome to Marcela’s!").
+              </li>
+              <li>
+                <strong>Registration Execution:</strong> Assist guests with registration logbooks or digital QR check-in as specified by the event client.
+              </li>
+              <li>
+                <strong>Ushering:</strong> Direct guests into the main hall toward designated seating sections or welcome refreshment tables.
+              </li>
+              <li>
+                <strong>Coat / Luggage Assistance:</strong> Offer temporary secure holding at Front Office for large bags or luggage for guests traveling from distant towns.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Gamay experiences sudden severe downpours. Station security/reception staff at the drop-off area with large resort umbrellas and carpet runners to protect arriving guests and prevent slip hazard wet floors.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Directional signage placed at resort lobby and hall foyer 1 hour before event.</li>
+              <li>Registration table fully staffed 45 minutes before guest arrival.</li>
+              <li>Rain umbrellas and carpet runners staged at entrance.</li>
+              <li><strong>Target Metric:</strong> 100% guest greeting rate; zero congestion at hall entrance.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FH-10 -->
+      <article id="sop-fh-10" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-10</code>
+            <span class="text-gray-900 font-semibold text-lg">Catering for Events</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Govern buffet line staging, plated meal service, food temperature management, and hygiene standards for function hall events.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>F&B Supervisor / Banquet Captain:</strong> Manages buffet flow, server assignments, and food replenishment timing.</li>
+              <li><strong>Head Chef:</strong> Ensures food quality, presentation, portion control, and food safety standards.</li>
+              <li><strong>Banquet Servers:</strong> Handles service, water refilling, and clearing dirty dishes (bus-out).</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Buffet Line Staging:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Set up chafing dishes with gel fuel sternos 45 minutes prior to meal time.</li>
+                  <li>Fill chafing dish water pans with hot water to ensure rapid heating.</li>
+                  <li>Arrange food sequence logically: Salad/Soup → Rice → Main Courses (Pork/Beef/Poultry/Seafood/Vegetables) → Dessert Table → Beverage Station.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Food Temperature Control:</strong> Keep hot foods at ≥ 60°C and cold foods/desserts at ≤ 4°C.
+              </li>
+              <li>
+                <strong>Buffet Opening & Refilling:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Light sterno burners 20 minutes before meal service.</li>
+                  <li>Serve VIP/Head tables first if plated or escorted buffet service is specified in BEO.</li>
+                  <li>Monitor chafing dish levels; notify kitchen for refilling when a dish reaches 30% remaining capacity. Never let chafing dishes run dry.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Plate Cleansing & Bus-out:</strong> Quietly clear finished plates from guest tables from the right side. Do not stack plates higher than 4 dirty dishes in front of guests.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Ensure signature dishes (e.g., fresh coastal seafood, coconut milk preparations, local pork roast) are kept properly covered between serve cycles to protect against insects and heat loss in provincial open-air or air-conditioned settings.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Chafing dish temperatures verified before service (≥ 60°C).</li>
+              <li>Serving spoons and tongs positioned for each dish.</li>
+              <li>Buffet line replenished continuously before dishes hit 30% capacity.</li>
+              <li><strong>Target Metric:</strong> 0% food availability gaps during meal hours; 100% compliance with sanitation standards.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FH-11 -->
+      <article id="sop-fh-11" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-11</code>
+            <span class="text-gray-900 font-semibold text-lg">External Supplier & Event Contractor Coordination</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Manage third-party vendors (event stylists, florists, photo/video crews, external mobile sounds & lights) during ingress, execution, and egress to safeguard resort property.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Events Coordinator:</strong> Pre-approves contractor ingress passes and monitors setup timelines.</li>
+              <li><strong>Duty Security Guard:</strong> Checks contractor IDs, vehicle deliveries, and inspects gear during entry and exit.</li>
+              <li><strong>Maintenance Staff:</strong> Supervises electrical tapping and heavy decor mounting.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Pre-Event Supplier Registration:</strong> Collect contractor list, contact details, vehicle plate numbers, and equipment lists at least 3 days prior to event.
+              </li>
+              <li>
+                <strong>Ingress Protocol:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Issue Supplier Badges at the Security Gate upon presenting valid IDs.</li>
+                  <li>Inspect vehicles for prohibited items (flammables, hazardous chemicals, open flames).</li>
+                  <li>Direct supplier vehicles to designated loading dock area behind the Function Hall.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Facility Protection Rules:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Strictly forbid stapling, nailing, or painting on resort walls, ceilings, or wooden pillars.</li>
+                  <li>Require use of free-standing trusses, heavy masking tape, or zip ties for hanging decorations.</li>
+                  <li>Require electrical technician supervision for high-wattage external sound/light power taps.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Egress Protocol:</strong> Require external contractors to dismantle and remove all decor, backdrops, and gear within 2 hours post-event conclusion.
+              </li>
+              <li>
+                <strong>Post-Egress Inspection:</strong> Inspect hall walls, floors, and electrical outlets with contractor lead before issuing Security Gate Exit Clearance.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Suppliers coming from Catarman or Tacloban often arrive early morning or late night. Coordinate shift handovers so security and maintenance staff are ready to receive contractor vehicles outside standard business hours.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>All external suppliers issued badges and signed property rules acknowledgement.</li>
+              <li>No nails, staples, or damaging adhesives used on Function Hall structure.</li>
+              <li>Electrical loading calculated and approved by Maintenance prior to connection.</li>
+              <li><strong>Target Metric:</strong> 0% facility structural damage caused by third-party event contractors.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FH-12 -->
+      <article id="sop-fh-12" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-12</code>
+            <span class="text-gray-900 font-semibold text-lg">Wedding & Special Event Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Execute high-end social celebrations (weddings, debuts, milestone birthdays, anniversaries) with flawless coordination, etiquette, and hospitality.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Events Coordinator:</strong> Coordinates overall event timing with client’s private coordinator or emcee.</li>
+              <li><strong>Banquet Captain:</strong> Manages presidential table service, bridal toast, and cake cutting staging.</li>
+              <li><strong>Head Chef:</strong> Ensures specialized plating for presidential / VIP tables.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Pre-Event Briefing:</strong> Host a 15-minute briefing with banquet servers, bartenders, and AV technicians 2 hours before guest arrival. Review script flow (Grand Entrance, First Dance, Toast, Cake Cutting).
+              </li>
+              <li>
+                <strong>VIP Table Dedicated Service:</strong> Assign dedicated, senior banquet servers specifically to the Presidential / Head Table (1 server per 10 VIP guests).
+              </li>
+              <li>
+                <strong>Program Synchronization:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Grand Entrance:</strong> Dim main hall lights and activate spotlight/stage lights on cue.</li>
+                  <li><strong>Bridal Toast / Wine Service:</strong> Pre-pour sparkling wine/champagne in flutes and distribute to head tables 5 minutes before scheduled toast.</li>
+                  <li><strong>Cake Cutting Setup:</strong> Position wedding cake table in clear view of main cameras, with cake knife, plates, napkins, and wet wipes ready.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Gift & Card Handling:</strong> Ensure client’s gift table is positioned in a secure, high-visibility area. Remind client coordinators to assign a trusted relative to guard gifts and envelopes.
+              </li>
+              <li>
+                <strong>After-Party Control:</strong> Monitor alcoholic beverage consumption. Enforce resort quiet hours for outdoor areas after 10:00 PM while allowing enclosed hall music per contract.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Samar social events frequently host extended family unexpected walk-ins. Maintain an emergency reserve buffer (10% extra table setting capability and extra food capacity) agreed upon in the contract.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Dedicated VIP servers briefed on guest identities and special meal dietary needs.</li>
+              <li>Champagne flutes and cake cutting tools prepared and polished 1 hour ahead.</li>
+              <li>Sound/Light cues tested during pre-event briefing.</li>
+              <li><strong>Target Metric:</strong> 100% program sequence execution without operational delays.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FH-13 -->
+      <article id="sop-fh-13" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-13</code>
+            <span class="text-gray-900 font-semibold text-lg">Corporate & Government Event Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Standardize protocols for corporate conferences, workshops, and government (LGU/DepEd/National Agency) seminars held at Marcela’s Hotel & Resort.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Events Coordinator:</strong> Manages official protocol requirements, registration logistics, and billing documentation.</li>
+              <li><strong>AV Technician:</strong> Ensures reliable laptop connections, mic distribution, laser pointers, and presentation screens.</li>
+              <li><strong>Banquet Captain:</strong> Manages timely coffee break service and meal timing.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Protocol & Setup Verification:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Set up Philippine National Flag on the left side of the stage/podium for government events.</li>
+                  <li>Provide high-stand podium with resort branding, working gooseneck microphone, and bottled water/glass for speaker.</li>
+                  <li>Stage registration tables outside with attendance sign-in sheets.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Audio-Visual Staging:</strong> Test slide projector/LED TV, audio jack/HDMI cable, presenter clicker, and lapel/wireless mics 1 hour prior to start. Play neutral background music.
+              </li>
+              <li>
+                <strong>AM/PM Coffee Break Service:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Set up coffee/tea station at back of hall or foyer 15 minutes before scheduled break time.</li>
+                  <li>Maintain continuous supply of hot water, brewed coffee, creamer, sugar, and local snacks/pastries.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Document Support:</strong> Offer administrative assistance (photocopying, printing, Wi-Fi access vouchers) via Front Office for conference organizers.
+              </li>
+              <li>
+                <strong>Government Billing Documentation:</strong> Prepare Certificate of Appearance, Attendance Sheets, and itemized billing statements required for government disbursement vouchers.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Government agencies in Samar heavily require complete documentation (Certificate of Appearance, official OR, Tax Exemption certificates BIR Form 2307). Maintain a dedicated administrative folder for fast release of these documents during post-event checkout.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Philippine Flag and podium staged according to government protocol.</li>
+              <li>AM/PM snacks and coffee stations fully set up 15 minutes prior to scheduled break.</li>
+              <li>Government billing folder and Certificate of Appearance pre-printed.</li>
+              <li><strong>Target Metric:</strong> 100% compliance with official protocol and billing documentation standards.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FH-14 -->
+      <article id="sop-fh-14" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-red-700 font-bold text-sm mr-2">FH-14</code>
+            <span class="text-gray-900 font-semibold text-lg">Event Change & Cancellation Procedure</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Provide clear guidelines for managing event date modifications, scope downscaling, or cancellations caused by client requests or severe weather force majeure events.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Events Coordinator:</strong> Processes client requests, issues change orders, and recalculates fees.</li>
+              <li><strong>General Manager:</strong> Approves deposit transfers or fee waivers for force majeure cancellations.</li>
+              <li><strong>Finance Manager:</strong> Handles credit memos or refund processing.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Client Request Receipt:</strong> Require client to submit a formal written request (Email, Letter, or Signed Cancellation Form) for any date change or cancellation.
+              </li>
+              <li>
+                <strong>Standard Cancellation Fee Matrix Evaluation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>&gt; 30 Days prior to event:</strong> Full deposit retained as consumable credit valid for 6 months, OR refunded minus 20% administrative fee.</li>
+                  <li><strong>15 - 30 Days prior:</strong> 50% deposit forfeited.</li>
+                  <li><strong>&lt; 14 Days prior:</strong> 100% deposit forfeited.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Force Majeure Protocol (Typhoons / Natural Disasters):</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>If PAGASA issues Typhoon Signal No. 2 or higher for Northern Samar, or severe sea/road blockages occur:</li>
+                  <li>Waive all cancellation and rebooking penalty fees.</li>
+                  <li>Transfer 100% of paid funds as credit toward a rebooked date within 12 months.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Date Modification Processing:</strong> Issue an Event Modification Notice detailing the new date, updated headcount, revised menu, and any additional fees. Both parties must sign.
+              </li>
+              <li>
+                <strong>Master Calendar Update:</strong> Immediately update the Digital PMS and physical Master Events Logbook to release or rebook the function hall dates.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Northern Samar is situated directly on the typhoon path. Management must maintain a compassionate, flexible rebooking policy during typhoon emergencies to preserve community goodwill and resort reputation.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Cancellation request received in writing.</li>
+              <li>Force Majeure conditions verified against official PAGASA bulletins.</li>
+              <li>Master Calendar updated immediately to open cancelled dates for new bookings.</li>
+              <li><strong>Target Metric:</strong> 100% written documentation for cancellations/date shifts; zero client billing disputes.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FH-15 -->
+      <article id="sop-fh-15" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-15</code>
+            <span class="text-gray-900 font-semibold text-lg">Event Billing & Settlement</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Ensure accurate reconciliation of all event charges, incidental costs, extra headcount, and overtime fees prior to final client checkout settlement.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Banquet Captain:</strong> Logs actual headcount, overtime hours, extra food orders, and corkage charges on the Event Service Checklist.</li>
+              <li><strong>Front Office Cashier:</strong> Compiles final folio, applies advance deposits, and collects balance settlement.</li>
+              <li><strong>Events Coordinator:</strong> Reviews final billing statement with the client lead.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Mid-Event Tracking:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Banquet Captain logs actual headcounts entering the hall using hand tally counters.</li>
+                  <li>Record exact event start and end times to calculate hall overtime (charged per hour beyond contract hours).</li>
+                  <li>Record extra beverage orders, corkage items (outside food/drinks brought in), or broken items.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Folio Compilation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>FO Cashier pulls base contract total.</li>
+                  <li>Add extra headcount charges (if actual exceeds guaranteed count).</li>
+                  <li>Add overtime fees, extra AV charges, and incidental consumption.</li>
+                  <li>Deduct pre-paid advance deposits (50% initial deposit and mid-payments).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Client Billing Review:</strong> Present itemized Master Event Invoice to the designated client representative in a private office before event departure.
+              </li>
+              <li>
+                <strong>Payment Collection:</strong> Collect remaining balance via Cash, Credit Card, GCash, or Bank Transfer before client leaves property.
+              </li>
+              <li>
+                <strong>Issue Official Receipt:</strong> Issue official receipt covering full final payment. File copy in Accounting Master File.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">For government events operating on Purchase Orders (PO), secure signed Disbursement Vouchers, Certificate of Satisfactory Service, and Billing Statement from the agency coordinator before departure. Settlement follow-up is routed to Accounting.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Actual headcount verified and signed off by client during event.</li>
+              <li>Overtime hours logged accurately to the nearest 30 minutes.</li>
+              <li>Final balance paid in full prior to client departure (non-PO clients).</li>
+              <li><strong>Target Metric:</strong> 100% zero-error billing folios; 0 uncollected balances for private events upon egress.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FH-16 -->
+      <article id="sop-fh-16" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-16</code>
+            <span class="text-gray-900 font-semibold text-lg">Function Hall Post-Event Inspection</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Systematically inspect the Function Hall, fixtures, equipment, and grounds immediately following an event to identify damages, missing resort items, or left-behind guest belongings.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Banquet Captain / Supervisor:</strong> Conducts immediate post-event hall walk-through with client representative.</li>
+              <li><strong>Executive Housekeeper:</strong> Inspects linens, chair covers, walls, and restrooms.</li>
+              <li><strong>Maintenance Technician:</strong> Checks operational status of AV gear, AC units, and lights.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Joint Walkthrough:</strong> Invite the designated client representative to perform a brief joint inspection of the hall immediately after guests depart.
+              </li>
+              <li>
+                <strong>Physical Facility Checks:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspect walls, doors, windows, and floor tiles for scuffs, cracks, or deep stains.</li>
+                  <li>Check rest rooms for plumbing damage or clogged fixtures.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Equipment & Furniture Checks:</strong> Verify table and chair counts; check for broken furniture joints or scorched linens.
+              </li>
+              <li>
+                <strong>Left-Behind Guest Property Search:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Search under tables, stage areas, registration desk, and restrooms for forgotten personal items (phones, wallets, gifts, attire).</li>
+                  <li>Log any found items immediately in the Lost & Found Register per SOP-HK-20.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Sign Inspection Clearance Form:</strong> Both Banquet Captain and Client Representative sign the Post-Event Inspection Clearance. If damage is found, document with photographs.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Events in provincial settings often end late at night. Ensure adequate outdoor perimeter lighting is switched on during post-event inspections and contractor teardowns to prevent accidents or unrecorded property removal.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Joint inspection completed within 30 minutes of event conclusion.</li>
+              <li>Left-behind items registered in Lost & Found immediately.</li>
+              <li>Clearance form signed by both client and resort representative.</li>
+              <li><strong>Target Metric:</strong> 100% post-event inspections completed and documented.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FH-17 -->
+      <article id="sop-fh-17" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-17</code>
+            <span class="text-gray-900 font-semibold text-lg">Equipment Inventory After Event</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Audit, count, and secure all resort-owned equipment (AV gear, chinaware, glassware, cutlery, tables, chairs, linens) immediately following event conclusion.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Banquet Supervisor:</strong> Conducts physical count of table service items and furniture.</li>
+              <li><strong>AV Technician:</strong> Disconnects, tests, counts, and secures all electronic gear in storage.</li>
+              <li><strong>Storekeeper / Housekeeping:</strong> Recovers, counts, and sorts all soiled linens for laundry.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>AV Equipment Breakdown & Audit:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Turn off all amplifiers and projectors before unplugging.</li>
+                  <li>Coil cables properly without tight bending or kinking.</li>
+                  <li>Count microphones (verify 2 wireless, 2 wired mics, receivers, remotes, HDMI cables, adapters).</li>
+                  <li>Lock all AV gear in the AV Storage Room.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Banquet Service Equipment Count:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Count all chafing dishes, serving spoons, water pitchers, and tray stands.</li>
+                  <li>Perform dishware inventory count: Plates, soup bowls, glasses, spoons, forks, knives. Compare against pre-event issue counts.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Furniture & Linen Count:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Count round/rectangular tables and banquet chairs.</li>
+                  <li>Count tablecloths, napkins, seat covers, and overlays. Bundle soiled linens into designated laundry bags.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Log Inventory Variations:</strong> Log any missing or broken items into the Event Equipment Reconciliation Sheet.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Gamay’s coastal atmosphere causes rapid oxidation on metal audio plugs and microphone terminals. Clean all metal connectors with electronic contact cleaner before locking gear in humidity-controlled storage cabinets.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>All AV gear accounted for and locked in storage.</li>
+              <li>Chinaware, glassware, and cutlery counted and discrepancies logged.</li>
+              <li>Soiled linens counted and turned over to Laundry.</li>
+              <li><strong>Target Metric:</strong> 100% inventory audit completed before end of shift.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FH-18 -->
+      <article id="sop-fh-18" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-amber-700 font-bold text-sm mr-2">FH-18</code>
+            <span class="text-gray-900 font-semibold text-lg">Event Damage & Loss Reporting</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Provide a transparent, fair procedure for assessing, documenting, and charging for physical property damage or loss occurring during an event.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Banquet Captain:</strong> Identifies and documents damages immediately during or after the event.</li>
+              <li><strong>Security Officer:</strong> Takes photos and files incident report for major property damage.</li>
+              <li><strong>Finance Manager:</strong> Calculates replacement costs and applies charges to client billing or security deposit.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Immediate Discovery:</strong> Upon discovering damaged resort property (e.g., broken glass windows, torn acoustic panels, scorched linens, smashed furniture, broken AV gear), notify the client representative immediately.
+              </li>
+              <li>
+                <strong>Photographic & Written Documentation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Take high-resolution photographs from multiple angles.</li>
+                  <li>Complete the Event Damage & Loss Incident Report, detailing item name, description of damage, location, time, and witness statements.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Cost Evaluation:</strong> Cross-reference damaged items against the resort’s standard Master Replacement Cost Sheet (approved by Management).
+              </li>
+              <li>
+                <strong>Client Notification & Billing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Present the photographic proof and Damage Report to the client representative.</li>
+                  <li>Deduct replacement fee from the client's Security Deposit, or add as an incidental charge to the final Master Invoice before checkout.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Repair Order Generation:</strong> Forward a copy of the report to Maintenance to initiate immediate repair or replacement purchasing.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Ensure replacement cost cards reflect local market replacement costs (including freight shipping to Northern Samar) without excessive markups to maintain positive local community relations.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>High-resolution photographic evidence captured for all damage claims.</li>
+              <li>Incident report signed by client representative where possible.</li>
+              <li>Charges matched strictly to approved Master Replacement Cost Sheet.</li>
+              <li><strong>Target Metric:</strong> 100% resolution of damage claims prior to client departure.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FH-19 -->
+      <article id="sop-fh-19" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-19</code>
+            <span class="text-gray-900 font-semibold text-lg">Function Hall Cleaning & Reset</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Systematically clean, sanitize, restore, and reset the Function Hall to standard ready status within 3 hours after an event ends.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Housekeeping Attendants:</strong> Performs sweeping, mopping, trash removal, and restroom sanitization.</li>
+              <li><strong>Banquet Housemen:</strong> Restores standard furniture layout and stores excess equipment.</li>
+              <li><strong>Executive Housekeeper:</strong> Inspects final cleanliness and releases hall status to "Ready".</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Trash Removal:</strong> Empty all trash bins into heavy-duty garbage bags. Remove catering food scraps, decor debris, and disposable items. Transport to garbage holding area.
+              </li>
+              <li>
+                <strong>Floor & Surface Cleaning:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Sweep hall floor completely to remove confetti, food particles, and dust.</li>
+                  <li>Damp mop entire floor area using commercial floor sanitizer and neutral cleaner.</li>
+                  <li>Spot clean walls, light switches, door handles, and glass doors.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Restroom Deep Cleaning:</strong> Scrub toilets, urinals, sinks, and mirrors. Mop restroom floors with disinfectant. Restock toilet paper, hand soap, and trash bags.
+              </li>
+              <li>
+                <strong>Standard Reset:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Arrange tables and chairs in standard default setup (e.g., 4 round banquet tables, standard perimeter alignment) or clear empty floor as directed by upcoming schedule.</li>
+                  <li>Cover tables with clean dust covers.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Power & AC Shutdown:</strong> Turn off all air conditioning units, stage lights, sound systems, and non-essential ambient lights. Lock all access doors.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">Tropical provincial climates attract ants, flies, and rodents rapidly if food scraps remain overnight. <strong>MANDATORY:</strong> All garbage and food waste MUST be removed from the Function Hall and surrounding foyer within 1 hour post-event.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Hall floors swept, mopped, and sanitized.</li>
+              <li>Restrooms scrubbed, disinfected, and restocked.</li>
+              <li>All food waste completely removed from premises.</li>
+              <li>Air conditioning, lights, and AV power switched off.</li>
+              <li><strong>Target Metric:</strong> Hall fully reset and locked within 3 hours post-event.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- SOP-FH-20 -->
+      <article id="sop-fh-20" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">FH-20</code>
+            <span class="text-gray-900 font-semibold text-lg">Post-Event Client Feedback</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective & Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Capture structured client feedback, evaluate guest satisfaction ratings, resolve service shortcomings, and collect online reviews to boost resort reputation.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Events Coordinator:</strong> Sends digital/printed feedback form and conducts follow-up call.</li>
+              <li><strong>General Manager:</strong> Reviews low feedback scores (≤ 3/5) and conducts service recovery.</li>
+              <li><strong>Marketing / IT Staff:</strong> Monitors Google Business Profile and social media reviews.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Feedback Request Dispatch:</strong> Send an online Event Satisfaction Survey link via SMS/Viber/Email, or present a printed copy to the client organizer within 24 hours post-event.
+              </li>
+              <li>
+                <strong>Survey Structure:</strong> Evaluate key service areas on a 1–5 scale:
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Event Planning & Coordination Experience</li>
+                  <li>Function Hall Setup & Ambiance</li>
+                  <li>Food Quality, Taste & Presentation</li>
+                  <li>Service Staff Courtesy & Efficiency</li>
+                  <li>Audio-Visual & Technical Quality</li>
+                  <li>Overall Value for Money</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Feedback Review:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li><strong>Score 4–5 Stars (Highly Satisfied):</strong> Send a thank-you message inviting the client to share their experience on Google Business Profile and Facebook.</li>
+                  <li><strong>Score 1–3 Stars (Dissatisfied):</strong> Immediately alert the General Manager and Events Coordinator.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Service Recovery Protocol:</strong> For ratings ≤ 3, the General Manager must personally call the client within 24 hours to hear concerns, apologize, and offer appropriate vouchers or discounts for future bookings.
+              </li>
+              <li>
+                <strong>Monthly Analysis:</strong> Aggregate feedback data monthly to identify operational improvement areas for Kitchen, F&B, Housekeeping, and Engineering.
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context (Gamay, Northern Samar)</h4>
+            <p class="text-gray-700 text-sm">In Gamay and Northern Samar, community word-of-mouth and personal relationships are critical to the resort's reputation. Beyond digital survey links, conduct a warm, personalized follow-up phone call or in-person greeting for local event organizers, town leaders, and wedding couples to ensure lasting patron loyalty and immediate service recovery.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Feedback survey sent within 24 hours post-event.</li>
+              <li>Low scores (≤ 3/5) escalated to General Manager immediately.</li>
+              <li>Follow-up service recovery completed within 24 hours for dissatisfied clients.</li>
+              <li><strong>Target Metric:</strong> ≥ 90% client satisfaction score; 100% response rate to feedback ≤ 3/5.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Module Summary Table -->
+    <div class="mt-10 bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+      <h3 class="text-xl font-bold text-indigo-900 mb-4 flex items-center">
+        <i class="fa-solid fa-table-list mr-2 text-indigo-600"></i>Module Summary Table
+      </h3>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm text-gray-700 border-collapse">
+          <thead>
+            <tr class="bg-indigo-100 text-indigo-900 border-b border-indigo-200">
+              <th class="p-3 font-semibold">SOP Code</th>
+              <th class="p-3 font-semibold">SOP Title</th>
+              <th class="p-3 font-semibold">Responsible Roles</th>
+              <th class="p-3 font-semibold">Key SLA / Target Metric</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-01</td><td class="p-3 font-medium">Function Hall Reservation</td><td class="p-3">Events Coordinator / FDA / GM</td><td class="p-3">0% double-booking; 100% notification before releasing 7-day holds</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-02</td><td class="p-3 font-medium">Event Inquiry & Client Coordination</td><td class="p-3">Events Coordinator / F&B / Head Chef</td><td class="p-3">100% inquiry logged in CRM/PMS; response time &lt; 24h</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-03</td><td class="p-3 font-medium">Event Proposal & Quotation</td><td class="p-3">Events Coordinator / Finance / GM</td><td class="p-3">0% pricing error rate; 100% proposals dispatched &lt; 24h</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-04</td><td class="p-3 font-medium">Event Contract & Deposit</td><td class="p-3">Events Coordinator / Cashier / GM</td><td class="p-3">100% events covered by signed contracts & 50% deposits</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-05</td><td class="p-3 font-medium">Event Planning Checklist</td><td class="p-3">Events Coordinator / Chef / HK / Maintenance</td><td class="p-3">100% operational readiness 2 hours prior to scheduled start</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-06</td><td class="p-3 font-medium">Function Room Setup</td><td class="p-3">Banquet Setup / Housekeeping / Maintenance</td><td class="p-3">Hall layout completed 2h prior; 21°C–23°C pre-cooled 1h ahead</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-07</td><td class="p-3 font-medium">Table & Chair Arrangement</td><td class="p-3">Banquet Captain / Banquet Housemen</td><td class="p-3">100% spacing compliance (1.8m banquet / 1m classroom)</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-08</td><td class="p-3 font-medium">Audio-Visual Equipment Setup</td><td class="p-3">AV Technician / Maintenance / IT</td><td class="p-3">0% AV downtime; sound check completed 90 min prior</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-09</td><td class="p-3 font-medium">Event Registration & Guest Reception</td><td class="p-3">Event Receptionist / FO / Security</td><td class="p-3">100% guest greeting rate; 0 congestion at foyer entrance</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-10</td><td class="p-3 font-medium">Catering for Events</td><td class="p-3">F&B Supervisor / Head Chef / Servers</td><td class="p-3">0% food gaps; food ≥ 60°C hot / ≤ 4°C cold; refill at 30% capacity</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-11</td><td class="p-3 font-medium">External Supplier & Contractor Coordination</td><td class="p-3">Events Coordinator / Security / Maintenance</td><td class="p-3">0% structural damage; 100% badged & inspection signed</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-12</td><td class="p-3 font-medium">Wedding & Special Event Procedure</td><td class="p-3">Events Coordinator / Banquet Captain / Chef</td><td class="p-3">100% program cue execution; dedicated VIP servers (1:10)</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-13</td><td class="p-3 font-medium">Corporate & Government Event Procedure</td><td class="p-3">Events Coordinator / AV Tech / Banquet Captain</td><td class="p-3">100% protocol compliance; Certificate of Appearance & PO ready</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-red-700">SOP-FH-14</td><td class="p-3 font-medium">Event Change & Cancellation Procedure</td><td class="p-3">Events Coordinator / GM / Finance Manager</td><td class="p-3">100% written change orders; 100% fee waiver during Signal No. 2+</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-15</td><td class="p-3 font-medium">Event Billing & Settlement</td><td class="p-3">Banquet Captain / FO Cashier / Events Coord</td><td class="p-3">100% zero-error billing folios; 0 uncollected balances upon egress</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-16</td><td class="p-3 font-medium">Function Hall Post-Event Inspection</td><td class="p-3">Banquet Captain / Housekeeping / Maintenance</td><td class="p-3">Joint walkthrough &lt; 30 min post-event; 100% clearance signed</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-17</td><td class="p-3 font-medium">Equipment Inventory After Event</td><td class="p-3">Banquet Supervisor / AV Tech / Storekeeper</td><td class="p-3">100% inventory audit completed before end of shift</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-amber-700">SOP-FH-18</td><td class="p-3 font-medium">Event Damage & Loss Reporting</td><td class="p-3">Banquet Captain / Security / Finance Manager</td><td class="p-3">100% photo evidence; charges matched to replacement cost sheet</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-19</td><td class="p-3 font-medium">Function Hall Cleaning & Reset</td><td class="p-3">Housekeeping / Banquet Housemen / Exec HK</td><td class="p-3">Hall fully reset and locked &lt; 3 hours post-event; waste out &lt; 1h</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">SOP-FH-20</td><td class="p-3 font-medium">Post-Event Client Feedback</td><td class="p-3">Events Coordinator / GM / Marketing & IT</td><td class="p-3">≥ 90% satisfaction; 100% recovery calls &lt; 24h for scores ≤ 3</td></tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
   </main>
@@ -276,37 +1557,50 @@
 
   <script>
     function toggleSopDetails(header) {
-      const card = header.closest('.bg-white');
+      const card = header.closest('article');
+      if (!card) return;
+
       const details = card.querySelector('.sop-details');
+      const chevron = card.querySelector('.fa-chevron-down, .fa-chevron-up');
       const toggleBtn = card.querySelector('.toggle-btn');
-      
-      if (details.classList.contains('hidden')) {
-        details.classList.remove('hidden');
-        toggleBtn.classList.add('hidden');
-        header.innerHTML = `
-          <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">${header.querySelector('code').textContent}</code>
-            <span class="text-gray-900 font-semibold text-lg">${header.querySelector('span').textContent}</span>
-          </div>
-          <i class="fa-solid fa-chevron-up text-indigo-600 transform"></i>
-        `;
-      } else {
-        details.classList.add('hidden');
-        toggleBtn.classList.remove('hidden');
-        header.innerHTML = `
-          <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">${header.querySelector('code').textContent}</code>
-            <span class="text-gray-900 font-semibold text-lg">${header.querySelector('span').textContent}</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <button onclick="event.stopPropagation()" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">â–¼ Show Details</button>
-            <i class="fa-solid fa-chevron-down text-indigo-600 transform group-hover:rotate-180 transition-transform"></i>
-          </div>
-        `;
+
+      if (details) {
+        const isHidden = details.classList.contains('hidden');
+        if (isHidden) {
+          details.classList.remove('hidden');
+          if (chevron) chevron.classList.add('rotate-180');
+          if (toggleBtn) toggleBtn.textContent = '▲ Hide Details';
+        } else {
+          details.classList.add('hidden');
+          if (chevron) chevron.classList.remove('rotate-180');
+          if (toggleBtn) toggleBtn.textContent = '▼ Show Details';
+        }
       }
-    };
+    }
+
+    function jumpToSop(sopId) {
+      const card = document.getElementById(sopId);
+      if (!card) return;
+
+      const header = card.querySelector('.p-4.bg-indigo-50');
+      const details = card.querySelector('.sop-details');
+      
+      // Auto-expand card if collapsed
+      if (details && details.classList.contains('hidden')) {
+        toggleSopDetails(header);
+      }
+
+      // Smooth scroll into view
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Highlight target card temporarily
+      card.classList.add('ring-4', 'ring-indigo-400');
+      setTimeout(() => {
+        card.classList.remove('ring-4', 'ring-indigo-400');
+      }, 2000);
+    }
   </script>
 
 </body>
-</html>
 
+</html>

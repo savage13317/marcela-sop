@@ -1,0 +1,155 @@
+/* Marcela's Resort Hotel - Custom Styles */
+
+/* Global Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* Module Card Styles */
+.module-card {
+    background: white;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border-left: 4px solid #06b6d4;
+}
+
+.module-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.module-card h3 {
+    color: #0891b2;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.module-card .department {
+    color: #64748b;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* SOP Sections */
+.sop-section {
+    padding: 1rem;
+    margin: 1rem 0;
+    border-radius: 6px;
+    border-left: 4px solid;
+}
+
+.sop-section.objective {
+    background-color: #f8fafc;
+    border-color: #06b6d4;
+}
+
+.sop-section.roles {
+    background-color: #eff6ff;
+    border-color: #3b82f6;
+}
+
+.sop-section.procedure {
+    background-color: #f0fdf4;
+    border-color: #22c55e;
+}
+
+/* Navigation */
+.nav-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #06b6d4;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Emergency Section */
+.emergency-section {
+    background: linear-gradient(135deg, #dc2626, #b91c1c);
+    color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.emergency-section a {
+    color: #fca5a5;
+    text-decoration: underline;
+}
+
+/* Staffing Table */
+.staffing-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.staffing-table th {
+    background-color: #06b6d4;
+    color: white;
+    padding: 1rem;
+    text-align: left;
+}
+
+.staffing-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+/* Loading Spinner */
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #06b6d4;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .module-card {
+        padding: 1rem;
+    }
+    
+    .module-card h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .nav-link::after {
+        display: none;
+    }
+    
+    .module-card {
+        break-inside: avoid;
+        margin-bottom: 2rem;
+    }
+}

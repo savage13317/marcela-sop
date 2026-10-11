@@ -253,11 +253,141 @@
     <script src="/src/js/search.js"></script>
     
     <script>
-        // Toggle mobile menu
-        function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        }
+        // Initialize search immediately when page loads
+        (function() {
+            'use strict';
+            
+            const searchInput = document.getElementById('search-input');
+            if (!searchInput) return;
+            
+            console.log('Marcela\'s Resort SOPs - Search initialized');
+            
+            // Comprehensive index of modules and key SOP items derived from source documentation
+            const searchIndex = [
+                {
+                    title: "Module 01: Front Office",
+                    category: "Front Office (FO)",
+                    url: "01_front_office.html",
+                    description: "Guest services, check-in/check-out procedures, reservations, cashiering, emergency communication",
+                    keywords: ["front office", "check-in", "check-out", "reservation", "concierge", "cashier", "vip", "audit"]
+                },
+                {
+                    title: "Module 02: Housekeeping & Laundry",
+                    category: "Housekeeping (HK)",
+                    url: "02_housekeeping.html",
+                    description: "Room cleaning standards, linen management, laundry operations, public areas, pest control",
+                    keywords: ["housekeeping", "laundry", "cleaning", "room cleaning", "linen", "towels", "minibar", "lost and found", "pest control"]
+                },
+                {
+                    title: "Module 03: Food & Beverage",
+                    category: "Food & Beverage (FB)",
+                    url: "03_food_beverage.html",
+                    description: "Restaurant operations, food safety, kitchen hygiene, dining service",
+                    keywords: ["food", "beverage", "restaurant", "dining", "kitchen", "safety", "bar"]
+                },
+                {
+                    title: "Module 04: Function Hall & Events",
+                    category: "Function Hall (FH)",
+                    url: "04_function_hall.html",
+                    description: "Event reservations, client consultations, audio-visual staging, banquet catering, weddings",
+                    keywords: ["function hall", "events", "banquet", "wedding", "reservation", "audio-visual", "catering"]
+                },
+                {
+                    title: "Module 05: Facilities & Pool",
+                    category: "Facilities & Pool (FM)",
+                    url: "05_facilities_pool.html",
+                    description: "Resort maintenance, swimming pool water treatment, engineering repairs",
+                    keywords: ["facilities", "pool", "maintenance", "pool treatment", "engineering", "repair", "water"]
+                },
+                {
+                    title: "Module 06: Safety, Security & Typhoon",
+                    category: "Safety & Emergency (S)",
+                    url: "06_safety_typhoon_final.html",
+                    description: "Typhoon preparedness, emergency evacuation, security protocols, disaster response",
+                    keywords: ["safety", "security", "typhoon", "emergency", "evacuation", "storm", "disaster"]
+                },
+                {
+                    title: "Module 07: HR & Administration",
+                    category: "HR & Admin (HR)",
+                    url: "07_hr_admin.html",
+                    description: "Human resources, staff code of conduct, personnel scheduling, administration",
+                    keywords: ["hr", "admin", "human resources", "staff", "personnel", "training", "policy"]
+                },
+                {
+                    title: "Module 08: Digital Systems",
+                    category: "Digital Systems (DS)",
+                    url: "08_digital_maintenance.html",
+                    description: "PMS operations, IT systems, Starlink/network backup, digital records management",
+                    keywords: ["digital", "systems", "it", "pms", "software", "network", "starlink", "records"]
+                }
+            ];
+            
+            // Create results dropdown container dynamically
+            const parentContainer = searchInput.parentElement;
+            if (!parentContainer) return;
+            
+            const resultsDropdown = document.createElement('div');
+            resultsDropdown.id = 'search-results-dropdown';
+            resultsDropdown.className = 'absolute left-0 right-0 mt-2 bg-white rounded-lg shadow-xl border border-gray-200 max-h-96 overflow-y-auto hidden z-50 text-left';
+            parentContainer.appendChild(resultsDropdown);
+            
+            // Event listener for typing
+            searchInput.addEventListener('input', function(e) {
+                const query = e.target.value.toLowerCase().trim();
+                const moduleCards = document.querySelectorAll('.module-card');
+                
+                if (query.length === 0) {
+                    resultsDropdown.classList.add('hidden');
+                    moduleCards.forEach(card => card.style.display = 'block');
+                    return;
+                }
+                
+                // Filter homepage module cards
+                moduleCards.forEach(card => {
+                    const cardText = card.textContent.toLowerCase();
+                    if (cardText.includes(query)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // Populate dropdown matches
+                const matches = searchIndex.filter(item => 
+                    item.title.toLowerCase().includes(query) || 
+                    item.description.toLowerCase().includes(query) ||
+                    item.keywords.some(kw => kw.includes(query))
+                );
+                
+                if (matches.length > 0) {
+                    resultsDropdown.innerHTML = matches.map(match => `
+                        <a href="${match.url}" class="block px-4 py-3 hover:bg-cyan-50 border-b border-gray-100 transition-colors">
+                            <div class="text-sm font-bold text-gray-900 flex items-center justify-between">
+                                <span>${match.title}</span>
+                                <span class="text-xs bg-cyan-100 text-cyan-800 px-2 py-0.5 rounded">${match.category}</span>
+                            </div>
+                            <p class="text-xs text-gray-600 mt-1 line-clamp-1">${match.description}</p>
+                        </a>
+                    `).join('');
+                    resultsDropdown.classList.remove('hidden');
+                } else {
+                    resultsDropdown.innerHTML = `
+                        <div class="px-4 py-3 text-sm text-gray-500 text-center">
+                            No matching SOP modules found for "${query}"
+                        </div>
+                    `;
+                    resultsDropdown.classList.remove('hidden');
+                }
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!parentContainer.contains(e.target)) {
+                    resultsDropdown.classList.add('hidden');
+                }
+            });
+        })();
+    </script>}
         
         // Initialize search when page loads
         document.addEventListener('DOMContentLoaded', function() {

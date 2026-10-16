@@ -1,0 +1,15 @@
+const fs = require('fs');
+const s = fs.readFileSync('staffing_matrix.html', 'utf8');
+const ids = [...s.matchAll(/id="(sop-st-\d+)"/g)].map(m => m[1]);
+console.log('card ids:', ids.join(','));
+const jumps = [...s.matchAll(/jumpToSop\('(sop-st-\d+)'/g)].map(m => m[1]);
+console.log('jump targets:', jumps.join(','));
+console.log('missing jump for any card:', ids.filter(x => !jumps.includes(x)).join(','));
+console.log('orphan jump (no card):', jumps.filter(x => !ids.includes(x)).join(','));
+console.log('cite artifacts:', (s.match(/\[cite/gi) || []).length);
+console.log('old ST- code refs:', (s.match(/ST-0\d/g) || []).length);
+console.log('POS- mentions:', (s.match(/POS-\d\d/g) || []).length);
+console.log('on-call pool section:', s.includes('On-Call Flexible Pool'));
+console.log('contracted section:', s.includes('Contracted &amp; Outsourced Services'));
+console.log('typhoon section:', s.includes('Typhoon Contingency'));
+console.log('hiring phases:', s.includes('Hiring Phases'));

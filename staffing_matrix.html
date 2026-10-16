@@ -60,7 +60,7 @@
     <!-- Module Header -->
     <div class="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg shadow-sm p-6 mb-6 border-l-4 border-indigo-600">
       <h1 class="text-3xl font-bold text-indigo-900 mb-2"><i class="fa-solid fa-diagram-project mr-3"></i>Staffing Matrix &amp; Organization Chart</h1>
-      <p class="text-gray-700 text-base">Authoritative map of every operational position at Marcela's Resort Hotel: who holds each role, who supervises whom, and the department each position reports to. Positions are grouped by the eight SOP modules and follow the General Manager → Department Head / Duty Supervisor → Associate hierarchy.</p>
+      <p class="text-gray-700 text-base">Authoritative map of every operational position at Marcela's Resort Hotel under the resort's Lean Cross-Functional Model: <strong>11 Regular Core Employees (POS-01 to POS-11)</strong>, a <strong>17–19 person On-Call Flexible Pool (FLX-01 to FLX-03)</strong>, and <strong>Contracted / Outsourced Services (FLX-04 and retainers)</strong>. Positions are grouped into four department clusters plus Admin/Finance, following the Owner → General Manager → Cluster Lead → Associate hierarchy. Every core employee performs secondary cross-functional duties during shift overlaps, low-occupancy periods, or peak event surges as assigned by management.</p>
 
       <!-- Organization Chart (text diagram) -->
       <div class="mt-4 bg-white rounded-lg shadow-sm p-5 border border-indigo-200">
@@ -68,16 +68,37 @@
           <i class="fa-solid fa-sitemap mr-1 text-indigo-600"></i>Organization Hierarchy
         </h3>
         <pre class="text-xs text-gray-700 whitespace-pre-wrap font-mono">
-General Manager (GM) — single internal authority for all departments
+Owner / Proprietor (external authority)
 │
-├─ Front Office ─────────── Duty Manager / FO Supervisor ── FO Associates, Reservations Clerk, Night Auditor
-├─ Housekeeping ─────────── HK Department Head ─────────── Room Attendants, Laundry, Public-Area Attendants
-├─ Food &amp; Beverage ─────── F&amp;B Department Head ───────── Executive Chef, Service Captains, Bar Crew
-├─ Function Hall ────────── Events Coordinator ─────────── Banquet Captain, AV Technician, Hall Crew
-├─ Facilities &amp; Pool ───── Engineering Lead ───────────── Pool Attendant, Maintenance Tech, Grounds Crew
-├─ Safety &amp; Security ───── Safety Officer ─────────────── Guard Shift Crew, Typhoon Response Team
-├─ HR &amp; Administration ─── HR Officer ─────────────────── Personnel Desk, Compliance Staff
-└─ Digital Systems ──────── IT Administrator ───────────── PMS Operator, Records &amp; Network Staff
+└─ POS-01 General Manager / Resort Manager — single internal authority
+   │
+   ├─ FRONT OFFICE &amp; NIGHT OPS (4 FTE)
+   │    ├─ POS-02 Operations &amp; Front Office Supervisor
+   │    │    ├─ POS-03 Guest Services / Reservations Officer
+   │    │    └─ POS-04 Night Auditor / Guest Ops (supervises FLX-04 security)
+   │    └─ On-Call FO Relief Pool (FLX-01/02) — 2 staff
+   │
+   ├─ HOUSEKEEPING &amp; LAUNDRY (3 FTE)
+   │    ├─ POS-05 Housekeeping &amp; Laundry Lead
+   │    │    ├─ POS-06 Room Attendant / Utility #1
+   │    │    └─ POS-07 Room Attendant / Utility #2
+   │    └─ On-Call HK / Laundry Relief (FLX-03) — 3–4 staff
+   │
+   ├─ FOOD &amp; BEVERAGE OPS (2 FTE)
+   │    ├─ POS-08 Cook / Kitchen Lead
+   │    │    └─ POS-09 Assistant Cook / Kitchen Steward
+   │    └─ On-Call F&amp;B, Banquet &amp; Bar Crew — 7–8 staff
+   │
+   ├─ FACILITIES &amp; SAFETY (1 FTE)
+   │    └─ POS-10 Maintenance &amp; Pool Technician — supervises external contractors
+   │
+   ├─ ADMIN, FINANCE &amp; PURCHASING (1 FTE)
+   │    └─ POS-11 Admin, Finance &amp; Purchasing Officer
+   │
+   └─ CONTRACTED / OUTSOURCED
+        ├─ Security Agency (FLX-04) — 24/7 guard service (Module 06)
+        ├─ External IT &amp; Network Specialist — retainer (Module 08)
+        └─ Specialized Event AV / Structural Contractors — on-demand
         </pre>
       </div>
 
@@ -87,15 +108,17 @@ General Manager (GM) — single internal authority for all departments
           <i class="fa-solid fa-bolt mr-1 text-indigo-600"></i>Quick Jump to Position:
         </h3>
         <div class="flex flex-wrap gap-1.5" id="quickNavButtons">
-          <button onclick="jumpToSop('sop-st-01')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-01 General Manager</button>
-          <button onclick="jumpToSop('sop-st-02')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-02 Duty Manager / FO</button>
-          <button onclick="jumpToSop('sop-st-03')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-03 Housekeeping Head</button>
-          <button onclick="jumpToSop('sop-st-04')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-04 F&amp;B Head</button>
-          <button onclick="jumpToSop('sop-st-05')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-05 Events Coordinator</button>
-          <button onclick="jumpToSop('sop-st-06')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-06 Engineering Lead</button>
-          <button onclick="jumpToSop('sop-st-07')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-07 Safety Officer</button>
-          <button onclick="jumpToSop('sop-st-08')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-08 HR Officer</button>
-          <button onclick="jumpToSop('sop-st-09')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-09 IT Administrator</button>
+          <button onclick="jumpToSop('sop-st-01')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">POS-01 General Manager</button>
+          <button onclick="jumpToSop('sop-st-02')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">POS-02 Ops &amp; FO Supervisor</button>
+          <button onclick="jumpToSop('sop-st-03')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">POS-03 Guest Services Officer</button>
+          <button onclick="jumpToSop('sop-st-04')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">POS-04 Night Auditor</button>
+          <button onclick="jumpToSop('sop-st-05')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">POS-05 HK &amp; Laundry Lead</button>
+          <button onclick="jumpToSop('sop-st-06')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">POS-06 Room Attendant #1</button>
+          <button onclick="jumpToSop('sop-st-07')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">POS-07 Room Attendant #2</button>
+          <button onclick="jumpToSop('sop-st-08')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">POS-08 Cook / Kitchen Lead</button>
+          <button onclick="jumpToSop('sop-st-09')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">POS-09 Asst Cook / Steward</button>
+          <button onclick="jumpToSop('sop-st-10')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">POS-10 Maintenance &amp; Pool Tech</button>
+          <button onclick="jumpToSop('sop-st-11')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">POS-11 Admin / Finance Officer</button>
         </div>
       </div>
     </div>
@@ -103,12 +126,12 @@ General Manager (GM) — single internal authority for all departments
     <!-- Position Cards Container -->
     <div class="space-y-4" id="sop-container">
 
-      <!-- ST-01 General Manager -->
+      <!-- POS-01 General Manager -->
       <article id="sop-st-01" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">ST-01</code>
-            <span class="text-gray-900 font-semibold text-lg">General Manager (GM)</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">POS-01</code>
+            <span class="text-gray-900 font-semibold text-lg">General Manager / Resort Manager</span>
           </div>
           <div class="flex items-center gap-2">
             <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
@@ -118,64 +141,71 @@ General Manager (GM) — single internal authority for all departments
         <div class="sop-details hidden p-4 space-y-3 border-t">
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Serves as the single internal authority for the entire resort. Holds final approval over hiring, promotion, discipline, emergency authorization, and inter-department grievances. Owns the master view of all eight SOP modules and is the top node of the organization chart.</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Single internal authority for the entire resort. Drives commercial sales, GOP targets, operational SOP compliance, and overall resort performance under the lean staffing framework. Top node of the organization chart; holds final approval over hiring, discipline, emergency authorization, and inter-department grievances.</p>
           </div>
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Reports to:</strong> Owner / Management Contract (external authority).</li>
-              <li><strong>Directly supervises:</strong> every Department Head and Duty Supervisor (ST-02 through ST-09).</li>
-              <li><strong>Final-appeal authority:</strong> unresolved grievances escalate to the GM after the immediate supervisor and Department Head steps (SOP-HR grievance chain).</li>
+              <li><strong>Reports to:</strong> Owner / Proprietor (external authority).</li>
+              <li><strong>Directly supervises:</strong> POS-02 (Ops &amp; FO Supervisor), POS-05 (HK &amp; Laundry Lead), POS-08 (Cook Lead), POS-10 (Maintenance Tech), POS-11 (Admin/Finance Officer).</li>
+              <li><strong>Final-appeal authority:</strong> unresolved grievances escalate to the GM after the immediate supervisor and cluster-lead steps.</li>
             </ul>
           </div>
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <strong>Human Resources &amp; Hiring:</strong>
+                <strong>Commercial &amp; Financial Governance:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Conducts the final interview for supervisory and head roles and approves all hiring offers (SOP-HR-01).</li>
-                  <li>Approves regularization, merit increases, and promotion proposals (SOP-HR evaluation cycle).</li>
+                  <li>Oversees corporate/government lead conversions, contract negotiations, event proposals, and function hall bookings (SOP-FH-01, SOP-FH-03, SOP-FH-04).</li>
+                  <li>Monitors monthly P&amp;L, authorizes operational expenses, reviews daily revenue reports (SOP-AD-09, SOP-AD-10).</li>
                 </ul>
               </li>
               <li>
-                <strong>Emergency &amp; Operations:</strong>
+                <strong>SOP Auditing &amp; Operational Governance:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Grants final approval for high-volume or emergency overtime authorization.</li>
-                  <li>Delivers the welcome address and articulates the resort vision/mission to new staff.</li>
+                  <li>Conducts daily walk-through inspections across Front Office, Housekeeping, F&amp;B, Facilities, and Pool areas (SOP-FM-01, SOP-HK-05, SOP-FB-12).</li>
+                  <li>Oversees recruitment, performance evaluations, disciplinary actions, and staff scheduling across core and on-call rosters (SOP-HR-01, SOP-HR-06, SOP-HR-11).</li>
                 </ul>
               </li>
               <li>
-                <strong>Discipline &amp; Review:</strong>
+                <strong>Disaster Incident Command:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Reviews panel findings and approves major disciplinary actions (suspension, termination).</li>
-                  <li>Acts as final internal appeal authority for unresolved grievances.</li>
+                  <li>Acts as Incident Commander during typhoon alerts, severe weather, power grid failures, and property emergencies (SOP-SS-14, SOP-SS-15, SOP-SS-21).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Secondary / Cross-Functional:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Intervenes personally during escalated guest complaints to secure service recovery (SOP-FO-11).</li>
+                  <li>Supports function hall registration, VIP reception, and front desk surges during major group arrivals (SOP-FH-09, SOP-FO-20).</li>
+                  <li>Coordinates with local government units (LGUs) and key vendors during contract renewals or license audits (SOP-AD-04, SOP-AD-12).</li>
                 </ul>
               </li>
             </ol>
           </div>
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
             <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm">At Gamay's coastal provincial site, the GM keeps a physical emergency binder (arrivals, departures, in-house lists, typhoon response) so decisions remain possible during grid-power or internet outages. The GM is the designated point of contact for SAMELCO load-shedding and Starlink/4G network failures.</p>
+            <p class="text-gray-700 text-sm">At Gamay's coastal provincial site, the GM keeps a physical emergency binder (arrivals, departures, in-house lists, typhoon response) so decisions remain possible during SAMELCO grid-power outages or internet lag. Designated point of contact for SAMELCO load-shedding and Starlink/4G network failures.</p>
           </div>
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li>Every supervisory hire carries a GM-signed approval memo.</li>
-              <li>Grievance chain never bypasses the GM for a final decision.</li>
-              <li>Emergency binder current and reachable within arm's reach of the office.</li>
-              <li>Headcount achievable in under 15 minutes during a crisis (SOP-FO-24).</li>
+              <li>Gross Operating Profit (GOP): monthly and annual revenue/profit targets realized.</li>
+              <li>Guest satisfaction rating ≥ 90% positive across online and on-site reviews.</li>
+              <li>Labor &amp; operational cost ratio within budget allocations.</li>
+              <li>SOP and safety checklist compliance pass rate ≥ 95%.</li>
             </ul>
           </div>
         </div>
       </article>
 
-      <!-- ST-02 Duty Manager / Front Office Supervisor -->
+      <!-- POS-02 Operations & Front Office Supervisor -->
       <article id="sop-st-02" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">ST-02</code>
-            <span class="text-gray-900 font-semibold text-lg">Duty Manager / Front Office Supervisor</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">POS-02</code>
+            <span class="text-gray-900 font-semibold text-lg">Operations &amp; Front Office Supervisor</span>
           </div>
           <div class="flex items-center gap-2">
             <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
@@ -185,38 +215,44 @@ General Manager (GM) — single internal authority for all departments
         <div class="sop-details hidden p-4 space-y-3 border-t">
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Runs the front desk shift and owns guest-facing operations end to end: reservations intake, check-in/out, cashiering, night audit, and emergency communication. The operational bridge between the GM and the Front Office associates.</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Directs daily Front Office operations, manages staff shift scheduling, and coordinates cross-departmental guest service delivery and flexible on-call roster activations under the resort's lean operational framework. Operational bridge between the GM and the Front Office associates.</p>
           </div>
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Reports to:</strong> General Manager (ST-01).</li>
-              <li><strong>Directly supervises:</strong> FO Associates, Reservations Clerk, Night Auditor.</li>
-              <li><strong>Peer heads:</strong> HK Head (ST-03), F&amp;B Head (ST-04) — coordinate on lost &amp; found and guest transfers.</li>
+              <li><strong>Reports to:</strong> General Manager (POS-01).</li>
+              <li><strong>Directly supervises:</strong> Guest Services Officer (POS-03), Night Auditor (POS-04), and the Flexible On-Call Pool (FLX-01 to FLX-03).</li>
+              <li><strong>Peer cluster leads:</strong> POS-05 (HK), POS-08 (F&amp;B) — coordinate on lost &amp; found, guest transfers, and event surges.</li>
             </ul>
           </div>
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <strong>Guest Cycle:</strong>
+                <strong>Front Office Operational Management:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Owns reservations intake, confirmation, guest check-in, walk-in settlement, and check-out (SOP-FO-02 to FO-14).</li>
-                  <li>Manages room assignment with zero double-allocations and access-control key handling (SOP-FO-07, FO-08).</li>
+                  <li>Oversees daily front desk workflows, guest check-in/check-out procedures, and reservation accuracy (SOP-FO-01, SOP-FO-04, SOP-FO-07, SOP-FO-14).</li>
+                  <li>Handles Level-2 guest complaints, complex service recoveries, and authorized room transfers (SOP-FO-11, SOP-FO-12).</li>
                 </ul>
               </li>
               <li>
-                <strong>Finance &amp; Audit:</strong>
+                <strong>Shift Scheduling &amp; Roster Activation:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Oversees cashiering, credit accounts, deposits/refunds, and no-show re-release (SOP-FO-15 to FO-18).</li>
-                  <li>Signs off the shift cash float and the Night Audit reconciliation (SOP-FO-21, FO-22).</li>
+                  <li>Prepares weekly staff shift schedules and monitors occupancy/event calendars to trigger on-call personnel (SOP-HR-05, SOP-HR-06).</li>
                 </ul>
               </li>
               <li>
-                <strong>Service Recovery &amp; Emergency:</strong>
+                <strong>Cashiering &amp; Shift Reconciliation:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Resolves guest complaints within the 30-minute SLA (SOP-FO-11).</li>
-                  <li>Runs emergency communication and headcount with the GM (SOP-FO-24).</li>
+                  <li>Conducts daily shift handovers, supervises front desk cashiering, and reviews end-of-shift revenue balancing (SOP-FO-15, SOP-FO-21, SOP-FO-22).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Secondary / Cross-Functional:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Assists with event guest reception and client coordination during function hall events (SOP-FH-06, SOP-FH-09).</li>
+                  <li>Covers Night Audit duties (POS-04) during scheduled rest days, emergency leaves, or surge periods (SOP-FO-22).</li>
+                  <li>Conducts routine walk-throughs of lobby and pool areas when the Housekeeping lead is off-site (SOP-HK-13, SOP-FM-17).</li>
                 </ul>
               </li>
             </ol>
@@ -228,21 +264,21 @@ General Manager (GM) — single internal authority for all departments
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li>Check-in under 5 minutes; check-out under 4 minutes.</li>
-              <li>Zero cash-drawer variance at shift close.</li>
-              <li>EOD night-audit report sent by 05:00 AM.</li>
-              <li>Front desk and lobby neatness score 100%.</li>
+              <li>Check-in efficiency: average guest check-in under 3 minutes.</li>
+              <li>Flexible roster precision: 100% accuracy triggering on-call staffing relative to occupancy and event thresholds.</li>
+              <li>Zero unhandled or escalated front office guest complaints.</li>
+              <li>100% compliance with weekly scheduling and timekeeping submissions.</li>
             </ul>
           </div>
         </div>
       </article>
 
-      <!-- ST-03 Housekeeping Department Head -->
+      <!-- POS-03 Guest Services / Reservations Officer -->
       <article id="sop-st-03" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">ST-03</code>
-            <span class="text-gray-900 font-semibold text-lg">Housekeeping Department Head</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">POS-03</code>
+            <span class="text-gray-900 font-semibold text-lg">Guest Services / Reservations Officer</span>
           </div>
           <div class="flex items-center gap-2">
             <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
@@ -252,63 +288,71 @@ General Manager (GM) — single internal authority for all departments
         <div class="sop-details hidden p-4 space-y-3 border-t">
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Owns room cleaning standards, linen and laundry operations, public-area upkeep, and pest control across the 30-room resort. Coordinates lost &amp; found handoff with the Front Office.</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Manages daily guest check-in/check-out interactions, PMS/OTA reservation processing, cashiering, and front desk communications while providing secondary support to F&amp;B and event operations under a lean cross-functional model.</p>
           </div>
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Reports to:</strong> General Manager (ST-01).</li>
-              <li><strong>Directly supervises:</strong> Room Attendants, Laundry crew, Public-Area Attendants.</li>
-              <li><strong>Coordinates with:</strong> Duty Manager (ST-02) on lost &amp; found and room-transfer packing.</li>
+              <li><strong>Reports to:</strong> Operations &amp; Front Office Supervisor (POS-02).</li>
+              <li><strong>Directly supervises:</strong> None — works alongside POS-04 (Night Auditor) on shift handovers.</li>
+              <li><strong>Peer support:</strong> POS-02 covers its duties during rest days; on-call FO relief (FLX-01/02) supplements during surges.</li>
             </ul>
           </div>
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <strong>Rooms &amp; Linen:</strong>
+                <strong>Guest Cycle &amp; Reservations:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Enforces room cleaning standards and bed-making drill for new hires (SOP-HK practical test).</li>
-                  <li>Manages linen par levels, towel rotation, and minibar restock.</li>
+                  <li>Facilitates seamless guest registration, identity verification, room assignment, key issuance, and checkout settlement (SOP-FO-04, SOP-FO-06, SOP-FO-07, SOP-FO-08, SOP-FO-14).</li>
+                  <li>Handles direct, phone, and online travel agency (OTA) booking inquiries, reservation modifications, and system entries (SOP-FO-02, SOP-FO-03, SOP-DS-10).</li>
                 </ul>
               </li>
               <li>
-                <strong>Laundry &amp; Public Areas:</strong>
+                <strong>Cashiering &amp; Concierge:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Runs laundry operations and public-area cleaning schedules.</li>
-                  <li>Owns pest-control protocols for the coastal site.</li>
+                  <li>Processes guest payments, cash drops, credit card transactions, and maintains shift balance accuracy (SOP-FO-15, SOP-FO-16, SOP-FO-17).</li>
+                  <li>Provides resort-service information, local area guidance, and fulfills routine guest requests (SOP-FO-09, SOP-FO-10).</li>
                 </ul>
               </li>
               <li>
-                <strong>Lost &amp; Found:</strong>
+                <strong>Shift Handover &amp; Reporting:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Logs found items within 1 hour and hands off to Front Office (SOP-FO-19).</li>
+                  <li>Completes daily shift handover documentation and records pending guest service requests or operational flags (SOP-FO-21).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Secondary / Cross-Functional:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Assists with POS order entry and light guest dining during off-peak windows or staff meal breaks (SOP-FB-05, SOP-FB-06).</li>
+                  <li>Logs initial event inquiries and walk-in function hall leads, transferring details to the GM (SOP-FH-02).</li>
+                  <li>Assists in lobby cleanliness inspection and reports immediate maintenance/housekeeping issues when supervisors are off-site (SOP-HK-13, SOP-FM-01).</li>
                 </ul>
               </li>
             </ol>
           </div>
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
             <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm">Gamay's coastal humidity and salt air accelerate linen wear and corrosion; the Head schedules extra towel rotation and rust checks on fixtures. Humidity also affects electronic terminals used for housekeeping status reports.</p>
+            <p class="text-gray-700 text-sm">OTA and digital-channel inquiries (SOP-DS-10) run through Starlink primary with 4G LTE backup; during outages, printed rate sheets and manual booking forms keep the desk operational. Walk-in function hall leads are logged and routed to the GM for contract negotiation.</p>
           </div>
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li>Housekeeping status report current for every occupied room.</li>
-              <li>Linen par levels verified at shift start.</li>
-              <li>Found items logged within 1 hour.</li>
-              <li>Pest-control sweep completed per schedule.</li>
+              <li>Check-in speed: average under 3 minutes per party.</li>
+              <li>Reservation entry precision: 100% accuracy in PMS details, room rates, and guest notes.</li>
+              <li>Cash balance accuracy: zero drawer discrepancies or missing charge slips.</li>
+              <li>Front desk guest satisfaction exceeding 90% positive.</li>
             </ul>
           </div>
         </div>
       </article>
 
-      <!-- ST-04 Food & Beverage Department Head -->
+      <!-- POS-04 Night Auditor / Guest Operations -->
       <article id="sop-st-04" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">ST-04</code>
-            <span class="text-gray-900 font-semibold text-lg">Food &amp; Beverage Department Head</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">POS-04</code>
+            <span class="text-gray-900 font-semibold text-lg">Night Auditor / Guest Operations</span>
           </div>
           <div class="flex items-center gap-2">
             <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
@@ -318,56 +362,69 @@ General Manager (GM) — single internal authority for all departments
         <div class="sop-details hidden p-4 space-y-3 border-t">
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Owns restaurant and bar operations, food safety, and kitchen hygiene for the resort's restaurant and function-hall catering. The executive authority over the kitchen line and service crews.</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Executes daily system audits, revenue roll-over, and midnight guest check-in/out procedures while ensuring overnight security monitoring and early-morning F&amp;B staging. Closes the 24/7 night-audit gap in the lean staffing baseline.</p>
           </div>
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Reports to:</strong> General Manager (ST-01).</li>
-              <li><strong>Directly supervises:</strong> Executive Chef, Service Captains, Bar Crew.</li>
-              <li><strong>Coordinates with:</strong> Events Coordinator (ST-05) for banquet catering volume.</li>
+              <li><strong>Reports to:</strong> Operations &amp; Front Office Supervisor (POS-02).</li>
+              <li><strong>Supervises:</strong> FLX-04 contracted night security personnel (external guard agency).</li>
+              <li><strong>Relief:</strong> POS-02 covers its audit duties during rest days, emergency leaves, or surge periods (SOP-FO-22).</li>
             </ul>
           </div>
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <strong>Kitchen &amp; Safety:</strong>
+                <strong>Night Audit &amp; Revenue Reconciliation:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Enforces food safety and kitchen hygiene standards across all service.</li>
-                  <li>Runs the practical cooking exam for new kitchen hires (SOP-HR test).</li>
+                  <li>Performs end-of-day PMS audit, verifies room charges, balances restaurant/bar POS bills, reconciles card and cash transactions, and runs the daily system rollover (SOP-FO-22, SOP-AD-09).</li>
                 </ul>
               </li>
               <li>
-                <strong>Service &amp; Bar:</strong>
+                <strong>Overnight Guest Operations:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Owns dining service flow and bar operations.</li>
-                  <li>Coordinates POS order entry and billing generation with FO cashiering.</li>
+                  <li>Manages late-night guest check-ins, early check-outs, key issuances, and emergency guest inquiries during the night shift (SOP-FO-04, SOP-FO-13, SOP-FO-14, SOP-FO-24).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Perimeter Security &amp; Reporting:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Supervises contracted night security guards, conducts property walk-throughs, and monitors CCTV systems (SOP-SS-10, SOP-SS-12).</li>
+                  <li>Prepares and distributes daily financial summaries, room-status audit reports, and night incident logs to the GM and Finance Officer (SOP-FO-22, SOP-AD-14).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Secondary / Cross-Functional:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Assists kitchen operations by unlocking dining areas, turning on essential equipment, and staging early breakfast prep (SOP-FB-01).</li>
+                  <li>Serves as primary on-duty emergency liaison for power outages, guest medical emergencies, or severe-weather alarms (SOP-SS-01, SOP-SS-06, SOP-SS-18).</li>
+                  <li>Maintains cleanliness of the main lobby, front entrance, and public rest areas during off-peak overnight hours (SOP-HK-13).</li>
                 </ul>
               </li>
             </ol>
           </div>
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
             <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm">Provincial sourcing at Gamay means seafood and produce arrive by local supply runs; the Head enforces cold-chain and holding-time checks on delivery and keeps printed safety standards for power-outage service continuity.</p>
+            <p class="text-gray-700 text-sm">Night audit closing reports must be delivered prior to 06:00 AM daily. During SAMELCO grid outages or typhoon alarms, the Night Auditor is the on-duty emergency liaison coordinating the GM's incident command and the outsourced guard agency.</p>
           </div>
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li>Cold-chain and holding-time checks passed on every delivery.</li>
-              <li>Kitchen hygiene inspection logged daily.</li>
-              <li>Banquet volume confirmed with Events Coordinator before service.</li>
+              <li>Audit balance accuracy: 100% precision in daily revenue reconciliation, zero unposted PMS room charges.</li>
+              <li>Reporting timeliness: night audit closing reports delivered prior to 06:00 AM.</li>
+              <li>Security &amp; incident compliance: zero unrecorded breaches, night-shift incidents, or unauthorized facility access.</li>
             </ul>
           </div>
         </div>
       </article>
 
-      <!-- ST-05 Events Coordinator -->
+      <!-- POS-05 Housekeeping & Laundry Lead -->
       <article id="sop-st-05" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">ST-05</code>
-            <span class="text-gray-900 font-semibold text-lg">Function Hall / Events Coordinator</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">POS-05</code>
+            <span class="text-gray-900 font-semibold text-lg">Housekeeping &amp; Laundry Lead</span>
           </div>
           <div class="flex items-center gap-2">
             <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
@@ -377,54 +434,69 @@ General Manager (GM) — single internal authority for all departments
         <div class="sop-details hidden p-4 space-y-3 border-t">
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Owns event reservations, client consultations, audio-visual staging, and banquet catering for weddings and functions in the hall. Bridges F&amp;B volume with FO billing.</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Directs daily guest room turnarounds, public-area hygiene, linen/laundry processing, and inventory controls to maintain resort cleanliness standards under the lean operational model. Heads the 3-person Housekeeping &amp; Laundry cluster.</p>
           </div>
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Reports to:</strong> General Manager (ST-01).</li>
-              <li><strong>Directly supervises:</strong> Banquet Captain, AV Technician, Hall Crew.</li>
-              <li><strong>Coordinates with:</strong> F&amp;B Head (ST-04) for catering volume and FO (ST-02) for billing.</li>
+              <li><strong>Reports to:</strong> General Manager (POS-01).</li>
+              <li><strong>Directly supervises:</strong> Room Attendant A (POS-06), Room Attendant B (POS-07), and Housekeeping &amp; Laundry Relief (FLX-03).</li>
+              <li><strong>Coordinates with:</strong> POS-02/POS-03 on lost &amp; found handoff and room-transfer packing.</li>
             </ul>
           </div>
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <strong>Booking &amp; Consultation:</strong>
+                <strong>Room Inspections &amp; Status:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Runs event reservations and client consultations (SOP-FH-01 to FH-06).</li>
+                  <li>Conducts thorough quality inspections of cleaned guest rooms and releases updated room inventory in the PMS (SOP-HK-05, SOP-HK-06).</li>
                 </ul>
               </li>
               <li>
-                <strong>Staging &amp; Catering:</strong>
+                <strong>Laundry, Linen &amp; Chemical Safety:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Owns audio-visual staging and banquet catering setup (SOP-FH-10).</li>
+                  <li>Oversees in-house laundry collection, washing, drying, folding, and linen/towel storage workflows (SOP-HK-16, SOP-HK-17, SOP-HK-18).</li>
+                  <li>Enforces strict chemical dilution protocols, hazardous-material safety, and housekeeping machinery maintenance (SOP-HK-22, SOP-HK-23).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Inventory &amp; Shift Governance:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Conducts daily shift handovers and maintains accurate stock logs for amenities, minibars, and linen inventory (SOP-HK-11, SOP-HK-24).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Secondary / Cross-Functional:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspects public restrooms, lobby spaces, and pool deck cleanliness when supervisory oversight is required (SOP-HK-13, SOP-HK-14).</li>
+                  <li>Oversees deep cleaning, post-event waste removal, and hall restoration following client functions (SOP-HK-15, SOP-FH-19).</li>
+                  <li>Assists room attendants in direct cleaning duties during heavy Sunday checkout surges (SOP-HK-04).</li>
                 </ul>
               </li>
             </ol>
           </div>
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
             <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm">Coastal wind and typhoon season affect outdoor hall staging; the Coordinator keeps a typhoon-day event cancellation protocol aligned with Module 06 and confirms AV power draw against the standby generator.</p>
+            <p class="text-gray-700 text-sm">Gamay's coastal humidity and salt air accelerate linen wear and fixture corrosion; the Lead schedules extra towel rotation and rust checks on fittings. Humidity also affects electronic terminals used for housekeeping status reports.</p>
           </div>
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li>Every booking carries a completed client consultation record.</li>
-              <li>AV power draw confirmed within generator capacity.</li>
-              <li>Typhoon-day cancellation protocol reviewed before each event.</li>
+              <li>Room inspection pass rate: 100% readiness prior to guest check-in.</li>
+              <li>Inventory control: zero stockouts of clean linens, towels, or essential amenities.</li>
+              <li>Safety compliance: 100% adherence to chemical handling standards.</li>
             </ul>
           </div>
         </div>
       </article>
 
-      <!-- ST-06 Engineering Lead -->
+      <!-- POS-06 Room Attendant / Utility #1 -->
       <article id="sop-st-06" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">ST-06</code>
-            <span class="text-gray-900 font-semibold text-lg">Facilities &amp; Engineering Lead</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">POS-06</code>
+            <span class="text-gray-900 font-semibold text-lg">Room Attendant / Utility #1</span>
           </div>
           <div class="flex items-center gap-2">
             <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
@@ -434,55 +506,68 @@ General Manager (GM) — single internal authority for all departments
         <div class="sop-details hidden p-4 space-y-3 border-t">
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Owns resort maintenance, swimming-pool water treatment, and engineering repairs. The authority over physical plant, water systems, and the standby generator.</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Executes daily room cleaning, stay-over servicing, linen changing, and public-area sanitation while supporting cross-functional venue resets. First of the two core Room Attendants in the 3-person HK cluster.</p>
           </div>
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Reports to:</strong> General Manager (ST-01).</li>
-              <li><strong>Directly supervises:</strong> Pool Attendant, Maintenance Technician, Grounds Crew.</li>
-              <li><strong>Coordinates with:</strong> Safety Officer (ST-07) on typhoon preparedness of the plant.</li>
+              <li><strong>Reports to:</strong> Housekeeping &amp; Laundry Lead (POS-05).</li>
+              <li><strong>Directly supervises:</strong> None — works alongside POS-07 and the FLX-03 relief pool.</li>
+              <li><strong>Handoff:</strong> Lost &amp; found and maintenance defects escalate to POS-05, then to Front Office (POS-02/03) or POS-10.</li>
             </ul>
           </div>
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <strong>Pool &amp; Water:</strong>
+                <strong>Room Turnover &amp; Cleaning:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Runs pool water treatment and circulation (SOP-FM).</li>
+                  <li>Cleans checkout and stay-over guest rooms to resort sanitation and bed-making standards (SOP-HK-02, SOP-HK-03, SOP-HK-04, SOP-HK-07, SOP-HK-08).</li>
                 </ul>
               </li>
               <li>
-                <strong>Plant &amp; Repairs:</strong>
+                <strong>Amenity Replenishment &amp; Laundry:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Owns engineering repairs and pending maintenance tickets reviewed at FO opening.</li>
-                  <li>Confirms ATS and standby generator auto-start mode for load-shedding.</li>
+                  <li>Restocks guest toiletries, bath linens, drinking water, and minibar items (SOP-HK-09, SOP-HK-10, SOP-HK-11).</li>
+                  <li>Collects, sorts, washes, dries, folds, and stores guest linens and towels (SOP-HK-16, SOP-HK-17).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Maintenance &amp; Loss Reporting:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Immediately logs maintenance defects, stained linens, and guest lost-and-found items (SOP-HK-19, SOP-HK-20, SOP-FM-03).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Secondary / Cross-Functional:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Maintains routine sanitation and deep cleaning across public hallways, lobbies, and restaurant spaces (SOP-HK-13, SOP-HK-15).</li>
+                  <li>Assists with banquet table/chair arrangements, venue cleaning, and post-event resetting (SOP-FH-06, SOP-FH-19).</li>
                 </ul>
               </li>
             </ol>
           </div>
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
             <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm">SAMELCO grid power and provincial load-shedding make the generator/ATS check the critical daily duty; salt air accelerates corrosion on pool pumps and fixtures, so the Lead schedules rust checks.</p>
+            <p class="text-gray-700 text-sm">Sunday checkout surges are the heaviest workload at Gamay; the attendant coordinates with POS-05 for surge assistance. Found items are logged within one hour and handed off to Front Office for lost-and-found custody.</p>
           </div>
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li>Pool water chemistry within range daily.</li>
-              <li>ATS and generator confirmed in auto-start mode.</li>
-              <li>Open maintenance tickets current and reachable by FO.</li>
+              <li>Turnover efficiency: average room cleaning 25–30 minutes per standard room.</li>
+              <li>Cleanliness quality score ≥ 90% guest feedback.</li>
+              <li>Asset control: zero unreported room damage, linen loss, or missing inventory.</li>
             </ul>
           </div>
         </div>
       </article>
 
-      <!-- ST-07 Safety Officer -->
+      <!-- POS-07 Room Attendant / Utility #2 -->
       <article id="sop-st-07" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">ST-07</code>
-            <span class="text-gray-900 font-semibold text-lg">Safety &amp; Security Officer</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">POS-07</code>
+            <span class="text-gray-900 font-semibold text-lg">Room Attendant / Utility #2</span>
           </div>
           <div class="flex items-center gap-2">
             <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
@@ -492,54 +577,68 @@ General Manager (GM) — single internal authority for all departments
         <div class="sop-details hidden p-4 space-y-3 border-t">
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Owns typhoon preparedness, emergency evacuation, and security protocols (Module 06). The authority over disaster response and the guard shift.</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Executes daily guest room cleaning and linen processing with primary secondary responsibility for pool-deck maintenance and emergency spill response. Second core Room Attendant; adds the pool-area housekeeping and weather-response duties missing from the lean baseline.</p>
           </div>
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Reports to:</strong> General Manager (ST-01).</li>
-              <li><strong>Directly supervises:</strong> Guard Shift Crew, Typhoon Response Team.</li>
-              <li><strong>Coordinates with:</strong> Engineering Lead (ST-06) on securing the physical plant.</li>
+              <li><strong>Reports to:</strong> Housekeeping &amp; Laundry Lead (POS-05).</li>
+              <li><strong>Directly supervises:</strong> None — pairs with POS-06; pool-area tasks coordinate with POS-10 (Maintenance &amp; Pool Tech).</li>
+              <li><strong>Emergency pairing:</strong> Responds with POS-10 on typhoon storm cleanup (SOP-SS-19).</li>
             </ul>
           </div>
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <strong>Typhoon Response:</strong>
+                <strong>Room Cleaning &amp; Sanitization:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Runs signal-based typhoon preparedness and evacuation (SOP-SS series).</li>
+                  <li>Performs complete checkout turnovers, stay-over servicing, and bathroom sanitization (SOP-HK-02, SOP-HK-03, SOP-HK-04, SOP-HK-07).</li>
                 </ul>
               </li>
               <li>
-                <strong>Security &amp; Access:</strong>
+                <strong>Pool Deck Area Housekeeping:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Owns the guard shift and access-control support for FO key handling.</li>
+                  <li>Cleans, arranges, and sanitizes pool loungers, tables, walkways, and outdoor guest facilities daily (SOP-HK-14).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Supplies &amp; Linen Processing:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Replenishes room amenities, towels, and tracks minibar consumption (SOP-HK-09, SOP-HK-10, SOP-HK-11).</li>
+                  <li>Assists in operating laundry equipment to wash, dry, fold, and store resort linens (SOP-HK-16, SOP-HK-17, SOP-HK-18).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Secondary / Cross-Functional:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Assists in post-event clearing, waste disposal, and deep cleaning of the function hall (SOP-HK-15, SOP-FH-19).</li>
+                  <li>Responds immediately to rainwater ingress, floor spills, or typhoon storm cleanup (SOP-SS-19).</li>
                 </ul>
               </li>
             </ol>
           </div>
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
             <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm">Gamay sits on the coast of Northern Samar and is typhoon-exposed; the Officer maintains the always-cached Module 06 emergency page and the physical emergency binder for offline use during storms.</p>
+            <p class="text-gray-700 text-sm">Pool-deck sanitation is daily-critical at the coastal site: salt air, sand tracking, and monsoon rainwater ingress require immediate response. When certified lifeguards are off-duty, SOP-FM-23 "Use Pool at Own Risk" signage is posted by POS-10.</p>
           </div>
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li>Typhoon signal protocol reviewed each storm season.</li>
-              <li>Headcount achievable in under 15 minutes in a crisis.</li>
-              <li>Guard shift log complete at shift close.</li>
+              <li>Turnover speed: average cycle 25–30 minutes per room.</li>
+              <li>Cleanliness rating ≥ 90% across all assigned areas.</li>
+              <li>Pool area upkeep: 100% daily execution of pool-deck sanitation and arrangement tasks.</li>
             </ul>
           </div>
         </div>
       </article>
 
-      <!-- ST-08 HR Officer -->
+      <!-- POS-08 Cook / Kitchen Lead -->
       <article id="sop-st-08" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">ST-08</code>
-            <span class="text-gray-900 font-semibold text-lg">HR &amp; Administration Officer</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">POS-08</code>
+            <span class="text-gray-900 font-semibold text-lg">Cook / Kitchen Lead</span>
           </div>
           <div class="flex items-center gap-2">
             <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
@@ -549,55 +648,68 @@ General Manager (GM) — single internal authority for all departments
         <div class="sop-details hidden p-4 space-y-3 border-t">
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Owns the staff code of conduct, personnel scheduling, job descriptions, and the grievance/leave systems (Module 07). The compliance authority for every position on this page.</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Leads culinary operations, meal preparation, food-safety compliance, and inventory management while executing event catering under the lean resort structure. Heads the 2-person Food &amp; Beverage cluster.</p>
           </div>
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Reports to:</strong> General Manager (ST-01).</li>
-              <li><strong>Directly supervises:</strong> Personnel Desk, Compliance Staff.</li>
-              <li><strong>Supports:</strong> the GM on hiring screening and job-description audits.</li>
+              <li><strong>Reports to:</strong> General Manager (POS-01).</li>
+              <li><strong>Directly supervises:</strong> Assistant Cook / Kitchen Steward (POS-09) and On-Call Kitchen Helpers (FLX-02).</li>
+              <li><strong>Coordinates with:</strong> POS-11 on purchasing/receiving settlements and POS-02 on event catering schedules.</li>
             </ul>
           </div>
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <strong>Job Descriptions:</strong>
+                <strong>Culinary Execution &amp; Plating:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Maintains the master job-description database and audits role alignment (SOP-HR JD).</li>
+                  <li>Oversees food preparation, cooking, plating, and presentation for restaurant orders and room service (SOP-FB-07, SOP-FB-08, SOP-FB-11).</li>
                 </ul>
               </li>
               <li>
-                <strong>Compliance &amp; Scheduling:</strong>
+                <strong>Food Safety &amp; Hygiene Governance:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Runs time-register clock-in, shift-swap forms, and leave protocols.</li>
-                  <li>Files incident reports within 24 hours of an offense.</li>
+                  <li>Enforces HACCP principles, kitchen sanitation protocols, and personal hygiene standards (SOP-FB-12, SOP-FB-13, SOP-FB-20).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Receiving &amp; Inventory Control:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Manages raw food receiving, cold-storage temperature compliance, and FIFO/FEFO stock rotation (SOP-FB-14, SOP-FB-15, SOP-FB-16, SOP-FB-17).</li>
+                  <li>Conducts daily stock counts, monitors food-waste logs, and prepares prep sheets (SOP-FB-18, SOP-FB-23).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Secondary / Cross-Functional:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Plans and prepares banquet menus for corporate and private events in the function hall (SOP-FB-25).</li>
+                  <li>Directs and executes daily staff meal preparation within designated budget guidelines (SOP-FB-26).</li>
                 </ul>
               </li>
             </ol>
           </div>
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
             <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm">Biometric clock-in can fail from wet hands or outage at the coastal site; the Officer enforces the Manual Time Register co-signed by the Duty Supervisor within 1 hour as the offline fallback.</p>
+            <p class="text-gray-700 text-sm">Cold-chain integrity during SAMELCO grid outages depends on POS-10's generator keeping refrigeration live; the Cook Lead verifies cold-storage temperature logs daily and stages dry-goods contingencies for storm periods (SOP-FB-16, SOP-FB-17).</p>
           </div>
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li>Every position on this page has a current job description.</li>
-              <li>Pre-shift grooming lineup logged by shift supervisor.</li>
-              <li>Incident reports filed within 24 hours.</li>
+              <li>Kitchen ticket time: average order preparation under 20 minutes.</li>
+              <li>Sanitation compliance: kitchen hygiene and HACCP audit pass rate ≥ 95%.</li>
+              <li>Food cost control: departmental food cost within budgetary limits.</li>
             </ul>
           </div>
         </div>
       </article>
 
-      <!-- ST-09 IT Administrator -->
+      <!-- POS-09 Assistant Cook / Kitchen Steward -->
       <article id="sop-st-09" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
         <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
           <div class="flex items-center">
-            <code class="text-indigo-700 font-bold text-sm mr-2">ST-09</code>
-            <span class="text-gray-900 font-semibold text-lg">IT Administrator / Digital Systems</span>
+            <code class="text-indigo-700 font-bold text-sm mr-2">POS-09</code>
+            <span class="text-gray-900 font-semibold text-lg">Assistant Cook / Kitchen Steward</span>
           </div>
           <div class="flex items-center gap-2">
             <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
@@ -607,50 +719,292 @@ General Manager (GM) — single internal authority for all departments
         <div class="sop-details hidden p-4 space-y-3 border-t">
           <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
             <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
-            <p class="text-gray-700 text-sm whitespace-pre-wrap">Owns PMS/POS systems, database management, digital records, cybersecurity, and network backup (Module 08). The authority over system administration and access levels.</p>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Maintains kitchen sanitation, dishwashing, and food-prep operations while providing cross-functional F&amp;B service during off-peak shifts. Adds the dedicated kitchen-sanitation role missing from the 8-core baseline.</p>
           </div>
           <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
             <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li><strong>Reports to:</strong> General Manager (ST-01) — Level 4 privilege authority.</li>
-              <li><strong>Directly supervises:</strong> PMS Operator, Records &amp; Network Staff.</li>
-              <li><strong>Supports:</strong> FO cashiering (POS terminals) and Engineering Lead (network backup).</li>
+              <li><strong>Reports to:</strong> Cook / Kitchen Lead (POS-08).</li>
+              <li><strong>Directly supervises:</strong> None — supplemented by On-Call Kitchen Helpers (FLX-02) during events.</li>
+              <li><strong>Service pairing:</strong> Covers restaurant service with POS-08 during low-occupancy dining windows.</li>
             </ul>
           </div>
           <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
             <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
             <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
               <li>
-                <strong>Access Control:</strong>
+                <strong>Dishwashing &amp; Kitchen Sanitation:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Enforces role-based access levels (Level 1 staff to Level 4 GM/IT admin).</li>
-                  <li>Provisions new user accounts from Department Head request forms.</li>
+                  <li>Operates dishwashing stations, cleans cookware/utensils, and maintains kitchen-equipment sanitation (SOP-FB-12, SOP-FB-19).</li>
                 </ul>
               </li>
               <li>
-                <strong>Network &amp; Records:</strong>
+                <strong>Ingredient Prep &amp; Staging:</strong>
                 <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
-                  <li>Owns Starlink primary and 4G LTE backup connectivity management.</li>
-                  <li>Maintains digital records and audit-log access.</li>
+                  <li>Washes, peels, chops, and stages raw ingredients according to kitchen-lead prep sheets (SOP-FB-07).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Receiving &amp; Temperature Logging:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Assists in receiving stock shipments, labeling inventory, and maintaining daily refrigerator/freezer temperature logs (SOP-FB-14, SOP-FB-15, SOP-FB-17).</li>
+                  <li>Executes daily kitchen closing routines and proper waste disposal (SOP-FB-02, SOP-FB-18).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Secondary / Cross-Functional:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Acts as restaurant server, table attendant, and POS cashier during low-occupancy dining windows (SOP-FB-04, SOP-FB-05, SOP-FB-09, SOP-FB-22).</li>
+                  <li>Assists in unlocking kitchen areas and staging early-morning breakfast prep (SOP-FB-01).</li>
                 </ul>
               </li>
             </ol>
           </div>
           <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
             <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-            <p class="text-gray-700 text-sm">At Gamay the network runs Starlink primary with 4G LTE backup; the IT Administrator keeps printed SOPs and offline-cached emergency pages so operations survive satellite/LTE lag during storms.</p>
+            <p class="text-gray-700 text-sm">Daily fridge/freezer temperature logs are the first line of defense against cold-chain failure during power outages; the steward cross-checks POS-10's generator status each morning before opening storage.</p>
           </div>
           <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
             <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
             <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
-              <li>No Level 1 account has void/discount access.</li>
-              <li>Backup LTE connection verified alongside Starlink.</li>
-              <li>Audit-log access limited to Level 4.</li>
+              <li>Temperature log accuracy: 100% daily compliance with cold-storage logging.</li>
+              <li>Sanitation audit pass rate: 100% compliance on kitchen cleanliness checklists.</li>
+              <li>Breakage rate: zero dishware breakage and zero stockouts of clean service items.</li>
             </ul>
           </div>
         </div>
       </article>
 
+      <!-- POS-10 Maintenance & Pool Technician -->
+      <article id="sop-st-10" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">POS-10</code>
+            <span class="text-gray-900 font-semibold text-lg">Maintenance &amp; Pool Technician</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Maintains resort facilities, HVAC, plumbing, backup power systems, and swimming-pool water chemistry while supporting event setups and emergency response. Sole core FTE of the Facilities &amp; Safety cluster; supervises external service contractors.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Reports to:</strong> General Manager (POS-01).</li>
+              <li><strong>Supervises:</strong> External service contractors (specialized AV/structural vendors on demand).</li>
+              <li><strong>Emergency pairing:</strong> One of the four SOP-SS-15 stay-in activation staff during typhoon Signal #2.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Preventive Maintenance &amp; Inspections:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Conducts daily facility walk-throughs, logs equipment conditions, and executes scheduled preventive maintenance across rooms, public spaces, and utility systems (SOP-FM-01, SOP-FM-02, SOP-FM-03).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Electrical, HVAC &amp; Plumbing Operations:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Inspects and maintains room air-conditioning units, plumbing lines, water pumps, lighting, and general electrical systems (SOP-FM-04, SOP-FM-05, SOP-FM-06, SOP-FM-07).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Backup Generator &amp; Energy Management:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Oversees emergency generator readiness, performs load tests, manages fuel reserves, and monitors solar power systems (SOP-FM-08, SOP-FM-09).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Swimming Pool Water Quality &amp; Maintenance:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Executes daily pool chemical testing, water treatment, vacuuming, filtration cleaning, and safety-equipment maintenance (SOP-FM-17 to SOP-FM-22).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Secondary / Cross-Functional:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Coordinates audio-visual equipment, lighting, and power configurations for corporate and social events (SOP-FH-08).</li>
+                  <li>Leads structural fortification, storm-shutter installation, roof/gutter clearing, and post-storm damage remediation (SOP-FM-12, SOP-SS-16, SOP-SS-20).</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">SAMELCO grid outages make generator load tests (SOP-FM-08) the single most critical preventive task at Gamay. Pool life-safety rule: when certified lifeguards are off-duty, SOP-FM-23 "Use Pool at Own Risk" signage is posted at all pool entries.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Generator readiness: 100% start-up reliability and backup power availability during grid outages.</li>
+              <li>Pool safety standard: 100% daily compliance with chemical-balance and water-clarity benchmarks.</li>
+              <li>Work-order resolution: urgent repair requests responded to and resolved within 2 hours.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- POS-11 Admin, Finance & Purchasing Officer -->
+      <article id="sop-st-11" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">POS-11</code>
+            <span class="text-gray-900 font-semibold text-lg">Admin, Finance &amp; Purchasing Officer</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Manages resort accounting, cash management, purchasing, payroll processing, and administrative compliance within the lean operational framework. Sole core FTE of the Admin/Finance cluster; the internal authority for financial and regulatory records.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Reports to:</strong> General Manager (POS-01).</li>
+              <li><strong>Directly supervises:</strong> None — receives audit reports from POS-04 and purchasing deliveries coordinated with POS-08.</li>
+              <li><strong>External counterparties:</strong> LGUs for permits/licenses, accredited vendors for procurement.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Financial Bookkeeping &amp; Cash Control:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Manages petty cash funds, accounts payable, accounts receivable, and supplier invoice settlements (SOP-AD-07, SOP-AD-08, SOP-AD-10).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Procurement &amp; Supplier Management:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Processes purchase requisitions, maintains accredited vendor lists, negotiates pricing, and oversees supply receiving (SOP-AD-03, SOP-AD-04, SOP-AD-05).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Inventory, Payroll &amp; Compliance:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Audits departmental inventory logs, performs monthly physical stock counts, and maintains fixed-asset records (SOP-AD-06, SOP-AD-11).</li>
+                  <li>Processes employee attendance records, prepares payroll calculations, and monitors government permits, licenses, and insurance renewals (SOP-HR-05, SOP-HR-15, SOP-AD-12, SOP-AD-13).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Secondary / Cross-Functional:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Reconciles daily Front Office and F&amp;B revenue reports against system PMS/POS audits (SOP-AD-09, SOP-FO-22, SOP-FB-24).</li>
+                  <li>Maintains secure digital and physical record systems for administrative files (SOP-AD-01, SOP-AD-02, SOP-AD-14).</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Business-permit, tax, and license renewals with local government units (LGUs) are time-critical regulatory obligations; petty cash and accounts-payable ledgers are kept in the physical emergency binder so financial control survives grid-power or internet outages.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Payroll timeliness: 100% on-time and accurate payroll distribution.</li>
+              <li>Permit &amp; regulatory compliance: zero penalties or delays in permit, tax, and license renewals.</li>
+              <li>Financial audit accuracy: 100% reconciliation across petty cash, accounts payable, and daily revenue logs.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- On-Call Flexible Pool -->
+    <div class="mt-8">
+      <div class="bg-white rounded-lg shadow-sm p-6 border border-indigo-200">
+        <h2 class="text-xl font-bold text-indigo-900 mb-3 flex items-center"><i class="fa-solid fa-users-group mr-2 text-indigo-600"></i>On-Call Flexible Pool — 17 to 19 Staff (FLX-01 to FLX-03)</h2>
+        <p class="text-gray-700 text-sm">Supplementary personnel activated by POS-02 against occupancy and event thresholds (SOP-HR-05, SOP-HR-06). Not resident staff — called in as needed and released after each activation window.</p>
+        <div class="overflow-x-auto mt-3">
+          <table class="w-full text-sm">
+            <thead class="bg-indigo-600 text-white">
+              <tr>
+                <th class="p-3 text-left">On-Call Role</th>
+                <th class="p-3 text-left">Count</th>
+                <th class="p-3 text-left">Pool</th>
+                <th class="p-3 text-left">Linked Core Position</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <tr class="hover:bg-gray-50"><td class="p-3 font-medium">Front Desk / Guest Service Relief</td><td class="p-3">2</td><td class="p-3">FLX-01, FLX-02</td><td class="p-3">POS-02 / POS-03 / POS-04</td></tr>
+              <tr class="hover:bg-gray-50"><td class="p-3 font-medium">Room Attendants / Utility Relief</td><td class="p-3">3–4</td><td class="p-3">FLX-03</td><td class="p-3">POS-05 / POS-06 / POS-07</td></tr>
+              <tr class="hover:bg-gray-50"><td class="p-3 font-medium">Laundry / Utility Relief</td><td class="p-3">1</td><td class="p-3">FLX-03</td><td class="p-3">POS-05</td></tr>
+              <tr class="hover:bg-gray-50"><td class="p-3 font-medium">Assistant Cooks / Kitchen Helpers</td><td class="p-3">2–3</td><td class="p-3">FLX-02</td><td class="p-3">POS-08 / POS-09</td></tr>
+              <tr class="hover:bg-gray-50"><td class="p-3 font-medium">Restaurant &amp; Banquet Servers</td><td class="p-3">4</td><td class="p-3">—</td><td class="p-3">POS-08 / POS-09</td></tr>
+              <tr class="hover:bg-gray-50"><td class="p-3 font-medium">Bartender / Barista</td><td class="p-3">1</td><td class="p-3">—</td><td class="p-3">F&amp;B Ops</td></tr>
+              <tr class="hover:bg-gray-50"><td class="p-3 font-medium">Event Setup &amp; AV Crew</td><td class="p-3">2</td><td class="p-3">—</td><td class="p-3">POS-10 / Function Hall</td></tr>
+              <tr class="hover:bg-gray-50"><td class="p-3 font-medium">Pool Lifeguards (Certified)</td><td class="p-3">2</td><td class="p-3">—</td><td class="p-3">POS-10 (SOP-FM-23 rule)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contracted & Outsourced Services -->
+    <div class="mt-8">
+      <div class="bg-white rounded-lg shadow-sm p-6 border border-indigo-200">
+        <h2 class="text-xl font-bold text-indigo-900 mb-3 flex items-center"><i class="fa-solid fa-handshake mr-2 text-indigo-600"></i>Contracted &amp; Outsourced Services</h2>
+        <ul class="list-disc list-inside space-y-2 text-gray-700 text-sm">
+          <li><strong>Security Agency (FLX-04)</strong> — 24/7 guard service under contract; supervised operationally by the Night Auditor (POS-04). Covers Module 06 Safety &amp; Typhoon perimeter duties (SOP-SS-10, SOP-SS-12).</li>
+          <li><strong>External IT &amp; Network Specialist</strong> — retainer maintaining Starlink primary, 4G LTE backup, and PMS/network systems for Module 08 Digital Systems.</li>
+          <li><strong>Specialized Event AV / Structural Contractors</strong> — engaged on demand for large function-hall productions and structural fortification, coordinated by POS-10.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Typhoon Contingency -->
+    <div class="mt-8">
+      <div class="bg-white rounded-lg shadow-sm p-6 border border-red-300">
+        <h2 class="text-xl font-bold text-red-800 mb-3 flex items-center"><i class="fa-solid fa-typhoon mr-2 text-red-600"></i>Typhoon Contingency — SOP-SS-15 Stay-In Activation (Signal #2)</h2>
+        <p class="text-gray-700 text-sm">When PAGASA raises Signal No. 2, a four-person stay-in team is activated to keep the resort operational through the storm window:</p>
+        <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+          <li><strong>1 Management Lead</strong> — General Manager (POS-01) or Operations Supervisor (POS-02) as Incident Commander (SOP-SS-14, SOP-SS-15, SOP-SS-21).</li>
+          <li><strong>1 Maintenance Technician</strong> — POS-10 running generator readiness and property fortification (SOP-FM-08, SOP-SS-16).</li>
+          <li><strong>1 Housekeeping Utility</strong> — POS-06/POS-07 or FLX-03 relief handling ingress, spills, and boarding (SOP-SS-19).</li>
+          <li><strong>1 Night Audit / Front Office</strong> — POS-04 (or POS-02 relief) holding guest accounting and communications (SOP-SS-22).</li>
+        </ul>
+        <p class="text-gray-700 text-sm mt-2">On-call reserve mandate: FLX-03 attendants for SOP-SS-16 property boarding, kitchen staff for food prep contingencies, and the full team for SOP-SS-20 post-storm cleanup and damage remediation.</p>
+      </div>
+    </div>
+
+    <!-- Hiring Phases & Shift Matrix -->
+    <div class="mt-8">
+      <div class="bg-white rounded-lg shadow-sm p-6 border border-indigo-200">
+        <h2 class="text-xl font-bold text-indigo-900 mb-3 flex items-center"><i class="fa-solid fa-calendar-check mr-2 text-indigo-600"></i>Hiring Phases &amp; Shift Matrix</h2>
+        <div class="grid grid-cols-2 gap-6 md:grid-cols-2">
+          <div>
+            <h3 class="text-sm font-bold text-indigo-800 mb-1">Phased Hiring Sequence</h3>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Phase 1:</strong> POS-01 General Manager, POS-10 Maintenance Tech, POS-11 Admin/Finance.</li>
+              <li><strong>Phase 2:</strong> POS-02 Ops &amp; FO Supervisor, POS-05 HK Lead, POS-08 Cook Lead, POS-04 Night Auditor.</li>
+              <li><strong>Phase 3:</strong> POS-03 Guest Services Officer, POS-09 Asst Cook, POS-06/POS-07 Room Attendants, then the on-call roster.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-sm font-bold text-indigo-800 mb-1">Daily Shift Matrix</h3>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Morning:</strong> POS-08 Cook Lead, POS-09 Asst Cook, POS-06/POS-07 Room Attendants.</li>
+              <li><strong>Day:</strong> POS-01 GM, POS-02 Ops &amp; FO Supervisor, POS-05 HK Lead, POS-10 Maintenance Tech, POS-11 Admin/Finance.</li>
+              <li><strong>Afternoon:</strong> POS-03 Guest Services Officer.</li>
+              <li><strong>Night:</strong> POS-04 Night Auditor + contracted security agency (FLX-04).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Position Matrix Summary Table -->
@@ -662,19 +1016,21 @@ General Manager (GM) — single internal authority for all departments
               <th class="p-3 text-left">Code</th>
               <th class="p-3 text-left">Position</th>
               <th class="p-3 text-left">Reports To</th>
-              <th class="p-3 text-left">Primary Module</th>
+              <th class="p-3 text-left">Primary Department</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-gray-200">
-            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-01</td><td class="p-3 font-medium">General Manager</td><td class="p-3">Owner / Contract</td><td class="p-3">All (01–08)</td></tr>
-            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-02</td><td class="p-3 font-medium">Duty Manager / FO Supervisor</td><td class="p-3">General Manager</td><td class="p-3">01 Front Office</td></tr>
-            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-03</td><td class="p-3 font-medium">Housekeeping Department Head</td><td class="p-3">General Manager</td><td class="p-3">02 Housekeeping</td></tr>
-            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-04</td><td class="p-3 font-medium">Food &amp; Beverage Department Head</td><td class="p-3">General Manager</td><td class="p-3">03 Food &amp; Beverage</td></tr>
-            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-05</td><td class="p-3 font-medium">Function Hall / Events Coordinator</td><td class="p-3">General Manager</td><td class="p-3">04 Function Hall</td></tr>
-            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-06</td><td class="p-3 font-medium">Facilities &amp; Engineering Lead</td><td class="p-3">General Manager</td><td class="p-3">05 Facilities &amp; Pool</td></tr>
-            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-07</td><td class="p-3 font-medium">Safety &amp; Security Officer</td><td class="p-3">General Manager</td><td class="p-3">06 Safety &amp; Typhoon</td></tr>
-            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-08</td><td class="p-3 font-medium">HR &amp; Administration Officer</td><td class="p-3">General Manager</td><td class="p-3">07 HR &amp; Admin</td></tr>
-            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-09</td><td class="p-3 font-medium">IT Administrator / Digital Systems</td><td class="p-3">General Manager</td><td class="p-3">08 Digital Systems</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">POS-01</td><td class="p-3 font-medium">General Manager / Resort Manager</td><td class="p-3">Owner / Proprietor</td><td class="p-3">All (01–08)</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">POS-02</td><td class="p-3 font-medium">Operations &amp; Front Office Supervisor</td><td class="p-3">General Manager</td><td class="p-3">Front Office &amp; Night Ops</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">POS-03</td><td class="p-3 font-medium">Guest Services / Reservations Officer</td><td class="p-3">POS-02</td><td class="p-3">Front Office &amp; Night Ops</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">POS-04</td><td class="p-3 font-medium">Night Auditor / Guest Operations</td><td class="p-3">POS-02</td><td class="p-3">Front Office &amp; Night Ops</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">POS-05</td><td class="p-3 font-medium">Housekeeping &amp; Laundry Lead</td><td class="p-3">General Manager</td><td class="p-3">Housekeeping &amp; Laundry</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">POS-06</td><td class="p-3 font-medium">Room Attendant / Utility #1</td><td class="p-3">POS-05</td><td class="p-3">Housekeeping &amp; Laundry</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">POS-07</td><td class="p-3 font-medium">Room Attendant / Utility #2</td><td class="p-3">POS-05</td><td class="p-3">Housekeeping &amp; Laundry</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">POS-08</td><td class="p-3 font-medium">Cook / Kitchen Lead</td><td class="p-3">General Manager</td><td class="p-3">Food &amp; Beverage Ops</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">POS-09</td><td class="p-3 font-medium">Assistant Cook / Kitchen Steward</td><td class="p-3">POS-08</td><td class="p-3">Food &amp; Beverage Ops</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">POS-10</td><td class="p-3 font-medium">Maintenance &amp; Pool Technician</td><td class="p-3">General Manager</td><td class="p-3">Facilities &amp; Safety</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">POS-11</td><td class="p-3 font-medium">Admin, Finance &amp; Purchasing Officer</td><td class="p-3">General Manager</td><td class="p-3">Admin, Finance &amp; Purchasing</td></tr>
           </tbody>
         </table>
       </div>

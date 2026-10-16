@@ -1,6 +1,6 @@
-function initSearch() {
-    const searchInput = document.getElementById('search-input');
-    if (!searchInput) return;
+(function () {
+  const searchInput = document.getElementById('search-input');
+  if (!searchInput) return;
 
     // Comprehensive index of modules and key SOP items derived from source documentation
     const searchIndex = [
@@ -8,14 +8,14 @@ function initSearch() {
             title: "Module 01: Front Office",
             category: "Front Office (FO)",
             url: "01_front_office.html",
-            description: "Guest services, check-in/check-out procedures, reservations, cashiering, emergency communication[cite: 1, 4]",
+            description: "Guest services, check-in/check-out procedures, reservations, cashiering, emergency communication",
             keywords: ["front office", "check-in", "check-out", "reservation", "concierge", "cashier", "vip", "audit", "fo-01", "fo-04", "fo-14", "fo-24"]
         },
         {
             title: "Module 02: Housekeeping & Laundry",
             category: "Housekeeping (HK)",
             url: "02_housekeeping.html",
-            description: "Room cleaning standards, linen management, laundry operations, public areas, pest control[cite: 1, 3]",
+            description: "Room cleaning standards, linen management, laundry operations, public areas, pest control",
             keywords: ["housekeeping", "laundry", "cleaning", "room cleaning", "linen", "towels", "minibar", "lost and found", "pest control", "hk-01", "hk-04", "hk-16"]
         },
         {
@@ -29,35 +29,35 @@ function initSearch() {
             title: "Module 04: Function Hall & Events",
             category: "Function Hall (FH)",
             url: "04_function_hall.html",
-            description: "Event reservations, client consultations, audio-visual staging, banquet catering, weddings[cite: 1, 2]",
+            description: "Event reservations, client consultations, audio-visual staging, banquet catering, weddings",
             keywords: ["function hall", "events", "banquet", "wedding", "reservation", "audio-visual", "catering", "fh-01", "fh-06", "fh-10"]
         },
         {
             title: "Module 05: Facilities & Pool",
             category: "Facilities & Pool (FM)",
             url: "05_facilities_pool.html",
-            description: "Resort maintenance, swimming pool water treatment, engineering repairs[cite: 1]",
+            description: "Resort maintenance, swimming pool water treatment, engineering repairs",
             keywords: ["facilities", "pool", "maintenance", "pool treatment", "engineering", "repair", "water"]
         },
         {
             title: "Module 06: Safety, Security & Typhoon",
             category: "Safety & Emergency (S)",
             url: "06_safety_typhoon_final.html",
-            description: "Typhoon preparedness, emergency evacuation, security protocols, disaster response[cite: 1, 5]",
+            description: "Typhoon preparedness, emergency evacuation, security protocols, disaster response",
             keywords: ["safety", "security", "typhoon", "emergency", "evacuation", "storm", "disaster", "signal"]
         },
         {
             title: "Module 07: HR & Administration",
             category: "HR & Admin (HR)",
             url: "07_hr_admin.html",
-            description: "Human resources, staff code of conduct, personnel scheduling, administration[cite: 1]",
+            description: "Human resources, staff code of conduct, personnel scheduling, administration",
             keywords: ["hr", "admin", "human resources", "staff", "personnel", "training", "policy"]
         },
         {
             title: "Module 08: Digital Systems",
             category: "Digital Systems (DS)",
             url: "08_digital_maintenance.html",
-            description: "PMS operations, IT systems, Starlink/network backup, digital records management[cite: 1]",
+            description: "PMS operations, IT systems, Starlink/network backup, digital records management",
             keywords: ["digital", "systems", "it", "pms", "software", "network", "starlink", "records"]
         }
     ];
@@ -120,11 +120,10 @@ function initSearch() {
         }
     });
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!parentContainer.contains(e.target)) {
-            resultsDropdown.classList.add('hidden');
-        }
-    });
-}
-}
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(e) {
+    if (!parentContainer.contains(e.target)) {
+      resultsDropdown.classList.add('hidden');
+    }
+  });
+})();

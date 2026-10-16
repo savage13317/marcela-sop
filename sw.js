@@ -1,95 +1,88 @@
-// Marcela's Resort - Service Worker for Offline/PWA Support
+// Marcela's Resort Hotel - Service Worker (offline-first caching)
+// Lives at the site ROOT so its default scope covers every page.
+// Bump CACHE_NAME when site content changes so cached copies refresh.
+const CACHE_NAME = 'marcelas-sop-v1';
 
-const CACHE_NAME = 'marcelas-sops-v1';
-const STATIC_ASSETS = [
-  '/',
-  '/index.html',
-  '/pwa/manifest.json',
-  '/css/main.css',
-  '/js/app.js',
-  '/js/search.js',
-  '/js/offline.js',
-  '/sops/06_safety_typhoon.html'  // Critical emergency procedures always cached
+// Critical pages pre-cached on activation (paths relative to site root)
+const PRECACHE_PATHS = [
+  'index.html',
+  '06_safety_typhoon_final.html',
+  '01_front_office.html',
+  'staffing_matrix.html',
+  'src/css/main.css',
+  'src/js/search.js',
+  'offline.js'
 ];
 
-// Install Event - Cache static assets
-self.addEventListener('install', (event) => {
-  console.log('[SW] Installing service worker...');
-  
+function precache() {
+  return caches.open(CACHE_NAME).then(function (cache) {
+    return Promise.all(PRECACHE_PATHS.map(function (path) {
+      var request = new Request(new URL(path, self.registration.scope));
+      return fetch(request).then(function (response) {
+        if (response.ok) {
+          return cache.put(request, response.clone());
+        }
+      });
+    }));
+  });
+}
+
+// Pre-cache critical pages whenever this service worker script loads
+precache().catch(function () {});
+
+self.addEventListener('activate', function (event) {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        console.log('[SW] Caching static assets');
-        return cache.addAll(STATIC_ASSETS);
-      })
-      .then(() => self.skipWaiting())
+    caches.keys().then(function (keys) {
+      return Promise.all(keys.filter(function (key) {
+        return key !== CACHE_NAME;
+      }).map(function (key) {
+        return caches.delete(key);
+      }));
+    }).then(function () {
+      return self.clients.claim();
+    })
   );
 });
 
-// Activate Event - Clean old caches
-self.addEventListener('activate', (event) => {
-  console.log('[SW] Service worker activated');
-  
-  event.waitUntil(
-    caches.keys()
-      .then((keys) => {
-        return Promise.all(
-          keys.filter(key => key !== CACHE_NAME)
-            .map(key => caches.delete(key))
-        );
-      })
-      .then(() => self.clients.claim())
-  );
-});
+self.addEventListener('fetch', function (event) {
+  var requestUrl = new URL(event.request.url);
 
-// Fetch Event - Network First, Then Cache Strategy
-self.addEventListener('fetch', (event) => {
-  const { request } = event;
-  const url = new URL(request.url);
-
-  // Don't intercept third-party CDN requests
-  if (!url.hostname.includes(url.origin)) {
+  // Let cross-origin CDN assets pass through untouched
+  if (requestUrl.origin !== self.location.origin) {
     return;
-  };
+  }
 
   event.respondWith(
-    caches.match(request)
-      .then((response) => {
-        if (response) {
-          console.log('[SW] Serving from cache:', request.url);
-          return response;
-        };
-
-        // Network request
-        return fetch(request)
-          .then((response) => {
-            // Cache successful responses
-            if (!response || response.status !== 200 || response.type === 'error') {
-              return response;
-            };
-
-            // Clone the request to read from cache in parallel with network
-            const fetchPromise = fetch(request);
-            const cachePromise = caches.open(CACHE_NAME)
-              .then((cache) => cache.put(request, response.clone()));
-
-            return Promise.all([fetchPromise, cachePromise]);
-          })
-          .catch((error) => {
-            console.log('[SW] Network request failed:', error.message);
-            
-            // Try offline fallback - especially for Module 06 (safety)
-            if (request.url.includes('06_safety') || 
-                request.headers.get('accept')?.includes('text/html')) {
-              
-              return caches.match('/sops/06_safety_typhoon.html');
-            };
-
-            // Return offline fallback for other pages
-            return caches.match(request) || caches.match('/');
+    caches.match(event.request).then(function (cached) {
+      if (cached) {
+        return cached;
+      }
+      return fetch(event.request).then(function (response) {
+        if (response && response.ok) {
+          caches.open(CACHE_NAME).then(function (cache) {
+            cache.put(event.request, response.clone());
           });
-      })
+        }
+        return response;
+      }).catch(function () {
+        // Offline fallback: emergency procedures for navigation requests
+        if (event.request.mode === 'navigate') {
+          return caches.match(new Request(new URL('06_safety_typhoon_final.html', self.registration.scope)))
+            .then(function (emergency) {
+              if (emergency) {
+                return emergency;
+              }
+              return new Response(
+                'Offline - this page has not been cached yet.',
+                { status: 503, headers: { 'Content-Type': 'text/plain' } }
+              );
+            });
+        }
+        return new Response(
+          'Offline - subresource not cached.',
+          { status: 503, headers: { 'Content-Type': 'text/plain' } }
+        );
+      });
+    })
   );
 });
-
-console.log('[SW] Service worker loaded');

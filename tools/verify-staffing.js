@@ -1,0 +1,15 @@
+const fs = require('fs');
+const s = fs.readFileSync('staffing_matrix.html', 'utf8');
+const ids = [...s.matchAll(/id="sop-st-\d+"/g)].map(m => m[1]);
+console.log('cards:', ids.length, ids.join(','));
+console.log('toggleSopDetails defs:', (s.match(/function toggleSopDetails/g) || []).length);
+console.log('jumpToSop defs:', (s.match(/function jumpToSop/g) || []).length);
+const ao = (s.match(/<article/g) || []).length, ac = (s.match(/<\/article>/g) || []).length;
+console.log('article open/close:', ao, ac);
+const dv = (s.match(/<div/g) || []).length, dc = (s.match(/<\/div>/g) || []).length;
+console.log('div open/close:', dv, dc);
+const so = (s.match(/<script/g) || []).length, sc = (s.match(/<\/script>/g) || []).length;
+console.log('script open/close:', so, sc);
+console.log('size KB:', (fs.statSync('staffing_matrix.html').size / 1024).toFixed(1));
+console.log('has offline.js:', s.includes('offline.js'));
+console.log('has manifest:', s.includes('src/pwa/manifest.json'));

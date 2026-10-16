@@ -5,10 +5,7 @@
   "scripts": {
     "dev": "echo 'Static site - no build server needed'",
     "build": "echo 'Site is static HTML - just commit changes'",
-    "deploy": "git add . && git commit -m \"Update SOPs\" && git push origin main"
-  },
-  "dependencies": {
-    "fuse.js": "^7.0.0",
-    "@tailwindcss/forms": "^0.5.7"
+    "deploy": "git add . && git commit -m \"Update SOPs\" && git push origin main",
+    "icons": "node tools/gen-icons.js"
   }
 }

@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staffing Matrix &amp; Organization Chart - Marcela's Resort Hotel</title>
+  <link rel="manifest" href="src/pwa/manifest.json">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="src/css/main.css">
+  <script src="offline.js"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
+
+  <!-- Header -->
+  <header class="bg-indigo-700 text-white shadow-md sticky top-0 z-40">
+    <nav class="container mx-auto px-4 py-3">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+        <a href="https://savage13317.github.io/marcela-sop/" class="text-xl font-bold hover:text-indigo-200 transition-colors cursor-pointer">
+          <i class="fa-solid fa-hotel mr-2"></i>Marcela's Resort Hotel
+        </a>
+        <div class="flex gap-2 flex-wrap justify-center font-medium text-sm" id="moduleNav">
+          <a href="https://savage13317.github.io/marcela-sop/" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition cursor-pointer">Home</a>
+          <a href="01_front_office.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-user-tie mr-1"></i>Front Office (FO)</a>
+          <a href="02_housekeeping.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-broom mr-1"></i>Housekeeping (HK)</a>
+          <a href="03_food_beverage.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-utensils mr-1"></i>Food &amp; Beverage (FB)</a>
+          <a href="04_function_hall.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-glass-cheers mr-1"></i>Function Hall (FH)</a>
+          <a href="05_facilities_pool.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-wrench mr-1"></i>Facilities &amp; Pool (FM)</a>
+          <a href="06_safety_typhoon_final.html" class="px-4 py-2 bg-indigo-800 rounded text-red-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-shield-halved mr-1"></i>Safety (S)</a>
+          <a href="07_hr_admin.html" class="px-4 py-2 bg-indigo-800 rounded text-purple-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-user-tie mr-1"></i>HR &amp; Admin (HR)</a>
+          <a href="08_digital_maintenance.html" class="px-4 py-2 bg-indigo-800 rounded text-cyan-300 hover:bg-indigo-600 transition"><i class="fa-solid fa-laptop-medical mr-1"></i>Digital Systems (DS)</a>
+          <a href="staffing_matrix.html" class="px-4 py-2 bg-indigo-800 rounded hover:bg-indigo-600 transition"><i class="fa-solid fa-diagram-project mr-1"></i>Staffing Matrix</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Page Highlight Script -->
+  <script>
+    (function () {
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      const navLinks = document.querySelectorAll('#moduleNav a');
+
+      navLinks.forEach(link => {
+        link.classList.remove('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
+        link.classList.add('bg-indigo-800', 'hover:bg-indigo-600');
+
+        if (link.getAttribute('href') === currentPage) {
+          link.classList.add('bg-yellow-600', 'text-white', 'font-bold', 'ring-2', 'ring-yellow-400');
+          link.classList.remove('bg-indigo-800', 'hover:bg-indigo-600');
+        }
+      });
+    })();
+  </script>
+
+  <main class="flex-grow container mx-auto px-4 py-6">
+
+    <!-- Module Header -->
+    <div class="bg-gradient-to-r from-indigo-50 to-blue-50 rounded-lg shadow-sm p-6 mb-6 border-l-4 border-indigo-600">
+      <h1 class="text-3xl font-bold text-indigo-900 mb-2"><i class="fa-solid fa-diagram-project mr-3"></i>Staffing Matrix &amp; Organization Chart</h1>
+      <p class="text-gray-700 text-base">Authoritative map of every operational position at Marcela's Resort Hotel: who holds each role, who supervises whom, and the department each position reports to. Positions are grouped by the eight SOP modules and follow the General Manager → Department Head / Duty Supervisor → Associate hierarchy.</p>
+
+      <!-- Organization Chart (text diagram) -->
+      <div class="mt-4 bg-white rounded-lg shadow-sm p-5 border border-indigo-200">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-800 mb-2 flex items-center">
+          <i class="fa-solid fa-sitemap mr-1 text-indigo-600"></i>Organization Hierarchy
+        </h3>
+        <pre class="text-xs text-gray-700 whitespace-pre-wrap font-mono">
+General Manager (GM) — single internal authority for all departments
+│
+├─ Front Office ─────────── Duty Manager / FO Supervisor ── FO Associates, Reservations Clerk, Night Auditor
+├─ Housekeeping ─────────── HK Department Head ─────────── Room Attendants, Laundry, Public-Area Attendants
+├─ Food &amp; Beverage ─────── F&amp;B Department Head ───────── Executive Chef, Service Captains, Bar Crew
+├─ Function Hall ────────── Events Coordinator ─────────── Banquet Captain, AV Technician, Hall Crew
+├─ Facilities &amp; Pool ───── Engineering Lead ───────────── Pool Attendant, Maintenance Tech, Grounds Crew
+├─ Safety &amp; Security ───── Safety Officer ─────────────── Guard Shift Crew, Typhoon Response Team
+├─ HR &amp; Administration ─── HR Officer ─────────────────── Personnel Desk, Compliance Staff
+└─ Digital Systems ──────── IT Administrator ───────────── PMS Operator, Records &amp; Network Staff
+        </pre>
+      </div>
+
+      <!-- Quick Jump Position Buttons -->
+      <div class="mt-4 pt-4 border-t border-indigo-200">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-indigo-800 mb-2 flex items-center">
+          <i class="fa-solid fa-bolt mr-1 text-indigo-600"></i>Quick Jump to Position:
+        </h3>
+        <div class="flex flex-wrap gap-1.5" id="quickNavButtons">
+          <button onclick="jumpToSop('sop-st-01')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-01 General Manager</button>
+          <button onclick="jumpToSop('sop-st-02')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-02 Duty Manager / FO</button>
+          <button onclick="jumpToSop('sop-st-03')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-03 Housekeeping Head</button>
+          <button onclick="jumpToSop('sop-st-04')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-04 F&amp;B Head</button>
+          <button onclick="jumpToSop('sop-st-05')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-05 Events Coordinator</button>
+          <button onclick="jumpToSop('sop-st-06')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-06 Engineering Lead</button>
+          <button onclick="jumpToSop('sop-st-07')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-07 Safety Officer</button>
+          <button onclick="jumpToSop('sop-st-08')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-08 HR Officer</button>
+          <button onclick="jumpToSop('sop-st-09')" class="px-2.5 py-1 text-xs font-semibold bg-white text-indigo-700 hover:bg-indigo-600 hover:text-white border border-indigo-200 rounded shadow-xs transition">ST-09 IT Administrator</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Position Cards Container -->
+    <div class="space-y-4" id="sop-container">
+
+      <!-- ST-01 General Manager -->
+      <article id="sop-st-01" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">ST-01</code>
+            <span class="text-gray-900 font-semibold text-lg">General Manager (GM)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Serves as the single internal authority for the entire resort. Holds final approval over hiring, promotion, discipline, emergency authorization, and inter-department grievances. Owns the master view of all eight SOP modules and is the top node of the organization chart.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Reports to:</strong> Owner / Management Contract (external authority).</li>
+              <li><strong>Directly supervises:</strong> every Department Head and Duty Supervisor (ST-02 through ST-09).</li>
+              <li><strong>Final-appeal authority:</strong> unresolved grievances escalate to the GM after the immediate supervisor and Department Head steps (SOP-HR grievance chain).</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Human Resources &amp; Hiring:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Conducts the final interview for supervisory and head roles and approves all hiring offers (SOP-HR-01).</li>
+                  <li>Approves regularization, merit increases, and promotion proposals (SOP-HR evaluation cycle).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Emergency &amp; Operations:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Grants final approval for high-volume or emergency overtime authorization.</li>
+                  <li>Delivers the welcome address and articulates the resort vision/mission to new staff.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Discipline &amp; Review:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Reviews panel findings and approves major disciplinary actions (suspension, termination).</li>
+                  <li>Acts as final internal appeal authority for unresolved grievances.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">At Gamay's coastal provincial site, the GM keeps a physical emergency binder (arrivals, departures, in-house lists, typhoon response) so decisions remain possible during grid-power or internet outages. The GM is the designated point of contact for SAMELCO load-shedding and Starlink/4G network failures.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Every supervisory hire carries a GM-signed approval memo.</li>
+              <li>Grievance chain never bypasses the GM for a final decision.</li>
+              <li>Emergency binder current and reachable within arm's reach of the office.</li>
+              <li>Headcount achievable in under 15 minutes during a crisis (SOP-FO-24).</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ST-02 Duty Manager / Front Office Supervisor -->
+      <article id="sop-st-02" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">ST-02</code>
+            <span class="text-gray-900 font-semibold text-lg">Duty Manager / Front Office Supervisor</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Runs the front desk shift and owns guest-facing operations end to end: reservations intake, check-in/out, cashiering, night audit, and emergency communication. The operational bridge between the GM and the Front Office associates.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Reports to:</strong> General Manager (ST-01).</li>
+              <li><strong>Directly supervises:</strong> FO Associates, Reservations Clerk, Night Auditor.</li>
+              <li><strong>Peer heads:</strong> HK Head (ST-03), F&amp;B Head (ST-04) — coordinate on lost &amp; found and guest transfers.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Guest Cycle:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Owns reservations intake, confirmation, guest check-in, walk-in settlement, and check-out (SOP-FO-02 to FO-14).</li>
+                  <li>Manages room assignment with zero double-allocations and access-control key handling (SOP-FO-07, FO-08).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Finance &amp; Audit:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Oversees cashiering, credit accounts, deposits/refunds, and no-show re-release (SOP-FO-15 to FO-18).</li>
+                  <li>Signs off the shift cash float and the Night Audit reconciliation (SOP-FO-21, FO-22).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Service Recovery &amp; Emergency:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Resolves guest complaints within the 30-minute SLA (SOP-FO-11).</li>
+                  <li>Runs emergency communication and headcount with the GM (SOP-FO-24).</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Confirms grid-power (SAMELCO I) and ATS/generator standby each shift, and keeps printed arrival/departure lists in the emergency binder for provincial load-shedding or internet lag. Verifies primary and backup satellite/LTE connections before opening the desk.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Check-in under 5 minutes; check-out under 4 minutes.</li>
+              <li>Zero cash-drawer variance at shift close.</li>
+              <li>EOD night-audit report sent by 05:00 AM.</li>
+              <li>Front desk and lobby neatness score 100%.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ST-03 Housekeeping Department Head -->
+      <article id="sop-st-03" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">ST-03</code>
+            <span class="text-gray-900 font-semibold text-lg">Housekeeping Department Head</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Owns room cleaning standards, linen and laundry operations, public-area upkeep, and pest control across the 30-room resort. Coordinates lost &amp; found handoff with the Front Office.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Reports to:</strong> General Manager (ST-01).</li>
+              <li><strong>Directly supervises:</strong> Room Attendants, Laundry crew, Public-Area Attendants.</li>
+              <li><strong>Coordinates with:</strong> Duty Manager (ST-02) on lost &amp; found and room-transfer packing.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Rooms &amp; Linen:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Enforces room cleaning standards and bed-making drill for new hires (SOP-HK practical test).</li>
+                  <li>Manages linen par levels, towel rotation, and minibar restock.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Laundry &amp; Public Areas:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Runs laundry operations and public-area cleaning schedules.</li>
+                  <li>Owns pest-control protocols for the coastal site.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Lost &amp; Found:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Logs found items within 1 hour and hands off to Front Office (SOP-FO-19).</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Gamay's coastal humidity and salt air accelerate linen wear and corrosion; the Head schedules extra towel rotation and rust checks on fixtures. Humidity also affects electronic terminals used for housekeeping status reports.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Housekeeping status report current for every occupied room.</li>
+              <li>Linen par levels verified at shift start.</li>
+              <li>Found items logged within 1 hour.</li>
+              <li>Pest-control sweep completed per schedule.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ST-04 Food & Beverage Department Head -->
+      <article id="sop-st-04" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">ST-04</code>
+            <span class="text-gray-900 font-semibold text-lg">Food &amp; Beverage Department Head</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Owns restaurant and bar operations, food safety, and kitchen hygiene for the resort's restaurant and function-hall catering. The executive authority over the kitchen line and service crews.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Reports to:</strong> General Manager (ST-01).</li>
+              <li><strong>Directly supervises:</strong> Executive Chef, Service Captains, Bar Crew.</li>
+              <li><strong>Coordinates with:</strong> Events Coordinator (ST-05) for banquet catering volume.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Kitchen &amp; Safety:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Enforces food safety and kitchen hygiene standards across all service.</li>
+                  <li>Runs the practical cooking exam for new kitchen hires (SOP-HR test).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Service &amp; Bar:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Owns dining service flow and bar operations.</li>
+                  <li>Coordinates POS order entry and billing generation with FO cashiering.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Provincial sourcing at Gamay means seafood and produce arrive by local supply runs; the Head enforces cold-chain and holding-time checks on delivery and keeps printed safety standards for power-outage service continuity.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Cold-chain and holding-time checks passed on every delivery.</li>
+              <li>Kitchen hygiene inspection logged daily.</li>
+              <li>Banquet volume confirmed with Events Coordinator before service.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ST-05 Events Coordinator -->
+      <article id="sop-st-05" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">ST-05</code>
+            <span class="text-gray-900 font-semibold text-lg">Function Hall / Events Coordinator</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Owns event reservations, client consultations, audio-visual staging, and banquet catering for weddings and functions in the hall. Bridges F&amp;B volume with FO billing.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Reports to:</strong> General Manager (ST-01).</li>
+              <li><strong>Directly supervises:</strong> Banquet Captain, AV Technician, Hall Crew.</li>
+              <li><strong>Coordinates with:</strong> F&amp;B Head (ST-04) for catering volume and FO (ST-02) for billing.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Booking &amp; Consultation:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Runs event reservations and client consultations (SOP-FH-01 to FH-06).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Staging &amp; Catering:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Owns audio-visual staging and banquet catering setup (SOP-FH-10).</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Coastal wind and typhoon season affect outdoor hall staging; the Coordinator keeps a typhoon-day event cancellation protocol aligned with Module 06 and confirms AV power draw against the standby generator.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Every booking carries a completed client consultation record.</li>
+              <li>AV power draw confirmed within generator capacity.</li>
+              <li>Typhoon-day cancellation protocol reviewed before each event.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ST-06 Engineering Lead -->
+      <article id="sop-st-06" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">ST-06</code>
+            <span class="text-gray-900 font-semibold text-lg">Facilities &amp; Engineering Lead</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Owns resort maintenance, swimming-pool water treatment, and engineering repairs. The authority over physical plant, water systems, and the standby generator.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Reports to:</strong> General Manager (ST-01).</li>
+              <li><strong>Directly supervises:</strong> Pool Attendant, Maintenance Technician, Grounds Crew.</li>
+              <li><strong>Coordinates with:</strong> Safety Officer (ST-07) on typhoon preparedness of the plant.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Pool &amp; Water:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Runs pool water treatment and circulation (SOP-FM).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Plant &amp; Repairs:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Owns engineering repairs and pending maintenance tickets reviewed at FO opening.</li>
+                  <li>Confirms ATS and standby generator auto-start mode for load-shedding.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">SAMELCO grid power and provincial load-shedding make the generator/ATS check the critical daily duty; salt air accelerates corrosion on pool pumps and fixtures, so the Lead schedules rust checks.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Pool water chemistry within range daily.</li>
+              <li>ATS and generator confirmed in auto-start mode.</li>
+              <li>Open maintenance tickets current and reachable by FO.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ST-07 Safety Officer -->
+      <article id="sop-st-07" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">ST-07</code>
+            <span class="text-gray-900 font-semibold text-lg">Safety &amp; Security Officer</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Owns typhoon preparedness, emergency evacuation, and security protocols (Module 06). The authority over disaster response and the guard shift.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Reports to:</strong> General Manager (ST-01).</li>
+              <li><strong>Directly supervises:</strong> Guard Shift Crew, Typhoon Response Team.</li>
+              <li><strong>Coordinates with:</strong> Engineering Lead (ST-06) on securing the physical plant.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Typhoon Response:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Runs signal-based typhoon preparedness and evacuation (SOP-SS series).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Security &amp; Access:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Owns the guard shift and access-control support for FO key handling.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Gamay sits on the coast of Northern Samar and is typhoon-exposed; the Officer maintains the always-cached Module 06 emergency page and the physical emergency binder for offline use during storms.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Typhoon signal protocol reviewed each storm season.</li>
+              <li>Headcount achievable in under 15 minutes in a crisis.</li>
+              <li>Guard shift log complete at shift close.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ST-08 HR Officer -->
+      <article id="sop-st-08" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">ST-08</code>
+            <span class="text-gray-900 font-semibold text-lg">HR &amp; Administration Officer</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Owns the staff code of conduct, personnel scheduling, job descriptions, and the grievance/leave systems (Module 07). The compliance authority for every position on this page.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Reports to:</strong> General Manager (ST-01).</li>
+              <li><strong>Directly supervises:</strong> Personnel Desk, Compliance Staff.</li>
+              <li><strong>Supports:</strong> the GM on hiring screening and job-description audits.</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Job Descriptions:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Maintains the master job-description database and audits role alignment (SOP-HR JD).</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Compliance &amp; Scheduling:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Runs time-register clock-in, shift-swap forms, and leave protocols.</li>
+                  <li>Files incident reports within 24 hours of an offense.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">Biometric clock-in can fail from wet hands or outage at the coastal site; the Officer enforces the Manual Time Register co-signed by the Duty Supervisor within 1 hour as the offline fallback.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>Every position on this page has a current job description.</li>
+              <li>Pre-shift grooming lineup logged by shift supervisor.</li>
+              <li>Incident reports filed within 24 hours.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <!-- ST-09 IT Administrator -->
+      <article id="sop-st-09" class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all border border-gray-200 overflow-hidden">
+        <div class="p-4 bg-indigo-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
+          <div class="flex items-center">
+            <code class="text-indigo-700 font-bold text-sm mr-2">ST-09</code>
+            <span class="text-gray-900 font-semibold text-lg">IT Administrator / Digital Systems</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="event.stopPropagation(); toggleSopDetails(this.closest('.p-4'))" class="toggle-btn hidden px-4 py-2 text-sm font-medium text-indigo-700 bg-indigo-100 hover:bg-indigo-200 rounded transition">▼ Show Details</button>
+            <i class="fa-solid fa-chevron-down text-indigo-600 transform transition-transform duration-200"></i>
+          </div>
+        </div>
+        <div class="sop-details hidden p-4 space-y-3 border-t">
+          <div class="bg-gray-50 p-4 rounded border-l-4 border-indigo-600">
+            <h4 class="text-sm font-semibold text-gray-900 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-indigo-600"></i>Objective &amp; Scope</h4>
+            <p class="text-gray-700 text-sm whitespace-pre-wrap">Owns PMS/POS systems, database management, digital records, cybersecurity, and network backup (Module 08). The authority over system administration and access levels.</p>
+          </div>
+          <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
+            <h4 class="text-sm font-semibold text-blue-900 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Position Relationships</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li><strong>Reports to:</strong> General Manager (ST-01) — Level 4 privilege authority.</li>
+              <li><strong>Directly supervises:</strong> PMS Operator, Records &amp; Network Staff.</li>
+              <li><strong>Supports:</strong> FO cashiering (POS terminals) and Engineering Lead (network backup).</li>
+            </ul>
+          </div>
+          <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
+            <h4 class="text-sm font-semibold text-green-900 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Core Duties &amp; Responsibilities</h4>
+            <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">
+              <li>
+                <strong>Access Control:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Enforces role-based access levels (Level 1 staff to Level 4 GM/IT admin).</li>
+                  <li>Provisions new user accounts from Department Head request forms.</li>
+                </ul>
+              </li>
+              <li>
+                <strong>Network &amp; Records:</strong>
+                <ul class="list-disc list-inside mt-1 ml-4 space-y-1 text-gray-700 text-xs">
+                  <li>Owns Starlink primary and 4G LTE backup connectivity management.</li>
+                  <li>Maintains digital records and audit-log access.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
+            <h4 class="text-sm font-semibold text-amber-900 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
+            <p class="text-gray-700 text-sm">At Gamay the network runs Starlink primary with 4G LTE backup; the IT Administrator keeps printed SOPs and offline-cached emergency pages so operations survive satellite/LTE lag during storms.</p>
+          </div>
+          <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
+            <h4 class="text-sm font-semibold text-purple-900 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist &amp; Key Metrics</h4>
+            <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">
+              <li>No Level 1 account has void/discount access.</li>
+              <li>Backup LTE connection verified alongside Starlink.</li>
+              <li>Audit-log access limited to Level 4.</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Position Matrix Summary Table -->
+    <div class="mt-8">
+      <div class="bg-white rounded-lg shadow-sm overflow-x-auto border border-gray-200">
+        <table class="w-full text-sm">
+          <thead class="bg-indigo-600 text-white">
+            <tr>
+              <th class="p-3 text-left">Code</th>
+              <th class="p-3 text-left">Position</th>
+              <th class="p-3 text-left">Reports To</th>
+              <th class="p-3 text-left">Primary Module</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-01</td><td class="p-3 font-medium">General Manager</td><td class="p-3">Owner / Contract</td><td class="p-3">All (01–08)</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-02</td><td class="p-3 font-medium">Duty Manager / FO Supervisor</td><td class="p-3">General Manager</td><td class="p-3">01 Front Office</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-03</td><td class="p-3 font-medium">Housekeeping Department Head</td><td class="p-3">General Manager</td><td class="p-3">02 Housekeeping</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-04</td><td class="p-3 font-medium">Food &amp; Beverage Department Head</td><td class="p-3">General Manager</td><td class="p-3">03 Food &amp; Beverage</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-05</td><td class="p-3 font-medium">Function Hall / Events Coordinator</td><td class="p-3">General Manager</td><td class="p-3">04 Function Hall</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-06</td><td class="p-3 font-medium">Facilities &amp; Engineering Lead</td><td class="p-3">General Manager</td><td class="p-3">05 Facilities &amp; Pool</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-07</td><td class="p-3 font-medium">Safety &amp; Security Officer</td><td class="p-3">General Manager</td><td class="p-3">06 Safety &amp; Typhoon</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-08</td><td class="p-3 font-medium">HR &amp; Administration Officer</td><td class="p-3">General Manager</td><td class="p-3">07 HR &amp; Admin</td></tr>
+            <tr class="hover:bg-gray-50"><td class="p-3 font-bold text-indigo-700">ST-09</td><td class="p-3 font-medium">IT Administrator / Digital Systems</td><td class="p-3">General Manager</td><td class="p-3">08 Digital Systems</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-gray-300 py-6 mt-auto">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2026 Marcela's Resort Hotel, Gamay, Northern Samar</p>
+      <p class="text-sm mt-1"><a href="06_safety_typhoon_final.html" class="text-red-400 hover:text-red-300"><i class="fa-solid fa-triangle-exclamation mr-1"></i>Emergency Procedures</a></p>
+      <div class="flex justify-center gap-4 mt-4 text-sm">
+        <span><i class="fa-solid fa-wifi mr-1"></i>Starlink Primary</span>
+        <span><i class="fa-solid fa-satellite-dish mr-1"></i>4G LTE Backup</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleSopDetails(header) {
+      const card = header.closest('article');
+      if (!card) return;
+
+      const details = card.querySelector('.sop-details');
+      const chevron = card.querySelector('.fa-chevron-down, .fa-chevron-up');
+      const toggleBtn = card.querySelector('.toggle-btn');
+
+      if (details) {
+        const isHidden = details.classList.contains('hidden');
+        if (isHidden) {
+          details.classList.remove('hidden');
+          if (chevron) chevron.classList.add('rotate-180');
+          if (toggleBtn) toggleBtn.textContent = '▲ Hide Details';
+        } else {
+          details.classList.add('hidden');
+          if (chevron) chevron.classList.remove('rotate-180');
+          if (toggleBtn) toggleBtn.textContent = '▼ Show Details';
+        }
+      }
+    }
+
+    function jumpToSop(sopId) {
+      const card = document.getElementById(sopId);
+      if (!card) return;
+
+      const header = card.querySelector('.p-4.bg-indigo-50');
+      const details = card.querySelector('.sop-details');
+
+      // Auto-expand card if collapsed
+      if (details && details.classList.contains('hidden')) {
+        toggleSopDetails(header);
+      }
+
+      // Smooth scroll into view
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Highlight target card temporarily
+      card.classList.add('ring-4', 'ring-indigo-400');
+      setTimeout(() => {
+        card.classList.remove('ring-4', 'ring-indigo-400');
+      }, 2000);
+    }
+  </script>
+
+</body>
+
+</html>

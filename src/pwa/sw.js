@@ -1,60 +1,87 @@
-// Marcela's Resort Hotel - Service Worker
+// Marcela's Resort Hotel - Service Worker (offline-first caching)
+// Bump CACHE_NAME when site content changes so cached copies refresh.
 const CACHE_NAME = 'marcelas-sop-v1';
-const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/css/main.css',
-  '/js/search.js',
-  '/js/sop-cards.js',
-  'https://cdn.tailwindcss.com',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css'
+
+// Critical pages pre-cached on activation (paths relative to site root)
+const PRECACHE_PATHS = [
+  'index.html',
+  '06_safety_typhoon_final.html',
+  '01_front_office.html',
+  'staffing_matrix.html',
+  'src/css/main.css',
+  'src/js/search.js',
+  'offline.js'
 ];
 
-// Install event - cache assets
-self.addEventListener('install', (event) => {
+function precache() {
+  return caches.open(CACHE_NAME).then(function (cache) {
+    return Promise.all(PRECACHE_PATHS.map(function (path) {
+      var request = new Request(new URL(path, self.registration.scope));
+      return fetch(request).then(function (response) {
+        if (response.ok) {
+          return cache.put(request, response.clone());
+        }
+      });
+    }));
+  });
+}
+
+// Pre-cache critical pages whenever this service worker script loads
+precache().catch(function () {});
+
+self.addEventListener('activate', function (event) {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => {
-        console.log('Caching app shell');
-        return cache.addAll(ASSETS_TO_CACHE);
-      })
-      .then(() => self.skipWaiting())
+    caches.keys().then(function (keys) {
+      return Promise.all(keys.filter(function (key) {
+        return key !== CACHE_NAME;
+      }).map(function (key) {
+        return caches.delete(key);
+      }));
+    }).then(function () {
+      return self.clients.claim();
+    })
   );
 });
 
-// Activate event - clean up old caches
-self.addEventListener('activate', (event) => {
-  event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME) {
-            console.log('Deleting old cache:', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    }).then(() => self.clients.claim())
-  );
-});
+self.addEventListener('fetch', function (event) {
+  var requestUrl = new URL(event.request.url);
 
-// Fetch event - network first with cache fallback
-self.addEventListener('fetch', (event) => {
-  // Only cache HTML and CSS assets
-  if (event.request.mode === 'navigate' || event.request.destination === 'style') {
-    event.respondWith(
-      fetch(event.request)
-        .then((response) => {
-          const responseClone = response.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseClone);
-          });
-          return response;
-        })
-        .catch(() => {
-          // Return cached version if network fails
-          return caches.match(event.request);
-        })
-    );
+  // Let cross-origin CDN assets pass through untouched
+  if (requestUrl.origin !== self.location.origin) {
+    return;
   }
+
+  event.respondWith(
+    caches.match(event.request).then(function (cached) {
+      if (cached) {
+        return cached;
+      }
+      return fetch(event.request).then(function (response) {
+        if (response && response.ok) {
+          caches.open(CACHE_NAME).then(function (cache) {
+            cache.put(event.request, response.clone());
+          });
+        }
+        return response;
+      }).catch(function () {
+        // Offline fallback: emergency procedures for navigation requests
+        if (event.request.mode === 'navigate') {
+          return caches.match(new Request(new URL('06_safety_typhoon_final.html', self.registration.scope)))
+            .then(function (emergency) {
+              if (emergency) {
+                return emergency;
+              }
+              return new Response(
+                'Offline - this page has not been cached yet.',
+                { status: 503, headers: { 'Content-Type': 'text/plain' } }
+              );
+            });
+        }
+        return new Response(
+          'Offline - subresource not cached.',
+          { status: 503, headers: { 'Content-Type': 'text/plain' } }
+        );
+      });
+    })
+  );
 });

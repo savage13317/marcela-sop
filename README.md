@@ -1,228 +1,76 @@
-# Marcela's Resort Hotel SOPs & Staffing Documentation
+# Marcela's Resort Hotel — SOPs & Staffing Documentation
 
-## 🚀 Deployment Status: MINIMAL V1 READY - PUBLISH FIRST, ITERATE LATER
+Static Progressive Web App (PWA) documenting the Standard Operating Procedures (SOPs) and staffing matrix for **Marcela's Resort Hotel**, Gamay, Northern Samar, Philippines.
 
-### New Strategy: Minimal Viability → Get Feedback → Expand Content
+- **Live URL:** <https://savage13317.github.io/marcela-sop/>
+- **Tech Stack:** HTML5 + Tailwind CSS v3 (CDN) + Font Awesome 6.5.1 (CDN) — no build step.
+- **PWA:** installable, offline-first via a Service Worker (`src/pwa/sw.js`).
 
-**Why?** Test real-world usability before full content investment. Module 06 Safety (emergency) is already ready - that's enough to start!
-
-**Reference:** See `MINIMAL_DEPLOYMENT_PLAN.md` for complete deployment instructions
-
-### Website Structure
-- **Main Directory:** `marcelas-sop-website/`
-- **Live URL:** TBD (GitHub Pages pending deployment)
-- **Tech Stack:** HTML5 + Tailwind CSS v3 (CDN) + Font Awesome icons
-
-### 📦 FILES READY FOR MINIMAL DEPLOYMENT
-
-1. **Landing Page:** `src/index.html` - Module cards, search placeholder
-2. **Module 06 Safety:** `src/sops/06_safety_typhoon_final.html` - Navigation grid (SS-01 through SS-24) ✅ CRITICAL
-3. **Staffing Matrix:** `staff/staffing_matrix.html` - Org chart + positions
-
-### Optional Example Modules (Pick 1-2 if desired):
-- Module 01 Front Office (`01_front_office.html`) - has 2 SOPs converted
-- Module 02 Housekeeping (`02_housekeeping.html`) - has 2 SOPs converted
-
-### Technical Infrastructure:
-- ✅ PWA manifest & service worker configured
-- ✅ JavaScript modules (app.js, search.js, offline.js) ready
-- ✅ Tailwind CSS & Font Awesome CDN integrated
-
-## Quick Start Guide
-
-### For End Users (Guests, Staff, Visitors)
-1. Visit the GitHub Pages URL when live
-2. Use browser's offline caching for intermittent internet (PWA feature)
-3. Search SOPs using the search bar (Fuse.js client-side search)
-
-### For Developers / Maintenance
-1. Edit existing HTML files in `src/sops/` to add/update SOPs
-2. Add new SOP cards following the expandable card template pattern
-3. Run `npm install` if additional build scripts are needed
-4. Deploy by pushing to main branch and enabling GitHub Pages
-
-## Quick Start Guide
-
-### For End Users (Guests, Staff, Visitors)
-1. Visit the GitHub Pages URL when live
-2. Use browser's offline caching for intermittent internet (PWA feature)
-3. Search SOPs using the search bar (Fuse.js client-side search)
-
-### For Developers / Maintenance
-1. Edit existing HTML files in `src/sops/` to add/update SOPs
-2. Add new SOP cards following the expandable card template pattern
-3. Run `npm install` if additional build scripts are needed
-4. Deploy by pushing to main branch and enabling GitHub Pages
-
-## Technical Architecture
-
-### UI Framework: Tailwind CSS v3 (via CDN)
-- Responsive utility-first design
-- No build step required
-- Mobile-first approach validated
-
-### Icons: Font Awesome 6.5.1 (CDN)
-- Consistent iconography across SOP cards
-- Semantic icons for each section type
-
-### JavaScript: Vanilla + Client-side Search
-- `src/js/app.js` - Main application logic
-- `src/js/search.js` - Fuse.js client-side search implementation
-- `src/js/offline.js` - Service worker offline handling
-
-### PWA Features: `src/pwa/manifest.json` & `src/pwa/sw.js`
-- Add to home screen support
-- Offline-first caching strategy
-- Background sync for critical SOP updates
-
-## File Structure Reference
+## 📦 Site Structure (actual)
 
 ```
-marcelas-sop-website/
-├── .github/workflows/deploy.yml       # GitHub Actions CI/CD
-├── emergency/                         # Emergency procedures (standalone)
-│   └── index.html                     # Typhoon emergency quick-reference
+marcela-sop/
+├── index.html                       # Landing page — module cards + search
+├── staffing_matrix.html             # Staffing matrix + organization chart (9 positions)
+├── 01_front_office.html             # Module 01 — Front Office (FO)
+├── 02_housekeeping.html             # Module 02 — Housekeeping (HK)
+├── 03_food_beverage.html            # Module 03 — Food & Beverage (FB)
+├── 04_function_hall.html            # Module 04 — Function Hall (FH)
+├── 05_facilities_pool.html          # Module 05 — Facilities & Pool (FM)
+├── 06_safety_typhoon_final.html     # Module 06 — Safety & Typhoon (S)  ⚠ EMERGENCY
+├── 07_hr_admin.html                 # Module 07 — HR & Administration (HR)
+├── 08_digital_maintenance.html      # Module 08 — Digital Systems (DS)
+├── offline.js                       # Page script: registers the Service Worker (root scope)
+├── package.json                     # Deploy helper (git add/commit/push)
+├── .github/workflows/deploy.yml     # GitHub Pages deploy (upload-pages-artifact, path '.')
 ├── src/
-│   ├── css/
-│   │   └── main.css                   # Custom styles + Tailwind overrides
-│   ├── js/
-│   │   ├── app.js                     # Main app initialization
-│   │   ├── search.js                  # Fuse.js client-side search
-│   │   └── offline.js                 # Service worker registration
-│   ├── index.html                     # Landing page with module cards
-│   ├── sops/                          # SOP modules (7 complete HTML files)
-│   │   ├── 01_front_office.html       ✅ COMPLETED
-│   │   ├── 02_housekeeping.html       ✅ COMPLETED
-│   │   ├── 03_food_beverage.html      ✅ COMPLETED
-│   │   ├── 04_function_hall.html      ✅ COMPLETED
-│   │   ├── 05_facilities_pool.html    ✅ COMPLETED
-│   │   ├── 06_safety_typhoon.html     ✅ COMPLETED (emergency page)
-│   │   ├── 07_hr_admin.html           ✅ COMPLETED
-│   │   └── 08_digital_maintenance.html ✅ COMPLETED
+│   ├── css/main.css                 # Shared styles + Tailwind overrides
+│   ├── js/search.js                 # Client-side search (index.html search bar)
 │   └── pwa/
-│       ├── manifest.json              # PWA manifest
-│       └── sw.js                      # Service worker
-├── staff/
-│   ├── workflow/
-│   │   └── staffing_matrix.html       ⏳ NEEDS CREATION
-│   └── *.md                           # Position description files
-├── assets/                            # Images, logos, fonts
-├── css/main.css                      # Global styles
-├── CONVERSION_PROGRESS.md             # Content conversion tracking
-└── package.json                       # Dependencies (optional)
+│       ├── manifest.json            # PWA manifest (relative start_url + icon paths)
+│       ├── sw.js                    # Service Worker — offline-first cache
+│       └── icon-*.png               # App icons (72–512 px)
+├── tools/
+│   ├── gen-icons.js                 # Regenerates the PNG app icons (Node, no deps)
+│   └── verify-staffing.js           # Sanity-checks staffing_matrix.html
+└── Staffing/                        # Source notes: position .md files + org chart
 ```
 
-## SOP Card Template Pattern
+> **Scope note:** the Service Worker lives at `src/pwa/sw.js`. A SW's default scope is its own directory, so `offline.js` registers it with an explicit `scope` of the site root — otherwise it could not cache the module pages. The manifest's `start_url` is relative (`../../index.html`) so it resolves to the root.
 
-Each SOP card follows this HTML structure for consistency:
+## 🚀 Quick Start
 
-```html
-<article class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow border border-gray-200 overflow-hidden">
-  <!-- Expandable Header -->
-  <div class="p-4 bg-{color}-50 border-b cursor-pointer flex justify-between items-center group" onclick="toggleSopDetails(this)">
-    <div>
-      <code class="text-cyan-700 font-bold text-sm mr-2">{MODULE}-{NUMBER}</code>
-      <span class="text-gray-800 font-medium text-lg">{TITLE}</span>
-    </div>
-    <i class="fa-solid fa-chevron-down text-cyan-600 transform group-hover:rotate-180 transition-transform"></i>
-  </div>
-  
-  <!-- Toggle Button (hidden by default) -->
-  <button onclick="event.stopPropagation()" class="toggle-btn hidden p-2 text-sm text-cyan-600 hover:bg-cyan-50 rounded ml-4 mt-2">▼ Show Details</button>
-  
-  <!-- SOP Content Sections -->
-  <div class="sop-details hidden p-4 space-y-3 border-t">
-    
-    <!-- Section 1: Objective & Scope (Gray Background) -->
-    <div class="bg-gray-50 p-4 rounded border-l-4 border-cyan-600">
-      <h4 class="text-sm font-semibold text-gray-800 mb-2 flex items-center"><i class="fa-solid fa-bullseye mr-2 text-cyan-600"></i>Objective & Scope</h4>
-      <p class="text-gray-700 whitespace-pre-wrap">{Content}</p>
-    </div>
+### For end users (staff, guests, management)
+1. Open the GitHub Pages URL on any device.
+2. Browse by module or use the search bar on the landing page.
+3. **Optional:** install as a PWA for offline access. Module 06 (Safety/Typhoon) and the staffing page are pre-cached, so they survive internet/grid-power outages.
 
-    <!-- Section 2: Responsible Staff Roles (Blue Background) -->
-    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-600">
-      <h4 class="text-sm font-semibold text-blue-800 mb-2 flex items-center"><i class="fa-solid fa-users mr-2 text-blue-600"></i>Responsible Staff Roles</h4>
-      <ul class="list-disc list-inside space-y-1 text-gray-700 text-sm">{Roles}</ul>
-    </div>
+### For developers / maintenance
+1. Edit the relevant `NN_module.html` to add or update SOP cards (follow the expandable-card template).
+2. Add new SOP cards using the existing `<article id="sop-...">` pattern with `toggleSopDetails` / `jumpToSop`.
+3. Deploy by pushing to `main`; GitHub Pages serves the site automatically.
 
-    <!-- Section 3: Execution Procedure (Green Background) -->
-    <div class="bg-green-50 p-4 rounded border-l-4 border-green-600">
-      <h4 class="text-sm font-semibold text-green-800 mb-3 flex items-center"><i class="fa-solid fa-list-check mr-2 text-green-600"></i>Execution Procedure</h4>
-      <ol class="list-decimal list-inside space-y-3 text-gray-700 text-sm">{Steps}</ol>
-    </div>
+## 🛠 Deploy
 
-    <!-- Section 4: Localized Context (Amber Background, optional) -->
-    <div class="bg-amber-50 p-4 rounded border-l-4 border-amber-600">
-      <h4 class="text-sm font-semibold text-amber-800 mb-2 flex items-center"><i class="fa-solid fa-location-dot mr-2 text-amber-600"></i>Localized Context</h4>
-      <p class="text-gray-700 whitespace-pre-wrap">{Context}</p>
-    </div>
-
-    <!-- Section 5: QA Checklist (Purple Background, optional) -->
-    <div class="bg-purple-50 p-4 rounded border-l-4 border-purple-600">
-      <h4 class="text-sm font-semibold text-purple-800 mb-2 flex items-center"><i class="fa-solid fa-check-circle mr-2 text-purple-600"></i>QA Checklist & Key Metrics</h4>
-      <table class="w-full text-sm">{Metrics}</table>
-    </div>
-  </div>
-</article>
+```
+npm run deploy      # git add . && git commit -m "Update SOPs" && git push origin main
 ```
 
-## Deployment Commands
+Regenerate icons after editing the logo:
 
-### Initial Git Setup
-```bash
-cd "c:\Users\USER\Desktop\Marcela"
-git init marcelas-sop-website
-cd marcelas-sop-website
-git add .
-git commit -m "Initial commit: SOP website structure"
-# Upload to GitHub and enable Pages in Settings > Pages
+```
+node tools/gen-icons.js
 ```
 
-### Pre-deployment Checklist
-- [ ] All 8 SOP modules HTML files present
-- [ ] `src/pwa/manifest.json` & `src/pwa/sw.js` present
-- [ ] `src/js/search.js` includes Fuse.js search logic
-- [ ] Test all SOP cards expand/collapse functionality
-- [ ] Responsive design tested on mobile devices
+## 🧑 Staffing Matrix
+
+`staffing_matrix.html` maps every operational position (ST-01 General Manager → ST-09 IT Administrator) to its supervising authority and primary SOP module. Source position notes live in `Staffing/`.
+
+## 📱 PWA / Offline
+
+- **Manifest:** `src/pwa/manifest.json` — theme `#06b6d4`, standalone display, 72–512 px icons.
+- **Service Worker:** `src/pwa/sw.js` — cache-first, network+store, offline fallback to the emergency page for navigation requests.
+- **Registration:** `offline.js` registers `src/pwa/sw.js` with root scope on page load.
 
 ---
-
-**Last Updated:** October 9, 2026  
-**Phase Status:** Phase 2 (Content Conversion) ✅ Complete  
-**Next Step:** Create Staffing Matrix or deploy to GitHub Pages
-      <h4>QA Checklist & Key Metrics:</h4>
-      <ul>
-        <!-- Copy checklist items -->
-      </ul>
-    </div>
-  </div>
-</div>
-```
-
-**Parsing Instructions:**
-1. Read the master TOC (`marcelas_hotel_resort_master_sop_toc.md`) for SOP codes and titles
-2. For each `.md` file, extract:
-   - Module code (FO, HK, FB, FH, FM, SS, HR, DS)
-   - All SOP cards with their sections
-3. Write to corresponding `src/sops/{module}.html`
-
-### Emergency Procedures Standalone File
-
-Create `src/emergency/typhoon-procedures.html` with:
-- Only critical Module 06 procedures (SOP-SS-01 through SOS-SS-05)
-- No navigation/header/footer dependencies
-- PWA manifest for offline installation
-- QR code placement ready at bottom
-
-### Testing Checklist Before Deploy
-
-- [ ] Open each SOP module in Chrome mobile emulator
-- [ ] Search for "SOP-HK" - verify results appear within 200ms
-- [ ] Disable internet → refresh page → emergency procedures load from cache
-- [ ] Print preview (Ctrl+P) renders cleanly without CSS bloat
-
----
-
-**Version:** 1.0  
-**Last Updated:** October 9, 2026  
-**Status:** Ready for Implementation
+**Last Updated:** after full structural cleanup (dead files removed, docs reconciled).
